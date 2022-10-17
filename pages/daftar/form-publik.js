@@ -13,23 +13,23 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import MultiStep from "../components/MultiStep";
-import MyButton from "../components/MyButton";
-import WordBreak from "../components/WordBreak";
+import MultiStep from "../../components/MultiStep";
+import MyButton from "../../components/MyButton";
+import WordBreak from "../../components/WordBreak";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { createClient } from "contentful";
 import { useForm } from "react-hook-form";
-import { kelas } from "../content/kelas";
+import { kelas } from "../../content/kelas";
 import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
 import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import Image from "next/image";
-import { TaglineContext } from "./_app";
-import MyTitle from "../components/MyTitle";
-import MyDesc from "../components/MyDesc";
-import ChooseProgramForm from "../components/RegistPage/ChooseProgramForm";
-import { useMyForm } from "../context/FormContext";
-import IndentityForm from "../components/RegistPage/IndentityForm";
-import PaymentForm from "../components/RegistPage/PaymentForm";
+import { TaglineContext } from "../_app";
+import MyTitle from "../../components/MyTitle";
+import MyDesc from "../../components/MyDesc";
+import ChooseProgramForm from "../../components/RegistPage/ChooseProgramForm";
+import { useMyForm } from "../../context/FormContext";
+import IndentityForm from "../../components/RegistPage/IndentityForm";
+import PaymentForm from "../../components/RegistPage/PaymentForm";
 import axios from "axios";
 
 const helper = [
@@ -37,7 +37,7 @@ const helper = [
   "Akan dihubungi oleh tim",
   "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
 ];
-
+const steps = ["Pilih Program", "Identitas Diri", "Pembayaran"];
 function Daftar({ paket, tagline }) {
   const { register, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
@@ -113,7 +113,7 @@ function Daftar({ paket, tagline }) {
         <Container>
           <Grid mt={15} py={10} justifyContent="center" container>
             <Grid item xs={12} md={8} mb={6}>
-              <MultiStep step={state} />
+              <MultiStep step={state} data={steps} />
             </Grid>
             <Grid
               item

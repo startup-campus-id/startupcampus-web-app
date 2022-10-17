@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useMyForm } from "../../context/FormContext";
 
-const MySelect = ({ label, name, data, ...args })=>{
+const MySelect = ({ label, name, data, ...args }) => {
   const { register, handleSubmit, watch, errors } = useMyForm();
   return (
     <Fragment>
@@ -25,6 +25,7 @@ const MySelect = ({ label, name, data, ...args })=>{
               value={val}
               control={<Radio />}
               label={val}
+              disabled={val == "Backend Engineer" ? true : false}
               {...register(name, { required: "Pilih salah satu" })}
               {...args}
             />
@@ -34,6 +35,6 @@ const MySelect = ({ label, name, data, ...args })=>{
       </FormControl>
     </Fragment>
   );
-}
+};
 
-export default MySelect
+export default MySelect;

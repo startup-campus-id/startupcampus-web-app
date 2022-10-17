@@ -15,6 +15,7 @@ import { listMenu } from "../../content/sideMenu";
 import Main from "../../components/trackPage/Main";
 import Board from "../../components/trackPage/Board";
 import SideBar from "../../components/trackPage/SideBar";
+import TentangProgram from "../../components/trackPage/TentangProgram";
 
 export default function Track() {
   const router = useRouter();
@@ -55,12 +56,12 @@ export default function Track() {
           </Grid>
         </Grid>
 
-        <Grid container>
+        <Grid container spacing={3}>
           <Grid item md={3}>
             <SideBar />
           </Grid>
           <Grid item md={9}>
-            a
+            <TentangProgram />
           </Grid>
         </Grid>
       </Container>

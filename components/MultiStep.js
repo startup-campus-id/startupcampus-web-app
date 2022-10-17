@@ -6,9 +6,9 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-const steps = ["Pilih Program", "Identitas Diri", "Pembayaran"];
 
-const MultiStep = ({ step }) => {
+
+const MultiStep = ({ step, data }) => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
@@ -57,7 +57,7 @@ const MultiStep = ({ step }) => {
   return (
     <Box sx={{ width: "100%" }}>
       <Stepper activeStep={step}>
-        {steps.map((label, index) => {
+        {data.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
           if (isStepOptional(index)) {
