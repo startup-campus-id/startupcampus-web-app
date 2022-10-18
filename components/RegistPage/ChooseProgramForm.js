@@ -23,7 +23,7 @@ const guideFileRekom = [
 ];
 const ChooseProgramForm = ({ paket, course }) => {
   const router = useRouter();
-  const mkelas = course.map((items) => items.name);
+  const mkelas = kelas.map((items) => items.title);
   const { register, handleSubmit, watch, errors } = useMyForm();
 
   return (

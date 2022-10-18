@@ -29,6 +29,7 @@ import { useMyForm } from "../../context/FormContext";
 import IndentityForm from "../../components/RegistPage/IndentityForm";
 import PaymentForm from "../../components/RegistPage/PaymentForm";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
@@ -36,8 +37,9 @@ const helper = [
   "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
 ];
 
-function FormStudiIndependen({ paket, tagline, course }) {
+function FormStudiIndependen({ paket, tagline, course = null }) {
   const { register, setValue, handleSubmit, watch, errors } = useMyForm();
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -75,11 +77,11 @@ function FormStudiIndependen({ paket, tagline, course }) {
   const onSubmit = (data) => {
     setState((prev) => prev + 1);
     if (state == 1) {
-      setInvoice(data);
+      router.push("/payment/success");
     }
   };
   const step = [
-    <ChooseProgramForm key={0} paket={paket} course={course.data} />,
+    <ChooseProgramForm key={0} paket={paket} />,
     <IndentityForm key={1} />,
     <Stack key={2} alignItems="center" spacing={4}>
       {loading ? (
@@ -229,13 +231,13 @@ export async function getStaticProps() {
     content_type: "section1",
   });
 
-  const response = await axios.get(process.env.BE_BASE_URL + "/coursepath");
+  // const response = await axios.get(process.env.BE_BASE_URL + "/coursepath");
 
   return {
     props: {
       paket,
       tagline,
-      course: response.data,
+      // course: await response.data,
     },
     revalidate: 1,
   };

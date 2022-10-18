@@ -31,7 +31,7 @@ export default function Success() {
         >
           <Box
             position={"absolute"}
-            top={{ md: "-50%", sm: "-50%", xs: "-30%" }}
+            top={{ md: "-60%", sm: "-50%", xs: "-30%" }}
           >
             <Image
               src={"/images/rocket.svg"}
@@ -40,7 +40,7 @@ export default function Success() {
             />
           </Box>
         </Grid>
-        <Grid item xs={12} data-aos="fade-up">
+        <Grid item xs={12}>
           <Stack spacing={1} alignItems="center">
             <MyDesc textAlign="center">
               Kamu bisa bergabung dengan komunitas kami untuk mengetahui
