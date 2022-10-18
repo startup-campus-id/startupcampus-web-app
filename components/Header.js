@@ -121,7 +121,7 @@ const Header = () => {
       </List>
       <Stack alignItems={"center"}>
         {router.pathname != "/daftar" && (
-          <Link href={"/daftar"} underline="none">
+          <Link href={"/daftar/form-publik"} underline="none">
             <MyButton>Daftar sekarang</MyButton>
           </Link>
         )}
@@ -194,7 +194,7 @@ const Header = () => {
                 }}
               >
                 {router.pathname != "/daftar" && (
-                  <Link href={"/daftar"} underline="none">
+                  <Link href={"/daftar/form-publik"} underline="none">
                     <MyButton>Daftar sekarang</MyButton>
                   </Link>
                 )}

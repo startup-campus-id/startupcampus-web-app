@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { List, ListItem, Stack, Typography } from "@mui/material";
+import React, { Fragment, useEffect, useState } from "react";
+import { Stack, Typography } from "@mui/material";
 import { kelas } from "../../content/kelas";
 import { useMyForm } from "../../context/FormContext";
 import MyCheckBox from "./MyCheckBox";
@@ -7,12 +7,25 @@ import MyInput from "./MyInput";
 import MyKelas from "./MyKelas";
 import MySelect from "./MySelect";
 import { useRouter } from "next/router";
+import { useDropzone } from "react-dropzone";
+import { byteToMb } from "../../utils/byteToMb";
+import { SignalCellularNullSharp } from "@mui/icons-material";
+import DropZone from "./DropZone";
 
-const ChooseProgramForm = ({ paket }) => {
+const guideFileSPTJM = [
+  "Ditandatangani oleh Rektor/Warek/Direktur/Wakil Direktur Perguruan Tinggi.",
+  "Diperbolehkan menggunakan tangan digital yang disertai cap.",
+];
+const guideFileRekom = [
+  "Surat rekomendasi harus ditandatangani min. oleh Ketua Program Studi (diperkenankan tanpa cap).",
+  "Diperbolehkan menggunakan tanda tangan digital yang disertai cap.",
+  " Mahasiswa calon peserta perlu melampirkan daftar program yang akan dilamar sebagai informasi kepada perguruan tinggi.",
+];
+const ChooseProgramForm = ({ paket, course }) => {
   const router = useRouter();
-  console.log(router.pathname);
-  const mkelas = kelas.map((items) => items.title);
+  const mkelas = course.map((items) => items.name);
   const { register, handleSubmit, watch, errors } = useMyForm();
+
   return (
     <Stack spacing={4}>
       <MyInput
@@ -35,83 +48,40 @@ const ChooseProgramForm = ({ paket }) => {
             name="semester"
             type={"text"}
             placeholder={"5"}
+            {...register("semester", { required: "isi dulu ya" })}
           />
           <MyInput
             label="Berasal dari universitas mana? *"
-            name="univeristas"
+            name="universitas"
             type={"text"}
             placeholder={"Universitas"}
+            {...register("universitas", { required: "isi dulu ya" })}
           />
           <MyInput
             label="Jurusan apa? *"
             name="Jurusan"
             type={"text"}
             placeholder={"Jurusan Bahasa Perancis"}
+            {...register("jurusan", { required: "isi dulu ya" })}
           />
-          <Stack>
+          <Stack spacing={3}>
             <Typography gutterBottom fontWeight={700}>
               File yang perlu disematkan *
             </Typography>
-            <Stack
-              p={6}
-              border={"2px dashed #BDBDBD"}
-              borderRadius={"5px"}
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Typography fontWeight={700}>.PDF, .DOC, (3MB)</Typography>
-              <Typography variant="body2" color="#69686B">
-                Tarik file SPTJM kamu kesini untuk mengunggah atau browse
-              </Typography>
-            </Stack>
-            <ul>
-              <li style={{ color: "#69686B" }}>
-                <Typography variant="body2">
-                  Ditandatangani oleh Rektor/Warek/Direktur/Wakil Direktur
-                  Perguruan Tinggi.
-                </Typography>
-              </li>
-              <li style={{ color: "#69686B" }}>
-                <Typography variant="body2">
-                  Diperbolehkan menggunakan tangan digital yang disertai cap.
-                </Typography>
-              </li>
-            </ul>
-
-            <Stack
-              mt={3}
-              p={6}
-              border={"2px dashed #BDBDBD"}
-              borderRadius={"5px"}
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Typography fontWeight={700}>.PDF, .DOC, (3MB)</Typography>
-              <Typography variant="body2" color="#69686B">
-                Tarik file Surat Rekomendasi kamu kesini untuk mengunggah atau
-                browse
-              </Typography>
-            </Stack>
-            <ul>
-              <li style={{ color: "#69686B" }}>
-                <Typography variant="body2">
-                  Surat rekomendasi harus ditandatangani min. oleh Ketua Program
-                  Studi (diperkenankan tanpa cap).
-                </Typography>
-              </li>
-              <li style={{ color: "#69686B" }}>
-                <Typography variant="body2">
-                  Diperbolehkan menggunakan tanda tangan digital yang disertai
-                  cap.
-                </Typography>
-              </li>
-              <li style={{ color: "#69686B" }}>
-                <Typography variant="body2">
-                  Mahasiswa calon peserta perlu melampirkan daftar program yang
-                  akan dilamar sebagai informasi kepada perguruan tinggi.
-                </Typography>
-              </li>
-            </ul>
+            <DropZone
+              helper={guideFileSPTJM}
+              desc={
+                "Tarik file SPTJM kamu kesini untuk mengunggah atau klik disini"
+              }
+              name="sptjm"
+            />
+            <DropZone
+              helper={guideFileRekom}
+              desc={
+                "Tarik file Surat Rekomendasi kamu ke sini untuk mengunggah"
+              }
+              name="surkom"
+            />
           </Stack>
         </>
       )}

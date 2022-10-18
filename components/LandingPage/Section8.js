@@ -28,7 +28,7 @@ function Section8() {
               intensif yang kami tawarkan!
             </Typography>
           </Box>
-          <Link href={"/daftar"} underline="none">
+          <Link href={"/daftar/form-publik"} underline="none">
             <MyButton>Daftar Sekarang</MyButton>
           </Link>
         </Stack>

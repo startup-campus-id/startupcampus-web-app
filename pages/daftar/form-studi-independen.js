@@ -18,8 +18,6 @@ import MyButton from "../../components/MyButton";
 import WordBreak from "../../components/WordBreak";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { createClient } from "contentful";
-import { useForm } from "react-hook-form";
-import { kelas } from "../../content/kelas";
 import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
 import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import Image from "next/image";
@@ -38,8 +36,8 @@ const helper = [
   "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
 ];
 
-function FormStudiIndependen({ paket, tagline }) {
-  const { register, handleSubmit, watch, errors } = useMyForm();
+function FormStudiIndependen({ paket, tagline, course }) {
+  const { register, setValue, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -81,7 +79,7 @@ function FormStudiIndependen({ paket, tagline }) {
     }
   };
   const step = [
-    <ChooseProgramForm key={0} paket={paket} />,
+    <ChooseProgramForm key={0} paket={paket} course={course.data} />,
     <IndentityForm key={1} />,
     <Stack key={2} alignItems="center" spacing={4}>
       {loading ? (
@@ -231,10 +229,13 @@ export async function getStaticProps() {
     content_type: "section1",
   });
 
+  const response = await axios.get(process.env.BE_BASE_URL + "/coursepath");
+
   return {
     props: {
       paket,
       tagline,
+      course: response.data,
     },
     revalidate: 1,
   };

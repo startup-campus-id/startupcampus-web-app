@@ -22,7 +22,7 @@ const MySelect = ({ label, name, data, ...args }) => {
           {data?.map((val, i) => (
             <FormControlLabel
               key={i}
-              value={val}
+              value={i + 1}
               control={<Radio />}
               label={val}
               disabled={val == "Backend Engineer" ? true : false}

@@ -8,6 +8,7 @@ export const useMyForm = () => useContext(RegistContext);
 export default function FormProvider({ children }) {
   const {
     register,
+    setValue,
     handleSubmit,
     watch,
     formState: { errors },
@@ -15,7 +16,9 @@ export default function FormProvider({ children }) {
 
   // const [state, setState] = useState("dark")
   return (
-    <RegistContext.Provider value={{ register, handleSubmit, watch, errors }}>
+    <RegistContext.Provider
+      value={{ register, setValue, handleSubmit, watch, errors }}
+    >
       {children}
     </RegistContext.Provider>
   );
