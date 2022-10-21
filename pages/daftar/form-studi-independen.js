@@ -86,7 +86,7 @@ function FormStudiIndependen({ paket, tagline, course = null }) {
 
   const guideTwibbon = [
     <span key={0}>
-      "Lampirkan bukti bahwa kamu telah upload twibbon di sosial mediamu."
+      Lampirkan bukti bahwa kamu telah upload twibbon di sosial mediamu.
     </span>,
     <span key={1}>
       File twibbon dapat kamu unduh{" "}
