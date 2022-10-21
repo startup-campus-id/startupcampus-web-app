@@ -48,9 +48,8 @@ function Section3({ course }) {
         </Typography>
       </Grid>
       <Grid item xs={9} md={8} data-aos="fade-right">
-        <Typography variant="body2" color={"sc_gray.dark"} mr={3}>
-          Pilih program yang sesuai dengan minatmu. Mulai tingkatkan skill-mu
-          sebagai langkah awal <WordBreak /> berkarir di dunia digital.
+        <Typography variant="body1" color={"sc_gray.dark"} mr={3}>
+          Pilih trek sesuai minatmu sekarang juga!
         </Typography>
       </Grid>
       <Grid

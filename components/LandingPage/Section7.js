@@ -19,7 +19,7 @@ function Section7({ testimoni, title7 }) {
         <Typography variant="h4" fontWeight={700}>
           Dan ini Tanggapan Mereka
           <WordBreak />
-          Tentang <HighlightText width="-2%">Startup Campus</HighlightText>
+          Tentang Startup Campus
         </Typography>
       </Grid>
       <Grid

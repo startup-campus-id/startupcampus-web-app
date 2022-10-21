@@ -10,16 +10,13 @@ function Section5() {
     <Grid container my={6} py={6} spacing={3} alignItems="center">
       <Grid item xs={12} data-aos="fade-right">
         <Typography variant="h4" fontWeight={700}>
-          Kenapa <HighlightText>Harus</HighlightText> Startup Campus ?
+          Mengapa <HighlightText>Harus</HighlightText> Startup Campus ?
         </Typography>
       </Grid>
       <Grid item xs={12} data-aos="fade-right">
-        <Typography variant="body2" color={"sc_gray.dark"}>
-          Selama bootcamp ±5bulan intensif di Startup Campus, pelajari
-          keterampilan yang paling dibutuhkan <WordBreak /> saat ini untuk
-          bekerja di dunia digital dengan dukungan expert yang bepengalaman dan
-          kurikulum <WordBreak />
-          yang up to date
+        <Typography variant="body1" color={"sc_gray.dark"}>
+          Tingkatkan kompetensi digital yang dibutuhkan saat ini melalui
+          bootcamp intensif selama satu semester.
         </Typography>
       </Grid>
       <Grid item container md={7} spacing={10}>

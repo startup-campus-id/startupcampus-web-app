@@ -16,16 +16,15 @@ function Section8() {
               textAlign="center"
               fontWeight={700}
             >
-              <HighlightText>Ambil</HighlightText> Langkah Perubahanmu!
+              <HighlightText>Siapkan</HighlightText> Langkahmu Sekarang!
             </Typography>
             <Typography
               variant="body1"
               textAlign="center"
               color={"sc_gray.dark"}
             >
-              Ambil langkah pertama dalam perjalananmu dengan mengikuti bootcamp{" "}
-              <WordBreak />
-              intensif yang kami tawarkan!
+              Awali karier menakjubkan dengan bootcamp intensif yang kami
+              tawarkan.
             </Typography>
           </Box>
           <Link href={"/daftar/form-publik"} underline="none">
