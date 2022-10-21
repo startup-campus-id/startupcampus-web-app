@@ -85,8 +85,10 @@ function FormStudiIndependen({ paket, tagline, course = null }) {
   const mkelas = kelas.map((items) => items.title);
 
   const guideTwibbon = [
-    "Lampirkan bukti bahwa kamu telah upload twibbon di sosial mediamu.",
-    <span>
+    <span key={0}>
+      "Lampirkan bukti bahwa kamu telah upload twibbon di sosial mediamu."
+    </span>,
+    <span key={1}>
       File twibbon dapat kamu unduh{" "}
       <a href="#" style={{ color: "blue", textDecoration: "underline" }}>
         disini.
@@ -95,7 +97,7 @@ function FormStudiIndependen({ paket, tagline, course = null }) {
   ];
 
   const steps = [
-    <Stack spacing={3}>
+    <Stack spacing={3} key={0}>
       <Typography fontWeight={700} color={"sc_gray.dark"}>
         DATA PRIBADI
       </Typography>
@@ -155,7 +157,7 @@ function FormStudiIndependen({ paket, tagline, course = null }) {
       />
       <MyCheckBox name="agree" />
     </Stack>,
-    <Stack key={2} alignItems="center" spacing={4}>
+    <Stack key={1} alignItems="center" spacing={4}>
       <Typography>Menyimpan data registrasi</Typography>
       <CircularProgress />
     </Stack>,
