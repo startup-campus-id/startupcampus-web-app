@@ -17,7 +17,7 @@ function Section7({ testimoni, title7 }) {
     <Grid container my={9} pt={4}>
       <Grid item xs={12} data-aos="fade-right">
         <Typography variant="h4" fontWeight={700}>
-          Dan ini Tanggapan Mereka
+          Dan Ini Tanggapan Mereka
           <WordBreak />
           Tentang Startup Campus
         </Typography>
