@@ -15,7 +15,7 @@ const MySelect = ({ label, name, data, ...args }) => {
   return (
     <Fragment>
       <FormControl error={errors[name] ? true : false}>
-        <Typography gutterBottom fontWeight={700}>
+        <Typography gutterBottom fontWeight={700} color={"sc_gray.dark"}>
           {label}
         </Typography>
         <RadioGroup defaultValue={watch(name)} name={name}>

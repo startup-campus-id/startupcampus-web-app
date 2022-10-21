@@ -16,7 +16,7 @@ const MyInput = ({ label, name, type, placeholder, ...args }) => {
 
   return (
     <Stack>
-      <Typography gutterBottom fontWeight={700}>
+      <Typography gutterBottom fontWeight={700} color={"sc_gray.dark"}>
         {label}
       </Typography>
       <TextField

@@ -30,11 +30,15 @@ import IndentityForm from "../../components/RegistPage/IndentityForm";
 import PaymentForm from "../../components/RegistPage/PaymentForm";
 import axios from "axios";
 import { useRouter } from "next/router";
+import MyInput from "../../components/RegistPage/MyInput";
+import MySelect from "../../components/RegistPage/MySelect";
+import { kelas } from "../../content/kelas";
+import DropZone from "../../components/RegistPage/DropZone";
+import MyCheckBox from "../../components/RegistPage/MyCheckBox";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
   "Akan dihubungi oleh tim",
-  "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
 ];
 
 function FormStudiIndependen({ paket, tagline, course = null }) {
@@ -76,29 +80,87 @@ function FormStudiIndependen({ paket, tagline, course = null }) {
 
   const onSubmit = (data) => {
     setState((prev) => prev + 1);
-    if (state == 1) {
-      router.push("/payment/success");
-    }
+    router.push("/payment/success");
   };
-  const step = [
-    <ChooseProgramForm key={0} paket={paket} />,
-    <IndentityForm key={1} />,
+  const mkelas = kelas.map((items) => items.title);
+
+  const guideTwibbon = [
+    "Lampirkan bukti bahwa kamu telah upload twibbon di sosial mediamu.",
+    <span>
+      File twibbon dapat kamu unduh{" "}
+      <a href="#" style={{ color: "blue", textDecoration: "underline" }}>
+        disini.
+      </a>
+    </span>,
+  ];
+
+  const steps = [
+    <Stack spacing={3}>
+      <Typography fontWeight={700} color={"sc_gray.dark"}>
+        DATA PRIBADI
+      </Typography>
+      <MyInput
+        label="Nama Lengkap *"
+        name="fullname"
+        type={"text"}
+        placeholder={"Pramudya Aneska"}
+      />
+      <MyInput
+        label="E-mail *"
+        name="email"
+        type={"email"}
+        placeholder={"Pramudyaneska@gmail.com"}
+      />
+      <MyInput
+        label="No. Whatsapp *"
+        name={"num_phone"}
+        placeholder={"628XXXX"}
+        type="number"
+      />
+      <MySelect
+        label="Apa yang Ingin Kamu Pelajari? *"
+        name="track"
+        data={mkelas}
+        {...register("track", { required: "Pilih salah satu" })}
+      />
+      <MyInput
+        label="Perguruan Tinggi (Ditulis Tanpa Disingkat) *"
+        name="ptn"
+        type={"text"}
+        placeholder={"Universitas Indonesia"}
+        {...register("ptn", { required: "isi dulu ya" })}
+      />
+      <MyInput
+        label="Jurusan *"
+        name="jurusan"
+        type={"text"}
+        placeholder={"Ilmu Komunikasi"}
+        {...register("jurusan", { required: "isi dulu ya" })}
+      />
+      <MyInput
+        label="Semester *"
+        name="semester"
+        type={"text"}
+        placeholder={"6"}
+        {...register("semester", { required: "isi dulu ya" })}
+      />
+      <Typography fontWeight={700} color={"sc_gray.dark"}>
+        INFORMASI TAMBAHAN
+      </Typography>
+      <Typography color={"sc_gray.dark"}>Upload Twibbon *</Typography>
+      <DropZone
+        helper={guideTwibbon}
+        desc={"Tarik file kamu ke sini untuk mengunggah atau klik disini"}
+        name="twibbon"
+      />
+      <MyCheckBox name="agree" />
+    </Stack>,
     <Stack key={2} alignItems="center" spacing={4}>
-      {loading ? (
-        <>
-          <Typography>Membuat Invoice</Typography>
-          <CircularProgress />
-        </>
-      ) : error ? (
-        <Typography color={"red"}>Terjadi kesalahan</Typography>
-      ) : (
-        <>
-          <Typography>Mengarahkan ke halaman invoice...</Typography>
-          <CircularProgress />
-        </>
-      )}
+      <Typography>Menyimpan data registrasi</Typography>
+      <CircularProgress />
     </Stack>,
   ];
+
   return (
     <>
       <Head>
@@ -115,11 +177,7 @@ function FormStudiIndependen({ paket, tagline, course = null }) {
             <Grid item xs={12} md={8} mb={6}>
               <MultiStep
                 step={state}
-                data={[
-                  "Pilih Program",
-                  "Identitas Diri",
-                  "Gabung Komunitas Startup Campus",
-                ]}
+                data={["Pilih Program", "Gabung Komunitas Startup Campus"]}
               />
             </Grid>
             <Grid
@@ -139,59 +197,25 @@ function FormStudiIndependen({ paket, tagline, course = null }) {
                   Daftarkan dirimu sekarang, mulailah dengan beberapa langkah
                   mudah.
                 </MyTitle>
-                <MyDesc>
+                <MyDesc gutterBottom mb={4}>
                   Setelah mendaftar, tim kami akan segera menghubungi kamu untuk
                   informasi lebih lanjut.
                 </MyDesc>
 
+                {steps[state]}
                 <Stack
                   component={"form"}
                   mt={4}
                   spacing={2}
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  {step[state]}
-                  <Box
-                    display={"flex"}
-                    justifyContent={state > 0 ? "space-between" : "flex-end"}
-                  >
-                    {state > 0 && state < 2 && (
-                      <MyButton
-                        variant="outlined"
-                        onClick={() => setState((prev) => prev - 1)}
-                      >
-                        Kembali
-                      </MyButton>
-                    )}
-                    {state >= 0 && state < 2 && (
-                      <MyButton type="submit">
-                        {state == 0 ? "Mulai Pendaftaran" : "Lanjut"}
-                      </MyButton>
-                    )}
+                  <Box display={"flex"} justifyContent={"flex-end"}>
+                    <MyButton type="submit">Daftar Sekarang</MyButton>
                   </Box>
                 </Stack>
               </Grid>
 
               <Grid item md={4} sx={{ background: "#0056D2" }} p={4}>
-                {state > 0 && (
-                  <Stack mb={9} spacing={2}>
-                    <Typography color="sc_white.main" fontWeight={700}>
-                      Kelas yang kamu ikuti
-                    </Typography>
-                    <Stack direction="row" spacing={1}>
-                      <ImportContactsRoundedIcon color="sc_white" />
-                      <Typography color="sc_white.main">
-                        {watch("track")}
-                      </Typography>
-                    </Stack>
-                    <Stack direction="row" spacing={1}>
-                      <EventAvailableRoundedIcon color="sc_white" />
-                      <Typography color="sc_white.main">
-                        {watch("paket")}
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                )}
                 <List>
                   {helper.map((text, index) => (
                     <ListItem

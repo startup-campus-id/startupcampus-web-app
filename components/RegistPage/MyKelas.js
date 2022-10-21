@@ -18,7 +18,7 @@ const MyKelas = ({ paket, name }) => {
     <FormControl error={errors[name] ? true : false}>
       {/* PAKET KELAS INPUT */}
       <FormGroup width="100%">
-        <Typography fontWeight={700} gutterBottom>
+        <Typography fontWeight={700} gutterBottom color={"sc_gray.dark"}>
           Kelas Terdekat *
         </Typography>
         <Grid container spacing={1}>

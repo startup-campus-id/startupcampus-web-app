@@ -23,7 +23,7 @@ export default function DropZone({ helper, desc, name }) {
   const { acceptedFiles, fileRejections, getRootProps, getInputProps } =
     useDropzone({
       maxFiles: 1,
-      accept: { "application/pdf": [".pdf", ".doc", ".docx"] },
+      accept: { "image/*": [".jpg", ".jpeg", ".png"] },
       validator: nameLengthValidator,
     });
 
@@ -101,7 +101,9 @@ export default function DropZone({ helper, desc, name }) {
             error={errors[name] ? true : false}
             helperText={errors[name]?.message ?? null}
           />
-          <Typography fontWeight={700}>.PDF, .DOC, (3MB)</Typography>
+          <Typography fontWeight={700}>
+            .JPG, .JPEG., atau .PNG (Maks. 3MB)
+          </Typography>
           <Typography variant="body2" color="#69686B">
             {desc}
           </Typography>
