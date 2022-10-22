@@ -9,10 +9,10 @@ import {
 import { createClient } from "contentful";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
+import { tagline } from "../content/tagline";
 import { TaglineContext } from "../pages/_app";
 
-const Footer = ()=>{
-  const { tagline } = useContext(TaglineContext);
+const Footer = () => {
   return (
     <Grid
       container
@@ -34,10 +34,7 @@ const Footer = ()=>{
                 />
               </Box>
               <Typography variant="body2" color="white">
-                {tagline[0]?.fields?.hashtag}
-              </Typography>
-              <Typography variant="body2" color="white">
-                {tagline[0]?.fields?.desc}
+                {tagline.footer}
               </Typography>
             </Stack>
           </Grid>
@@ -129,6 +126,6 @@ const Footer = ()=>{
       </Container>
     </Grid>
   );
-}
+};
 
 export default Footer;

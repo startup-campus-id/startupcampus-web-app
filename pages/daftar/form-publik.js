@@ -38,12 +38,11 @@ const helper = [
   "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
 ];
 const steps = ["Pilih Program", "Identitas Diri", "Pembayaran"];
-function Daftar({ paket, tagline, course = null }) {
+function Daftar({ paket,  course = null }) {
   const { register, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const { tagline: x, setTagline } = useContext(TaglineContext);
   const [state, setState] = useState(0);
 
   const setInvoice = async (data) => {
@@ -71,7 +70,6 @@ function Daftar({ paket, tagline, course = null }) {
   };
 
   useEffect(() => {
-    setTagline(tagline);
   }, [loading]);
 
   const onSubmit = (data) => {

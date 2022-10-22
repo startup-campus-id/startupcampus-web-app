@@ -1,12 +1,14 @@
+import { TagOutlined } from "@mui/icons-material";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import { createClient } from "contentful";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
+import { tagline } from "../../content/tagline";
 import { TaglineContext } from "../../pages/_app";
 import HighlightText from "../HighlightText";
 import MyButton from "../MyButton";
 
-function Section1({ tagline }) {
+function Section1() {
   return (
     <Grid
       pt={{ xs: 6, md: 0 }}
@@ -17,18 +19,22 @@ function Section1({ tagline }) {
       alignItems={{ md: "center" }}
     >
       <Grid item xs={12} md={6} pt={4} data-aos="fade-right">
-        <Stack spacing={2} alignItems="start" className="hero-text">
+        <Stack
+          spacing={2}
+          alignItems="start"
+          className="hero-text"
+          width={"80%"}
+        >
           <Typography variant="h4" fontWeight={800}>
-            {tagline[0]?.fields?.title}
+            {tagline.title}
             <br />
             <Box component="span" sx={{ color: "sc_blue.main" }}>
-              {tagline[0]?.fields?.hashtag}
+              {tagline.hastag}{" "}
             </Box>
-            <br />
-            {tagline[0]?.fields?.subtitle}
+            {tagline.subtitle}
           </Typography>
           <Typography variant="body1" lineHeight={2}>
-            {tagline[0]?.fields?.desc}
+            {tagline.desc}
           </Typography>
           <MyButton href={"#program"}>Pilih Programmu</MyButton>
         </Stack>

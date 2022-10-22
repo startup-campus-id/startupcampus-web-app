@@ -15,11 +15,8 @@ import {
 } from "../components";
 import BubbleChat from "../components/BubbleChat";
 import { createClient } from "contentful";
-import { TaglineContext } from "./_app";
 
 const Home = ({ logo, testimoni, course, tagline, title7, faq }) => {
-  const { setTagline } = useContext(TaglineContext);
-  setTagline(tagline);
   return (
     <>
       <Head>
@@ -27,7 +24,7 @@ const Home = ({ logo, testimoni, course, tagline, title7, faq }) => {
         <meta name="description" content="Official Website of StartupCampus" />
       </Head>
       <Container>
-        <Section1 tagline={tagline} />
+        <Section1 />
         <Section2 logo={logo} />
         <Section3 course={course} />
         <Section4 />
@@ -59,10 +56,6 @@ export const getStaticProps = async () => {
     content_type: "course",
   });
 
-  const { items: tagline } = await client.getEntries({
-    content_type: "section1",
-  });
-
   const { items: title7 } = await client.getEntries({
     content_type: "section7",
   });
@@ -77,7 +70,6 @@ export const getStaticProps = async () => {
       logo,
       testimoni,
       course,
-      tagline,
       title7,
       faq,
     },

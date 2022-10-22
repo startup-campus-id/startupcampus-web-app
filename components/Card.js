@@ -1,12 +1,14 @@
 import { Box, Chip, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 import React, { useState } from "react";
 import MyButton from "./MyButton";
 
-const Card = ({ img, title, desc, level, bulan, tanggal, online })=>{
+const Card = ({ img, title, desc, level, bulan, tanggal, online }) => {
   const [cardHover, setCardHover] = useState(false);
   return (
     <Box
-      // m={4}
+      onMouseEnter={() => setCardHover(true)}
+      onMouseLeave={() => setCardHover(false)}
       borderRadius={"16px"}
       overflow="hidden"
       width="369px"
@@ -19,6 +21,8 @@ const Card = ({ img, title, desc, level, bulan, tanggal, online })=>{
     >
       <Box
         sx={{
+          transform: "scale(1.2)",
+          transition: ".3s",
           position: "relative",
           width: "100%",
           backgroundSize: "cover",
@@ -65,16 +69,14 @@ const Card = ({ img, title, desc, level, bulan, tanggal, online })=>{
           <Chip label={online ?? "Online"} variant="outlined" />
         </Box>
 
-        <MyButton
-          onMouseEnter={() => setCardHover(true)}
-          onMouseLeave={() => setCardHover(false)}
-          color={cardHover ? "sc_blue" : "sc_gray"}
-        >
-          Pelajari lebih lanjut
-        </MyButton>
+        <Link href={"/#"}>
+          <MyButton color={cardHover ? "sc_blue" : "sc_gray"}>
+            Pelajari lebih lanjut
+          </MyButton>
+        </Link>
       </Stack>
     </Box>
   );
-}
+};
 
 export default Card;

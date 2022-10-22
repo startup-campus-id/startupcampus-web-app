@@ -42,27 +42,23 @@ let theme = createTheme({
 });
 
 theme = responsiveFontSizes(theme);
-export const TaglineContext = createContext("Loading");
 
 function MyApp({ Component, pageProps }) {
   const [pageLoaded, setPageLoaded] = useState(false);
-  const [tagline, setTagline] = useState([]);
   useEffect(() => {
     setPageLoaded(true);
     AOS.init();
   }, []);
   return (
-    <TaglineContext.Provider value={{ tagline, setTagline }}>
-      <FormProvider>
-        <ThemeProvider theme={theme}>
-          {pageLoaded ? (
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          ) : null}
-        </ThemeProvider>
-      </FormProvider>
-    </TaglineContext.Provider>
+    <FormProvider>
+      <ThemeProvider theme={theme}>
+        {pageLoaded ? (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        ) : null}
+      </ThemeProvider>
+    </FormProvider>
   );
 }
 

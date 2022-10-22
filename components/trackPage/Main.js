@@ -4,7 +4,7 @@ import React from "react";
 import MyButton from "../MyButton";
 import WordBreak from "../WordBreak";
 
-export default function Main() {
+export default function Main({ name, desc }) {
   return (
     <Stack
       height={"100vh"}
@@ -15,13 +15,10 @@ export default function Main() {
     >
       <Typography color="white">#SiapMahirDigital, Siap Jadi</Typography>
       <Typography color="white" fontWeight={700} variant="h3">
-        The Founder
+        {name}
       </Typography>
-      <Typography color="white">
-        Ciptakan startup yang unik, bernilai, dan profesional melalui{" "}
-        <WordBreak />
-        program Founder. Pelajari cara membangun startup dari awal <WordBreak />
-        hingga menjadi MVP (Minimum Viable Product)
+      <Typography color="white" width={"550px"}>
+        {desc}
       </Typography>
       <Stack direction="row" spacing={2}>
         <Link href="/daftar" underline="none">

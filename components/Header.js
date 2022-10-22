@@ -16,7 +16,9 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Slide,
   Stack,
+  useScrollTrigger,
 } from "@mui/material";
 import Image from "next/image";
 import { ExpandMoreRounded, ShoppingCartOutlined } from "@mui/icons-material";
@@ -47,6 +49,11 @@ const sideMenu = [
 
 const Header = () => {
   const router = useRouter();
+  const bgTrigger = useScrollTrigger({
+    threshold: 0,
+    disableHysteresis: true,
+  });
+  const trigger = useScrollTrigger();
   function NavItem({ children, isDropDown = false }) {
     return (
       <Typography
@@ -132,88 +139,133 @@ const Header = () => {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar
-          color={router.pathname == "/" ? "transparent" : ""}
-          elevation={0}
-          position="absolute"
-        >
-          <Container>
-            <Toolbar
-              sx={{
-                justifyContent: { sm: "space-between", xs: "space-between" },
-                alignItems: "center",
-                my: { xs: 0, sm: 1 },
-                px: "0 !important",
-              }}
-            >
-              <Box component="div">
-                <Link href="/">
-                  <Image
-                    src={"/images/SC-Logo-Full.png"}
-                    width={101}
-                    height={33}
-                  />
-                </Link>
-              </Box>
-
-              <Stack
-                direction="row"
-                spacing={4}
+        <Slide in={!trigger}>
+          <AppBar
+            color={
+              router.pathname == "/" ? (bgTrigger ? "" : "transparent") : ""
+            }
+            sx={{ transition: ".3s" }}
+            elevation={router.pathname == "/" ? (bgTrigger ? 3 : 0) : 3}
+            position="fixed"
+          >
+            <Container>
+              <Toolbar
                 sx={{
-                  flexGrow: 1,
+                  justifyContent: { sm: "space-between", xs: "space-between" },
                   alignItems: "center",
-                  justifyContent:
-                    router.pathname != "/daftar" ? "center" : "end",
-                  display: { md: "flex", sm: "none", xs: "none" },
-                }}
-                component={"nav"}
-              >
-                {/* LIST LINKS */}
-
-                <Dropdown>
-                  <NavItem isDropDown={true}>Program</NavItem>
-                </Dropdown>
-                <Link href={"#testimoni"} underline="none">
-                  <NavItem>Testimoni</NavItem>
-                </Link>
-                <Link href={"#blog"} underline="none">
-                  <NavItem>Blog</NavItem>
-                </Link>
-                <Dropdown>
-                  <NavItem isDropDown={true}>Tentang Kami</NavItem>
-                </Dropdown>
-              </Stack>
-
-              <Stack
-                direction="row"
-                alignItems={"center"}
-                justifyContent="center"
-                sx={{
-                  flexGrow: 0,
-                  display: { md: "flex", sm: "none", xs: "none" },
+                  my: { xs: 0, sm: 1 },
+                  px: "0 !important",
                 }}
               >
-                {router.pathname != "/daftar" && (
-                  <Link href={"/daftar/form-publik"} underline="none">
-                    <MyButton>Daftar sekarang</MyButton>
+                <Box component="div">
+                  <Link href="/">
+                    <Image
+                      src={"/images/SC-Logo-Full.png"}
+                      width={101}
+                      height={33}
+                    />
                   </Link>
-                )}
-              </Stack>
+                </Box>
 
-              {/* Only MOoile  */}
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ display: { xs: "block", sm: "block", md: "none" } }}
-                onClick={toggleDrawer("left", true)}
-              >
-                <MenuIcon />
-              </IconButton>
-            </Toolbar>
-          </Container>
-        </AppBar>
+                <Stack
+                  direction="row"
+                  spacing={4}
+                  sx={{
+                    flexGrow: 1,
+                    alignItems: "center",
+                    justifyContent:
+                      router.pathname != "/daftar" ? "center" : "end",
+                    display: { md: "flex", sm: "none", xs: "none" },
+                  }}
+                  component={"nav"}
+                >
+                  {/* LIST LINKS */}
+
+                  <Dropdown
+                    list={[
+                      {
+                        name: "The Founder",
+                        link: "/track/the-founder",
+                      },
+                      {
+                        name: "UI/UX Design",
+                        link: "/track/uiux-design",
+                      },
+                      { name: "Data Science", link: "/track/data-science" },
+                      {
+                        name: "Backend Engineer",
+                        link: "/track/backend-engineer",
+                      },
+                      {
+                        name: "Artificial Intelligence",
+                        link: "/track/artificial-intelligence",
+                      },
+                    ]}
+                  >
+                    <NavItem isDropDown={true}>Program</NavItem>
+                  </Dropdown>
+                  <Link href={"#testimoni"} underline="none">
+                    <NavItem>Testimoni</NavItem>
+                  </Link>
+                  <Link href={"#blog"} underline="none">
+                    <NavItem>Blog</NavItem>
+                  </Link>
+                  <Dropdown
+                    list={[
+                      {
+                        name: "Tentang Startup Campus",
+                        link: "/tentang",
+                      },
+                      {
+                        name: "Beasiswa",
+                        link: "/beasiswa",
+                      },
+                      { name: "Join Us", link: "/daftar/form-publik" },
+                      {
+                        name: "Community",
+                        link: "/comunity",
+                      },
+                      {
+                        name: "Partner",
+                        link: "/partner",
+                      },
+                    ]}
+                  >
+                    <NavItem isDropDown={true}>Tentang Kami</NavItem>
+                  </Dropdown>
+                </Stack>
+
+                <Stack
+                  direction="row"
+                  alignItems={"center"}
+                  justifyContent="center"
+                  sx={{
+                    flexGrow: 0,
+                    display: { md: "flex", sm: "none", xs: "none" },
+                  }}
+                >
+                  {router.pathname != "/daftar" && (
+                    <Link href={"/daftar/form-publik"} underline="none">
+                      <MyButton>Daftar sekarang</MyButton>
+                    </Link>
+                  )}
+                </Stack>
+
+                {/* Only Mobile  */}
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{ display: { xs: "block", sm: "block", md: "none" } }}
+                  onClick={toggleDrawer("left", true)}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Toolbar>
+            </Container>
+          </AppBar>
+        </Slide>
       </Box>
       <Drawer
         sx={{

@@ -41,13 +41,12 @@ const helper = [
   "Akan dihubungi oleh tim",
 ];
 
-function FormStudiIndependen({ paket, tagline, course = null }) {
+function FormStudiIndependen({ paket, course = null }) {
   const { register, setValue, handleSubmit, watch, errors } = useMyForm();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const { tagline: x, setTagline } = useContext(TaglineContext);
   const [state, setState] = useState(0);
 
   const setInvoice = async (data) => {
@@ -74,9 +73,7 @@ function FormStudiIndependen({ paket, tagline, course = null }) {
     }
   };
 
-  useEffect(() => {
-    setTagline(tagline);
-  }, [loading]);
+  useEffect(() => {}, [loading]);
 
   const onSubmit = (data) => {
     setState((prev) => prev + 1);
