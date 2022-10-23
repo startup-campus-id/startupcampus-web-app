@@ -13,7 +13,7 @@ import AccentText from "../AccentText";
 
 export default function TentangProgram({ nick, desc }) {
   return (
-    <Box id="about-program" pt={6}>
+    <Box id="about-program" pt={6} data-aos="fade-up">
       <AccentText>Tentang Program</AccentText>
       <MyTitle gutterBottom>
         Menjadi Seorang {nick} yang <HighlightText>Berbeda</HighlightText>

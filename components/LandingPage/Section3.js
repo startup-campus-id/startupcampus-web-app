@@ -92,14 +92,11 @@ function Section3({ course }) {
           slidesPerView={1}
           centeredSlides
           centeredSlidesBounds
-          // onSlideChange={() => console.log("slide change")}
-          // onSwiper={(swiper) => console.log(swiper)}
           breakpoints={{
             690: {
               slidesPerView: 2,
               spaceBetween: 30,
             },
-            // when window width is >= 640px
             1050: {
               slidesPerView: 3,
               spaceBetween: 40,

@@ -21,21 +21,30 @@ const Card = ({ img, title, desc, level, bulan, tanggal, online }) => {
     >
       <Box
         sx={{
-          transform: "scale(1.2)",
-          transition: ".3s",
           position: "relative",
           width: "100%",
-          backgroundSize: "cover",
           height: "200px",
+          overflow: "hidden",
           "&::before": {
             content: "''",
+            zIndex: 0,
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            backgroundImage: `url(${img ?? "/images/FO.png"})`,
+            backgroundSize: "cover",
+            transform: cardHover ? "scale(1.2)" : "scale(1)",
+            transition: ".3s",
+          },
+          "&::after": {
+            content: "''",
+            zIndex: 1,
             position: "absolute",
             width: "100%",
             height: "100%",
             background:
               "linear-gradient(179.76deg, rgba(43, 44, 39, 0) 25.6%, #2B2C27 99.79%)",
           },
-          backgroundImage: `url(${img ?? "/images/FO.png"})`,
         }}
       ></Box>
       <Stack p={4} spacing={2}>

@@ -23,15 +23,13 @@ import { convertName } from "../../utils/byteToMb";
 import { useState } from "react";
 import { db } from "../../firebase/clientApp";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import Sme from "../../components/trackPage/Sme";
+import Kurikulum from "../../components/trackPage/Kurikulum";
 
 export default function Track({ course }) {
-  console.log(course);
   const router = useRouter();
   const { slug } = router.query;
-  const [error, setError] = useState(false);
-
-  const getCourse = async () => {};
-
+  console.log(course);
   return (
     <>
       <Head>
@@ -54,7 +52,7 @@ export default function Track({ course }) {
                 backgroundImage: `url(${course.img})`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "center center",
+                backgroundPosition: "center top",
                 position: "relative",
                 "&::before": {
                   zIndex: "0",
@@ -84,8 +82,22 @@ export default function Track({ course }) {
               <Grid item md={3}>
                 <SideBar />
               </Grid>
-              <Grid item md={9}>
-                <TentangProgram nick={course.nickname} desc={course.TPdesc} />
+              <Grid item container md={9}>
+                <Grid item xs={12}>
+                  <TentangProgram nick={course.nickname} desc={course.TPdesc} />
+                  <Divider sx={{ marginY: 6 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Sme sme={course.SME} />
+                  <Divider sx={{ marginY: 6 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Kurikulum
+                    kurikulum={course.kurikulum}
+                    nickname={course.nickname}
+                  />
+                  <Divider sx={{ marginY: 6 }} />
+                </Grid>
               </Grid>
             </Grid>
           </Container>
