@@ -45,9 +45,6 @@ function a11yProps(index) {
 export default function BasicTabs({ data }) {
   const content = data.map((e) => e.content);
   const [value, setValue] = React.useState(0);
-  data.forEach((element) => {
-    console.log(element.name);
-  });
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

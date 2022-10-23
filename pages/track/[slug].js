@@ -25,15 +25,16 @@ import { db } from "../../firebase/clientApp";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import Sme from "../../components/trackPage/Sme";
 import Kurikulum from "../../components/trackPage/Kurikulum";
+import Tools from "../../components/trackPage/Tools";
+import Bimbingan from "../../components/trackPage/Bimbingan";
+import Biaya from "../../components/trackPage/Biaya";
 
 export default function Track({ course }) {
-  const router = useRouter();
-  const { slug } = router.query;
   console.log(course);
   return (
     <>
       <Head>
-        <title>{convertName(slug)} | Startup Campus</title>
+        <title>{course.name} | Startup Campus</title>
       </Head>
       {!course ? (
         <Backdrop
@@ -98,6 +99,18 @@ export default function Track({ course }) {
                   />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
+                <Grid item xs={12}>
+                  <Tools data={course.tools} />
+                  <Divider sx={{ marginY: 6 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Bimbingan />
+                  <Divider sx={{ marginY: 6 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Biaya />
+                  <Divider sx={{ marginY: 6 }} />
+                </Grid>
               </Grid>
             </Grid>
           </Container>
@@ -126,10 +139,11 @@ export async function getStaticProps({ params }) {
   const data = [];
   const colRef = collection(db, "course");
   const q = query(colRef, where("slug", "==", params.slug));
-  const querySnapshot = await getDocs(colRef);
+  const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     data.push({ id: doc.id, ...doc.data() });
   });
+
   return {
     props: { course: data[0] },
     revalidate: 1,
