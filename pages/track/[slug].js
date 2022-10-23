@@ -132,5 +132,6 @@ export async function getStaticProps({ params }) {
   });
   return {
     props: { course: data[0] },
+    revalidate: 1,
   };
 }
