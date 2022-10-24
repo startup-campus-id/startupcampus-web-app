@@ -1,11 +1,4 @@
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Divider,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import React, { useState } from "react";
 import { biaya } from "../../content/biaya";

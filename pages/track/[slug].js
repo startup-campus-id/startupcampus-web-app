@@ -81,7 +81,7 @@ export default function Track({ course }) {
             </Grid>
 
             <Grid container spacing={3}>
-              <Grid item md={3}>
+              <Grid item md={3} display={{ xs: "hidden", md: "block" }}>
                 <SideBar />
               </Grid>
               <Grid item container md={9}>
