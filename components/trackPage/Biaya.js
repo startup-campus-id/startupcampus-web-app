@@ -6,15 +6,16 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import Link from "next/link";
 import React, { useState } from "react";
+import { biaya } from "../../content/biaya";
 import AccentText from "../AccentText";
 import HighlightText from "../HighlightText";
 import MyDesc from "../MyDesc";
 import MyTitle from "../MyTitle";
-import AddIcon from "@mui/icons-material/Add";
+import MyAccordion from "./MyAccordion";
 
 export default function Biaya() {
-  const [hover, setHover] = useState(false);
   return (
     <Stack>
       <AccentText>Biaya Pendidikan</AccentText>
@@ -28,40 +29,29 @@ export default function Biaya() {
         yang semula Rp12.015.050) untuk waktu yang terbatas. Mulailah
         perjalananmu sebelum biaya pendaftaran kembali normal!
       </MyDesc>
-      <Stack mt={4}>
-        <Accordion
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-          sx={{
-            boxShadow: "0px 8px 20px rgba(43, 44, 39, 0.1)",
-            position: "relative",
-            padding: "1em",
-            "&::before": {
-              content: "''",
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              border: hover ? "2px solid blue" : "unset",
-            },
-            transition: ".3s",
-          }}
-        >
-          <AccordionSummary
-            expandIcon={<AddIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography variant="h6" fontWeight={600}>
-              dasdasd
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Divider />
-            <Typography mt={4} variant="body2" color="sc_gray.dark">
-              dasd
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
+      {biaya.map((e, i) => (
+        <MyAccordion
+          key={i}
+          title={e.title}
+          subtitle={e.subtitle}
+          content={e.content}
+        />
+      ))}
+      <Stack
+        direction={"row"}
+        justifyContent="center"
+        spacing={1}
+        p={2}
+        mt={3}
+        sx={{
+          background:
+            "linear-gradient(0deg, rgba(0, 86, 210, 0.1), rgba(0, 86, 210, 0.1)), #FFFFFF",
+        }}
+      >
+        <Typography>Punya pertanyaan seputar biaya pendidikan? </Typography>
+        <Typography color={"sc_blue.main"}>
+          <Link href="#">Hubungi sekarang!</Link>
+        </Typography>
       </Stack>
     </Stack>
   );

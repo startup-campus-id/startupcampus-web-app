@@ -7,15 +7,17 @@ const MyButton = ({
   color = "sc_blue",
   padding,
   shadow,
+  width,
   borderRadius,
   isDropdown,
   ...args
-})=>{
+}) => {
   return (
     <Button
       variant={variant}
       color={color}
       sx={{
+        width: width ?? "unset",
         padding: padding ?? "13px 28px",
         borderRadius: borderRadius ?? "5px",
         textTransform: "capitalize",
@@ -29,6 +31,6 @@ const MyButton = ({
       {children}
     </Button>
   );
-}
+};
 
 export default MyButton;

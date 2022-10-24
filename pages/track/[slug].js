@@ -28,6 +28,7 @@ import Kurikulum from "../../components/trackPage/Kurikulum";
 import Tools from "../../components/trackPage/Tools";
 import Bimbingan from "../../components/trackPage/Bimbingan";
 import Biaya from "../../components/trackPage/Biaya";
+import Kelas from "../../components/trackPage/Kelas";
 
 export default function Track({ course }) {
   console.log(course);
@@ -109,6 +110,10 @@ export default function Track({ course }) {
                 </Grid>
                 <Grid item xs={12}>
                   <Biaya />
+                  <Divider sx={{ marginY: 6 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Kelas />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
               </Grid>
