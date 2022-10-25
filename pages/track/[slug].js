@@ -114,7 +114,7 @@ export default function Track({ course }) {
                 item
                 md={3}
                 className="sidebar"
-                display={{ xs: "none", md: "block", position: "relative" }}
+                display={{ xs: "none", md: "block" }}
               >
                 <SideBar />
               </Grid>
