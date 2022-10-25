@@ -35,6 +35,9 @@ import MySelect from "../../components/RegistPage/MySelect";
 import { kelas } from "../../content/kelas";
 import DropZone from "../../components/RegistPage/DropZone";
 import MyCheckBox from "../../components/RegistPage/MyCheckBox";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
@@ -42,42 +45,51 @@ const helper = [
 ];
 
 function FormStudiIndependen({ paket, course = null }) {
-  const { register, setValue, handleSubmit, watch, errors } = useMyForm();
   const router = useRouter();
+  const { register, setValue, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
   const [state, setState] = useState(0);
 
-  const setInvoice = async (data) => {
+  const onSubmit = (data) => {
     setLoading(true);
-
+    setState((prev) => prev + 1);
     try {
-      const response = await axios.post("/api/payment", {
-        name: data.name,
-        email: data.email,
-        program: data.track,
-        paket: data.paket,
-        numPhone: data.num_phone,
-      });
-      // console.log(response);
-      setLoading(false);
-      const { invoice_url } = response.data;
-      setTimeout(() => {
-        window.location.replace(invoice_url);
-      }, 1000);
+      const formData = new FormData();
+      formData.append("twibbon", data.twibbon);
+      formData.append("status", "kampusmerdeka");
+      formData.append("email", data.email);
+      formData.append("fullname", data.name);
+      formData.append("phoneNumber", String(data.num_phone));
+      formData.append("coursePathId", parseInt(data.track));
+      formData.append("university", data.ptn);
+      formData.append("major", data.jurusan);
+      formData.append("semester", data.semester);
+      formData.append("informationSource", "data.source_info");
+
+      axios
+        .post("https://startup-campus.herokuapp.com/users", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          setLoading(false);
+          const { data } = res.data;
+          router.replace("/payment/success");
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+          setError(true);
+          console.error(err.message);
+        });
     } catch (e) {
       setLoading(false);
       setError(true);
       console.error(e.message);
     }
-  };
-
-  useEffect(() => {}, [loading]);
-
-  const onSubmit = (data) => {
-    setState((prev) => prev + 1);
-    router.push("/payment/success");
   };
   const mkelas = kelas.map((items) => items.title);
 
@@ -100,25 +112,29 @@ function FormStudiIndependen({ paket, course = null }) {
       </Typography>
       <MyInput
         label="Nama Lengkap *"
-        name="fullname"
-        type={"text"}
+        name={"name"}
         placeholder={"Pramudya Aneska"}
+        icon={<PersonOutlineOutlinedIcon />}
       />
       <MyInput
-        label="E-mail *"
+        label="Email *"
         name="email"
         type={"email"}
-        placeholder={"Pramudyaneska@gmail.com"}
+        placeholder={"pramudya@gmail.com"}
+        icon={<MailOutlineIcon />}
       />
       <MyInput
         label="No. Whatsapp *"
         name={"num_phone"}
-        placeholder={"628XXXX"}
+        placeholder={"+62 812 3456 7890"}
         type="number"
+        max={15}
+        icon={<PhoneOutlinedIcon />}
       />
       <MySelect
         label="Apa yang Ingin Kamu Pelajari? *"
         name="track"
+        track={true}
         data={mkelas}
         {...register("track", { required: "Pilih salah satu" })}
       />
@@ -139,14 +155,15 @@ function FormStudiIndependen({ paket, course = null }) {
       <MyInput
         label="Semester *"
         name="semester"
-        type={"text"}
+        type={"number"}
+        max={2}
         placeholder={"6"}
         {...register("semester", { required: "isi dulu ya" })}
       />
       <Typography fontWeight={700} color={"sc_gray.dark"}>
         INFORMASI TAMBAHAN
       </Typography>
-      <Typography color={"sc_gray.dark"}>Upload Twibbon *</Typography>
+      <Typography color={"sc_gray.dark"}>Upload Twibbon (Opsional)</Typography>
       <DropZone
         helper={guideTwibbon}
         desc={"Tarik file kamu ke sini untuk mengunggah atau klik disini"}
@@ -155,8 +172,14 @@ function FormStudiIndependen({ paket, course = null }) {
       <MyCheckBox name="agree" />
     </Stack>,
     <Stack key={1} alignItems="center" spacing={4}>
-      <Typography>Menyimpan data registrasi</Typography>
-      <CircularProgress />
+      {loading && (
+        <>
+          <Typography>Menyimpan data registrasi</Typography>
+          <CircularProgress />
+        </>
+      )}
+
+      {error && <Typography color={"red"}>Terjadi kesalahan</Typography>}
     </Stack>,
   ];
 
@@ -201,14 +224,17 @@ function FormStudiIndependen({ paket, course = null }) {
                   informasi lebih lanjut.
                 </MyDesc>
 
-                {steps[state]}
                 <Stack
                   component={"form"}
                   mt={4}
                   spacing={2}
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  <Box display={"flex"} justifyContent={"flex-end"}>
+                  {steps[state]}
+                  <Box
+                    display={state == 0 ? "flex" : "none"}
+                    justifyContent={"flex-end"}
+                  >
                     <MyButton type="submit">Daftar Sekarang</MyButton>
                   </Box>
                 </Stack>

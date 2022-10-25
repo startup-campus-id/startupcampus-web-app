@@ -1,8 +1,16 @@
 import React, { Fragment } from "react";
-import { Stack, TextField, Typography } from "@mui/material";
+import { InputAdornment, Stack, TextField, Typography } from "@mui/material";
 import { useMyForm } from "../../context/FormContext";
-
-const MyInput = ({ label, name, type, placeholder, ...args }) => {
+const MyInput = ({
+  label,
+  name,
+  type,
+  placeholder,
+  min,
+  max,
+  icon,
+  ...args
+}) => {
   const { register, handleSubmit, watch, errors } = useMyForm();
   const textArea =
     type == "text-area"
@@ -10,6 +18,13 @@ const MyInput = ({ label, name, type, placeholder, ...args }) => {
           maxLength: {
             value: 150,
             message: "Maksimal hanya 150 karakter",
+          },
+        }
+      : type == "number"
+      ? {
+          maxLength: {
+            value: max,
+            message: `Maksimal hanya ${max} karakter`,
           },
         }
       : null;
@@ -41,6 +56,15 @@ const MyInput = ({ label, name, type, placeholder, ...args }) => {
         placeholder={placeholder ?? ""}
         error={errors[name] ? true : false}
         helperText={errors[name]?.message ?? null}
+        InputProps={
+          icon
+            ? {
+                startAdornment: (
+                  <InputAdornment position="start">{icon}</InputAdornment>
+                ),
+              }
+            : null
+        }
         {...args}
       />
     </Stack>

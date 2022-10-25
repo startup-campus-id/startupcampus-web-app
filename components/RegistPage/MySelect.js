@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useMyForm } from "../../context/FormContext";
 
-const MySelect = ({ label, name, data, ...args }) => {
+const MySelect = ({ label, name, data, track, ...args }) => {
   const { register, handleSubmit, watch, errors } = useMyForm();
   return (
     <Fragment>
@@ -22,7 +22,7 @@ const MySelect = ({ label, name, data, ...args }) => {
           {data?.map((val, i) => (
             <FormControlLabel
               key={i}
-              value={i + 1}
+              value={track ? i + 1 : val}
               control={<Radio />}
               label={val}
               disabled={val == "Backend Engineer" ? true : false}

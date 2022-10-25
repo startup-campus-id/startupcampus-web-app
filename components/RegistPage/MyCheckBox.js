@@ -5,10 +5,13 @@ import {
   FormControlLabel,
   FormGroup,
   FormHelperText,
+  Typography,
 } from "@mui/material";
 import { useMyForm } from "../../context/FormContext";
+import Link from "next/link";
+import MyLink from "../MyLink";
 
-const MyCheckBox = ({ name })=>{
+const MyCheckBox = ({ name }) => {
   const { register, handleSubmit, watch, errors } = useMyForm();
   return (
     <Fragment>
@@ -24,13 +27,19 @@ const MyCheckBox = ({ name })=>{
             control={
               <Checkbox name={name} checked={watch(name)} sx={{ pt: 0 }} />
             }
-            label="Dengan mengisi formulir ini, Saya menyetujui kebijakan privasi dan ketentuan pengguna"
+            label={
+              <Typography>
+                Dengan mengisi formulir ini, Saya menyetujui{" "}
+                <MyLink link={"#"}>kebijakan privasi</MyLink> dan{" "}
+                <MyLink link={"#"}>ketentuan pengguna</MyLink>
+              </Typography>
+            }
           />
         </FormGroup>
         <FormHelperText>{errors[name]?.message ?? ""}</FormHelperText>
       </FormControl>
     </Fragment>
   );
-}
+};
 
-export default MyCheckBox
+export default MyCheckBox;

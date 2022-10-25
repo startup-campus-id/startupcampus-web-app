@@ -11,6 +11,7 @@ import { useDropzone } from "react-dropzone";
 import { byteToMb } from "../../utils/byteToMb";
 import { SignalCellularNullSharp } from "@mui/icons-material";
 import DropZone from "./DropZone";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
 const guideFileSPTJM = [
   "Ditandatangani oleh Rektor/Warek/Direktur/Wakil Direktur Perguruan Tinggi.",
@@ -21,7 +22,7 @@ const guideFileRekom = [
   "Diperbolehkan menggunakan tanda tangan digital yang disertai cap.",
   " Mahasiswa calon peserta perlu melampirkan daftar program yang akan dilamar sebagai informasi kepada perguruan tinggi.",
 ];
-const ChooseProgramForm = ({ paket, course }) => {
+const ChooseProgramForm = ({ paket }) => {
   const router = useRouter();
   const mkelas = kelas.map((items) => items.title);
   const { register, handleSubmit, watch, errors } = useMyForm();
@@ -32,15 +33,16 @@ const ChooseProgramForm = ({ paket, course }) => {
         label="Email *"
         name="email"
         type={"email"}
-        placeholder={"alifnabilaaa@gmail.com"}
+        placeholder={"pramudya@gmail.com"}
+        icon={<MailOutlineIcon />}
       />
       <MySelect
         label="Apa yang Ingin Kamu Pelajari? *"
         name="track"
+        track={true}
         data={mkelas}
         {...register("track", { required: "Pilih salah satu" })}
       />
-      <MyKelas paket={paket} name="paket" />
       {router.pathname === "/daftar/form-studi-independen" && (
         <>
           <MyInput

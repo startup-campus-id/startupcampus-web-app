@@ -47,8 +47,6 @@ export default function DropZone({ helper, desc, name }) {
 
   useEffect(() => {
     if (acceptedFiles.length > 0) {
-      console.log(acceptedFiles);
-
       setSurat((prev) => ({ ...prev, sptjm: true }));
     }
   }, [surat, acceptedFiles]);
@@ -97,7 +95,7 @@ export default function DropZone({ helper, desc, name }) {
           <input
             {...getInputProps()}
             type="file"
-            {...register(name, { required: "isi dulu ya" })}
+            {...register(name)}
             error={errors[name] ? true : false}
             helperText={errors[name]?.message ?? null}
           />

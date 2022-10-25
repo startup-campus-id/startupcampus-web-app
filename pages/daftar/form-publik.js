@@ -38,7 +38,7 @@ const helper = [
   "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
 ];
 const steps = ["Pilih Program", "Identitas Diri", "Pembayaran"];
-function Daftar({ paket,  course = null }) {
+function Daftar({ paket, course }) {
   const { register, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -47,21 +47,34 @@ function Daftar({ paket,  course = null }) {
 
   const setInvoice = async (data) => {
     setLoading(true);
-
+    console.log(data);
     try {
-      const response = await axios.post("/api/payment", {
-        name: data.name,
-        email: data.email,
-        program: data.track,
-        paket: data.paket,
-        numPhone: data.num_phone,
-      });
-      // console.log(response);
-      setLoading(false);
-      const { invoice_url } = response.data;
-      setTimeout(() => {
-        window.location.replace(invoice_url);
-      }, 1000);
+      const formData = new FormData();
+      formData.append("status", "public");
+      formData.append("email", data.email);
+      formData.append("fullname", data.name);
+      formData.append("phoneNumber", String(data.num_phone));
+      formData.append("coursePathId", parseInt(data.track));
+      formData.append("informationSource", data.source_info);
+      axios
+        .post("https://startup-campus.herokuapp.com/users", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          // console.log(res);
+          setLoading(false);
+          const { data } = res.data;
+          const { invoiceUrl } = data.payment;
+          // console.log(paymentId);
+          window.location.replace(invoiceUrl);
+        })
+        .catch((err) => {
+          console.log(err);
+          setError(true);
+          console.error(e.message);
+        });
     } catch (e) {
       setLoading(false);
       setError(true);
@@ -69,8 +82,7 @@ function Daftar({ paket,  course = null }) {
     }
   };
 
-  useEffect(() => {
-  }, [loading]);
+  useEffect(() => {}, [loading]);
 
   const onSubmit = (data) => {
     setState((prev) => prev + 1);
@@ -79,7 +91,7 @@ function Daftar({ paket,  course = null }) {
     }
   };
   const step = [
-    <ChooseProgramForm key={0} paket={paket}  />,
+    <ChooseProgramForm key={0} paket={course} />,
     <IndentityForm key={1} />,
     <Stack key={2} alignItems="center" spacing={4}>
       {loading ? (
@@ -165,20 +177,20 @@ function Daftar({ paket,  course = null }) {
 
               <Grid item md={4} sx={{ background: "#0056D2" }} p={4}>
                 {state > 0 && (
-                  <Stack mb={9} spacing={2}>
+                  <Stack mb={6} spacing={2}>
                     <Typography color="sc_white.main" fontWeight={700}>
                       Kelas yang kamu ikuti
                     </Typography>
                     <Stack direction="row" spacing={1}>
                       <ImportContactsRoundedIcon color="sc_white" />
                       <Typography color="sc_white.main">
-                        {watch("track")}
+                        {course.data[watch("track") - 1].name}
                       </Typography>
                     </Stack>
                     <Stack direction="row" spacing={1}>
                       <EventAvailableRoundedIcon color="sc_white" />
                       <Typography color="sc_white.main">
-                        {watch("paket")}
+                        Januari 2023
                       </Typography>
                     </Stack>
                   </Stack>
@@ -222,14 +234,14 @@ export async function getStaticProps() {
     content_type: "section1",
   });
 
-  // const response = await axios.get(process.env.BE_BASE_URL + "/coursepath");
+  const response = await axios.get(process.env.BE_BASE_URL + "/coursepath");
   // console.log(response.data);
 
   return {
     props: {
       paket,
       tagline,
-      // course: response.data,
+      course: response.data,
     },
     revalidate: 1,
   };

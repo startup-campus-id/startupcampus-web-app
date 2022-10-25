@@ -1,7 +1,9 @@
 import React from "react";
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import MyInput from "./MyInput";
 import MySelect from "./MySelect";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 
 const media = [
   "Instagram",
@@ -13,18 +15,29 @@ const media = [
 
 const IndentityForm = () => {
   return (
-    <Stack spacing={1}>
+    <Stack spacing={3}>
+      <Typography fontWeight={700} color={"sc_gray.dark"}>
+        DATA PRIBADI
+      </Typography>
       <MyInput
         label="Nama Lengkap *"
         name={"name"}
-        placeholder={"alif nabila"}
+        placeholder={"Pramudya Aneska"}
+        icon={<PersonOutlineOutlinedIcon />}
       />
-      <MyInput label="Umur *" name={"age"} placeholder={"18"} type="number" />
       <MyInput
-        label="No. Handphone *"
-        name={"num_phone"}
-        placeholder={"628XXXX"}
+        label="Umur *"
+        name={"age"}
+        placeholder={"18"}
         type="number"
+        max={3}
+      />
+      <MyInput
+        label="No. Whatsapp *"
+        name={"num_phone"}
+        placeholder={"+62 812 3456 7890"}
+        type="number"
+        icon={<PhoneOutlinedIcon />}
       />
       <MySelect
         label={"Darimana Kamu Mengetahui Startup Campus?*"}
