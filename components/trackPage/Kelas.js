@@ -72,8 +72,11 @@ export default function Kelas() {
         Kelas yang Dapat Kamu <HighlightText>Ikuti</HighlightText>
       </MyTitle>
       <Stack spacing={4}>
-        <CardKelas name="Skills Level Up!" />
-        <CardKelas name={"Studi Independen Batch 4"} />
+        <CardKelas name="Skills Level Up!" link={"/daftar/form-publik"} />
+        <CardKelas
+          name={"Studi Independen Batch 4"}
+          link={"/daftar/form-studi-independen"}
+        />
       </Stack>
       <MyDesc my={4}>
         Bagi kamu calon peserta Program Founder studi independen atau MBKM

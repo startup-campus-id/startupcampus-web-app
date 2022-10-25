@@ -1,4 +1,10 @@
-import { createContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
 import "../styles/globals.css";
 import AOS from "aos";
@@ -10,6 +16,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/effect-fade";
 import FormProvider from "../context/FormContext";
+import gsap from "gsap";
 
 let theme = createTheme({
   typography: {
@@ -46,10 +53,12 @@ theme = responsiveFontSizes(theme);
 
 function MyApp({ Component, pageProps }) {
   const [pageLoaded, setPageLoaded] = useState(false);
+
   useEffect(() => {
     setPageLoaded(true);
     AOS.init();
   }, []);
+
   return (
     <FormProvider>
       <ThemeProvider theme={theme}>

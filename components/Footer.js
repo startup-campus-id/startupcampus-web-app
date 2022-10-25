@@ -26,7 +26,7 @@ const Footer = () => {
     >
       <Container
         sx={{
-          borderBottom: `1px solid${
+          borderBottom: `1px solid ${
             router.pathname.match("/track") ? "#BDBDBD" : "white"
           }`,
           borderTop: `1px solid ${

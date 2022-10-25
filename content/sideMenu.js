@@ -1,38 +1,38 @@
 export const listMenu = [
   {
     name: "Tentang Program",
-    link: "#about-program",
+    link: "about-program",
   },
   {
     name: "List SME dan Mentor",
-    link: "#sme-dan-mentor",
+    link: "sme-dan-mentor",
   },
   {
     name: "Kurikulum",
-    link: "#kurikulum",
+    link: "kurikulum",
   },
   {
     name: "Bimbingan Karier",
-    link: "#bimbingan-karier",
+    link: "bimbingan-karier",
   },
   {
     name: "Biaya Pendidikan",
-    link: "#biaya-pendidikan",
+    link: "biaya-pendidikan",
   },
   {
     name: "Kelas Terdekat",
-    link: "#kelas-terdekat",
+    link: "kelas-terdekat",
   },
   {
     name: "Testimoni Alumni",
-    link: "#testimoni-alumni",
+    link: "testimoni-alumni",
   },
   {
     name: "Portofolio Alumni",
-    link: "#portofolio-alumni",
+    link: "portofolio-alumni",
   },
   {
     name: "FAQs",
-    link: "#faq",
+    link: "faq",
   },
 ];

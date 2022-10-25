@@ -6,6 +6,7 @@ import MyButton from "../MyButton";
 export default function SideBar() {
   return (
     <Stack
+      className="pinning"
       p={4}
       spacing={3}
       sx={{
@@ -21,8 +22,13 @@ export default function SideBar() {
       <Typography fontWeight={700}>Detail Program</Typography>
       <Divider />
       {listMenu.map((item, idx) => (
-        <Link href={item.link} underline="none" key={idx}>
-          <Typography fontWeight={400} variant="body2" color={"sc_gray.dark"}>
+        <Link href={"#" + item.link} underline="none" key={idx}>
+          <Typography
+            fontWeight={400}
+            variant="body2"
+            color={"sc_gray.dark"}
+            className={item.link}
+          >
             {item.name}
           </Typography>
         </Link>

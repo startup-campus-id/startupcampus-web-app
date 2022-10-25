@@ -38,6 +38,14 @@ function Section3({ course }) {
       typed.current.destroy();
     };
   }, []);
+
+  const linkCourse = [
+    "the-founder",
+    "data-science",
+    "uiux-design",
+    "artificial-intelligence",
+    "backend-engineer",
+  ];
   return (
     <Grid container my={6} spacing={2}>
       <Grid item xs={12} data-aos="fade-right" id={"program"}>
@@ -116,6 +124,7 @@ function Section3({ course }) {
                   level={item.level}
                   tanggal={item.startDate}
                   online={item.isOnline}
+                  link={linkCourse[idx]}
                 />
               </SwiperSlide>
             );

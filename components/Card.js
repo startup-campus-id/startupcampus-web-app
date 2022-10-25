@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import MyButton from "./MyButton";
 
-const Card = ({ img, title, desc, level, bulan, tanggal, online }) => {
+const Card = ({ img, title, desc, level, bulan, tanggal, online, link }) => {
   const [cardHover, setCardHover] = useState(false);
   return (
     <Box
@@ -78,7 +78,7 @@ const Card = ({ img, title, desc, level, bulan, tanggal, online }) => {
           <Chip label={online ?? "Online"} variant="outlined" />
         </Box>
 
-        <Link href={"/#"}>
+        <Link href={link}>
           <MyButton color={cardHover ? "sc_blue" : "sc_gray"}>
             Pelajari lebih lanjut
           </MyButton>

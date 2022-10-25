@@ -2,8 +2,9 @@ import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import MyButton from "../MyButton";
+import Link from "next/link";
 
-export default function CardKelas({ name }) {
+export default function CardKelas({ name, link }) {
   return (
     <Grid
       container
@@ -113,7 +114,11 @@ export default function CardKelas({ name }) {
           >
             Pendaftaran ditutup pada tanggal 20 Desember 2022{" "}
           </Typography>
-          <MyButton width={{ xs: "100%", md: "40%" }}>Daftar Sekarang</MyButton>
+          <Link href={link ?? "#"}>
+            <MyButton width={{ xs: "100%", md: "40%" }}>
+              Daftar Sekarang
+            </MyButton>
+          </Link>
         </Stack>
       </Grid>
     </Grid>

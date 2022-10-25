@@ -10,17 +10,13 @@ import {
   Typography,
 } from "@mui/material";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
-import MyButton from "../../components/MyButton";
-
+import React, { useEffect, useRef } from "react";
 import { listMenu } from "../../content/sideMenu";
 import Main from "../../components/trackPage/Main";
 import Board from "../../components/trackPage/Board";
 import SideBar from "../../components/trackPage/SideBar";
 import TentangProgram from "../../components/trackPage/TentangProgram";
 import Head from "next/head";
-import { convertName } from "../../utils/byteToMb";
-import { useState } from "react";
 import { db } from "../../firebase/clientApp";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import Sme from "../../components/trackPage/Sme";
@@ -32,9 +28,39 @@ import Kelas from "../../components/trackPage/Kelas";
 import Testimoni from "../../components/trackPage/Testimoni";
 import Portofolio from "../../components/trackPage/Portofolio";
 import Faq from "../../components/trackPage/Faq";
+import gsap from "gsap/dist/gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 export default function Track({ course }) {
-  console.log(course);
+  const app = useRef();
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      // Target the two specific elements we have asigned the animate class
+      ScrollTrigger.create({
+        trigger: ".content",
+        start: "top top",
+        end: "bottom bottom",
+        pin: ".sidebar",
+      });
+
+      listMenu.map((val, idx) => {
+        gsap.to("." + val.link, {
+          scrollTrigger: {
+            trigger: "#" + val.link,
+            start: "top center",
+            end: "bottom center",
+            toggleActions: "restart reset restart reset",
+          },
+          color: "blue",
+          transition: "ease",
+        });
+      });
+    }, app); // <- Scope!
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <>
       <Head>
@@ -76,7 +102,7 @@ export default function Track({ course }) {
             </Grid>
           </Grid>
 
-          <Container>
+          <Container ref={app}>
             <Grid container justifyContent={"center"}>
               <Grid item xs={10}>
                 <Board />
@@ -84,10 +110,15 @@ export default function Track({ course }) {
             </Grid>
 
             <Grid container spacing={3}>
-              <Grid item md={3} display={{ xs: "hidden", md: "block" }}>
+              <Grid
+                item
+                md={3}
+                className="sidebar"
+                display={{ xs: "none", md: "block", position: "relative" }}
+              >
                 <SideBar />
               </Grid>
-              <Grid item container md={9}>
+              <Grid item container md={9} className="content">
                 <Grid item xs={12}>
                   <TentangProgram nick={course.nickname} desc={course.TPdesc} />
                   <Divider sx={{ marginY: 6 }} />
