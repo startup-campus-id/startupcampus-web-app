@@ -68,7 +68,7 @@ function FormStudiIndependen({ paket, course = null }) {
       formData.append("informationSource", "data.source_info");
 
       axios
-        .post(process.env.BE_BASE_URL + "/users", formData, {
+        .post("https://startup-campus.herokuapp.com/users", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -76,8 +76,7 @@ function FormStudiIndependen({ paket, course = null }) {
         .then((res) => {
           console.log(res);
           setLoading(false);
-          const { data } = res.data;
-          router.replace("/payment/success");
+          router.push("/payment/success");
         })
         .catch((err) => {
           console.log(err);

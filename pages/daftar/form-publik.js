@@ -47,7 +47,6 @@ function Daftar({ paket, course }) {
 
   const setInvoice = async (data) => {
     setLoading(true);
-    console.log(data);
     try {
       const formData = new FormData();
       formData.append("status", "public");
@@ -57,7 +56,7 @@ function Daftar({ paket, course }) {
       formData.append("coursePathId", parseInt(data.track));
       formData.append("informationSource", data.source_info);
       axios
-        .post(process.env.BE_BASE_URL + "/users", formData, {
+        .post(`https://startup-campus.herokuapp.com/users`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -72,8 +71,9 @@ function Daftar({ paket, course }) {
         })
         .catch((err) => {
           console.log(err);
+          setLoading(false);
           setError(true);
-          console.error(e.message);
+          console.error(err.message);
         });
     } catch (e) {
       setLoading(false);
@@ -81,8 +81,6 @@ function Daftar({ paket, course }) {
       console.error(e.message);
     }
   };
-
-  useEffect(() => {}, [loading]);
 
   const onSubmit = (data) => {
     setState((prev) => prev + 1);
