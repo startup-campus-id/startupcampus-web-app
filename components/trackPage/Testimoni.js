@@ -1,32 +1,30 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
-import Image from "next/image";
 import React from "react";
 import AccentText from "../AccentText";
 import HighlightText from "../HighlightText";
-import MyDesc from "../MyDesc";
 import MyTitle from "../MyTitle";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y, EffectFade } from "swiper";
 import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from "swiper/react";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import Link from "next/link";
 import MyButton from "../MyButton";
+import Image from "next/image";
 
-export default function Sme({ sme }) {
+export default function Testimoni({ nickname, data }) {
   const swiper = useSwiper();
+
   return (
-    <Stack id="sme-dan-mentor" pt={6} data-aos="fade-up">
-      <AccentText>Subject Matter Expert dan Mentor</AccentText>
+    <Stack id="testimoni-alumni" data-aos="fade-up">
+      <AccentText>Kurikulum</AccentText>
       <MyTitle gutterBottom>
-        Belajar Langsung dari <HighlightText>Ahlinya</HighlightText>
+        <HighlightText>Kata Meraka</HighlightText> Tentang {nickname} Startup
+        Campus
       </MyTitle>
-      <MyDesc>
-        Terhubung dengan Subject Matter Expert (SME) dan mentor yang
-        berpengalaman dari berbagai perusahaan digital terkemuka.
-      </MyDesc>
       <Grid container my={3} sx={{ position: "relative" }}>
         <Swiper
-          modules={[Navigation, Scrollbar, A11y]}
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          pagination={{ clickable: true }}
           navigation={{
             prevEl: ".swipe-left",
             nextEl: ".swipe-right",
@@ -44,7 +42,7 @@ export default function Sme({ sme }) {
             },
           }}
         >
-          {sme?.map((val, idx) => (
+          {data?.map((val, idx) => (
             <SwiperSlide key={idx}>
               <Grid item xs={12}>
                 <Stack
@@ -54,8 +52,7 @@ export default function Sme({ sme }) {
                 >
                   <Box
                     sx={{
-                      filter:
-                        "drop-shadow(0px 16px 40px rgba(112, 144, 176, 0.2))",
+                      boxShadow: "0px 16px 40px rgba(112, 144, 176, 0.2)",
                       width: { xs: "100%", sm: 300 },
                       height: 300,
                       backgroundImage: `url(${
@@ -70,47 +67,27 @@ export default function Sme({ sme }) {
                     width={{ xs: "100%", sm: 600 }}
                     py={1}
                     justifyContent="space-between"
+                    alignItems={"start"}
                   >
-                    <Stack>
-                      <Typography
-                        fontWeight={700}
-                        color={"sc_blue.main"}
-                        variant={"h6"}
-                      >
-                        {val.name}
-                      </Typography>
-                      <Typography
-                        fontWeight={400}
-                        color={"sc_gray.dark"}
-                        variant={"body2"}
-                      >
-                        {val.position}
-                      </Typography>
-                    </Stack>
-                    <Typography variant={"body1"}>{val.description}</Typography>
+                    <Image
+                      src={"/images/ic_kutip.svg"}
+                      width={60}
+                      height={60}
+                    />
+                    <Typography variant={"body1"}>{val.story}</Typography>
                     <Stack
                       direction="row"
                       alignItems="center"
                       justifyContent={"space-between"}
                       spacing={2}
+                      width={"100%"}
                     >
-                      <Link href={val.link} underline="none">
-                        <Stack
-                          direction={"row"}
-                          alignItems={"center"}
-                          spacing={2}
-                          sx={{ cursor: "pointer", width: "fit-content" }}
-                        >
-                          <Image
-                            src={"/images/linkedn.svg"}
-                            width={28}
-                            height={28}
-                          />
-                          <Typography color={"sc_blue.main"} variant={"body2"}>
-                            Lebih dekat dengan {val.name}
-                          </Typography>
-                        </Stack>
-                      </Link>
+                      <Stack spacing={1}>
+                        <Typography fontWeight={700}>{val.name}</Typography>
+                        <Typography variant="body2" color={"sc_gray.dark"}>
+                          {val.ptn}
+                        </Typography>
+                      </Stack>
 
                       <Stack direction="row">
                         <MyButton

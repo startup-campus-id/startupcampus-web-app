@@ -10,7 +10,7 @@ import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 
 export default function Bimbingan() {
   return (
-    <Stack>
+    <Stack id="bimbingan-karier" data-aos="fade-up">
       <AccentText>Bimbingan Karier</AccentText>
       <MyTitle gutterBottom>
         Dengan Dukungan Startup Campus <HighlightText>Network</HighlightText>

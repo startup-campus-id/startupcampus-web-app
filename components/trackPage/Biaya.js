@@ -6,11 +6,12 @@ import AccentText from "../AccentText";
 import HighlightText from "../HighlightText";
 import MyDesc from "../MyDesc";
 import MyTitle from "../MyTitle";
+import Hubungi from "./Hubungi";
 import MyAccordion from "./MyAccordion";
 
 export default function Biaya() {
   return (
-    <Stack>
+    <Stack id="biaya-pendidikan" data-aos="fade-up">
       <AccentText>Biaya Pendidikan</AccentText>
       <MyTitle gutterBottom>
         Rincian Biaya <HighlightText>Pendidikan</HighlightText>
@@ -30,22 +31,7 @@ export default function Biaya() {
           content={e.content}
         />
       ))}
-      <Stack
-        direction={"row"}
-        justifyContent="center"
-        spacing={1}
-        p={2}
-        mt={3}
-        sx={{
-          background:
-            "linear-gradient(0deg, rgba(0, 86, 210, 0.1), rgba(0, 86, 210, 0.1)), #FFFFFF",
-        }}
-      >
-        <Typography>Punya pertanyaan seputar biaya pendidikan? </Typography>
-        <Typography color={"sc_blue.main"}>
-          <Link href="#">Hubungi sekarang!</Link>
-        </Typography>
-      </Stack>
+      <Hubungi />
     </Stack>
   );
 }

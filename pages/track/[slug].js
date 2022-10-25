@@ -29,6 +29,9 @@ import Tools from "../../components/trackPage/Tools";
 import Bimbingan from "../../components/trackPage/Bimbingan";
 import Biaya from "../../components/trackPage/Biaya";
 import Kelas from "../../components/trackPage/Kelas";
+import Testimoni from "../../components/trackPage/Testimoni";
+import Portofolio from "../../components/trackPage/Portofolio";
+import Faq from "../../components/trackPage/Faq";
 
 export default function Track({ course }) {
   console.log(course);
@@ -114,6 +117,21 @@ export default function Track({ course }) {
                 </Grid>
                 <Grid item xs={12}>
                   <Kelas />
+                  <Divider sx={{ marginY: 6 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Testimoni
+                    data={course.testimoni}
+                    nickname={course.nickname}
+                  />
+                  <Divider sx={{ marginY: 6 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Portofolio nickname={course.nickname} />
+                  <Divider sx={{ marginY: 6 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Faq nickname={course.nickname} />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
               </Grid>

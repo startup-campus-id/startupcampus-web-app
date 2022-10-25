@@ -8,8 +8,9 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
+import Image from "next/image";
 
-export default function MyAccordion({ title, subtitle, content, tag }) {
+export default function MyAccordion({ title, subtitle, content, type }) {
   const [hover, setHover] = useState(false);
   const [expanded, setExpanded] = useState();
 
@@ -52,11 +53,17 @@ export default function MyAccordion({ title, subtitle, content, tag }) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Stack>
+          <Stack
+            direction={type == "icon" ? "row" : "column"}
+            spacing={1}
+            alignItems={type == "icon" ? "center" : "start"}
+          >
+            {type == "icon" && (
+              <Image src={"/images/ic_folder.svg"} width={30} height={30} />
+            )}
             <Typography
               variant="body1"
               fontWeight={600}
-              gutterBottom
               color={
                 (hover || expanded === "panel1") && content
                   ? "sc_blue.main"

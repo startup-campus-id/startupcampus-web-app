@@ -1,19 +1,96 @@
-import { Stack } from "@mui/material";
-import React from "react";
+import { Box, Stack, Typography } from "@mui/material";
+import React, { Fragment } from "react";
 import AccentText from "../AccentText";
 import HighlightText from "../HighlightText";
+import MyDesc from "../MyDesc";
 import MyTitle from "../MyTitle";
 import CardKelas from "./CardKelas";
+import Hubungi from "./Hubungi";
+import MyAccordion from "./MyAccordion";
+
+const syarat = [
+  "Mahasiswa S1 min. semester 5.",
+  " Berasal dari kampus di bawah naungan Kemendikbud Ristekdikti. Berasal dari program studi apapun.",
+  " Tidak mengikuti kegiatan lainnya seperti magang atau kuliah lain yang dapat bentrok dengan jadwal studi independen.",
+  "WAJIB menguasai Bahasa Inggris dasar (terutama kemampuan membaca).",
+  "Surat Rekomendasi, format bisa didapatkan disini.",
+  "Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) , format bisa didapatkan disini.",
+];
+
+const keterangan = [
+  {
+    name: "Surat Rekomendasi",
+    isi: [
+      "Surat rekomendasi harus ditandatangani min. oleh Ketua Program Studi (diperkenankan tanpa cap).",
+      "Diperbolehkan menggunakan tanda tangan digital yang disertai cap.",
+      "Mahasiswa calon peserta perlu melampirkan daftar program yang akan dilamar sebagai informasi kepada perguruan tinggi.",
+    ],
+  },
+  {
+    name: "SPTJM",
+    isi: [
+      "Ditandatangani oleh Rektor/ Warek/ Direktur/ Wakil Direktur Perguruan Tinggi.",
+      "Diperbolehkan menggunakan tanda tangan digital yang disertai cap.",
+    ],
+  },
+];
+
+const content = (
+  <Stack>
+    <Typography>
+      Untuk calon peserta program founder studi independen, terdapat beberapa
+      persyaratan yang harus dipersiapkan, sebagai berikut:
+    </Typography>
+    <Stack component="ol" spacing={1}>
+      {syarat.map((e, i) => (
+        <li key={i}>{e}</li>
+      ))}
+    </Stack>
+    <Typography>Keterangan:</Typography>
+    <Stack spacing={2}>
+      {keterangan.map((e, i) => (
+        <Stack key={i} spacing={1}>
+          <Typography fontWeight={700}>{e.name}</Typography>
+          <Stack component={"ul"}>
+            {e.isi.map((v, j) => (
+              <Box component="li" key={j}>
+                {v}
+              </Box>
+            ))}
+          </Stack>
+        </Stack>
+      ))}
+    </Stack>
+  </Stack>
+);
 
 export default function Kelas() {
   return (
-    <Stack spacing={3}>
+    <Stack id="kelas-terdekat" data-aos="fade-up">
       <AccentText>Kelas Terdekat</AccentText>
       <MyTitle gutterBottom>
         Kelas yang Dapat Kamu <HighlightText>Ikuti</HighlightText>
       </MyTitle>
-      <CardKelas name="Skills Level Up!" />
-      <CardKelas name={"Studi Independen Batch 4"} />
+      <Stack spacing={4}>
+        <CardKelas name="Skills Level Up!" />
+        <CardKelas name={"Studi Independen Batch 4"} />
+      </Stack>
+      <MyDesc my={4}>
+        Bagi kamu calon peserta Program Founder studi independen atau MBKM
+        (Merdeka Belajar Kampus Merdeka), ada beberapa persyaratan yang perlu
+        dipersiapkan, yaitu:
+      </MyDesc>
+      <MyAccordion
+        title={"Persyaratan Peserta Studi Independen Batch 4"}
+        type={"icon"}
+        content={content}
+      />
+      <Hubungi
+        title={
+          "Punya pertanyaan seputar jadwal kelas atau persyaratan studi independen?"
+        }
+        link={"#"}
+      />
     </Stack>
   );
 }
