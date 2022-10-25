@@ -57,7 +57,7 @@ function Daftar({ paket, course }) {
       formData.append("coursePathId", parseInt(data.track));
       formData.append("informationSource", data.source_info);
       axios
-        .post("https://startup-campus.herokuapp.com/users", formData, {
+        .post(process.env.BE_BASE_URL + "/users", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
