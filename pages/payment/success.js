@@ -13,46 +13,38 @@ export default function Success() {
       <Head>
         <title>Success | Startup Campus</title>
       </Head>
-      <Grid container mt={15}>
-        <Grid item xs={12} data-aos="fade-down">
-          <Typography variant="h4" fontWeight={700} textAlign="center">
-            Selamat kamu telah berhasil mendaftar
-            <WordBreak /> di Startup Campus!{" "}
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          display="flex"
-          justifyContent={"center"}
-          position="relative"
-          minHeight={{ md: "50vh", sm: "50vh", xs: "50vh" }}
-          data-aos="fade-up"
-        >
-          <Box
-            position={"absolute"}
-            top={{ md: "-60%", sm: "-50%", xs: "-30%" }}
-          >
+      <Stack
+        mt={4}
+        sx={{ height: "100vh" }}
+        justifyContent="center"
+        data-aos="fade-down"
+      >
+        <Typography variant="h4" fontWeight={700} textAlign="center">
+          Selamat kamu telah berhasil mendaftar
+          <WordBreak /> di Startup Campus!{" "}
+        </Typography>
+
+        <Stack position={"relative"} alignItems="center">
+          <Stack height={300} sx={{ transform: "scale(1.9)" }}>
             <Image
               src={"/images/rocket.svg"}
-              width={863 - 200}
-              height={936 - 200}
+              width={863 - 400}
+              height={936 - 400}
             />
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Stack spacing={1} alignItems="center">
-            <MyDesc textAlign="center">
-              Kamu bisa bergabung dengan komunitas kami untuk mengetahui
-              informasi lebih lengkap
-              <WordBreak /> dengan klik tombol di bawah ini!
-            </MyDesc>
-            <Link href={"https://t.me/grupstartupcampus"}>
-              <MyButton>Gabung dengan Komunitas</MyButton>
-            </Link>
           </Stack>
-        </Grid>
-      </Grid>
+        </Stack>
+
+        <Stack spacing={1} alignItems="center">
+          <MyDesc textAlign="center">
+            Kamu bisa bergabung dengan komunitas kami untuk mengetahui informasi
+            lebih lengkap
+            <WordBreak /> dengan klik tombol di bawah ini!
+          </MyDesc>
+          <Link href={"https://t.me/grupstartupcampus"}>
+            <MyButton>Gabung dengan Komunitas</MyButton>
+          </Link>
+        </Stack>
+      </Stack>
     </Container>
   );
 }
