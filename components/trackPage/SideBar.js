@@ -6,7 +6,6 @@ import MyButton from "../MyButton";
 export default function SideBar() {
   return (
     <Stack
-      className="pinning"
       p={4}
       spacing={3}
       sx={{

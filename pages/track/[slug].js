@@ -101,14 +101,16 @@ export default function Track({ course }) {
               </Container>
             </Grid>
           </Grid>
-
-          <Container ref={app}>
-            <Grid container justifyContent={"center"}>
-              <Grid item xs={10}>
-                <Board />
-              </Grid>
+          <Grid container justifyContent={"center"}>
+            <Grid item xs={9}>
+              <Board />
             </Grid>
+          </Grid>
 
+          <Container
+            ref={app}
+            sx={{ overflow: { xs: "visible", md: "hidden" } }}
+          >
             <Grid container spacing={3}>
               <Grid
                 item
@@ -161,9 +163,8 @@ export default function Track({ course }) {
                   <Portofolio nickname={course.nickname} />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} mb={3}>
                   <Faq nickname={course.nickname} />
-                  <Divider sx={{ marginY: 6 }} />
                 </Grid>
               </Grid>
             </Grid>
