@@ -62,11 +62,9 @@ function Daftar({ paket, course }) {
           },
         })
         .then((res) => {
-          // console.log(res);
           setLoading(false);
           const { data } = res.data;
           const { invoiceUrl } = data.payment;
-          // console.log(paymentId);
           window.location.replace(invoiceUrl);
         })
         .catch((err) => {

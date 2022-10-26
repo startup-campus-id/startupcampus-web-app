@@ -53,8 +53,6 @@ function FormStudiIndependen({ paket, course = null }) {
 
   const onSubmit = (data) => {
     setLoading(true);
-    alert(JSON.stringify(data));
-    console.log(!!data.twibbon.path);
     setState((prev) => prev + 1);
     try {
       const formData = new FormData();
@@ -78,7 +76,6 @@ function FormStudiIndependen({ paket, course = null }) {
           },
         })
         .then((res) => {
-          console.log(res);
           setLoading(false);
           router.push("/payment/success");
         })
