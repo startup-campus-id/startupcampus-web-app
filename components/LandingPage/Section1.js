@@ -81,6 +81,7 @@ function Section1() {
             src={"/images/people.png"}
             width={791}
             height={527}
+            alt="Main-People"
             placeholder="blur"
             blurDataURL="/images/people.png"
             priority

@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import Image from "next/image";
 
-export default function MyAccordion({ title, subtitle, content, type }) {
+export default function MyAccordion({ title, subtitle, content, type, idx }) {
   const [hover, setHover] = useState(false);
   const [expanded, setExpanded] = useState();
 
@@ -50,8 +50,8 @@ export default function MyAccordion({ title, subtitle, content, type }) {
       >
         <AccordionSummary
           expandIcon={<AddIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls={"panel1a-content-" + idx}
+          id={"panel1a-header-" + idx}
         >
           <Stack
             direction={type == "icon" ? "row" : "column"}

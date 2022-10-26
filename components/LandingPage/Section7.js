@@ -95,6 +95,7 @@ function Section7({ testimoni, title7 }) {
                   >
                     <Typography
                       variant="h6"
+                      component="h1"
                       color="sc_blue.main"
                       fontWeight={700}
                     >

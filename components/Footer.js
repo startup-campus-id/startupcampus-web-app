@@ -17,6 +17,7 @@ const Footer = () => {
   const router = useRouter();
   return (
     <Grid
+      component={"footer"}
       container
       sx={{
         backgroundColor: router.pathname.match("/track")
@@ -46,6 +47,7 @@ const Footer = () => {
                   }
                   width={110}
                   height={36}
+                  alt={"SC-Logo-White"}
                 />
               </Box>
               <Typography
@@ -62,6 +64,7 @@ const Footer = () => {
             <Stack spacing={4} my={4}>
               <Typography
                 variant="h6"
+                component={"h1"}
                 fontWeight={700}
                 color={
                   router.pathname.match("/track") ? "sc_gray.dark" : "white"
@@ -110,6 +113,7 @@ const Footer = () => {
             <Stack spacing={4} my={4}>
               <Typography
                 variant="h6"
+                component={"h1"}
                 fontWeight={700}
                 color={
                   router.pathname.match("/track") ? "sc_gray.dark" : "white"
@@ -152,6 +156,7 @@ const Footer = () => {
               <Typography
                 variant="h6"
                 fontWeight={700}
+                component={"h1"}
                 color={
                   router.pathname.match("/track") ? "sc_gray.dark" : "white"
                 }

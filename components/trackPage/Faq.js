@@ -32,6 +32,7 @@ export default function Faq({ nickname }) {
             <Link href={"#"}>Lebih Lanjut Seputar FAQ’s</Link>
           </Typography>
         }
+        idx={"faq"}
       />
     </Stack>
   );

@@ -20,8 +20,16 @@ const Home = ({ logo, testimoni, course, tagline, title7, faq }) => {
   return (
     <>
       <Head>
-        <title>StartupCampus</title>
-        <meta name="description" content="Official Website of StartupCampus" />
+        <title>
+          Startup Campus | Siap Berkarya, Siap #MahirDigital Bersama Startup
+          Campus
+        </title>
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta
+          name="description"
+          content="Raih karier impianmu sebagai founder, UI/UX designer, data scientist, backend engineer, atau AI specialist"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Container>
         <Section1 />

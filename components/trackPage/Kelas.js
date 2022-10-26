@@ -87,6 +87,7 @@ export default function Kelas() {
         title={"Persyaratan Peserta Studi Independen Batch 4"}
         type={"icon"}
         content={content}
+        idx={"syarat-studi"}
       />
       <Hubungi
         title={

@@ -23,7 +23,12 @@ function Section4() {
       <Grid item mt={5} container xs={12} spacing={6}>
         <Grid item xs={12} md={8} data-aos="fade-up">
           <Box overflow={"hidden"} borderRadius={"20px"}>
-            <Image src={"/images/meeting.png"} width={854} height={524} />
+            <Image
+              src={"/images/meeting.png"}
+              width={854}
+              height={524}
+              alt="meeting-online"
+            />
           </Box>
         </Grid>
         <Grid item container xs={12} md={4} spacing={6}>

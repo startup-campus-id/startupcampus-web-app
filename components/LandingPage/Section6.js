@@ -38,7 +38,7 @@ export default function Section6() {
                 }}
               ></Box>
               <Stack py={3} spacing={1}>
-                <Typography variant="h6" fontWeight={600}>
+                <Typography variant="h6" fontWeight={600} component="h1">
                   {item.name}
                 </Typography>
                 <Typography variant="subtitle1" color="sc_gray.dark">

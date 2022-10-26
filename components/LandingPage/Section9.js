@@ -10,11 +10,11 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import HighlightText from "../HighlightText";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import MyButton from "../MyButton";
 import ReactMarkdown from "react-markdown";
 
-function Section9({ faq}) {
+function Section9({ faq }) {
   const [state, setState] = useState(5);
   const qna = faq?.slice(0);
   return (
@@ -42,10 +42,10 @@ function Section9({ faq}) {
             >
               <AccordionSummary
                 expandIcon={<AddIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
+                aria-controls={"panel1a-content-" + idx}
+                id={"panel1a-header-" + idx}
               >
-                <Typography variant="h6" fontWeight={600}>
+                <Typography variant="h6" component="h1" fontWeight={600}>
                   {item?.fields.question}
                 </Typography>
               </AccordionSummary>
@@ -59,15 +59,17 @@ function Section9({ faq}) {
           </Stack>
         </Grid>
       ))}
-      {<Grid item xs={12} display="flex" justifyContent={"center"}>
-        {state < faq.length ? (
-          <MyButton onClick={() => setState((prev) => prev + 5)}>
-            Lihat lebih banyak
-          </MyButton>
-        ) : (
-          <MyButton onClick={() => setState(5)}>Lihat lebih sedikit</MyButton>
-        )}
-      </Grid>}
+      {
+        <Grid item xs={12} display="flex" justifyContent={"center"}>
+          {state < faq.length ? (
+            <MyButton onClick={() => setState((prev) => prev + 5)}>
+              Lihat lebih banyak
+            </MyButton>
+          ) : (
+            <MyButton onClick={() => setState(5)}>Lihat lebih sedikit</MyButton>
+          )}
+        </Grid>
+      }
     </Grid>
   );
 }

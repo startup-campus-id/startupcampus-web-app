@@ -34,13 +34,13 @@ function Section2({ logo }) {
               <Box sx={{ widht: "100px", height: "100px" }}>
                 <Image
                   src={`https:${value.fields.logo.fields.file.url}`}
-                  // value.fields.logo.fields.file.details.image.width
                   width={value.fields.logo.fields.file.details.image.width ?? 2}
                   height={
                     value.fields.logo.fields.file.details.image.height ?? 2
                   }
                   placeholder="blur"
                   blurDataURL={`https:${value.fields.logo.fields.file.url}`}
+                  alt={idx}
                 />
               </Box>
             </Grid>

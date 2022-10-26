@@ -158,11 +158,12 @@ const Header = () => {
                 }}
               >
                 <Box component="div">
-                  <Link href="/">
+                  <Link href="/" aria-label="logo-startup-campus">
                     <Image
                       src={"/images/SC-Logo-Full.png"}
                       width={101}
                       height={33}
+                      alt={"SC-Logo-Full"}
                     />
                   </Link>
                 </Box>

@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <Box component="div" minHeight="100vh">
+      <Box component="main" minHeight="100vh">
         {children}
       </Box>
       <Footer />

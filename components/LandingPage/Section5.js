@@ -24,7 +24,7 @@ function Section5() {
           <Grid item md={6} key={item.title} data-aos="fade-up">
             <Stack spacing={2} justifyContent="center">
               <Box>
-                <Image src={item.img} width={50} height={50} />
+                <Image src={item.img} width={50} height={50} alt={idx} />
               </Box>
               <Typography variant="h5" fontWeight={700} color="sc_black.main">
                 {item.title}
@@ -38,7 +38,12 @@ function Section5() {
       </Grid>
       <Grid item md={5} data-aos="fade-left">
         <Box borderRadius={"20px"} overflow="hidden">
-          <Image src={"/images/pexels.png"} width={598} height={898} />
+          <Image
+            src={"/images/pexels.png"}
+            width={598}
+            height={898}
+            alt="people-play-computer"
+          />
         </Box>
       </Grid>
     </Grid>

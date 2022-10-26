@@ -35,7 +35,6 @@ const Dropdown = ({ children, list }) => {
       onMouseLeave={handleClose}
     >
       <Button
-        id="basic-button"
         disableRipple
         sx={{
           textTransform: "capitalize",
