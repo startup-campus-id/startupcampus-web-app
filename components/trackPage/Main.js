@@ -21,12 +21,14 @@ export default function Main({ name, desc }) {
         {desc}
       </Typography>
       <Stack direction="row" spacing={2}>
-        <Link href="/daftar" underline="none">
+        <Link href="/daftar/form-publik" underline="none">
           <MyButton>Daftar Sekarang</MyButton>
         </Link>
-        <MyButton variant="outlined" color="sc_white">
-          Lihat Detail
-        </MyButton>
+        <Link href="#about-program" underline="none">
+          <MyButton variant="outlined" color="sc_white">
+            Lihat Detail
+          </MyButton>
+        </Link>
       </Stack>
     </Stack>
   );
