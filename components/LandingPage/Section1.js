@@ -1,11 +1,7 @@
-import { TagOutlined } from "@mui/icons-material";
 import { Box, Grid, Stack, Typography } from "@mui/material";
-import { createClient } from "contentful";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { tagline } from "../../content/tagline";
-import { TaglineContext } from "../../pages/_app";
-import HighlightText from "../HighlightText";
 import MyButton from "../MyButton";
 
 function Section1() {
