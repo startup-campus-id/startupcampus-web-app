@@ -56,7 +56,9 @@ function FormStudiIndependen({ paket, course = null }) {
     setState((prev) => prev + 1);
     try {
       const formData = new FormData();
-      formData.append("twibbon", data.twibbon);
+      if (data.twibbon) {
+        formData.append("twibbon", data.twibbon);
+      }
       formData.append("status", "kampusmerdeka");
       formData.append("email", data.email);
       formData.append("fullname", data.name);
