@@ -39,11 +39,11 @@ const sideMenu = [
   },
   {
     name: "Blog",
-    url: "/Blog",
+    url: "/#",
   },
   {
     name: "Tentang Kami",
-    url: "/tentang-kami",
+    url: "/#",
   },
 ];
 
@@ -109,29 +109,29 @@ const Header = () => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
+      <Stack px={4} mt={4} spacing={2}>
+        <Typography fontWeight={700}>Menu</Typography>
+        <Divider />
         {sideMenu.map((text, index) => (
           <Link href={text.url} key={index} underline="none">
-            <Typography color="sc_black.main">
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text.name} />
-                </ListItemButton>
-              </ListItem>
+            <Typography
+              sx={{
+                "&:hover": {
+                  color: "sc_blue.main",
+                },
+                color: "sc_gray.dark",
+              }}
+            >
+              {text.name}
             </Typography>
           </Link>
         ))}
-        <Divider />
-      </List>
-      <Stack alignItems={"center"}>
-        {router.pathname != "/daftar" && (
-          <Link href={"/daftar/form-publik"} underline="none">
-            <MyButton>Daftar sekarang</MyButton>
-          </Link>
-        )}
+        <Stack />
+      </Stack>
+      <Stack px={4}>
+        <Link href={"/daftar/form-publik"} underline="none">
+          <MyButton>Daftar sekarang</MyButton>
+        </Link>
       </Stack>
     </Box>
   );
