@@ -53,10 +53,12 @@ function FormStudiIndependen({ paket, course = null }) {
 
   const onSubmit = (data) => {
     setLoading(true);
+    alert(JSON.stringify(data));
+    console.log(!!data.twibbon.path);
     setState((prev) => prev + 1);
     try {
       const formData = new FormData();
-      if (data.twibbon) {
+      if (data.twibbon.path) {
         formData.append("twibbon", data.twibbon);
       }
       formData.append("status", "kampusmerdeka");

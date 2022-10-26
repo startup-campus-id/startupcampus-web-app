@@ -40,10 +40,6 @@ const Home = ({ logo, testimoni, course, tagline, title7, faq }) => {
 };
 
 export const getStaticProps = async () => {
-  console.log({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  })
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
