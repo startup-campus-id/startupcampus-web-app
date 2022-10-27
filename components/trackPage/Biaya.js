@@ -29,6 +29,7 @@ export default function Biaya() {
           title={e.title}
           subtitle={e.subtitle}
           content={e.content}
+          idx={i}
         />
       ))}
       <Hubungi />

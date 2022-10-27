@@ -16,7 +16,7 @@ export default function Testimoni({ nickname, data }) {
 
   return (
     <Stack id="testimoni-alumni" data-aos="fade-up">
-      <AccentText>Kurikulum</AccentText>
+      <AccentText>Testimoni Alumni</AccentText>
       <MyTitle gutterBottom>
         <HighlightText>Kata Meraka</HighlightText> Tentang {nickname} Startup
         Campus

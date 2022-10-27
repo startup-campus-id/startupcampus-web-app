@@ -3,9 +3,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import MyButton from "../../components/MyButton";
-import MyDesc from "../../components/MyDesc";
-import WordBreak from "../../components/WordBreak";
+import MyButton from "../components/MyButton";
+import MyDesc from "../components/MyDesc";
+import WordBreak from "../components/WordBreak";
 
 export default function Success() {
   return (

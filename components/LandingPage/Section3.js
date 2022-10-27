@@ -124,7 +124,7 @@ function Section3({ course }) {
                   level={item.level}
                   tanggal={item.startDate}
                   online={item.isOnline}
-                  link={linkCourse[idx]}
+                  link={"/track/" + linkCourse[idx]}
                 />
               </SwiperSlide>
             );
