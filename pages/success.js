@@ -1,18 +1,37 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import axios from "axios";
-import { redirect } from "next/dist/server/api-utils";
+import gsap from "gsap/dist/gsap";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
+import { useEffect } from "react";
 import MyButton from "../components/MyButton";
 import MyDesc from "../components/MyDesc";
 import WordBreak from "../components/WordBreak";
 import { BASE_URL } from "../sc.config";
 
 export default function Success() {
+  const app = useRef();
+  useEffect(() => {
+    var tl = gsap.timeline({ repeat: -1, yoyo: true });
+    const ctx = gsap.context(() => {
+      tl.to(".img", { x: 10, y: -10, duration: 1 });
+      gsap.from(".title", {
+        y: -100,
+        transition: "ease",
+      });
+
+      gsap.from(".desc", {
+        y: 100,
+        transition: "ease",
+      });
+    }, app);
+
+    return () => ctx.revert();
+  }, []);
   return (
-    <Container>
+    <Container ref={app}>
       <Head>
         <title>Success | Startup Campus</title>
       </Head>
@@ -22,12 +41,17 @@ export default function Success() {
         justifyContent="center"
         data-aos="fade-down"
       >
-        <Typography variant="h4" fontWeight={700} textAlign="center">
+        <Typography
+          variant="h4"
+          fontWeight={700}
+          textAlign="center"
+          className="title"
+        >
           Selamat kamu telah berhasil mendaftar
           <WordBreak /> di Startup Campus!{" "}
         </Typography>
 
-        <Stack position={"relative"} alignItems="center">
+        <Stack position={"relative"} alignItems="center" className="img">
           <Stack height={300} sx={{ transform: "scale(1.9)" }}>
             <Image
               src={"/images/rocket.svg"}
@@ -37,7 +61,7 @@ export default function Success() {
           </Stack>
         </Stack>
 
-        <Stack spacing={1} alignItems="center">
+        <Stack spacing={1} alignItems="center" className="desc">
           <MyDesc textAlign="center">
             Kamu bisa bergabung dengan komunitas kami untuk mengetahui informasi
             lebih lengkap
