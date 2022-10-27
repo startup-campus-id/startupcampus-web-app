@@ -38,6 +38,7 @@ import MyCheckBox from "../../components/RegistPage/MyCheckBox";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
+import { BASE_URL } from "../../sc.config";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
