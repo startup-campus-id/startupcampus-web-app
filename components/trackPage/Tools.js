@@ -4,7 +4,6 @@ import HighlightText from "../HighlightText";
 import MyTitle from "../MyTitle";
 
 export default function Tools({ data }) {
-  console.log(data);
   return (
     <Stack spacing={2}>
       <MyTitle gutterBottom>

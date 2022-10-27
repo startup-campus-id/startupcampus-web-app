@@ -77,7 +77,6 @@ function FormStudiIndependen({ paket, course = null }) {
         })
         .then((res) => {
           setLoading(false);
-          router.push("/success");
         })
         .catch((err) => {
           console.log(err);
