@@ -70,7 +70,7 @@ function FormStudiIndependen({ paket, course = null }) {
       formData.append("informationSource", "data.source_info");
 
       axios
-        .post("https://startup-campus.herokuapp.com/users", formData, {
+        .post(`${BASE_URL}/users`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

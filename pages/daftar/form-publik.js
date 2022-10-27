@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
-import { Label } from "@mui/icons-material";
 import {
   Box,
   CircularProgress,
@@ -15,22 +14,17 @@ import {
 } from "@mui/material";
 import MultiStep from "../../components/MultiStep";
 import MyButton from "../../components/MyButton";
-import WordBreak from "../../components/WordBreak";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { createClient } from "contentful";
-import { useForm } from "react-hook-form";
-import { kelas } from "../../content/kelas";
 import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
 import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import Image from "next/image";
-import { TaglineContext } from "../_app";
 import MyTitle from "../../components/MyTitle";
 import MyDesc from "../../components/MyDesc";
 import ChooseProgramForm from "../../components/RegistPage/ChooseProgramForm";
 import { useMyForm } from "../../context/FormContext";
 import IndentityForm from "../../components/RegistPage/IndentityForm";
-import PaymentForm from "../../components/RegistPage/PaymentForm";
 import axios from "axios";
+import { BASE_URL } from "../../sc.config";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
@@ -56,7 +50,7 @@ function Daftar({ paket, course }) {
       formData.append("coursePathId", parseInt(data.track));
       formData.append("informationSource", data.source_info);
       axios
-        .post(`https://startup-campus.herokuapp.com/users`, formData, {
+        .post(`${BASE_URL}/users`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -230,7 +224,7 @@ export async function getStaticProps() {
     content_type: "section1",
   });
 
-  const response = await axios.get(process.env.BE_BASE_URL + "/coursepath");
+  const response = await axios.get(BASE_URL + "/coursepath");
   // console.log(response.data);
 
   return {
