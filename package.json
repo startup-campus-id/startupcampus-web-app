@@ -25,6 +25,8 @@
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.36.1",
     "react-markdown": "^8.0.3",
+    "sweetalert2": "^11.6.3",
+    "sweetalert2-react-content": "^5.0.5",
     "swiper": "^8.4.2",
     "typed.js": "^2.0.12",
     "xendit-node": "^1.21.6"

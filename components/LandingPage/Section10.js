@@ -4,8 +4,27 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { BASE_URL } from "../../sc.config";
 import WordBreak from "../WordBreak";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 function Section10() {
+  const showSwalWithLink = () => {
+    MySwal.fire({
+      html: (
+        <Typography>
+          Terima kasih telah bergabung dengan newsletter kami
+        </Typography>
+      ),
+      icon: "success",
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
   const {
     register,
     handleSubmit,
@@ -25,7 +44,8 @@ function Section10() {
           },
         }
       );
-      alert("Email berhasil di simpan");
+      showSwalWithLink();
+      // alert("Email berhasil di simpan");
     } catch (e) {
       console.log(e);
     }
