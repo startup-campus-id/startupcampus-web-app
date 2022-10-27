@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
-import { Label } from "@mui/icons-material";
 import {
   Box,
   CircularProgress,
@@ -15,19 +14,11 @@ import {
 } from "@mui/material";
 import MultiStep from "../../components/MultiStep";
 import MyButton from "../../components/MyButton";
-import WordBreak from "../../components/WordBreak";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { createClient } from "contentful";
-import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
-import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import Image from "next/image";
-import { TaglineContext } from "../_app";
 import MyTitle from "../../components/MyTitle";
 import MyDesc from "../../components/MyDesc";
-import ChooseProgramForm from "../../components/RegistPage/ChooseProgramForm";
 import { useMyForm } from "../../context/FormContext";
-import IndentityForm from "../../components/RegistPage/IndentityForm";
-import PaymentForm from "../../components/RegistPage/PaymentForm";
 import axios from "axios";
 import { useRouter } from "next/router";
 import MyInput from "../../components/RegistPage/MyInput";
@@ -78,6 +69,7 @@ function FormStudiIndependen({ paket, course = null }) {
         })
         .then((res) => {
           setLoading(false);
+          router.push(`/success?token=${res.data.data.token}`);
         })
         .catch((err) => {
           console.log(err);
