@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { Box, Container, Typography } from "@mui/material";
 import Head from "next/head";
 import {
@@ -13,10 +12,11 @@ import {
   Section9,
   Section10,
 } from "../components";
-import BubbleChat from "../components/BubbleChat";
 import { createClient } from "contentful";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase/clientApp";
 
-const Home = ({ logo, testimoni, course, tagline, title7, faq }) => {
+const Home = ({ logo, testimoni, course, title7, faq }) => {
   return (
     <>
       <Head>
@@ -72,6 +72,18 @@ export const getStaticProps = async () => {
     content_type: "faq",
     order: "sys.createdAt",
   });
+
+  // const data = [];
+  // try {
+  //   const colRef = collection(db, "course");
+  //   const querySnapshot = await getDocs(colRef);
+  //   querySnapshot.forEach((doc) => {
+  //     data.push({ id: doc.id, ...doc.data() });
+  //   });
+  //   console.log(data);
+  // } catch (e) {
+  //   console.log(e.message);
+  // }
 
   return {
     props: {

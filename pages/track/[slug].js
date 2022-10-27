@@ -32,6 +32,7 @@ import gsap from "gsap/dist/gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 export default function Track({ course }) {
+  console.log(course);
   const app = useRef();
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -192,15 +193,18 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const data = [];
-  const colRef = collection(db, "course");
-  const q = query(colRef, where("slug", "==", params.slug));
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    data.push({ id: doc.id, ...doc.data() });
-  });
-
+  try {
+    const colRef = collection(db, "course");
+    const q = query(colRef, where("slug", "==", params.slug));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      data.push({ id: doc.id, ...doc.data() });
+    });
+  } catch (e) {
+    console.log(e.message);
+  }
   return {
-    props: { course: data[0] },
+    props: { course: data[0] ?? null },
     revalidate: 1,
   };
 }

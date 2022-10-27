@@ -5,13 +5,17 @@ import { Box, Stack, Typography, Link } from "@mui/material";
 // import Link from "next/link";
 // import Founder from './'
 
-const NavItem = ({ children }) => (
+const NavItem = ({ children, notHover }) => (
   <Typography
     variant="body2"
     fontWeight={500}
-    onMouseEnter={(e) => (e.currentTarget.style.color = "#0056D2")}
-    onMouseLeave={(e) => (e.currentTarget.style.color = "unset")}
-    sx={{ cursor: "pointer" }}
+    onMouseEnter={(e) =>
+      notHover ? null : (e.currentTarget.style.color = "#0056D2")
+    }
+    onMouseLeave={(e) =>
+      notHover ? null : (e.currentTarget.style.color = "unset")
+    }
+    sx={{ cursor: notHover ? null : "pointer" }}
   >
     {children}
   </Typography>
@@ -89,18 +93,26 @@ const Dropdown = ({ children, list }) => {
           },
         }}
       >
-        <Typography variant="body1" color="#BDBDBD" fontWeight={700}>
+        {/* <Typography variant="body1" color="#BDBDBD" fontWeight={700}>
           Program Intensif
-        </Typography>
+        </Typography> */}
         {list?.map((item, idx) => (
           <Stack spacing={2} key={idx}>
             <Link
-              href={item.link}
+              href={
+                item.link.match("/track/backend-engineer") ? null : item.link
+              }
               key={idx}
               underline="none"
-              style={{ color: "unset" }}
+              style={{
+                color: item.link.match("/track/backend-engineer")
+                  ? "#69686B"
+                  : "unset",
+              }}
             >
-              <NavItem>{item.name}</NavItem>
+              <NavItem notHover={!!item.link.match("/track/backend-engineer")}>
+                {item.name}
+              </NavItem>
             </Link>
           </Stack>
         ))}

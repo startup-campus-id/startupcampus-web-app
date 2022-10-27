@@ -194,12 +194,12 @@ const Header = () => {
                       },
                       { name: "Data Science", link: "/track/data-science" },
                       {
-                        name: "Backend Engineer",
-                        link: "/track/backend-engineer",
-                      },
-                      {
                         name: "Artificial Intelligence",
                         link: "/track/artificial-intelligence",
+                      },
+                      {
+                        name: "Backend Engineer",
+                        link: "/track/backend-engineer",
                       },
                     ]}
                   >

@@ -1,9 +1,11 @@
 import { Grid, Stack } from "@mui/material";
+import { useRouter } from "next/router";
 import React from "react";
 import HighlightText from "../HighlightText";
 import MyTitle from "../MyTitle";
 
 export default function Tools({ data }) {
+  const router = useRouter();
   return (
     <Stack spacing={2}>
       <MyTitle gutterBottom>
@@ -18,11 +20,17 @@ export default function Tools({ data }) {
             sm={3}
             display="flex"
             alignItems={"center"}
+            mt={3}
             sx={{
               backgroundImage: `url(${e.url})`,
               minHeight: "70px",
               backgroundSize: "contain",
-              backgroundPosition: { sm: "center left", xs: "center" },
+              backgroundPosition: {
+                sm: router.asPath.match("artificial")
+                  ? "center"
+                  : "center left",
+                xs: "center",
+              },
               backgroundRepeat: "no-repeat",
             }}
           />
