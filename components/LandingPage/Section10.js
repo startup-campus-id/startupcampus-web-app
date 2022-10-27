@@ -1,10 +1,34 @@
 import { Box, FormControl, Grid, Input, Typography } from "@mui/material";
+import axios from "axios";
 import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { BASE_URL } from "../../sc.config";
 import WordBreak from "../WordBreak";
 
 function Section10() {
-  const handleSubscribe = (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const handleSubscribe = async (data) => {
+    console.log(data);
+    try {
+      await axios.post(
+        `${BASE_URL}/newsletter`,
+        JSON.stringify({ email: data.email }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      alert("Email berhasil di simpan");
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <Grid container sx={{ backgroundColor: "sc_blue.main" }} mt={6}>
@@ -40,13 +64,14 @@ function Section10() {
           component="form"
           noValidate
           autoComplete="off"
-          onSubmit={handleSubscribe}
+          onSubmit={handleSubmit(handleSubscribe)}
           sx={{
             display: "flex",
             width: "60vw",
           }}
         >
           <Input
+            {...register("email", { required: true })}
             type="email"
             placeholder="Masukkan email kamu disini"
             name="email"
@@ -66,6 +91,7 @@ function Section10() {
             }}
           />
           <Input
+            disabled={watch("email") ? false : true}
             type="submit"
             value="Kirim"
             sx={{
