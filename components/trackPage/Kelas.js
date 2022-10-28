@@ -78,7 +78,7 @@ export default function Kelas() {
           link={"/daftar/form-studi-independen"}
         />
       </Stack>
-      <MyDesc my={4}>PENTING!</MyDesc>
+      <MyTitle mt={6}>PENTING!</MyTitle>
       <MyAccordion
         title={"Persyaratan Peserta Studi Independen Batch 4"}
         type={"icon"}
