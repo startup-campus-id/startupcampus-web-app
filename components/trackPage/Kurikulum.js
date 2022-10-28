@@ -11,7 +11,7 @@ export default function Kurikulum({ kurikulum, nickname = "NULL" }) {
     <Stack id="kurikulum" data-aos="fade-up">
       <AccentText>Kurikulum</AccentText>
       <MyTitle gutterBottom>
-        4 Langkah Untuk Menjadi <HighlightText>{nickname}</HighlightText>
+        4 Tahap Untuk Menjadi <HighlightText>{nickname}</HighlightText>
       </MyTitle>
       <MyDesc>
         Program {nickname} dirancang untuk membuatmu belajar secara bertahap dan

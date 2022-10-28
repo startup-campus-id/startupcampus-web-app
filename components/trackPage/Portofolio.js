@@ -14,10 +14,10 @@ export default function Portofolio({ nickname }) {
         Karya-karya <HighlightText>Alumni</HighlightText> Program {nickname}
       </MyTitle>
       <MyDesc>
-        Hasil dari proyek riil alumni selama mengikuti Program Founder di
-        Startup Campus .
+        Hasil project riil alumni selama mengikuti Bootcamp UI/UX Design di
+        Startup Campus (Coming Soon)
       </MyDesc>
-      <Grid container spacing={2} mt={2}>
+      {/* <Grid container spacing={2} mt={2}>
         <CardPorto />
         <CardPorto
           img={"/images/DigiHunter.png"}
@@ -29,7 +29,7 @@ export default function Portofolio({ nickname }) {
           team={"Magalodon"}
           name={"Frans R., Lisya J., Nadia E., & Agus H."}
         />
-      </Grid>
+      </Grid> */}
     </Stack>
   );
 }

@@ -11,8 +11,10 @@ import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import Link from "next/link";
 import MyButton from "../MyButton";
+import { useRouter } from "next/router";
 
 export default function Sme({ sme }) {
+  const router = useRouter();
   const swiper = useSwiper();
   return (
     <Stack id="sme-dan-mentor" pt={6} data-aos="fade-up">
@@ -21,8 +23,9 @@ export default function Sme({ sme }) {
         Belajar Langsung dari <HighlightText>Ahlinya</HighlightText>
       </MyTitle>
       <MyDesc>
-        Terhubung dengan Subject Matter Expert (SME) dan mentor yang
-        berpengalaman dari berbagai perusahaan digital terkemuka.
+        {router.asPath.match("founder")
+          ? "Belajar langsung dari para pakar dan mentor yang terjun langsung dalam mengelola startup."
+          : "Belajar langsung dengan pakar dan mentor yang berpengalaman dari berbagai perusahaan terkemuka."}
       </MyDesc>
       <Grid container my={3} sx={{ position: "relative" }}>
         <Swiper

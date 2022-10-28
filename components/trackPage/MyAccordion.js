@@ -9,6 +9,7 @@ import {
 import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import Image from "next/image";
+import { SignalWifiStatusbarNull } from "@mui/icons-material";
 
 export default function MyAccordion({ title, subtitle, content, type, idx }) {
   const [hover, setHover] = useState(false);
@@ -70,7 +71,7 @@ export default function MyAccordion({ title, subtitle, content, type, idx }) {
                   : ""
               }
             >
-              {title}
+              {title ?? null}
             </Typography>
             <Typography
               variant="body2"
@@ -78,7 +79,7 @@ export default function MyAccordion({ title, subtitle, content, type, idx }) {
               gutterBottom
               color={"sc_gray.dark"}
             >
-              {subtitle}
+              {subtitle ?? null}
             </Typography>
           </Stack>
         </AccordionSummary>

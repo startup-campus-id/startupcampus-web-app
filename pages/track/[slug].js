@@ -164,9 +164,9 @@ export default function Track({ course }) {
                   <Portofolio nickname={course.nickname} />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
-                <Grid item xs={12} mb={3}>
+                {/* <Grid item xs={12} mb={3}>
                   <Faq nickname={course.nickname} />
-                </Grid>
+                </Grid> */}
               </Grid>
             </Grid>
           </Container>

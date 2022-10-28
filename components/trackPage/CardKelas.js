@@ -4,6 +4,15 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import MyButton from "../MyButton";
 import Link from "next/link";
 
+const benefit = [
+  "Sesi interaktif",
+  "Mentoring intensif",
+  "Proyek riil",
+  "Persiapan kerja",
+  "Komunitas alumni",
+  "Modul, e-book, video belajar, dan referensi belajar lainnya.",
+];
+
 export default function CardKelas({ name, link }) {
   return (
     <Grid
@@ -40,60 +49,23 @@ export default function CardKelas({ name, link }) {
         </Stack>
       </Grid>
       <Grid item xs={4} md={4}>
-        <Stack direction="row" spacing={4}>
+        <Stack direction="row" spacing={2}>
           <Divider orientation="vertical" flexItem />
           <Stack spacing={1}>
-            <Stack direction="row" spacing={1}>
-              <CheckCircleIcon color="sc_blue" fontSize="small" />
-              <Typography
-                mb={1}
-                variant="body2"
-                color="#2B2C27"
-                fontWeight={400}
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                Mentoring Intensif
-              </Typography>
-            </Stack>
-
-            <Stack direction="row" spacing={1}>
-              <CheckCircleIcon color="sc_blue" fontSize="small" />
-              <Typography
-                mb={1}
-                variant="body2"
-                color="#2B2C27"
-                fontWeight={400}
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                Mini Project
-              </Typography>
-            </Stack>
-
-            <Stack direction="row" spacing={1}>
-              <CheckCircleIcon color="sc_blue" fontSize="small" />
-              <Typography
-                mb={1}
-                variant="body2"
-                color="#2B2C27"
-                fontWeight={400}
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                Career Preparation
-              </Typography>
-            </Stack>
-
-            <Stack direction="row" spacing={1}>
-              <CheckCircleIcon color="sc_blue" fontSize="small" />
-              <Typography
-                mb={1}
-                variant="body2"
-                color="#2B2C27"
-                fontWeight={400}
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                Fun Day
-              </Typography>
-            </Stack>
+            {benefit.map((v, i) => (
+              <Stack direction="row" spacing={1} key={i}>
+                <CheckCircleIcon color="sc_blue" fontSize="small" />
+                <Typography
+                  mb={1}
+                  variant="body2"
+                  color="#2B2C27"
+                  fontWeight={400}
+                  sx={{ display: "flex", alignItems: "center" }}
+                >
+                  {v}
+                </Typography>
+              </Stack>
+            ))}
           </Stack>
         </Stack>
       </Grid>

@@ -30,7 +30,7 @@ function Board() {
         <Stack direction="row" spacing={1}>
           <VideoLibraryIcon color={"sc_blue"} fontSize="small" />
           <Typography variant="body2" color={"sc_gray.dark"}>
-            Skills Level Up!
+            Bootcamp for Public
           </Typography>
         </Stack>
         <Stack direction="row" spacing={1}>

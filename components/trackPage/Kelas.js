@@ -72,17 +72,13 @@ export default function Kelas() {
         Kelas yang Dapat Kamu <HighlightText>Ikuti</HighlightText>
       </MyTitle>
       <Stack spacing={4}>
-        <CardKelas name="Skills Level Up!" link={"/daftar/form-publik"} />
+        <CardKelas name="Bootcamp For Public " link={"/daftar/form-publik"} />
         <CardKelas
           name={"Studi Independen Batch 4"}
           link={"/daftar/form-studi-independen"}
         />
       </Stack>
-      <MyDesc my={4}>
-        Bagi kamu calon peserta Program Founder studi independen atau MBKM
-        (Merdeka Belajar Kampus Merdeka), ada beberapa persyaratan yang perlu
-        dipersiapkan, yaitu:
-      </MyDesc>
+      <MyDesc my={4}>PENTING!</MyDesc>
       <MyAccordion
         title={"Persyaratan Peserta Studi Independen Batch 4"}
         type={"icon"}

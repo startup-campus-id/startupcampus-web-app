@@ -9,7 +9,8 @@ export default function Tools({ data }) {
   return (
     <Stack spacing={2}>
       <MyTitle gutterBottom>
-        Tools yang Akan Kamu <HighlightText>Gunakan</HighlightText>
+        Platform Pembelajaran Yang Akan Kamu{" "}
+        <HighlightText>Gunakan</HighlightText>
       </MyTitle>
       <Grid container spacing={2} mt={6}>
         {data.map((e, i) => (

@@ -31,8 +31,8 @@ export const listMenu = [
     name: "Portofolio Alumni",
     link: "portofolio-alumni",
   },
-  {
-    name: "FAQs",
-    link: "faq",
-  },
+  // {
+  //   name: "FAQs",
+  //   link: "faq",
+  // },
 ];
