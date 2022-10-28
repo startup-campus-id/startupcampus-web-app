@@ -91,15 +91,12 @@ function Section3({ course }) {
       <Grid item xs={12} data-aos="fade-up">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
+          className="course-swiper"
           pagination={{ clickable: true }}
           navigation={{
             prevEl: ".swipe-left",
             nextEl: ".swipe-right",
           }}
-          spaceBetween={100}
-          slidesPerView={1}
-          centeredSlides
-          centeredSlidesBounds
           breakpoints={{
             690: {
               slidesPerView: 2,

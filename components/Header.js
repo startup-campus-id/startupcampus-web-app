@@ -208,7 +208,7 @@ const Header = () => {
                   <Link href={"#testimoni"} underline="none">
                     <NavItem>Testimoni</NavItem>
                   </Link>
-                  <Link href={"#blog"} underline="none">
+                  {/* <Link href={"#blog"} underline="none">
                     <NavItem>Blog</NavItem>
                   </Link>
                   <Dropdown
@@ -233,7 +233,7 @@ const Header = () => {
                     ]}
                   >
                     <NavItem isDropDown={true}>Tentang Kami</NavItem>
-                  </Dropdown>
+                  </Dropdown> */}
                 </Stack>
 
                 <Stack

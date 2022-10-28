@@ -18,7 +18,7 @@ export default function Testimoni({ nickname, data }) {
     <Stack id="testimoni-alumni" data-aos="fade-up">
       <AccentText>Testimoni Alumni</AccentText>
       <MyTitle gutterBottom>
-        <HighlightText>Kata Meraka</HighlightText> Tentang {nickname} Startup
+        <HighlightText>Kata Mereka</HighlightText> Tentang {nickname} Startup
         Campus
       </MyTitle>
       <Grid container my={3} sx={{ position: "relative" }}>

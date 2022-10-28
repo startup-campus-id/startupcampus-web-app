@@ -49,7 +49,7 @@ function Section7({ testimoni, title7 }) {
           <ArrowForwardIosRoundedIcon />
         </MyButton>
       </Grid>
-      <Grid item xs={12} data-aos="fade-up">
+      <Grid item xs={12} data-aos="fade-up" p={4}>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           pagination={{ clickable: true }}
@@ -57,12 +57,11 @@ function Section7({ testimoni, title7 }) {
             prevEl: ".swipe-left",
             nextEl: ".swipe-right",
           }}
+          className="testimoni-swiper"
           spaceBetween={100}
           slidesPerView={1}
           centeredSlides
           centeredSlidesBounds
-          // onSlideChange={() => console.log("slide change")}
-          // onSwiper={(swiper) => console.log(swiper)}
           breakpoints={{
             690: {
               slidesPerView: 2,
@@ -81,10 +80,10 @@ function Section7({ testimoni, title7 }) {
             .map((item, id) => {
               const img = item.fields?.fotoTestimoni?.fields.file.url;
               return (
-                <SwiperSlide key={id}>
+                <SwiperSlide key={id} className="testimoni-slide">
                   <Stack
-                    my={4}
                     mx={1}
+                    my={3}
                     spacing={3}
                     p={4}
                     sx={{
@@ -101,9 +100,11 @@ function Section7({ testimoni, title7 }) {
                     >
                       {item.fields.title}
                     </Typography>
+
                     <Typography variant="body1" color="sc_gray.dark">
                       {item.fields.description}
                     </Typography>
+
                     <Stack direction="row" spacing={2} alignItems="center">
                       <Avatar
                         alt={item.fields.namaTestimoni}

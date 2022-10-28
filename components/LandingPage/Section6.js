@@ -51,7 +51,7 @@ export default function Section6() {
             </Box>
           </Grid>
         ))}
-        <Grid
+        {/* <Grid
           item
           sx={{ display: "flex", justifyContent: "center" }}
           xs={12}
@@ -60,7 +60,7 @@ export default function Section6() {
           <MyButton>
             <Typography fontWeight={700}>Baca Cerita Lainnya</Typography>
           </MyButton>
-        </Grid>
+        </Grid> */}
       </Grid>
     </Grid>
   );

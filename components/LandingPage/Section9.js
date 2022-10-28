@@ -18,7 +18,7 @@ function Section9({ faq }) {
   const [state, setState] = useState(5);
   const qna = faq?.slice(0);
   return (
-    <Grid container spacing={3} my={6} py={6}>
+    <Grid container spacing={3} my={6} py={6} id="faq">
       <Grid item xs={12} data-aos="fade-down">
         <Typography variant="h4" textAlign="center" fontWeight={700}>
           <HighlightText width="-2%">Frequently</HighlightText> Asked Question’s
