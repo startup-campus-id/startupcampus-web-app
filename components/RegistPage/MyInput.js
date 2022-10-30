@@ -42,8 +42,8 @@ const MyInput = ({
               type == "email"
                 ? /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
                 : type == "number"
-                ? /[0-9]/
-                : null,
+                  ? /^[0-9\b]+$/
+                  : null,
             message:
               type == "email"
                 ? "Email tidak valid"
