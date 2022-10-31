@@ -121,7 +121,7 @@ const Header = () => {
         <Stack />
       </Stack>
       <Stack px={4}>
-        <Link href={"/daftar/bootcamp-pubcli"} underline="none">
+        <Link href={"/daftar/bootcamp-public"} underline="none">
           <MyButton>Daftar sekarang</MyButton>
         </Link>
       </Stack>
