@@ -105,6 +105,7 @@ function FormStudiIndependen({ paket, course = null }) {
       <a
         href="https://drive.google.com/drive/folders/142TyE0rOvdzGywEbwrTDPxHT0pzSMBoC"
         target={"_blank"}
+        rel="noreferrer"
         style={{ color: "blue", textDecoration: "underline" }}
       >
         disini.
