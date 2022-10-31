@@ -72,10 +72,14 @@ export default function Kelas() {
         Kelas yang Dapat Kamu <HighlightText>Ikuti</HighlightText>
       </MyTitle>
       <Stack spacing={4}>
-        <CardKelas name="Bootcamp For Public " link={"/daftar/form-publik"} />
         <CardKelas
-          name={"Studi Independen Batch 4"}
-          link={"/daftar/form-studi-independen"}
+          name="Bootcamp For Public "
+          link={"/daftar/bootcamp-public"}
+        />
+        <CardKelas
+          name={"Studi Independen Kampus Merdeka"}
+          link={"/daftar/studi-independen"}
+          id="studi-independen"
         />
       </Stack>
       <MyTitle mt={6}>PENTING!</MyTitle>

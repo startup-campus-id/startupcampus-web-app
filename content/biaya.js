@@ -3,19 +3,14 @@ import Link from "next/link";
 
 export const biaya = [
   {
-    title: "100 %Pembayaran Dimuka",
+    title: "100% Pembayaran di Muka",
     subtitle: (
       <span>
-        Pembayaran <i>bootcamp</i> secara penuh melalui partner{" "}
-        <i>payment gateway</i> Xendit
+        Pembayaran <i>bootcamp</i> Rp.20.000.000 secara penuh melalui partner
+        <i>payment gateway Xendit</i>
       </span>
     ),
-    content: (
-      <Typography>
-        Pembayaran dilakukan dimuka dengan mengikuti biaya yang berlaku , yaitu
-        sebesar <strong>Rp4.000.000.</strong>
-      </Typography>
-    ),
+    content: " ",
   },
 
   {

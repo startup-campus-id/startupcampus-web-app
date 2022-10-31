@@ -37,14 +37,6 @@ const sideMenu = [
     name: "Testimoni",
     url: "/#testimoni",
   },
-  {
-    name: "Blog",
-    url: "/#",
-  },
-  {
-    name: "Tentang Kami",
-    url: "/#",
-  },
 ];
 
 const Header = () => {

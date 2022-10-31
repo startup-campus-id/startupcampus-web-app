@@ -16,13 +16,7 @@ export default function Biaya() {
       <MyTitle gutterBottom>
         Rincian Biaya <HighlightText>Pendidikan</HighlightText>
       </MyTitle>
-      <MyDesc>
-        Startup Campus berkomitmen untuk membuat pendidikan digital menjadi
-        lebih mudah untuk diakses oleh siapa saja, komitmen pertama kami, yaitu
-        mengurangi biaya pendaftaran menjadi <strong>Rp4.015.050*</strong> (
-        yang semula Rp12.015.050) untuk waktu yang terbatas. Mulailah
-        perjalananmu sebelum biaya pendaftaran kembali normal!
-      </MyDesc>
+      <MyDesc>Pilih metode pembayaran yang kamu inginkan</MyDesc>
       {biaya.map((e, i) => (
         <MyAccordion
           key={i}

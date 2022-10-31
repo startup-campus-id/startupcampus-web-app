@@ -13,9 +13,10 @@ const benefit = [
   "Modul, e-book, video belajar, dan referensi belajar lainnya.",
 ];
 
-export default function CardKelas({ name, link }) {
+export default function CardKelas({ name, link, id }) {
   return (
     <Grid
+      id={id}
       container
       p={4}
       sx={{
