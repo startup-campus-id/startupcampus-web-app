@@ -49,6 +49,9 @@ function Daftar({ paket, course }) {
       formData.append("phoneNumber", String(data.num_phone));
       formData.append("coursePathId", parseInt(data.track));
       formData.append("informationSource", data.source_info);
+      formData.append("motivation", data.motivation);
+      formData.append("linkedinUrl", data.linked_url);
+      formData.append("age", data.age);
       axios
         .post(`${BASE_URL}/users`, formData, {
           headers: {

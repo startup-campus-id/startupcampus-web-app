@@ -118,7 +118,7 @@ function FormStudiIndependen({ paket, course = null }) {
       <MyInput
         label="No. Whatsapp *"
         name={"num_phone"}
-        placeholder={"+62 812 3456 7890"}
+        placeholder={"081234567890"}
         type="number"
         max={15}
         icon={<PhoneOutlinedIcon />}
