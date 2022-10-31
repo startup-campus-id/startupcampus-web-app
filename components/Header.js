@@ -121,7 +121,7 @@ const Header = () => {
         <Stack />
       </Stack>
       <Stack px={4}>
-        <Link href={"/daftar/form-publik"} underline="none">
+        <Link href={"/daftar/bootcamp-pubcli"} underline="none">
           <MyButton>Daftar sekarang</MyButton>
         </Link>
       </Stack>
@@ -238,7 +238,7 @@ const Header = () => {
                   }}
                 >
                   {router.pathname != "/daftar" && (
-                    <Link href={"/daftar/form-publik"} underline="none">
+                    <Link href={"/daftar/bootcamp-public"} underline="none">
                       <MyButton>Daftar sekarang</MyButton>
                     </Link>
                   )}

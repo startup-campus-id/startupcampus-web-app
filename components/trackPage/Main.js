@@ -21,7 +21,7 @@ export default function Main({ name, desc }) {
         {desc}
       </Typography>
       <Stack direction="row" spacing={2}>
-        <Link href="/daftar/form-publik" underline="none">
+        <Link href="/daftar/bootcamp-public" underline="none">
           <MyButton>Daftar Sekarang</MyButton>
         </Link>
         <Link href="#about-program" underline="none">

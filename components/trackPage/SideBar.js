@@ -32,7 +32,7 @@ export default function SideBar() {
           </Typography>
         </Link>
       ))}
-      <MyButton onClick={() => router.push("/daftar/studi-independen")}>
+      <MyButton onClick={() => router.push("/daftar/bootcamp-public")}>
         <Typography fontWeight={700}>Daftar Sekarang</Typography>
       </MyButton>
     </Stack>

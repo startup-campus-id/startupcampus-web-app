@@ -29,9 +29,8 @@ const MyCheckBox = ({ name }) => {
             }
             label={
               <Typography>
-                Dengan mengisi formulir ini, Saya menyetujui{" "}
-                <MyLink link={"#"}>kebijakan privasi</MyLink> dan{" "}
-                <MyLink link={"#"}>ketentuan pengguna</MyLink>
+                Saya menyetujui data saya di form ini digunakan untuk keperluan
+                Startup Campus.
               </Typography>
             }
           />

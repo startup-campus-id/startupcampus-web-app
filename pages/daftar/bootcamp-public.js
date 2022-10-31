@@ -25,6 +25,7 @@ import { useMyForm } from "../../context/FormContext";
 import IndentityForm from "../../components/RegistPage/IndentityForm";
 import axios from "axios";
 import { BASE_URL } from "../../sc.config";
+import AccentText from "../../components/AccentText";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
@@ -131,6 +132,7 @@ function Daftar({ paket, course }) {
               }}
             >
               <Grid item md={8} py={8} px={4}>
+                <AccentText>Form Bootcamp for Public</AccentText>
                 <MyTitle gutterBottom variant="h5">
                   Daftarkan dirimu sekarang, mulailah dengan beberapa langkah
                   mudah.

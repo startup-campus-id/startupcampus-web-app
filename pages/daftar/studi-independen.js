@@ -30,10 +30,19 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 import { BASE_URL } from "../../sc.config";
+import AccentText from "../../components/AccentText";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
   "Akan dihubungi oleh tim",
+];
+
+const media = [
+  "Website Kampus Merdeka",
+  "Telegram",
+  "Faceboook",
+  "Instagram @startcampus.id",
+  "Influencer/Komunitas",
 ];
 
 function FormStudiIndependen({ paket, course = null }) {
@@ -59,7 +68,9 @@ function FormStudiIndependen({ paket, course = null }) {
       formData.append("university", data.ptn);
       formData.append("major", data.jurusan);
       formData.append("semester", data.semester);
-      formData.append("informationSource", "data.source_info");
+      formData.append("informationSource", data.source_info);
+      formData.append("nim", data.nim);
+      formData.append("recommendation", data.recommendation);
 
       axios
         .post(`${BASE_URL}/users`, formData, {
@@ -91,7 +102,11 @@ function FormStudiIndependen({ paket, course = null }) {
     </span>,
     <span key={1}>
       File twibbon dapat kamu unduh{" "}
-      <a href="#" style={{ color: "blue", textDecoration: "underline" }}>
+      <a
+        href="https://drive.google.com/drive/folders/142TyE0rOvdzGywEbwrTDPxHT0pzSMBoC"
+        target={"_blank"}
+        style={{ color: "blue", textDecoration: "underline" }}
+      >
         disini.
       </a>
     </span>,
@@ -152,9 +167,40 @@ function FormStudiIndependen({ paket, course = null }) {
         placeholder={"6"}
         {...register("semester", { required: "isi dulu ya" })}
       />
+      <MyInput
+        label="NIM *"
+        name="nim"
+        type={"text"}
+        placeholder={"1923XXX"}
+        {...register("nim", { required: "isi dulu ya" })}
+      />
       <Typography fontWeight={700} color={"sc_gray.dark"}>
         INFORMASI TAMBAHAN
       </Typography>
+
+      <MySelect
+        label={"Darimana Kamu Mengetahui Startup Campus?*"}
+        data={media}
+        name="source_info"
+      />
+
+      <MyInput
+        label={
+          <span>
+            Nama dan Nomor WA rekan Anda yang ingin Anda rekomendasikan dalam
+            Program Startup Campus *<br />
+            <Typography variant="caption">
+              Contoh : Mariana (0812345678), Silvana (081212121212), Fernando
+              (08123123123)
+            </Typography>
+          </span>
+        }
+        name="recommendation"
+        type={"text"}
+        placeholder={""}
+        {...register("recommendation", { required: "isi dulu ya" })}
+      />
+
       <Typography color={"sc_gray.dark"}>Upload Twibbon (Opsional)</Typography>
       <DropZone
         helper={guideTwibbon}
@@ -207,6 +253,7 @@ function FormStudiIndependen({ paket, course = null }) {
               }}
             >
               <Grid item md={8} py={8} px={4}>
+                <AccentText>Form Studi Independen Kampus Merdeka</AccentText>
                 <MyTitle gutterBottom variant="h5">
                   Daftarkan dirimu sekarang, mulailah dengan beberapa langkah
                   mudah.
