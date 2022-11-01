@@ -117,23 +117,26 @@ export default function BasicTabs({ data }) {
               <Stack spacing={2} p={3} key={idx}>
                 <AccentText>{item.name}</AccentText>
                 <Typography variant="body1">{item.desc}</Typography>
-                <Link href={item.link}>
-                  <Typography
-                    sx={{
-                      textDecoration: "underline",
-                      color: "#0056D2",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Unduh Kurikulum
-                  </Typography>
-                </Link>
+
                 <Divider />
               </Stack>
             ))}
           </Stack>
         </TabPanel>
       ))}
+
+      <Link href={"#"}>
+        <Typography
+          mt={4}
+          sx={{
+            textDecoration: "underline",
+            color: "#0056D2",
+            cursor: "pointer",
+          }}
+        >
+          Unduh Kurikulum
+        </Typography>
+      </Link>
     </Box>
   );
 }

@@ -1,6 +1,7 @@
 import { Divider, Link, Stack, Typography } from "@mui/material";
 import React from "react";
 import { listMenu } from "../../content/sideMenu";
+import DaftarButton from "../DaftarButton";
 import MyButton from "../MyButton";
 
 export default function SideBar() {
@@ -32,9 +33,7 @@ export default function SideBar() {
           </Typography>
         </Link>
       ))}
-      <MyButton onClick={() => router.push("/daftar/bootcamp-public")}>
-        <Typography fontWeight={700}>Daftar Sekarang</Typography>
-      </MyButton>
+      <DaftarButton />
     </Stack>
   );
 }

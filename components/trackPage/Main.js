@@ -1,6 +1,7 @@
 import { Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
+import DaftarButton from "../DaftarButton";
 import MyButton from "../MyButton";
 import WordBreak from "../WordBreak";
 
@@ -21,9 +22,7 @@ export default function Main({ name, desc }) {
         {desc}
       </Typography>
       <Stack direction="row" spacing={2}>
-        <Link href="/daftar/bootcamp-public" underline="none">
-          <MyButton>Daftar Sekarang</MyButton>
-        </Link>
+        <DaftarButton />
         <Link href="#about-program" underline="none">
           <MyButton variant="outlined" color="sc_white">
             Lihat Detail

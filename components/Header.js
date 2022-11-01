@@ -27,6 +27,8 @@ import Dropdown from "./Dropdown";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { useRouter } from "next/router";
+import AlertDialog from "./AlertDialog";
+import DaftarButton from "./DaftarButton";
 
 const sideMenu = [
   {
@@ -40,6 +42,14 @@ const sideMenu = [
 ];
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const router = useRouter();
   const bgTrigger = useScrollTrigger({
     threshold: 0,
@@ -237,11 +247,7 @@ const Header = () => {
                     display: { md: "flex", sm: "none", xs: "none" },
                   }}
                 >
-                  {router.pathname != "/daftar" && (
-                    <Link href={"/daftar/bootcamp-public"} underline="none">
-                      <MyButton>Daftar sekarang</MyButton>
-                    </Link>
-                  )}
+                  <DaftarButton />
                 </Stack>
 
                 {/* Only Mobile  */}
