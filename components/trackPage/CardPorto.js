@@ -12,9 +12,6 @@ export default function CardPorto({ img, name, team }) {
           overflow: "hidden",
           height: 252 + 86,
           position: "relative",
-          "&:hover > .expand": {
-            transform: "translateY(-150px)",
-          },
         }}
       >
         <Stack
@@ -41,19 +38,6 @@ export default function CardPorto({ img, name, team }) {
           <Typography fontWeight={700}>{team ?? "Aksel"}</Typography>
           <Typography variant={"caption"} color={"sc_gray.dark"}>
             {name ?? "Gabrille Shanne L. & Arel Eugene R."}
-          </Typography>
-          <Typography
-            className="desc"
-            variant={"caption"}
-            color={"sc_gray.dark"}
-            mt={2}
-          >
-            Ini adalah Deskripsi Ini adalah Deskripsi Ini adalah Deskripsi Ini
-            adalah Deskripsi Ini adalah Deskripsi Ini adalah Deskripsi Ini
-            adalah Deskripsi Ini adalah Deskripsi Ini adalah Deskripsi Ini
-            adalah Deskripsi Ini adalah Deskripsi Ini adalah Deskripsi Ini
-            adalah Deskripsi Ini adalah Deskripsi Ini adalah Deskripsi Ini
-            adalah Deskripsi
           </Typography>
         </Stack>
       </Stack>

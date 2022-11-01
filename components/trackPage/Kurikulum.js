@@ -6,17 +6,14 @@ import HighlightText from "../HighlightText";
 import MyDesc from "../MyDesc";
 import MyTitle from "../MyTitle";
 
-export default function Kurikulum({ kurikulum, nickname = "NULL" }) {
+export default function Kurikulum({ kurikulum, nickname = "NULL", desc = "" }) {
   return (
     <Stack id="kurikulum" data-aos="fade-up">
       <AccentText>Kurikulum</AccentText>
       <MyTitle gutterBottom>
         4 Tahap Untuk Menjadi <HighlightText>{nickname}</HighlightText>
       </MyTitle>
-      <MyDesc>
-        Program {nickname} dirancang untuk membuatmu belajar secara bertahap dan
-        cocok dipelajari oleh semua level.
-      </MyDesc>
+      <MyDesc>{desc}</MyDesc>
       <BasicTabs data={kurikulum} />
     </Stack>
   );
