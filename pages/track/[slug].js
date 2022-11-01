@@ -135,6 +135,7 @@ export default function Track({ course }) {
                     kurikulum={course.kurikulum}
                     nickname={course.nickname}
                     desc={course.kur_desc}
+                    link={course.kur_link}
                   />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>

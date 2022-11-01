@@ -42,7 +42,7 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs({ data }) {
+export default function BasicTabs({ data, link }) {
   const content = data.map((e) => e.content);
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
@@ -125,7 +125,7 @@ export default function BasicTabs({ data }) {
         </TabPanel>
       ))}
 
-      <Link href={"#"}>
+      <Link href={link}>
         <Typography
           mt={4}
           sx={{
