@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
 
-export default function MyLink({ link, children }) {
+export default function MyLink({ link = "#", children }) {
   return (
     <Typography
       component={"span"}
