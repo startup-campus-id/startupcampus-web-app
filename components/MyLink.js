@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
-
+// Link
 export default function MyLink({ link = "#", children }) {
   return (
     <Typography
