@@ -14,6 +14,8 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/effect-fade";
 import FormProvider from "../context/FormContext";
+import Head from "next/head";
+import Script from "next/script";
 
 let theme = createTheme({
   typography: {
@@ -53,10 +55,21 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     setPageLoaded(true);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-247990536-1");
   }, []);
 
   return (
     <FormProvider>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-247990536-1"
+      />
       <ThemeProvider theme={theme}>
         {pageLoaded ? (
           <Layout>

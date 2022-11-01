@@ -142,7 +142,7 @@ export default function Track({ course }) {
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
                 <Grid item xs={12}>
-                  <Bimbingan />
+                  <Bimbingan desc={course.bk_desc} />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
                 <Grid item xs={12}>

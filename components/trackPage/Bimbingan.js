@@ -7,18 +7,27 @@ import MyTitle from "../MyTitle";
 import VerifiedOutlined from "@mui/icons-material/VerifiedOutlined";
 import ChatOutlined from "@mui/icons-material/ChatOutlined";
 import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
+import { useRouter } from "next/router";
 
-export default function Bimbingan() {
+export default function Bimbingan({ desc = " " }) {
+  const router = useRouter();
   return (
     <Stack id="bimbingan-karier" data-aos="fade-up">
       <AccentText>Bimbingan Karier</AccentText>
       <MyTitle gutterBottom>
-        Dengan Dukungan Startup Campus <HighlightText>Network</HighlightText>
+        {router.asPath.match("founder") ? (
+          <>
+            Dukungan untuk Membangun Karier{" "}
+            <HighlightText>Terbaik</HighlightText>
+          </>
+        ) : (
+          <>
+            Dengan Dukungan Startup Campus{" "}
+            <HighlightText>Network</HighlightText>
+          </>
+        )}
       </MyTitle>
-      <MyDesc>
-        Kamu akan memiliki semua yang dibutuhkan untuk berkarier menjadi seorang
-        Founder yang berkualitas.
-      </MyDesc>
+      <MyDesc>{desc}</MyDesc>
       <Grid container my={3} spacing={4}>
         <Grid item xs={4}>
           <VerifiedOutlined fontSize="large" color="sc_blue" />
