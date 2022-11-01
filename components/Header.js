@@ -205,7 +205,7 @@ const Header = () => {
                   >
                     <NavItem isDropDown={true}>Program</NavItem>
                   </Dropdown>
-                  <Link href={"#testimoni"} underline="none">
+                  <Link href={"/#testimoni"} underline="none">
                     <NavItem>Testimoni</NavItem>
                   </Link>
                   {/* <Link href={"#blog"} underline="none">
