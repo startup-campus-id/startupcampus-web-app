@@ -25,6 +25,21 @@ function Section10() {
     });
   };
 
+  const showSwalError = (error_message) => {
+    MySwal.fire({
+      html: (
+        <Typography>
+          {error_message}
+        </Typography>
+      ),
+      icon: "error",
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
   const {
     register,
     handleSubmit,
@@ -47,6 +62,15 @@ function Section10() {
       showSwalWithLink();
       // alert("Email berhasil di simpan");
     } catch (e) {
+      let statusCode = e.response.status 
+      let responseData = e.response.data
+      if(statusCode == 422){
+        responseData.detail.forEach(data => {
+          showSwalError(data.msg)
+        });
+      }else if (statusCode >= 400 && statusCode < 500){
+        showSwalError(responseData.message)
+      }
       console.log(e);
     }
   };
