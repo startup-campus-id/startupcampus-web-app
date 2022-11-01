@@ -34,7 +34,7 @@ export default function Bimbingan({ desc = " " }) {
       </MyDesc>
       <Grid container my={3} spacing={4}>
         {bkFounder.map((v, i) => (
-          <Grid item xs={6} md={3}>
+          <Grid item xs={6} md={3} key={i}>
             {v.icon}
             <Typography mt={2} variant="body2" fontWeight={700}>
               {v.title}
