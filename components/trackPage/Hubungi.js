@@ -18,7 +18,14 @@ export default function Hubungi({ title, link }) {
         {title ?? "Punya pertanyaan seputar biaya pendidikan? "}
       </Typography>
       <Typography color={"sc_blue.main"}>
-        <Link href={link ?? "#"}>Hubungi sekarang!</Link>
+        <a
+          href={link ?? "https://wa.me/6281286345594"}
+          target={"_blank"}
+          rel="noreferrer"
+          style={{ color: "blue", textDecoration: "underline" }}
+        >
+          Hubungi sekarang!
+        </a>
       </Typography>
     </Stack>
   );

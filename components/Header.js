@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -7,33 +7,29 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
+  Collapse,
   Container,
   Divider,
   Drawer,
+  fabClasses,
   Link,
   List,
-  ListItem,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
   Slide,
   Stack,
   useScrollTrigger,
 } from "@mui/material";
 import Image from "next/image";
-import { ExpandMoreRounded, ShoppingCartOutlined } from "@mui/icons-material";
-import MyButton from "./MyButton";
 import Dropdown from "./Dropdown";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { useRouter } from "next/router";
-import AlertDialog from "./AlertDialog";
 import DaftarButton from "./DaftarButton";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const sideMenu = [
   {
     name: "Program",
-    url: "/#program",
   },
   {
     name: "Testimoni",
@@ -41,15 +37,23 @@ const sideMenu = [
   },
 ];
 
+const program = [
+  {
+    name: "The Founder",
+    link: "/track/the-founder",
+  },
+  {
+    name: "UI/UX Design",
+    link: "/track/uiux-design",
+  },
+  { name: "Data Science", link: "/track/data-science" },
+  {
+    name: "Artificial Intelligence",
+    link: "/track/artificial-intelligence",
+  },
+];
 const Header = () => {
-  const [open, setOpen] = useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [expand, setExpand] = useState(false);
   const router = useRouter();
   const bgTrigger = useScrollTrigger({
     threshold: 0,
@@ -108,26 +112,64 @@ const Header = () => {
         width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
       }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
+      // onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <Stack px={4} mt={4} spacing={2}>
         <Typography fontWeight={700}>Menu</Typography>
         <Divider />
-        {sideMenu.map((text, index) => (
-          <Link href={text.url} key={index} underline="none">
-            <Typography
-              sx={{
-                "&:hover": {
-                  color: "sc_blue.main",
-                },
-                color: "sc_gray.dark",
-              }}
-            >
-              {text.name}
-            </Typography>
-          </Link>
-        ))}
+        {sideMenu.map((text, index) =>
+          text.name.match("Program") ? (
+            <Fragment key={index}>
+              <Stack
+                direction="row"
+                justifyContent={"space-between"}
+                onClick={() => setExpand(!expand)}
+                sx={{ cursor: "pointer" }}
+              >
+                <Typography
+                  sx={{
+                    "&:hover": {
+                      color: "sc_blue.main",
+                    },
+                    color: "sc_gray.dark",
+                  }}
+                >
+                  {text.name}
+                </Typography>
+                {expand ? <ExpandMore /> : <ExpandLess />}
+              </Stack>
+              <Collapse in={expand} timeout="auto" unmountOnExit>
+                {program.map((v, i) => (
+                  <List component="div" disablePadding key={i}>
+                    <Link
+                      href={v.link}
+                      underline={"none"}
+                      style={{ color: "unset" }}
+                    >
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemText primary={v.name} />
+                      </ListItemButton>
+                    </Link>
+                  </List>
+                ))}
+              </Collapse>
+            </Fragment>
+          ) : (
+            <Link href={text.url} key={index} underline="none">
+              <Typography
+                sx={{
+                  "&:hover": {
+                    color: "sc_blue.main",
+                  },
+                  color: "sc_gray.dark",
+                }}
+              >
+                {text.name}
+              </Typography>
+            </Link>
+          )
+        )}
         <Stack />
       </Stack>
       <Stack px={4}>
@@ -182,27 +224,7 @@ const Header = () => {
                 >
                   {/* LIST LINKS */}
 
-                  <Dropdown
-                    list={[
-                      {
-                        name: "The Founder",
-                        link: "/track/the-founder",
-                      },
-                      {
-                        name: "UI/UX Design",
-                        link: "/track/uiux-design",
-                      },
-                      { name: "Data Science", link: "/track/data-science" },
-                      {
-                        name: "Artificial Intelligence",
-                        link: "/track/artificial-intelligence",
-                      },
-                      {
-                        name: "Backend Engineer",
-                        link: "/track/backend-engineer",
-                      },
-                    ]}
-                  >
+                  <Dropdown list={program}>
                     <NavItem isDropDown={true}>Program</NavItem>
                   </Dropdown>
                   <Link href={"/#testimoni"} underline="none">

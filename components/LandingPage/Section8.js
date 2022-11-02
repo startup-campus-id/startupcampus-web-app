@@ -1,5 +1,6 @@
 import { Box, Grid, Link, Stack, Typography } from "@mui/material";
 import React, { useEffect } from "react";
+import DaftarButton from "../DaftarButton";
 import HighlightText from "../HighlightText";
 import MyButton from "../MyButton";
 import WordBreak from "../WordBreak";
@@ -27,9 +28,7 @@ function Section8() {
               tawarkan.
             </Typography>
           </Box>
-          <Link href={"/daftar/form-publik"} underline="none">
-            <MyButton>Daftar Sekarang</MyButton>
-          </Link>
+          <DaftarButton />
         </Stack>
       </Grid>
     </Grid>
