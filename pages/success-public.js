@@ -47,8 +47,8 @@ export default function SuccessPublic() {
           textAlign="center"
           className="title"
         >
-          Selamat kamu telah berhasil mendaftar
-          <WordBreak /> di Startup Campus!{" "}
+          Terimakasih!, Tim Kami akan segera menghubungi kamu untuk langkah
+          selanjutnya
         </Typography>
 
         <Stack position={"relative"} alignItems="center" className="img">
@@ -61,12 +61,12 @@ export default function SuccessPublic() {
           </Stack>
         </Stack>
 
-        <Stack spacing={1} alignItems="center" className="desc">
+        {/* <Stack spacing={1} alignItems="center" className="desc">
           <MyDesc textAlign="center">
             Terimakasih!, Tim Kami akan segera menghubungi kamu untuk langkah
             selanjutnya
           </MyDesc>
-        </Stack>
+        </Stack> */}
       </Stack>
     </Container>
   );
