@@ -116,6 +116,42 @@ function Daftar({ paket, course }) {
       >
         <Container>
           <Grid mt={15} py={10} justifyContent="center" container>
+            <Grid
+              item
+              container
+              xs={12}
+              sx={{
+                background: "#FFFFFF",
+                border: "2px solid #BDBDBD",
+                boxShadow: "0px 16px 40px rgba(112, 144, 176, 0.2)",
+                borderRadius: "10px",
+                overflow: "hidden",
+              }}
+            >
+              <Grid item md={8} py={8} px={4}>
+                <MyTitle gutterBottom variant="h5">
+                  Mohon maaf saat ini bootcamp for public belum tersedia
+                </MyTitle>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+    </>
+  )
+  return (
+    <>
+      <Head>
+        <title>Daftar | Startup Campus</title>
+      </Head>
+      <Box
+        sx={{
+          background:
+            "linear-gradient(180deg, rgba(173, 232, 244, 0.1) 0%, rgba(173, 232, 244, 0) 100%)",
+        }}
+      >
+        <Container>
+          <Grid mt={15} py={10} justifyContent="center" container>
             <Grid item xs={12} md={8} mb={6}>
               <MultiStep step={state} data={steps} />
             </Grid>
