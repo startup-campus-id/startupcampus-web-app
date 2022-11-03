@@ -14,7 +14,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AlertDialog({ open, handleClose }) {
+export default function AlertDialog({ open, handleClose, comingSoon }) {
   return (
     <div>
       <Dialog
@@ -23,25 +23,31 @@ export default function AlertDialog({ open, handleClose }) {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{"Pilih program yang ingin diikuti"}</DialogTitle>
-        <DialogContent>
-          <Stack direction="column" spacing={2}>
-            <Link href="/daftar/bootcamp-public" underline="none" passHref>
-              <MyButton onClick={handleClose}>
-                Daftar Bootcamp for Public
-              </MyButton>
-            </Link>
-            <Link href="/daftar/studi-independen" underline="none" passHref>
-              <MyButton
-                onClick={handleClose}
-                variant="outlined"
-                color="sc_blue"
-              >
-                Daftar Studi Independen Kampus Merdeka
-              </MyButton>
-            </Link>
-          </Stack>
-        </DialogContent>
+        {comingSoon ? (
+          <DialogTitle>{"Coming Soon !"}</DialogTitle>
+        ) : (
+          <>
+            <DialogTitle>{"Pilih program yang ingin diikuti"}</DialogTitle>
+            <DialogContent>
+              <Stack direction="column" spacing={2}>
+                <Link href="/daftar/bootcamp-public" underline="none" passHref>
+                  <MyButton onClick={handleClose}>
+                    Daftar Bootcamp for Public
+                  </MyButton>
+                </Link>
+                <Link href="/daftar/studi-independen" underline="none" passHref>
+                  <MyButton
+                    onClick={handleClose}
+                    variant="outlined"
+                    color="sc_blue"
+                  >
+                    Daftar Studi Independen Kampus Merdeka
+                  </MyButton>
+                </Link>
+              </Stack>
+            </DialogContent>
+          </>
+        )}
       </Dialog>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { ExpandLessRounded, ExpandMoreRounded } from "@mui/icons-material";
 import { Box, Stack, Typography, Link } from "@mui/material";
+import AlertDialog from "./AlertDialog";
 // import Link from "next/link";
 // import Founder from './'
 
@@ -23,6 +24,7 @@ const NavItem = ({ children, notHover }) => (
 
 const Dropdown = ({ children, list }) => {
   const [open, setOpen] = useState(false);
+  const [expand, setExpand] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -30,6 +32,7 @@ const Dropdown = ({ children, list }) => {
 
   const handleClose = () => {
     setOpen(false);
+    setExpand(false);
   };
 
   return (
@@ -96,9 +99,9 @@ const Dropdown = ({ children, list }) => {
         {/* <Typography variant="body1" color="#BDBDBD" fontWeight={700}>
           Program Intensif
         </Typography> */}
-        {/* {list?.map((item, idx) => (
-          <Stack spacing={2} key={idx}>
-            <Link
+        {list?.map((item, idx) => (
+          <Stack spacing={2} key={idx} onClick={() => setExpand(!expand)}>
+            {/* <Link
               href={
                 item.link.match("/track/backend-engineer") ? null : item.link
               }
@@ -109,15 +112,16 @@ const Dropdown = ({ children, list }) => {
                   ? "#69686B"
                   : "unset",
               }}
-            >
-              <NavItem notHover={!!item.link.match("/track/backend-engineer")}>
-                {item.name}
-              </NavItem>
-            </Link>
+            > */}
+            <NavItem notHover={!!item.link.match("/track/backend-engineer")}>
+              {item.name}
+            </NavItem>
+            {/* </Link> */}
           </Stack>
-        ))} */}
-        <NavItem notHover={true}>{"Coming soon"}</NavItem>
+        ))}
+        {/* <NavItem notHover={true}>{"Coming soon"}</NavItem> */}
       </Stack>
+      <AlertDialog open={expand} handleClose={handleClose} comingSoon={true} />
     </Box>
   );
 };
