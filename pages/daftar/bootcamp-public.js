@@ -23,6 +23,7 @@ import MyDesc from "../../components/MyDesc";
 import ChooseProgramForm from "../../components/RegistPage/ChooseProgramForm";
 import { useMyForm } from "../../context/FormContext";
 import IndentityForm from "../../components/RegistPage/IndentityForm";
+import AfterRegister from "../../components/RegistPage/AfterRegister";
 import axios from "axios";
 import { BASE_URL } from "../../sc.config";
 import AccentText from "../../components/AccentText";
@@ -32,7 +33,7 @@ const helper = [
   "Akan dihubungi oleh tim",
   "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
 ];
-const steps = ["Pilih Program", "Identitas Diri", "Pembayaran"];
+const steps = ["Pilih Program", "Identitas Diri"];
 function Daftar({ paket, course }) {
   const { register, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
@@ -62,8 +63,8 @@ function Daftar({ paket, course }) {
         .then((res) => {
           setLoading(false);
           const { data } = res.data;
-          const { invoiceUrl } = data.payment;
-          window.location.replace(invoiceUrl);
+          // const { invoiceUrl } = data.payment;
+          // window.location.replace(invoiceUrl);
         })
         .catch((err) => {
           console.log(err);
@@ -90,55 +91,18 @@ function Daftar({ paket, course }) {
     <Stack key={2} alignItems="center" spacing={4}>
       {loading ? (
         <>
-          <Typography>Membuat Invoice</Typography>
+          <Typography>Menyimpan Data</Typography>
           <CircularProgress />
         </>
       ) : error ? (
         <Typography color={"red"}>Terjadi kesalahan</Typography>
       ) : (
         <>
-          <Typography>Mengarahkan ke halaman invoice...</Typography>
-          <CircularProgress />
+          <AfterRegister />,
         </>
       )}
     </Stack>,
   ];
-  return (
-    <>
-      <Head>
-        <title>Daftar | Startup Campus</title>
-      </Head>
-      <Box
-        sx={{
-          background:
-            "linear-gradient(180deg, rgba(173, 232, 244, 0.1) 0%, rgba(173, 232, 244, 0) 100%)",
-        }}
-      >
-        <Container>
-          <Grid mt={15} py={10} justifyContent="center" container>
-            <Grid
-              item
-              container
-              xs={12}
-              sx={{
-                background: "#FFFFFF",
-                border: "2px solid #BDBDBD",
-                boxShadow: "0px 16px 40px rgba(112, 144, 176, 0.2)",
-                borderRadius: "10px",
-                overflow: "hidden",
-              }}
-            >
-              <Grid item md={8} py={8} px={4}>
-                <MyTitle gutterBottom variant="h5">
-                  Mohon maaf saat ini bootcamp for public belum tersedia
-                </MyTitle>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-    </>
-  )
   return (
     <>
       <Head>
