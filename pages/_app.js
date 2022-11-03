@@ -66,17 +66,15 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <FormProvider>
-      <Head>
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-247990536-1"
-        />
-        <Script
-          async
-          data-watzapkey="b4Ua946"
-          src="https://cdn.watzap.id/widget-api.js"
-        />
-      </Head>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-247990536-1"
+      />
+      <Script
+        async
+        data-watzapkey="b4Ua946"
+        src="https://cdn.watzap.id/widget-api.js"
+      />
       <ThemeProvider theme={theme}>
         {pageLoaded ? (
           <Layout>

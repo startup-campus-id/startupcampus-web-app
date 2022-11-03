@@ -64,7 +64,7 @@ function Daftar({ paket, course }) {
         })
         .then((res) => {
           setLoading(false);
-          router.push(`/success-public`);
+          router.push(`/success-public?token=${res.data.data.token}`);
           // const { invoiceUrl } = data.payment;
           // window.location.replace(invoiceUrl);
         })
@@ -100,7 +100,8 @@ function Daftar({ paket, course }) {
         <Typography color={"red"}>Terjadi kesalahan</Typography>
       ) : (
         <>
-          <AfterRegister />,
+          <Typography>Berhasil menyimpan Data</Typography>
+          <CircularProgress />
         </>
       )}
     </Stack>,

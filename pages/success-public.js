@@ -11,7 +11,7 @@ import MyDesc from "../components/MyDesc";
 import WordBreak from "../components/WordBreak";
 import { BASE_URL } from "../sc.config";
 
-export default function Success() {
+export default function SuccessPublic() {
   const app = useRef();
   useEffect(() => {
     var tl = gsap.timeline({ repeat: -1, yoyo: true });
@@ -70,4 +70,37 @@ export default function Success() {
       </Stack>
     </Container>
   );
+}
+
+export async function getServerSideProps({ query }) {
+  const { token } = query;
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+  let invalid = false;
+  if (token) {
+    try {
+      await axios.get(`${BASE_URL}/users/validate?token=${token}`);
+    } catch (e) {
+      invalid = true;
+    }
+  }
+
+  if (invalid) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 }
