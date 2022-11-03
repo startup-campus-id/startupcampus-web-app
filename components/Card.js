@@ -57,7 +57,7 @@ const Card = ({ img, title, desc, level, bulan, tanggal, online, link }) => {
         >
           {title ?? "The Founder"}
         </Typography>
-        <Typography variant="body2" color="sc_gray.dark" className="text">
+        <Typography variant="body2" color="sc_gray.dark" className="text_temp">
           {desc ??
             "Membangun startup dari awal hingga menjadi MVP dan melakukan pitching di depan calon investor"}
         </Typography>
@@ -81,10 +81,7 @@ const Card = ({ img, title, desc, level, bulan, tanggal, online, link }) => {
         </Box>
 
         <Link href={link.match("backend") ? "" : link}>
-          <MyButton
-            color={cardHover ? "sc_blue" : "sc_gray"}
-            disabled={link.match("backend") ? true : false}
-          >
+          <MyButton color={cardHover ? "sc_blue" : "sc_gray"} disabled>
             Pelajari lebih lanjut
           </MyButton>
         </Link>

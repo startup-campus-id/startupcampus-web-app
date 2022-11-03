@@ -96,7 +96,7 @@ const Dropdown = ({ children, list }) => {
         {/* <Typography variant="body1" color="#BDBDBD" fontWeight={700}>
           Program Intensif
         </Typography> */}
-        {list?.map((item, idx) => (
+        {/* {list?.map((item, idx) => (
           <Stack spacing={2} key={idx}>
             <Link
               href={
@@ -115,7 +115,8 @@ const Dropdown = ({ children, list }) => {
               </NavItem>
             </Link>
           </Stack>
-        ))}
+        ))} */}
+        <NavItem notHover={true}>{"Coming soon"}</NavItem>
       </Stack>
     </Box>
   );

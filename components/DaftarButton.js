@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AlertDialog from "./AlertDialog";
 import MyButton from "./MyButton";
 
-export default function DaftarButton() {
+export default function DaftarButton({ handleClick }) {
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);

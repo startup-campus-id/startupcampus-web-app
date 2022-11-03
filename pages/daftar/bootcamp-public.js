@@ -27,6 +27,7 @@ import AfterRegister from "../../components/RegistPage/AfterRegister";
 import axios from "axios";
 import { BASE_URL } from "../../sc.config";
 import AccentText from "../../components/AccentText";
+import { useRouter } from "next/router";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
@@ -35,6 +36,7 @@ const helper = [
 ];
 const steps = ["Pilih Program", "Identitas Diri"];
 function Daftar({ paket, course }) {
+  const router = useRouter();
   const { register, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -62,7 +64,7 @@ function Daftar({ paket, course }) {
         })
         .then((res) => {
           setLoading(false);
-          const { data } = res.data;
+          router.push(`/success-public`);
           // const { invoiceUrl } = data.payment;
           // window.location.replace(invoiceUrl);
         })

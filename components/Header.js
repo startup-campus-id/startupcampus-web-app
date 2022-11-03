@@ -112,7 +112,6 @@ const Header = () => {
         width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
       }}
       role="presentation"
-      // onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <Stack px={4} mt={4} spacing={2}>
