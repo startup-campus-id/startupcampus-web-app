@@ -51,7 +51,7 @@ const IndentityForm = () => {
       />
       <MyInput
         label="Motivasi Kamu Mengikuti Startup Campus *"
-        name={"motivasi"}
+        name={"motivation"}
         rows={4}
         multiline
         type={"text-area"}
