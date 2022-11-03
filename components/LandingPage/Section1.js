@@ -2,6 +2,7 @@ import { Box, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { tagline } from "../../content/tagline";
+import DaftarButton from "../DaftarButton";
 import MyButton from "../MyButton";
 
 function Section1() {
@@ -32,7 +33,7 @@ function Section1() {
           <Typography variant="body1" lineHeight={2}>
             {tagline.desc}
           </Typography>
-          <MyButton href={"#program"}>Pilih Programmu</MyButton>
+          <DaftarButton />
         </Stack>
       </Grid>
       <Grid
