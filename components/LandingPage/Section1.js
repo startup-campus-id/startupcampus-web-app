@@ -1,7 +1,9 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import { tagline } from "../../content/tagline";
+import { BOOTCAMP_FOR_PUBLIC, KAMPUS_MERDEKA } from "../../utils/constant";
 import DaftarButton from "../DaftarButton";
 import MyButton from "../MyButton";
 
@@ -12,7 +14,7 @@ function Section1() {
       container
       component="section"
       direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
-      height={{ xs: "unset", md: "100vh" }}
+      height={{ xs: "unset", md: "80vh" }}
       alignItems={{ md: "center" }}
     >
       <Grid item xs={12} md={6} pt={4} data-aos="fade-right">
@@ -33,7 +35,21 @@ function Section1() {
           <Typography variant="body1" lineHeight={2}>
             {tagline.desc}
           </Typography>
-          <DaftarButton />
+          <Stack direction="row" spacing={2}>
+            <Link
+              href={KAMPUS_MERDEKA}
+              underline="none"
+              passHref
+              legacyBehavior
+            >
+              <MyButton color="sc_blue">Kampus Merdeka</MyButton>
+            </Link>
+            <Link href={BOOTCAMP_FOR_PUBLIC} underline="none" passHref>
+              <MyButton variant="outlined" color="sc_blue">
+                Bootcamp for Public
+              </MyButton>
+            </Link>
+          </Stack>
         </Stack>
       </Grid>
       <Grid

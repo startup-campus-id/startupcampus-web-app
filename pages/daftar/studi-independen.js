@@ -31,10 +31,29 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 import { BASE_URL } from "../../sc.config";
 import AccentText from "../../components/AccentText";
+import Link from "next/link";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
   "Akan dihubungi oleh tim",
+  <Typography component="span">
+    {
+      "Persyaratan yang perlu dipersiapkan, yaitu surat SPTJM dan surat rekomendasi dapat diunduh"
+    }{" "}
+    <Typography component="span" sx={{ textDecoration: "underline" }}>
+      <Link
+        href={
+          "https://drive.google.com/drive/folders/1IwFkA97s7bwXJ9TCtC9ZsrjazM-NyAmM?usp=sharing"
+        }
+        passHref
+        legacyBehavior
+      >
+        <a target={"_blank"} rel="noreferrer">
+          di sini.
+        </a>
+      </Link>
+    </Typography>
+  </Typography>,
 ];
 
 const media = [
@@ -234,7 +253,7 @@ function FormStudiIndependen({ paket, course = null }) {
         }}
       >
         <Container>
-          <Grid mt={15} py={10} justifyContent="center" container>
+          <Grid mt={3} py={10} justifyContent="center" container>
             <Grid item xs={12} md={8} mb={6}>
               <MultiStep
                 step={state}

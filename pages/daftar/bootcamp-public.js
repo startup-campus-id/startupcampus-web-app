@@ -118,7 +118,7 @@ function Daftar({ paket, course }) {
         }}
       >
         <Container>
-          <Grid mt={15} py={10} justifyContent="center" container>
+          <Grid mt={3} py={10} justifyContent="center" container>
             <Grid item xs={12} md={8} mb={6}>
               <MultiStep step={state} data={steps} />
             </Grid>

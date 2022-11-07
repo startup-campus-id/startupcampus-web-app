@@ -26,6 +26,7 @@ import { useRouter } from "next/router";
 import DaftarButton from "./DaftarButton";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
+import AlertMui from "./AlertMui";
 
 const sideMenu = [
   {
@@ -113,6 +114,7 @@ const Header = () => {
       }}
       role="presentation"
       onKeyDown={toggleDrawer(anchor, false)}
+      onClick={toggleDrawer(anchor, false)}
     >
       <Stack px={4} mt={4} spacing={2}>
         <Typography fontWeight={700}>Menu</Typography>
@@ -187,9 +189,10 @@ const Header = () => {
               router.pathname == "/" ? (bgTrigger ? "" : "transparent") : ""
             }
             sx={{ transition: ".3s" }}
-            elevation={router.pathname == "/" ? (bgTrigger ? 3 : 0) : 3}
-            position="fixed"
+            elevation={0}
+            position={"static"}
           >
+            <AlertMui />
             <Container>
               <Toolbar
                 sx={{
