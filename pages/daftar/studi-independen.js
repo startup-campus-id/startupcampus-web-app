@@ -36,7 +36,7 @@ import Link from "next/link";
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
   "Akan dihubungi oleh tim",
-  <Typography component="span">
+  <Typography component="span" key={3}>
     {
       "Persyaratan yang perlu dipersiapkan, yaitu surat SPTJM dan surat rekomendasi dapat diunduh"
     }{" "}
