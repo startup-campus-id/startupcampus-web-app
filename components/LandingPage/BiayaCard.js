@@ -36,7 +36,6 @@ export default function BiayaCard({
         </Stack>
       )}
       <Stack
-        width={432}
         p={3}
         spacing={3}
         border={`1px solid ${recommended ? "#0056D2" : "#BDBDBD"}`}
