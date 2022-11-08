@@ -28,3 +28,12 @@ export const biaya = [
     content: " ",
   },
 ];
+
+export const benefitKampusMerdeka = [
+  "Sesi Interaktif dengan expert",
+  "Mentoring intensif",
+  "Proyek riil",
+  "Persiapan karier",
+  "Komunitas alumni",
+  "Modul, e-book, video belajar, dan referensi belajar lainnya",
+];

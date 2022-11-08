@@ -15,6 +15,7 @@ import {
 import { createClient } from "contentful";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/clientApp";
+import BiayaPendidikan from "../components/LandingPage/BiayaPendidikan";
 
 const Home = ({ logo, testimoni, course, title7, faq }) => {
   return (
@@ -39,7 +40,7 @@ const Home = ({ logo, testimoni, course, title7, faq }) => {
         <Section5 />
         <Section6 />
         <Section7 testimoni={testimoni} title={title7} />
-        <Section8 />
+        <BiayaPendidikan />
         <Section9 faq={faq} />
       </Container>
       <Section10 />
