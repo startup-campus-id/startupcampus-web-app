@@ -9,7 +9,7 @@ import { BOOTCAMP_FOR_PUBLIC, KAMPUS_MERDEKA } from "../../utils/constant";
 export default function BiayaPendidikan() {
   return (
     <Container>
-      <Grid container my={6}>
+      <Grid container my={6} justifyContent="center">
         <Grid item xs={12} data-aos="fade-up">
           <Stack alignItems="center">
             <Typography
@@ -18,7 +18,7 @@ export default function BiayaPendidikan() {
               textAlign="center"
               fontWeight={700}
             >
-              Biaya <HighlightText>Siapkan</HighlightText>
+              Biaya <HighlightText>Pendidikan</HighlightText>
             </Typography>
             <Typography
               variant="body1"
@@ -32,9 +32,18 @@ export default function BiayaPendidikan() {
             </Typography>
           </Stack>
         </Grid>
-        <Grid item xs={12}>
-          <Stack direction={{ xs: "column", md: "row" }} spacing={3}>
+        <Grid
+          item
+          xs={12}
+          container
+          justifyContent="center"
+          alignItems="end"
+          spacing={2}
+        >
+          <Grid item xs={12} md={4}>
             <BiayaCard link={KAMPUS_MERDEKA} />
+          </Grid>
+          <Grid item xs={12} md={4}>
             <BiayaCard
               icon={<VideoLibraryIcon />}
               title={"Bootcamp for Public"}
@@ -42,7 +51,7 @@ export default function BiayaPendidikan() {
               link={BOOTCAMP_FOR_PUBLIC}
               recommended={true}
             />
-          </Stack>
+          </Grid>
         </Grid>
       </Grid>
     </Container>
