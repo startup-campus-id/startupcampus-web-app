@@ -55,7 +55,7 @@ export default function BiayaCard({
         </Typography>
 
         <Stack spacing={2}>
-          <MyDesc>Durasi Belajar</MyDesc>
+          <Typography color="sc_gray.main">Durasi Belajar</Typography>
           <CheckWithLabel label={"4 Bulan Intensif (900 jam)"} />
         </Stack>
 
@@ -67,17 +67,20 @@ export default function BiayaCard({
             borderBottom: "1px dashed #BDBDBD",
           }}
         >
-          <MyDesc>Apa yang Kamu Dapat</MyDesc>
+          <Typography color="sc_gray.main">Apa yang Kamu Dapat</Typography>
           {benefitKampusMerdeka.map((v, i) => (
             <CheckWithLabel key={i} label={v} />
           ))}
         </Stack>
-
-        <Link href={link ?? KAMPUS_MERDEKA} passHref>
-          <MyButton variant={recommended ? "contained" : "outlined"}>
-            Daftar Sekarang
-          </MyButton>
-        </Link>
+        <Stack sx={{ marginTop: "80px !important" }}>
+          <Link href={link ?? KAMPUS_MERDEKA} passHref>
+            <MyButton variant={recommended ? "contained" : "outlined"}>
+              <Typography fontWeight={700} color="inherit" variant="h6">
+                {"Daftar Sekarang"}
+              </Typography>
+            </MyButton>
+          </Link>
+        </Stack>
       </Stack>
     </Stack>
   );
