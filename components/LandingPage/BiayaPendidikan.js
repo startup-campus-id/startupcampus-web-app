@@ -9,7 +9,7 @@ import { BOOTCAMP_FOR_PUBLIC, KAMPUS_MERDEKA } from "../../utils/constant";
 export default function BiayaPendidikan() {
   return (
     <Container>
-      <Grid container my={6} justifyContent="center">
+      <Grid container my={6} justifyContent="center" spacing={3}>
         <Grid item xs={12} data-aos="fade-up">
           <Stack alignItems="center">
             <Typography

@@ -29,7 +29,7 @@ export default function BiayaCard({
       borderRadius="10px"
     >
       {recommended && (
-        <Stack py={2} alignItems="center">
+        <Stack py={1} alignItems="center">
           <Typography fontWeight={700} color={"sc_blue.main"}>
             PILIHAN TERBAIK
           </Typography>
