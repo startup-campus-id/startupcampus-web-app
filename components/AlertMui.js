@@ -47,7 +47,9 @@ export default function AlertMui() {
             },
 
             "& > .css-ki1hdl-MuiAlert-action": {
-              alignItems: "center",
+              alignItems: "end",
+              display: "none",
+              position: "absolute",
             },
           }}
         >

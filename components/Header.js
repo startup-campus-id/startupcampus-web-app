@@ -114,7 +114,6 @@ const Header = () => {
       }}
       role="presentation"
       onKeyDown={toggleDrawer(anchor, false)}
-      onClick={toggleDrawer(anchor, false)}
     >
       <Stack px={4} mt={4} spacing={2}>
         <Typography fontWeight={700}>Menu</Typography>
@@ -142,7 +141,12 @@ const Header = () => {
               </Stack>
               <Collapse in={expand} timeout="auto" unmountOnExit>
                 {program.map((v, i) => (
-                  <List component="div" disablePadding key={i}>
+                  <List
+                    component="div"
+                    disablePadding
+                    key={i}
+                    onClick={toggleDrawer(anchor, false)}
+                  >
                     <Link
                       href={"#"}
                       // href={v.link}
@@ -160,6 +164,7 @@ const Header = () => {
           ) : (
             <Link href={text.url} key={index} underline="none">
               <Typography
+                onClick={toggleDrawer(anchor, false)}
                 sx={{
                   "&:hover": {
                     color: "sc_blue.main",
@@ -174,7 +179,7 @@ const Header = () => {
         )}
         <Stack />
       </Stack>
-      <Stack px={4}>
+      <Stack px={4} onClick={toggleDrawer(anchor, false)}>
         <DaftarButton />
       </Stack>
     </Box>
