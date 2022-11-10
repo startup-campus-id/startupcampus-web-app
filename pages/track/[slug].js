@@ -103,7 +103,7 @@ export default function Track({ course }) {
             </Grid>
           </Grid>
           <Grid container justifyContent={"center"}>
-            <Grid item xs={9}>
+            <Grid item xs={12} display="flex" justifyContent={"center"}>
               <Board />
             </Grid>
           </Grid>
