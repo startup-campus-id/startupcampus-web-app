@@ -1,15 +1,16 @@
 import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
 import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
-import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
+import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import HandshakeIcon from "@mui/icons-material/Handshake";
 import CollectionsIcon from "@mui/icons-material/Collections";
-
+import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
+import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
+import CollectionsBookmarkOutlinedIcon from "@mui/icons-material/CollectionsBookmarkOutlined";
 export const tentang = (track) => {
   const isFounder = track.match("the-founder");
   return [
     {
-      icon: <HistoryEduIcon fontSize="large" color="sc_blue" />,
+      icon: <PaidOutlinedIcon fontSize="large" color="sc_blue" />,
       title: isFounder
         ? "Kesempatan mendapatkan pendanaan"
         : "Pengajar berpengalaman ",
@@ -27,7 +28,7 @@ export const tentang = (track) => {
         : "Pembelajaran dirancang oleh praktisi terbaik di bidang startup.",
     },
     {
-      icon: <WorkspacePremiumIcon fontSize="large" color="sc_blue" />,
+      icon: <WorkspacePremiumOutlinedIcon fontSize="large" color="sc_blue" />,
       title: "Sertifikat kompetensi",
       desc: "Sertifikat kompetensi sudah terakreditasi resmi dari Kemendikbud.",
     },
@@ -37,7 +38,7 @@ export const tentang = (track) => {
       desc: "Mulai membangun karier sejak dini melalui portofolio dan sesi konseling.",
     },
     {
-      icon: <HandshakeIcon fontSize="large" color="sc_blue" />,
+      icon: <HandshakeOutlinedIcon fontSize="large" color="sc_blue" />,
       title: (
         <span>
           <i>Networking</i> dengan para {isFounder ? "investor" : "pakar"}
@@ -48,7 +49,9 @@ export const tentang = (track) => {
         : "Membangun network dengan investor, mentor, dan praktisi digital di dunia startup.",
     },
     {
-      icon: <CollectionsIcon fontSize="large" color="sc_blue" />,
+      icon: (
+        <CollectionsBookmarkOutlinedIcon fontSize="large" color="sc_blue" />
+      ),
       title: "Akses materi pembelajaran seumur hidup",
       desc: "Akses materi pembelajaran berupa modul belajar, e-book, video, dan artikel.",
     },

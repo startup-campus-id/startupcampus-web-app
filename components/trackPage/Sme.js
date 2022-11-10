@@ -110,7 +110,7 @@ export default function Sme({ sme }) {
                             height={28}
                           />
                           <Typography color={"sc_blue.main"} variant={"body2"}>
-                            Lebih dekat dengan {val.name}
+                            Mari mengenal {val.name} lebih dalam!
                           </Typography>
                         </Stack>
                       </Link>

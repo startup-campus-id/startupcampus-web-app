@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import React, { useState } from "react";
 import { biaya } from "../../content/biaya";
@@ -16,16 +16,20 @@ export default function Biaya() {
       <MyTitle gutterBottom>
         Rincian Biaya <HighlightText>Pendidikan</HighlightText>
       </MyTitle>
-      <MyDesc>Pilih metode pembayaran yang kamu inginkan</MyDesc>
-      {biaya.map((e, i) => (
-        <MyAccordion
-          key={i}
-          title={e.title}
-          subtitle={e.subtitle}
-          content={e.content}
-          idx={i}
-        />
-      ))}
+      <MyDesc my={4}>Pilih metode pembayaran yang kamu inginkan</MyDesc>
+      <Grid container spacing={6} my={2}>
+        {biaya.map((v, i) => (
+          <Grid item xs={6} md={4} key={i}>
+            {v.icon}
+            <Typography mt={2} variant="body2" fontWeight={700}>
+              {v.title}
+            </Typography>
+            <Typography mt={2} variant="body2" fontWeight={400}>
+              {v.desc}
+            </Typography>
+          </Grid>
+        ))}
+      </Grid>
       <Hubungi />
     </Stack>
   );

@@ -25,7 +25,7 @@ export default function TentangProgram({ nick, desc }) {
 
       <Grid container spacing={6} my={2}>
         {tentang(router.asPath).map((v, i) => (
-          <Grid item xs={6} key={i}>
+          <Grid item xs={6} md={4} key={i}>
             {v.icon}
             <Typography mt={2} variant="body2" fontWeight={700}>
               {v.title}

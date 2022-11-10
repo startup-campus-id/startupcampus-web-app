@@ -84,7 +84,7 @@ export default function Kelas() {
       </Stack>
       <MyTitle mt={6}>PENTING!</MyTitle>
       <MyAccordion
-        title={"Persyaratan Peserta Studi Independen Batch 4"}
+        title={"Persyaratan Peserta Studi Independen (Kampus Merdeka)"}
         type={"icon"}
         content={content}
         idx={"syarat-studi"}
