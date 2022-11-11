@@ -3,7 +3,7 @@ export const count = [
   { sum: "68+", desc: "ahli dan pengajar yang berpengalaman" },
   { sum: "21+", desc: "partner perusahaan untuk membantumu berkembang" },
   {
-    sum: "8 / 10",
+    sum: "7,8 / 10",
     desc: "peserta memiliki respon positif selama mengikuti program",
   },
 ];
