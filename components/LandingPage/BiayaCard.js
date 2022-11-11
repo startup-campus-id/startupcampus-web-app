@@ -7,6 +7,7 @@ import { benefitKampusMerdeka } from "../../content/biaya";
 import { KAMPUS_MERDEKA } from "../../utils/constant";
 import Link from "next/link";
 import MyButton from "../MyButton";
+import { useRouter } from "next/router";
 
 const CheckWithLabel = ({ label }) => (
   <Stack direction="row" alignItems="start" spacing={1}>
@@ -22,13 +23,17 @@ export default function BiayaCard({
   link,
   recommended = false,
 }) {
+  const router = useRouter();
   return (
     <Stack
-      sx={{ backgroundColor: recommended ? "#D9E6F8" : "unset" }}
+      sx={{
+        backgroundColor:
+          recommended && router.pathname == "/" ? "#D9E6F8" : "unset",
+      }}
       justifyContent="end"
       borderRadius="10px"
     >
-      {recommended && (
+      {recommended && router.pathname == "/" && (
         <Stack py={1} alignItems="center">
           <Typography fontWeight={700} color={"sc_blue.main"}>
             PILIHAN TERBAIK
@@ -50,9 +55,14 @@ export default function BiayaCard({
           </Typography>
         </Stack>
 
-        <Typography fontWeight={700} color="sc_blue.main" variant="h5">
-          {price ?? "Gratis"}
-        </Typography>
+        <Stack>
+          <Typography color="sc_gray.main">
+            <span style={{ textDecoration: "line-through" }}>Rp20.000.000</span>
+          </Typography>
+          <Typography fontWeight={700} color="sc_blue.main" variant="h5">
+            {price ?? "Gratis"}
+          </Typography>
+        </Stack>
 
         <Stack spacing={2}>
           <Typography color="sc_gray.main">Durasi Belajar</Typography>

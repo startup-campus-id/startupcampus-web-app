@@ -9,7 +9,7 @@ export default function Tools({ data }) {
   return (
     <Stack spacing={2}>
       <MyTitle gutterBottom>
-        Platform Pembelajaran Yang Akan Kamu{" "}
+        Platform Pembelajaran yang Akan Kamu Gunakan{" "}
         <HighlightText>Gunakan</HighlightText>
       </MyTitle>
       <Grid container spacing={2} mt={6}>

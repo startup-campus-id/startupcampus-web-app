@@ -16,7 +16,7 @@ export default function Kurikulum({
     <Stack id="kurikulum" data-aos="fade-up">
       <AccentText>Kurikulum</AccentText>
       <MyTitle gutterBottom>
-        4 Tahap Untuk Menjadi <HighlightText>{nickname}</HighlightText>
+        4 Tahap Menjadi <HighlightText>{nickname}</HighlightText>
       </MyTitle>
       <MyDesc>{desc}</MyDesc>
       <BasicTabs data={kurikulum} link={link} />

@@ -16,8 +16,8 @@ export default function Biaya() {
       <MyTitle gutterBottom>
         Rincian Biaya <HighlightText>Pendidikan</HighlightText>
       </MyTitle>
-      <MyDesc my={4}>Pilih metode pembayaran yang kamu inginkan</MyDesc>
-      <Grid container spacing={6} my={2}>
+      <MyDesc my={3}>Pilih metode pembayaran yang kamu inginkan</MyDesc>
+      <Grid container spacing={6}>
         {biaya.map((v, i) => (
           <Grid item xs={6} md={4} key={i}>
             {v.icon}

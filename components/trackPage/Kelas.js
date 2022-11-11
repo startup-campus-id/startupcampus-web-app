@@ -1,12 +1,15 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import React, { Fragment } from "react";
+import { BOOTCAMP_FOR_PUBLIC, KAMPUS_MERDEKA } from "../../utils/constant";
 import AccentText from "../AccentText";
 import HighlightText from "../HighlightText";
+import BiayaCard from "../LandingPage/BiayaCard";
 import MyDesc from "../MyDesc";
 import MyTitle from "../MyTitle";
 import CardKelas from "./CardKelas";
 import Hubungi from "./Hubungi";
 import MyAccordion from "./MyAccordion";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
 const syarat = [
   "Mahasiswa S1 min. semester 5.",
@@ -71,18 +74,32 @@ export default function Kelas() {
       <MyTitle gutterBottom>
         Kelas yang Dapat Kamu <HighlightText>Ikuti</HighlightText>
       </MyTitle>
-      <Stack spacing={4}>
-        <CardKelas
-          name="Bootcamp For Public "
-          link={"/daftar/bootcamp-public"}
-        />
-        <CardKelas
-          name={"Studi Independen Kampus Merdeka"}
-          link={"/daftar/studi-independen"}
-          id="studi-independen"
-        />
-      </Stack>
-      <MyTitle mt={6}>PENTING!</MyTitle>
+      <MyDesc mb={3}>
+        Dapatkan penawaran promo dari{" "}
+        <span style={{ textDecoration: "line-through" }}>Rp20.000.000,-</span>{" "}
+        menjadi <strong>Rp4.000.000,-</strong> untuk Bootcamp for Public.
+      </MyDesc>
+      <Grid
+        item
+        xs={12}
+        container
+        justifyContent="center"
+        alignItems="end"
+        spacing={4}
+      >
+        <Grid item xs={6}>
+          <BiayaCard link={KAMPUS_MERDEKA} />
+        </Grid>
+        <Grid item xs={6}>
+          <BiayaCard
+            icon={<VideoLibraryIcon />}
+            title={"Bootcamp for Public"}
+            price={"Rp. 20.000.000"}
+            link={BOOTCAMP_FOR_PUBLIC}
+            recommended={true}
+          />
+        </Grid>
+      </Grid>
       <MyAccordion
         title={"Persyaratan Peserta Studi Independen (Kampus Merdeka)"}
         type={"icon"}

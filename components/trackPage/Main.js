@@ -15,7 +15,7 @@ export default function Main({ name, desc }) {
       zIndex={2}
       position="relative"
     >
-      <Typography color="white">#SiapMahirDigital, Siap Jadi</Typography>
+      <Typography color="white">Siap #MahirDigital, Siap Menjadi</Typography>
       <Typography color="white" fontWeight={700} variant="h3">
         {name}
       </Typography>

@@ -13,11 +13,12 @@ export default function Portofolio({ nickname }) {
     <Stack id="portofolio-alumni" data-aos="fade-up">
       <AccentText>Portofolio Alumni</AccentText>
       <MyTitle gutterBottom>
-        Karya-karya <HighlightText>Alumni</HighlightText> Program {nickname}
+        Karya-karya <HighlightText>Alumni</HighlightText> {nickname}
       </MyTitle>
       <MyDesc>
-        Hasil project riil alumni selama mengikuti Bootcamp UI/UX Design di
-        Startup Campus {router.asPath.match("founder") ? " " : "(Coming Soon)"}
+        Contoh hasil proyek riil alumni selama mengikuti Bootcamp trek{" "}
+        {nickname} di Startup Campus.{" "}
+        {router.asPath.match("founder") ? " " : "(Coming Soon)"}
       </MyDesc>
       {router.asPath.match("founder") && (
         <Grid container spacing={2} mt={2}>
