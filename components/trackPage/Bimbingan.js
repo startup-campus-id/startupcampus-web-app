@@ -16,17 +16,7 @@ export default function Bimbingan({ desc = " " }) {
     <Stack id="bimbingan-karier" data-aos="fade-up">
       <AccentText>Bimbingan Karier</AccentText>
       <MyTitle gutterBottom>
-        {router.asPath.match("founder") ? (
-          <>
-            Dukungan untuk Membangun Karier{" "}
-            <HighlightText>Terbaik</HighlightText>
-          </>
-        ) : (
-          <>
-            Dengan Dukungan Startup Campus{" "}
-            <HighlightText>Network</HighlightText>
-          </>
-        )}
+        Dukungan untuk Membangun Karier <HighlightText>Terbaik</HighlightText>
       </MyTitle>
       <MyDesc>{desc}</MyDesc>
       <MyDesc mt={3}>

@@ -8,24 +8,26 @@ import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
 import CollectionsBookmarkOutlinedIcon from "@mui/icons-material/CollectionsBookmarkOutlined";
 export const tentang = (track) => {
   const isFounder = track.match("the-founder");
+
+  const dunia = track.match("the-founder")
+    ? "startup"
+    : track.match("uiux")
+    ? "UI/UX"
+    : track.match("data-scientist")
+    ? "data science"
+    : track.match("artificial")
+    ? "AI"
+    : "startup";
   return [
     {
       icon: <PaidOutlinedIcon fontSize="large" color="sc_blue" />,
-      title: isFounder
-        ? "Kesempatan mendapatkan pendanaan"
-        : "Pengajar berpengalaman ",
-      desc: isFounder
-        ? "Dapatkan pendanaan untuk pengembangan produk tahap awal"
-        : "Diajarkan langsung oleh praktisi profesional.",
+      title: "Kesempatan mendapatkan pendanaan",
+      desc: "Dapatkan pendanaan untuk pengembangan produk tahap awal",
     },
     {
       icon: <MenuBookOutlinedIcon fontSize="large" color="sc_blue" />,
-      title: isFounder
-        ? "Pengajar praktisi terbaik"
-        : "Kurikulum dirancang oleh ahli di bidangnya",
-      desc: isFounder
-        ? "Pembelajaran dirancang dan diajarkan oleh praktisi terbaik di bidang startup."
-        : "Pembelajaran dirancang oleh praktisi terbaik di bidang startup.",
+      title: "Pengajar praktisi terbaik",
+      desc: "Pembelajaran dirancang dan diajarkan oleh praktisi terbaik di bidang startup.",
     },
     {
       icon: <WorkspacePremiumOutlinedIcon fontSize="large" color="sc_blue" />,
@@ -41,12 +43,12 @@ export const tentang = (track) => {
       icon: <HandshakeOutlinedIcon fontSize="large" color="sc_blue" />,
       title: (
         <span>
-          <i>Networking</i> dengan para {isFounder ? "investor" : "pakar"}
+          <i>Networking</i> dengan para {"investor"}
         </span>
       ),
       desc: isFounder
         ? "Perkuat bisnis dengan membangun network dengan pendiri startup lain, investor, mentor, dan praktisi di dunia startup."
-        : "Membangun network dengan investor, mentor, dan praktisi digital di dunia startup.",
+        : `Membangun network dengan investor, mentor, dan praktisi digital di dunia ${dunia}.`,
     },
     {
       icon: (

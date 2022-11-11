@@ -17,7 +17,7 @@ export default function Portofolio({ nickname }) {
       </MyTitle>
       <MyDesc>
         Contoh hasil proyek riil alumni selama mengikuti Bootcamp trek{" "}
-        {nickname} di Startup Campus.{" "}
+        {nickname} di Startup Campus{" "}
         {router.asPath.match("founder") ? " " : "(Coming Soon)"}
       </MyDesc>
       {router.asPath.match("founder") && (
