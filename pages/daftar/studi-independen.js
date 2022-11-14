@@ -222,7 +222,7 @@ function FormStudiIndependen({ paket, course = null }) {
       />
 
       <Typography color={"sc_gray.dark"}>Upload Twibbon (Opsional)</Typography>
-      <MyDropZone
+      <DropZone
         helper={guideTwibbon}
         desc={"Tarik file kamu ke sini untuk mengunggah atau klik disini"}
         name="twibbon"
