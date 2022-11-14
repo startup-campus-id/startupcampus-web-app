@@ -127,7 +127,7 @@ export default function Track({ course }) {
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
                 <Grid item xs={12}>
-                  <Sme sme={course.SME} />
+                  <Sme sme={course.SME} desc={course.sme_desc} />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
                 <Grid item xs={12}>

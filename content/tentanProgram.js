@@ -27,7 +27,7 @@ export const tentang = (track) => {
     {
       icon: <MenuBookOutlinedIcon fontSize="large" color="sc_blue" />,
       title: "Pengajar praktisi terbaik",
-      desc: "Pembelajaran dirancang dan diajarkan oleh praktisi terbaik di bidang startup.",
+      desc: `Pembelajaran dirancang dan diajarkan oleh praktisi terbaik di bidang ${dunia}.`,
     },
     {
       icon: <WorkspacePremiumOutlinedIcon fontSize="large" color="sc_blue" />,

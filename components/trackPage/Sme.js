@@ -13,7 +13,7 @@ import Link from "next/link";
 import MyButton from "../MyButton";
 import { useRouter } from "next/router";
 
-export default function Sme({ sme }) {
+export default function Sme({ sme, desc }) {
   const router = useRouter();
   const swiper = useSwiper();
   return (
@@ -25,7 +25,8 @@ export default function Sme({ sme }) {
       <MyDesc>
         {router.asPath.match("founder")
           ? "Belajar langsung dari para pakar dan mentor yang terjun langsung dalam mengelola startup."
-          : "Belajar langsung dengan pakar dan mentor yang berpengalaman dari berbagai perusahaan terkemuka."}
+          : desc ??
+            "Belajar langsung dengan pakar dan mentor yang berpengalaman dari berbagai perusahaan terkemuka."}
       </MyDesc>
       <Grid container my={3} sx={{ position: "relative" }}>
         <Swiper

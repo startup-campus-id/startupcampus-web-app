@@ -74,11 +74,11 @@ export default function Kelas() {
       <MyTitle gutterBottom>
         Kelas yang Dapat Kamu <HighlightText>Ikuti</HighlightText>
       </MyTitle>
-      <MyDesc mb={3}>
+      {/* <MyDesc mb={3}>
         Dapatkan penawaran promo dari{" "}
         <span style={{ textDecoration: "line-through" }}>Rp20.000.000,-</span>{" "}
         menjadi <strong>Rp4.000.000,-</strong> untuk Bootcamp for Public.
-      </MyDesc>
+      </MyDesc> */}
       <Grid
         item
         xs={12}

@@ -18,8 +18,8 @@ export default function Testimoni({ nickname, data }) {
     <Stack id="testimoni-alumni" data-aos="fade-up">
       <AccentText>Testimoni Alumni</AccentText>
       <MyTitle gutterBottom>
-        <HighlightText>Kata Mereka</HighlightText> tentang {nickname} Startup
-        Campus
+        <HighlightText>Kata Mereka</HighlightText> tentang Trek {nickname}{" "}
+        Startup Campus
       </MyTitle>
       <Grid container my={3} sx={{ position: "relative" }}>
         <Swiper

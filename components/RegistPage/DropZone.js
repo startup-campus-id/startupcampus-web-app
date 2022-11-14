@@ -1,6 +1,6 @@
 import { IconButton, Stack, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useDropzone } from "react-dropzone";
+import { useDropzone, DropZone } from "react-dropzone";
 import { byteToMb } from "../../utils/byteToMb";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useMyForm } from "../../context/FormContext";
@@ -18,7 +18,7 @@ function nameLengthValidator(file) {
   return null;
 }
 
-export default function DropZone({ helper, desc, name }) {
+export default function MyDropZone({ helper, desc, name }) {
   const { register, setValue, handleSubmit, watch, errors } = useMyForm();
   const { acceptedFiles, fileRejections, getRootProps, getInputProps } =
     useDropzone({
