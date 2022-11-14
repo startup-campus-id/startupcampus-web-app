@@ -156,10 +156,7 @@ export default function Track({ course }) {
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
                 <Grid item xs={12}>
-                  <Testimoni
-                    data={course.testimoni}
-                    nickname={course.nickname}
-                  />
+                  <Testimoni data={course.testimoni} nickname={course.name} />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
                 <Grid item xs={12}>

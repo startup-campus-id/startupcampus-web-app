@@ -13,10 +13,10 @@ export const tentang = (track) => {
     ? "startup"
     : track.match("uiux")
     ? "UI/UX"
-    : track.match("data-scientist")
-    ? "data science"
+    : track.match("data-science")
+    ? "Data Science"
     : track.match("artificial")
-    ? "AI"
+    ? "Artificial Intelligence"
     : "startup";
   return [
     {
@@ -48,7 +48,7 @@ export const tentang = (track) => {
       ),
       desc: isFounder
         ? "Perkuat bisnis dengan membangun network dengan pendiri startup lain, investor, mentor, dan praktisi di dunia startup."
-        : `Membangun network dengan investor, mentor, dan praktisi digital di dunia ${dunia}.`,
+        : `Membangun network dengan investor, mentor, dan praktisi di dunia ${dunia}.`,
     },
     {
       icon: (
