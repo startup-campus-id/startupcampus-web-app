@@ -10,14 +10,43 @@ import CardKelas from "./CardKelas";
 import Hubungi from "./Hubungi";
 import MyAccordion from "./MyAccordion";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+import Link from "next/link";
 
 const syarat = [
   "Mahasiswa S1 min. semester 5.",
   " Berasal dari kampus di bawah naungan Kemendikbud Ristekdikti. Berasal dari program studi apapun.",
   " Tidak mengikuti kegiatan lainnya seperti magang atau kuliah lain yang dapat bentrok dengan jadwal studi independen.",
   "WAJIB menguasai Bahasa Inggris dasar (terutama kemampuan membaca).",
-  "Surat Rekomendasi, format bisa didapatkan disini.",
-  "Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) , format bisa didapatkan disini.",
+  <span>
+    Surat Rekomendasi, format bisa didapatkan{" "}
+    <Typography color={"sc_blue.main"} component="span">
+      <a
+        href={
+          "https://docs.google.com/document/d/10uJgWEnxLP4CuTnmaN_7tey0MwUt9b_M/edit?usp=sharing&ouid=111031848163940591123&rtpof=true&sd=true"
+        }
+        target={"_blank"}
+        rel="noreferrer"
+        style={{ color: "blue", textDecoration: "underline" }}
+      >
+        disini.
+      </a>
+    </Typography>
+  </span>,
+  <span>
+    Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) , format bisa didapatkan
+    <Typography color={"sc_blue.main"} component="span">
+      <a
+        href={
+          "https://docs.google.com/document/d/1CpAZxZYiPYW4tyikYIJa-fzKSK8dajs3/edit?usp=share_link&ouid=111031848163940591123&rtpof=true&sd=true"
+        }
+        target={"_blank"}
+        rel="noreferrer"
+        style={{ color: "blue", textDecoration: "underline" }}
+      >
+        disini.
+      </a>
+    </Typography>
+  </span>,
 ];
 
 const keterangan = [
@@ -38,10 +67,10 @@ const keterangan = [
   },
 ];
 
-const content = (
+const content = (track = "founder") => (
   <Stack>
     <Typography>
-      Untuk calon peserta program founder studi independen, terdapat beberapa
+      Untuk calon peserta program {track} studi independen, terdapat beberapa
       persyaratan yang harus dipersiapkan, sebagai berikut:
     </Typography>
     <Stack component="ol" spacing={1}>
@@ -67,7 +96,7 @@ const content = (
   </Stack>
 );
 
-export default function Kelas() {
+export default function Kelas({ course }) {
   return (
     <Stack id="kelas-terdekat" data-aos="fade-up">
       <AccentText>Kelas Terdekat</AccentText>
@@ -103,7 +132,7 @@ export default function Kelas() {
       <MyAccordion
         title={"Persyaratan Peserta Studi Independen (Kampus Merdeka)"}
         type={"icon"}
-        content={content}
+        content={content(course)}
         idx={"syarat-studi"}
       />
       <Hubungi

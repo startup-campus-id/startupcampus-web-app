@@ -22,7 +22,7 @@ const Home = ({ logo, testimoni, course, title7, faq }) => {
     <>
       <Head>
         <title>
-          Startup Campus : Bootcamp Online & Studi Independen Kampus Merdeka
+          Startup Campus | Bootcamp Online & Studi Independen Kampus Merdeka
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
