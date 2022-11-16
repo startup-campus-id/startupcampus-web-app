@@ -22,14 +22,13 @@ const Home = ({ logo, testimoni, course, title7, faq }) => {
     <>
       <Head>
         <title>
-          Startup Campus | Siap Berkarya, Siap #MahirDigital Bersama Startup
-          Campus
+          Startup Campus : Bootcamp Online & Studi Independen Kampus Merdeka
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <meta
           name="description"
-          content="Raih karier impianmu sebagai founder, UI/UX designer, data scientist, backend engineer, atau AI specialist"
+          content="Startup Campus adalah bootcamp online dan studi independen terbaik untuk meningkatkan kompetensi digital dan teknologi yang dibutuhkan saat ini."
         />
       </Head>
       <Container>
