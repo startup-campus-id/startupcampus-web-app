@@ -22,7 +22,7 @@ export const tentang = (track) => {
     {
       icon: <PaidOutlinedIcon fontSize="large" color="sc_blue" />,
       title: "Kesempatan mendapatkan pendanaan",
-      desc: "Dapatkan pendanaan untuk pengembangan produk tahap awal",
+      desc: "Dapatkan pendanaan untuk pengembangan produk tahap awal.",
     },
     {
       icon: <MenuBookOutlinedIcon fontSize="large" color="sc_blue" />,

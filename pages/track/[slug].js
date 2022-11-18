@@ -160,7 +160,7 @@ export default function Track({ course }) {
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
                 <Grid item xs={12}>
-                  <Portofolio nickname={course.nickname} />
+                  <Portofolio nickname={course.name} />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
                 {/* <Grid item xs={12} mb={3}>

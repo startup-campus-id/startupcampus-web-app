@@ -1,12 +1,12 @@
 import { Stack, Typography } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { BOOTCAMP_FOR_PUBLIC, KAMPUS_MERDEKA } from "../../utils/constant";
-import DaftarButton from "../DaftarButton";
 import MyButton from "../MyButton";
-import WordBreak from "../WordBreak";
 
 export default function Main({ name, desc }) {
+  const router = useRouter();
   return (
     <Stack
       height={"100vh"}
@@ -15,7 +15,10 @@ export default function Main({ name, desc }) {
       zIndex={2}
       position="relative"
     >
-      <Typography color="white">Siap #MahirDigital, Siap Jadi Ahli</Typography>
+      <Typography color="white">
+        Siap #MahirDigital,{" "}
+        {router.asPath.match("founder") ? "Siap Menjadi" : "Siap Jadi Ahli"}{" "}
+      </Typography>
       <Typography color="white" fontWeight={700} variant="h3">
         {name}
       </Typography>

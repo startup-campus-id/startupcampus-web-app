@@ -47,7 +47,7 @@ function Board() {
         </Stack>
         <Stack direction="row" spacing={1}>
           <Typography fontWeight={700}>Februari 2023</Typography>
-          <MyLink link="#studi-independen">Lihat detail</MyLink>
+          <MyLink link="#kelas-terdekat">Lihat detail</MyLink>
         </Stack>
       </Stack>
     </Stack>
