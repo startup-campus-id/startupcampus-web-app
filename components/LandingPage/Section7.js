@@ -59,9 +59,6 @@ function Section7({ testimoni, title7 }) {
           }}
           className="testimoni-swiper"
           spaceBetween={100}
-          slidesPerView={1}
-          centeredSlides
-          centeredSlidesBounds
           breakpoints={{
             690: {
               slidesPerView: 2,
@@ -69,8 +66,8 @@ function Section7({ testimoni, title7 }) {
             },
             // when window width is >= 640px
             1050: {
-              slidesPerView: 3,
-              spaceBetween: 10,
+              slidesPerView: 2,
+              spaceBetween: 30,
             },
           }}
         >
@@ -84,26 +81,31 @@ function Section7({ testimoni, title7 }) {
                   <Stack
                     mx={1}
                     my={3}
+                    justifyContent="space-between"
                     spacing={3}
                     p={4}
                     sx={{
                       background: "#FFFFFF",
                       boxShadow: "0px 8px 20px rgba(43, 44, 39, 0.1)",
                       borderRadius: "20px",
+                      // width: 575,
+                      // height: 371,
                     }}
                   >
-                    <Typography
-                      variant="h6"
-                      component="h1"
-                      color="sc_blue.main"
-                      fontWeight={700}
-                    >
-                      {item.fields.title}
-                    </Typography>
+                    <Stack>
+                      <Typography
+                        variant="h6"
+                        component="h1"
+                        color="sc_blue.main"
+                        fontWeight={700}
+                      >
+                        {item.fields.title}
+                      </Typography>
 
-                    <Typography variant="body1" color="sc_gray.dark">
-                      {item.fields.description}
-                    </Typography>
+                      <Typography variant="body1" color="sc_gray.dark">
+                        {item.fields.description}
+                      </Typography>
+                    </Stack>
 
                     <Stack direction="row" spacing={2} alignItems="center">
                       <Avatar

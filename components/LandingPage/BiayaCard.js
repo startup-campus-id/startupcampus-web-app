@@ -56,9 +56,9 @@ export default function BiayaCard({
         </Stack>
 
         <Stack>
-          <Typography color="sc_gray.main">
+          {/* <Typography color="sc_gray.main">
             <span style={{ textDecoration: "line-through" }}>Rp20.000.000</span>
-          </Typography>
+          </Typography> */}
           <Typography fontWeight={700} color="sc_blue.main" variant="h5">
             {price ?? "Gratis"}
           </Typography>
