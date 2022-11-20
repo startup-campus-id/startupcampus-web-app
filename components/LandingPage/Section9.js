@@ -17,10 +17,6 @@ import ReactMarkdown from "react-markdown";
 function Section9({ faq }) {
   const [state, setState] = useState(5);
   let qna = faq?.slice(0);
-  let temp = qna[0];
-  qna[0] = qna[1];
-  qna[1] = temp;
-  console.log(qna);
 
   return (
     <Grid container spacing={3} my={6} py={6} id="faq">
