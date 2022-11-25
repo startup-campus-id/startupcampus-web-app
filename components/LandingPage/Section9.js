@@ -22,7 +22,7 @@ function Section9({ faq }) {
     <Grid container spacing={3} my={6} py={6} id="faq">
       <Grid item xs={12} data-aos="fade-down">
         <Typography variant="h4" textAlign="center" fontWeight={700}>
-          <HighlightText width="-2%">Frequently</HighlightText> Asked Question’s
+          <HighlightText width="-2%">Frequently</HighlightText> Asked Questions
         </Typography>
       </Grid>
       {qna.slice(0, state).map((item, idx) => (
