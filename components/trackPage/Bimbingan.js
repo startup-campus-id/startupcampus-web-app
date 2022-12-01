@@ -20,7 +20,7 @@ export default function Bimbingan({ desc = " " }) {
       </MyTitle>
       <MyDesc>{desc}</MyDesc>
       <MyDesc mt={3}>
-        Dukungan yang kamu dapatkan selama Startup Campus antara lain:
+      Dukungan yang kamu dapatkan selama di Startup Campus antara lain:
       </MyDesc>
       <Grid container my={3} spacing={4}>
         {bkFounder.map((v, i) => (

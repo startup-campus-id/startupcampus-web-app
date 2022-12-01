@@ -8,6 +8,7 @@ import { styled } from "@mui/material/styles";
 import { Divider, Stack } from "@mui/material";
 import AccentText from "./AccentText";
 import Link from "next/link";
+import FormDialog from "./FormDialog";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -42,9 +43,11 @@ function a11yProps(index) {
   };
 }
 
+
+
 export default function BasicTabs({ data, link }) {
   const content = data.map((e) => e.content);
-
+  const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -126,8 +129,8 @@ export default function BasicTabs({ data, link }) {
         </TabPanel>
       ))}
 
-      <Link href={link}>
         <Typography
+        onClick={()=> setOpen(prev=>!prev)}
           mt={4}
           sx={{
             textDecoration: "underline",
@@ -137,7 +140,13 @@ export default function BasicTabs({ data, link }) {
         >
           Unduh Kurikulum
         </Typography>
-      </Link>
+      <FormDialog open={open} 
+        handleClickOpen={() => {
+          setOpen(true)
+        }} 
+        handleClose={() => {
+          setOpen(false)
+        }}/>
     </Box>
   );
 }

@@ -78,6 +78,7 @@ const Dropdown = ({ children, list }) => {
           position: "relative",
           width: "268px",
           mt: 1,
+          zIndex: 999,
           p: 3,
           display: open ? "block" : "none",
           position: "absolute",

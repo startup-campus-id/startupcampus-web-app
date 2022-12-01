@@ -14,8 +14,9 @@ import Link from "next/link";
 
 const syarat = [
   "Mahasiswa S1 min. semester 5.",
-  " Berasal dari kampus di bawah naungan Kemendikbud Ristekdikti. Berasal dari program studi apapun.",
-  " Tidak mengikuti kegiatan lainnya seperti magang atau kuliah lain yang dapat bentrok dengan jadwal studi independen.",
+  "Berasal dari kampus di bawah naungan Kemendikbud Ristekdikti.",
+  "Berasal dari program studi apapun.",
+  "Tidak mengikuti kegiatan lainnya seperti magang atau kuliah lain yang dapat bentrok dengan jadwal studi independen.",
   "WAJIB menguasai Bahasa Inggris dasar (terutama kemampuan membaca).",
   <span key={3}>
     Surat Rekomendasi, format bisa didapatkan{" "}
@@ -33,7 +34,7 @@ const syarat = [
     </Typography>
   </span>,
   <span key={4}>
-    Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) , format bisa didapatkan
+    Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) , format bisa didapatkan{" "}
     <Typography color={"sc_blue.main"} component="span">
       <a
         href={

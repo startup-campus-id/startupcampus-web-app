@@ -10,5 +10,5 @@ export const tagline = {
       <i>data scientist</i>, <i>backend engineer</i>, atau <i>AI specialist</i>
     </Typography>
   ),
-  footer: "Siap Berkarya, #SiapMahir Digital Bersama Startup Campus",
+  footer: "Siap Berkarya, Siap #MahirDigital Bersama Startup Campus",
 };
