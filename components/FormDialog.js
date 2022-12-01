@@ -20,6 +20,7 @@ import axios from 'axios';
 import { BASE_URL } from '../sc.config';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { useRouter } from 'next/router';
 
 const MySwal = withReactContent(Swal);
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -60,12 +61,13 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function FormDialog({open, handleClickOpen, handleClose}) {
+export default function FormDialog({open, handleClickOpen, handleClose, kurLink}) {
+    const router = useRouter()
     const showSwalWithLink = () => {
         MySwal.fire({
           html: (
             <Typography>
-              Terima kasih telah bergabung dengan newsletter kami
+              Memulai mengunduh kurikulum
             </Typography>
           ),
           icon: "success",
@@ -101,6 +103,7 @@ export default function FormDialog({open, handleClickOpen, handleClose}) {
             })
             showSwalWithLink()
            handleClose()
+           router.push(kurLink)
         } catch (e) {
             showSwalError("Terjadi kesalahan")
             console.log(e)

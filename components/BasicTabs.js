@@ -141,6 +141,7 @@ export default function BasicTabs({ data, link }) {
           Unduh Kurikulum
         </Typography>
       <FormDialog open={open} 
+      kurLink={link}
         handleClickOpen={() => {
           setOpen(true)
         }} 
