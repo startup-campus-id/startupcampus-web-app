@@ -11,13 +11,15 @@ export default function FormProvider({ children }) {
     setValue,
     handleSubmit,
     watch,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useForm();
 
   // const [state, setState] = useState("dark")
   return (
     <RegistContext.Provider
-      value={{ register, setValue, handleSubmit, watch, errors }}
+      value={{ register, setValue, handleSubmit, watch, errors, setError, clearErrors }}
     >
       {children}
     </RegistContext.Provider>
