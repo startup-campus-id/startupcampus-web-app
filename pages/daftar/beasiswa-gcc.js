@@ -33,7 +33,7 @@ import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
 const helper = [
-  "Hanya memerlukan 5 menit untuk mengisi formulir",
+  "Hanya memerlukan 10-15 menit untuk mengisi formulir",
   "Akan dihubungi oleh tim",
 ];
 const steps = ["Identitas Diri dan Pilih Program", "Jawab Pertanyaan"];

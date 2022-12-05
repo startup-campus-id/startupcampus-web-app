@@ -50,11 +50,11 @@ const BeasiswaGCCForm = () => {
         label="Nomor Whatsapp *"
         name="whatsapp"
         type={"phone"}
-        placeholder={"081390872142"}
+        placeholder={"08123456789"}
         icon={<WhatsAppIcon />}
       />
       <MySelect
-        label="Status"
+        label="Status *"
         name="status"
         data={gccStatus}
         {...register("status", { required: "Pilih salah satu" })}

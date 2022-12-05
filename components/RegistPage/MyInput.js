@@ -105,7 +105,7 @@ const MyInput = ({
                 : type == "number"
                   ? "Input berupa angka"
                   : type == "phone"
-                    ? "Nomor telephone tidak valid. Gunakan angka 0 didepan, contoh: 081390764523"
+                    ? "Nomor telephone tidak valid. Gunakan angka 0 didepan, contoh: 08123456789"
                     : "",
           },
           ...maxLengthProp,
