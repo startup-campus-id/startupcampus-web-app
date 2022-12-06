@@ -37,7 +37,7 @@ const BeasiswaGCCForm = () => {
     <span key={1}>
       File twibbon dapat kamu unduh{" "}
       <a
-        href="https://drive.google.com/drive/folders/142TyE0rOvdzGywEbwrTDPxHT0pzSMBoC"
+        href="https://drive.google.com/drive/folders/1m2JZGXrrHIihiSrJR8eoEr1TyCPtRC1c?usp=share_link"
         target={"_blank"}
         rel="noreferrer"
         style={{ color: "blue", textDecoration: "underline" }}
@@ -85,7 +85,7 @@ const BeasiswaGCCForm = () => {
         desc={"Tarik file kamu ke sini untuk mengunggah atau klik disini"}
         name="twibbon"
       />
-      <MyCheckBox name="agree" text="Saya menyatakan bahwa data yang saya isi adalah benar"/>
+      <MyCheckBox name="agree" text="Saya menyatakan bahwa data yang saya isi adalah benar" />
     </Stack>
   );
 };
