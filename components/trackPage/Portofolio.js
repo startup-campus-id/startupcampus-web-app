@@ -33,8 +33,8 @@ export default function Portofolio({ nickname, karya }) {
           <Swiper
             modules={[Navigation, Scrollbar, A11y]}
             navigation={{
-              prevEl: ".swipe-left",
-              nextEl: ".swipe-right",
+              prevEl: ".swipe-left-porto",
+              nextEl: ".swipe-right-porto",
             }}
             spaceBetween={100}
             slidesPerView={1}
@@ -123,7 +123,7 @@ export default function Portofolio({ nickname, karya }) {
                             color={"sc_sky"}
                             borderRadius={"5px 0 0 5px"}
                             variant="contained"
-                            className="swipe-left"
+                            className="swipe-left-porto"
                             onClick={() => swiper?.slidePrev()}
                           >
                             <ArrowBackIosRoundedIcon />
@@ -132,7 +132,7 @@ export default function Portofolio({ nickname, karya }) {
                             padding={"15px 19px"}
                             borderRadius={"0 5px 5px 0px"}
                             variant="contained"
-                            className="swipe-right"
+                            className="swipe-right-porto"
                             onClick={() => swiper?.slideNext()}
                           >
                             <ArrowForwardIosRoundedIcon />

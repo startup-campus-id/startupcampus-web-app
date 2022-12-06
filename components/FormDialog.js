@@ -13,7 +13,7 @@ import MyInput from './RegistPage/MyInput';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
-import { Stack } from '@mui/material';
+import { Box, Divider, Stack } from '@mui/material';
 import MyButton from './MyButton';
 import { useMyForm } from '../context/FormContext';
 import axios from 'axios';
@@ -25,7 +25,7 @@ import { useRouter } from 'next/router';
 const MySwal = withReactContent(Swal);
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
-    padding: theme.spacing(2),
+    padding: theme.spacing(5),
   },
   '& .MuiDialogActions-root': {
     padding: theme.spacing(1),
@@ -36,16 +36,14 @@ function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
 
   return (
-    <DialogTitle sx={{ m: 0, p: 2, width: 600 }} {...other}>
+    <DialogTitle sx={{ my: 0, p: 4, width: 600, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} {...other}>
       {children}
       {onClose ? (
         <IconButton
           aria-label="close"
           onClick={onClose}
           sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
+            position: 'relative',
             color: (theme) => theme.palette.grey[500],
           }}
         >
@@ -118,16 +116,21 @@ export default function FormDialog({open, handleClickOpen, handleClose, kurLink}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-        <Typography fontWeight={700} fontSize={20}>Request Download Kurikulum </Typography>
+        <BootstrapDialogTitle id="customized-dialog-title"  onClose={handleClose}>
+         <Typography fontWeight={700} fontSize={20}>Request Unduh Kurikulum </Typography>
         </BootstrapDialogTitle>
-        <DialogContent dividers  width={600}>
-            <Stack spacing={3} component="form"  onSubmit={handleSubmit(onSubmit)}>
-            <MyInput icon={<PermIdentityIcon/>} label={'Nama Lengkap *'} name="fullname" placeholder={'Pramudya Aneska'}/>
-            <MyInput icon={<MailOutlineIcon/>} label={'Email *'} type="email" name="email" placeholder={'Pramudyaneska@gmail.com'}/>
-            <MyInput icon={<LocalPhoneOutlinedIcon/>} label={'No. WhatsApp *'} type="number" name="whatsapp" placeholder={'+62 812 3456 7890'}/>
-            <MyButton type="submit">Unduh Kurikulum</MyButton>
+        <DialogContent  width={600}>
+          <Divider/>
+          <Box component="form"  onSubmit={handleSubmit(onSubmit)}>
+            <Stack spacing={2} my={5} >
+              <MyInput icon={<PermIdentityIcon/>} label={'Nama Lengkap *'} name="fullname" placeholder={'Pramudya Aneska'}/>
+              <MyInput icon={<MailOutlineIcon/>} label={'Email *'} type="email" name="email" placeholder={'Pramudyaneska@gmail.com'}/>
+              <MyInput icon={<LocalPhoneOutlinedIcon/>} label={'No. WhatsApp *'} type="number" name="whatsapp" placeholder={'+62 812 3456 7890'}/>
             </Stack>
+            <Stack>
+              <MyButton type="submit">Unduh Kurikulum</MyButton>
+            </Stack>
+          </Box>
         </DialogContent>
       
       </BootstrapDialog>

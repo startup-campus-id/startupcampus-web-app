@@ -26,8 +26,8 @@ export default function Testimoni({ nickname, data }) {
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           pagination={{ clickable: true }}
           navigation={{
-            prevEl: ".swipe-left",
-            nextEl: ".swipe-right",
+            prevEl: ".swipe-left-testi",
+            nextEl: ".swipe-right-testi",
           }}
           spaceBetween={100}
           slidesPerView={1}
@@ -95,7 +95,7 @@ export default function Testimoni({ nickname, data }) {
                           color={"sc_sky"}
                           borderRadius={"5px 0 0 5px"}
                           variant="contained"
-                          className="swipe-left"
+                          className="swipe-left-testi"
                           onClick={() => swiper?.slidePrev()}
                         >
                           <ArrowBackIosRoundedIcon />
@@ -104,7 +104,7 @@ export default function Testimoni({ nickname, data }) {
                           padding={"15px 19px"}
                           borderRadius={"0 5px 5px 0px"}
                           variant="contained"
-                          className="swipe-right"
+                          className="swipe-right-testi"
                           onClick={() => swiper?.slideNext()}
                         >
                           <ArrowForwardIosRoundedIcon />
