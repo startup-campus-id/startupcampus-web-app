@@ -131,7 +131,7 @@ export default function FormDialog({open, handleClickOpen, handleClose, kurLink}
               <MyButton type="submit">Unduh Kurikulum</MyButton>
             </Stack>
           </Box>
-        </DialogContent>
+        </DialogContent>  
       
       </BootstrapDialog>
     </div>
