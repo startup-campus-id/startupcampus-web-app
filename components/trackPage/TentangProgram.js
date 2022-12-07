@@ -15,12 +15,19 @@ import { useRouter } from "next/router";
 
 export default function TentangProgram({ nick, desc }) {
   const router = useRouter();
+  const isDataScience = router.asPath.match("data-science")
+
   return (
     <Box id="about-program" pt={6} data-aos="fade-up">
       <AccentText>Tentang Program</AccentText>
-      <MyTitle gutterBottom>
-        Jadilah {nick} yang <HighlightText>Berbeda</HighlightText>
-      </MyTitle>
+      {isDataScience ?
+        <MyTitle gutterBottom>
+          Jadi Ahli Data Science yang <HighlightText>Berbeda</HighlightText>
+        </MyTitle> :
+        <MyTitle gutterBottom>
+          Jadilah {nick} yang <HighlightText>Berbeda</HighlightText>
+        </MyTitle>
+      }
       <MyDesc>{desc}</MyDesc>
 
       <Grid container spacing={6} my={2}>

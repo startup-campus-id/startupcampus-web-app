@@ -8,16 +8,18 @@ import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
 import CollectionsBookmarkOutlinedIcon from "@mui/icons-material/CollectionsBookmarkOutlined";
 export const tentang = (track) => {
   const isFounder = track.match("the-founder");
+  const isDataScience = track.match("data-science")
+  const isArtificialIntellegence = track.match("artificial")
 
   const dunia = track.match("the-founder")
     ? "startup"
     : track.match("uiux")
-    ? "UI/UX"
-    : track.match("data-science")
-    ? "Data Science"
-    : track.match("artificial")
-    ? "Artificial Intelligence"
-    : "startup";
+      ? "UI/UX"
+      : track.match("data-science")
+        ? "Data Science"
+        : track.match("artificial")
+          ? "Artificial Intelligence"
+          : "startup";
   return [
     {
       icon: <PaidOutlinedIcon fontSize="large" color="sc_blue" />,
@@ -45,12 +47,16 @@ export const tentang = (track) => {
       icon: <HandshakeOutlinedIcon fontSize="large" color="sc_blue" />,
       title: (
         <span>
-          <i>Networking</i> dengan para {"investor"}
+          <i>Networking</i> dengan {"investor"}
         </span>
       ),
       desc: isFounder
         ? "Perkuat bisnis dengan membangun network dengan pendiri startup lain, investor, mentor, dan praktisi di dunia startup."
-        : `Membangun network dengan investor, mentor, dan praktisi di dunia ${dunia}.`,
+        : isDataScience
+          ? "Perkuat bisnis dengan membangun network dengan investor, mentor, dan praktisi di dunia Data Science."
+          : isArtificialIntellegence
+            ? "Perkuat bisnis dengan membangun network dengan para ahli bidang Artificial Intelligence, investor, mentor, dan praktisi di dunia AI."
+            : `Membangun network dengan investor, mentor, dan praktisi di dunia ${dunia}.`,
     },
     {
       icon: (
