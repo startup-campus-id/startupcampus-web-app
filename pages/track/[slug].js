@@ -119,7 +119,7 @@ export default function Track({ course }) {
                 className="sidebar"
                 display={{ xs: "none", md: "block" }}
               >
-                <SideBar />
+                <SideBar listMenu={listMenu} />
               </Grid>
               <Grid item container md={9} className="content">
                 <Grid item xs={12}>

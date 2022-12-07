@@ -1,10 +1,9 @@
 import { Divider, Link, Stack, Typography } from "@mui/material";
 import React from "react";
-import { listMenu } from "../../content/sideMenu";
 import DaftarButton from "../DaftarButton";
 import MyButton from "../MyButton";
 
-export default function SideBar() {
+export default function SideBar({ listMenu }) {
   return (
     <Stack
       p={4}
@@ -21,7 +20,7 @@ export default function SideBar() {
     >
       <Typography fontWeight={700}>Detail Program</Typography>
       <Divider />
-      {listMenu.map((item, idx) => (
+      {listMenu?.map((item, idx) => (
         <Link href={"#" + item.link} underline="none" key={idx}>
           <Typography
             fontWeight={400}
