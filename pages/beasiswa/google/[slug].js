@@ -79,7 +79,7 @@ export default function BeasiswaGoogle({ beasiswa }) {
 
               <Stack spacing={2}>
                 <Typography color="white" textAlign="center">
-                  Raih karier impianmu di bidang Data Analitik hanya dalam waktu
+                  Raih karier impianmu di bidang {beasiswa.name} hanya dalam waktu
                   3 bulan!
                 </Typography>
 
