@@ -9,7 +9,7 @@ import MyButton from "../MyButton";
 export default function BeasiswaHero({ name }) {
   return (
     <Stack
-      spacing={4}
+      spacing={5}
       height={"100vh"}
       alignItems="center"
       justifyContent="center"

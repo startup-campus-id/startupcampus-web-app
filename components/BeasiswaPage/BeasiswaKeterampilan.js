@@ -1,4 +1,4 @@
-import { Box, Grid, Stack } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import AccentText from "../AccentText";
 
@@ -17,7 +17,7 @@ export default function BeasiswaKeterampilan({ skill }) {
               borderRadius: 10,
             }}
           >
-            {v}
+            <Typography variant="body2">{v}</Typography>
           </Grid>
         ))}
       </Grid>

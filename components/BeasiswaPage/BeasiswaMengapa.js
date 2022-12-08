@@ -7,33 +7,34 @@ import MyDesc from "../MyDesc";
 import MyTitle from "../MyTitle";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-export default function BeasiswaAbout({ name, materi }) {
+export default function BeasiswaMengapa({ name, materi }) {
   return (
-    <Box id="tentang-program" pt={6}>
-      <AccentText>Tentang Program</AccentText>
+    <Box id="beasiswa-gcc" pt={6}>
+      <AccentText>Beasiswa Google Career Certificate</AccentText>
       <MyTitle gutterBottom>
-        Mengapa <HighlightText>Harus</HighlightText> Belajar {name} ?
+        Mengapa <HighlightText>Harus</HighlightText> Google Career Certificate?
       </MyTitle>
-      <Grid container my={4} spacing={3}>
+      <Grid container my={4} spacing={3} direction="row-reverse">
         <Grid item xs={12} md={6}>
           <Typography variant={"body2"}>
-            Kabar baik! Startup Campus bersama{" "}
+            Dengan dukungan{" "}
             <Link href={"#"} passHref>
               <Typography variant={"body2"} component="a" color="sc_blue.main">
                 Google Career Certificate(GCC){"  "}
               </Typography>
             </Link>
-            akan memberikan beasiswa pelatihan daring di bidang Data Analitik
-            untuk 200 orang di seluruh Indonesia.
+            , Startup Campus meluncurkan program beasiswa untuk menunjang para
+            pencari kerja dan pemuda di seluruh Indonesia khususnya bagian timur
+            yang kurang terakomodasi.
           </Typography>
 
           <Typography variant={"body2"} my={4}>
-            Materi yang akan dipelajari mencakup:
+            Beasiswa tersebut mencakup dukungan berupa:
           </Typography>
 
           <Stack spacing={4}>
             {materi?.map((v, i) => (
-              <Stack direction="row" spacing={1} key={i}>
+              <Stack direction="row" spacing={1} key={i} alignItems="center">
                 <CheckCircleIcon sx={{ color: "sc_blue.main" }} />
                 <MyDesc>{v}</MyDesc>
               </Stack>
@@ -45,7 +46,7 @@ export default function BeasiswaAbout({ name, materi }) {
             sx={{
               width: "100%",
               minHeight: 570,
-              backgroundImage: "url(/images/writingperson.png)",
+              backgroundImage: "url(/images/beasiswa-why-gcc.png)",
               backgroundSize: "cover",
               overflow: "hidden",
               borderRadius: 8,

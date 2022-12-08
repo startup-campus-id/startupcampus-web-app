@@ -11,6 +11,10 @@ import SideBar from "../../../components/trackPage/SideBar";
 import { menuBeasiswa } from "../../../content/menuBeasiswa";
 import BeasiswaAbout from "../../../components/BeasiswaPage/BeasiswaAbout";
 import BeasiswaKeterampilan from "../../../components/BeasiswaPage/BeasiswaKeterampilan";
+import BeasiswaMengapa from "../../../components/BeasiswaPage/BeasiswaMengapa";
+import { whyMustGcc } from "../../../content/whymustgcc";
+import BeasiswaKurikulum from "../../../components/BeasiswaPage/BeasiswaKurikulum";
+import { REGIST_BEASISWA_GOOGLE_URL } from "../../../sc.config";
 
 export default function BeasiswaGoogle({ beasiswa }) {
   const app = useRef();
@@ -71,16 +75,27 @@ export default function BeasiswaGoogle({ beasiswa }) {
             className="sidebar"
             display={{ xs: "none", md: "block" }}
           >
-            <SideBar listMenu={menuBeasiswa} />
+            <SideBar
+              listMenu={menuBeasiswa}
+              link={REGIST_BEASISWA_GOOGLE_URL}
+            />
           </Grid>
           <Grid item container md={9} className="content">
             <Stack>
               <BeasiswaAbout name={beasiswa.name} materi={beasiswa.tp_materi} />
-              <Divider sx={{ marginY: 6 }} />
+              <Divider sx={{ marginY: 4 }} />
             </Stack>
             <Stack>
               <BeasiswaKeterampilan skill={beasiswa.keterampilan} />
-              <Divider sx={{ marginY: 6 }} />
+              <Divider sx={{ marginY: 4 }} />
+            </Stack>
+            <Stack>
+              <BeasiswaMengapa materi={whyMustGcc} />
+              <Divider sx={{ marginY: 4 }} />
+            </Stack>
+            <Stack>
+              <BeasiswaKurikulum kurikulum={beasiswa.kurikulum} />
+              <Divider sx={{ marginY: 4 }} />
             </Stack>
           </Grid>
         </Grid>

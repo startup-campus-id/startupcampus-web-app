@@ -3,7 +3,7 @@ import React from "react";
 import DaftarButton from "../DaftarButton";
 import MyButton from "../MyButton";
 
-export default function SideBar({ listMenu }) {
+export default function SideBar({ listMenu, link }) {
   return (
     <Stack
       p={4}
@@ -32,7 +32,7 @@ export default function SideBar({ listMenu }) {
           </Typography>
         </Link>
       ))}
-      <DaftarButton />
+      <DaftarButton link={link} />
     </Stack>
   );
 }

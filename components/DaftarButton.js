@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import AlertDialog from "./AlertDialog";
 import MyButton from "./MyButton";
 
-export default function DaftarButton({ handleClick }) {
+export default function DaftarButton({
+  handleClick,
+  link = "/daftar/studi-independen",
+}) {
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -13,7 +16,7 @@ export default function DaftarButton({ handleClick }) {
     setOpen(false);
   };
   return (
-    <Link href={"/daftar/studi-independen"} passHref>
+    <Link href={link} passHref>
       <MyButton onClick={handleClickOpen}>Daftar sekarang</MyButton>
       {/* <AlertDialog open={open} handleClose={handleClose} /> */}
     </Link>
