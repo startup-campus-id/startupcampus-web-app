@@ -16,6 +16,7 @@ export default function Kurikulum({
   const router = useRouter();
   const isUIUX = router.asPath.match("uiux")
 
+
   return (
     <Stack id="kurikulum" data-aos="fade-up">
       <AccentText>Kurikulum</AccentText>
