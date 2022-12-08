@@ -19,17 +19,9 @@ export default function Kurikulum({
   return (
     <Stack id="kurikulum" data-aos="fade-up">
       <AccentText>Kurikulum</AccentText>
-      {
-        isUIUX ?
-          <MyTitle gutterBottom>
-            4 Langkah Menjadi <HighlightText>{nickname}</HighlightText>
-          </MyTitle>
-          :
-          <MyTitle gutterBottom>
-            4 Tahap Menjadi <HighlightText>{nickname}</HighlightText>
-          </MyTitle>
-
-      }
+      <MyTitle gutterBottom>
+        4 Langkah Menjadi <HighlightText>{nickname}</HighlightText>
+      </MyTitle>
       <MyDesc>{desc}</MyDesc>
       <BasicTabs data={kurikulum} link={link} />
     </Stack>
