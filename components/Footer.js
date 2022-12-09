@@ -58,18 +58,25 @@ const Footer = () => {
       component={"footer"}
       container
       sx={{
-        backgroundColor: router.pathname.match("/track")
-          ? "white"
-          : "sc_blue.main",
+        backgroundColor:
+          router.pathname.match("/track") || router.pathname.match("/beasiswa")
+            ? "white"
+            : "sc_blue.main",
       }}
     >
       <Container
         sx={{
           borderBottom: `1px solid ${
-            router.pathname.match("/track") ? "#BDBDBD" : "white"
+            router.pathname.match("/track") ||
+            router.pathname.match("/beasiswa")
+              ? "#BDBDBD"
+              : "white"
           }`,
           borderTop: `1px solid ${
-            router.pathname.match("/track") ? "#BDBDBD" : "white"
+            router.pathname.match("/track") ||
+            router.pathname.match("/beasiswa")
+              ? "#BDBDBD"
+              : "white"
           }`,
         }}
       >
@@ -79,7 +86,8 @@ const Footer = () => {
               <Box>
                 <Image
                   src={
-                    router.pathname.match("/track")
+                    router.pathname.match("/track") ||
+                    router.pathname.match("/beasiswa")
                       ? "/images/Startup Campus Gray Logo.svg"
                       : "/images/Startup Campus White Logo.png"
                   }
@@ -91,7 +99,10 @@ const Footer = () => {
               <Typography
                 variant="body2"
                 color={
-                  router.pathname.match("/track") ? "sc_gray.dark" : "white"
+                  router.pathname.match("/track") ||
+                  router.pathname.match("/beasiswa")
+                    ? "sc_gray.dark"
+                    : "white"
                 }
               >
                 {tagline.footer}
@@ -105,7 +116,10 @@ const Footer = () => {
                 component={"h1"}
                 fontWeight={700}
                 color={
-                  router.pathname.match("/track") ? "sc_gray.dark" : "white"
+                  router.pathname.match("/track") ||
+                  router.pathname.match("/beasiswa")
+                    ? "sc_gray.dark"
+                    : "white"
                 }
                 sx={{ opacity: 0.5 }}
               >
@@ -117,7 +131,10 @@ const Footer = () => {
                     key={i}
                     variant="body2"
                     color={
-                      router.pathname.match("/track") ? "sc_gray.dark" : "white"
+                      router.pathname.match("/track") ||
+                      router.pathname.match("/beasiswa")
+                        ? "sc_gray.dark"
+                        : "white"
                     }
                   >
                     <Link href={v.link} underline="none">
@@ -135,7 +152,10 @@ const Footer = () => {
                 component={"h1"}
                 fontWeight={700}
                 color={
-                  router.pathname.match("/track") ? "sc_gray.dark" : "white"
+                  router.pathname.match("/track") ||
+                  router.pathname.match("/beasiswa")
+                    ? "sc_gray.dark"
+                    : "white"
                 }
                 sx={{ opacity: 0.5 }}
               >
@@ -147,7 +167,10 @@ const Footer = () => {
                     key={i}
                     variant="body2"
                     color={
-                      router.pathname.match("/track") ? "sc_gray.dark" : "white"
+                      router.pathname.match("/track") ||
+                      router.pathname.match("/beasiswa")
+                        ? "sc_gray.dark"
+                        : "white"
                     }
                   >
                     {v.link ? (
@@ -169,7 +192,10 @@ const Footer = () => {
                 fontWeight={700}
                 component={"h1"}
                 color={
-                  router.pathname.match("/track") ? "sc_gray.dark" : "white"
+                  router.pathname.match("/track") ||
+                  router.pathname.match("/beasiswa")
+                    ? "sc_gray.dark"
+                    : "white"
                 }
                 sx={{ opacity: 0.5 }}
               >
@@ -181,7 +207,10 @@ const Footer = () => {
                     key={i}
                     variant="body2"
                     color={
-                      router.pathname.match("/track") ? "sc_gray.dark" : "white"
+                      router.pathname.match("/track") ||
+                      router.pathname.match("/beasiswa")
+                        ? "sc_gray.dark"
+                        : "white"
                     }
                   >
                     <Link href={v.link} underline="none">
@@ -198,7 +227,12 @@ const Footer = () => {
         <Typography
           textAlign={"center"}
           variant="subtitle2"
-          color={router.pathname.match("/track") ? "sc_gray.dark" : "white"}
+          color={
+            router.pathname.match("/track") ||
+            router.pathname.match("/beasiswa")
+              ? "sc_gray.dark"
+              : "white"
+          }
         >
           ©Startup Campus. All right reserverd, 2022.
         </Typography>

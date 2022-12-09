@@ -15,6 +15,12 @@ import BeasiswaMengapa from "../../../components/BeasiswaPage/BeasiswaMengapa";
 import { whyMustGcc } from "../../../content/whymustgcc";
 import BeasiswaKurikulum from "../../../components/BeasiswaPage/BeasiswaKurikulum";
 import { REGIST_BEASISWA_GOOGLE_URL } from "../../../sc.config";
+import BeasiswaKriteria from "../../../components/BeasiswaPage/BeasiswaKriteria";
+import BeasiswaJadwal from "../../../components/BeasiswaPage/BeasiswaJadwal";
+import MyTitle from "../../../components/MyTitle";
+import WordBreak from "../../../components/WordBreak";
+import MyButton from "../../../components/MyButton";
+import Link from "next/link";
 
 export default function BeasiswaGoogle({ beasiswa }) {
   const app = useRef();
@@ -97,9 +103,34 @@ export default function BeasiswaGoogle({ beasiswa }) {
               <BeasiswaKurikulum kurikulum={beasiswa.kurikulum} />
               <Divider sx={{ marginY: 4 }} />
             </Stack>
+            <Stack width={"100%"}>
+              <BeasiswaKriteria />
+              <Divider sx={{ marginY: 4 }} />
+            </Stack>
+            <Stack width={"100%"}>
+              <BeasiswaJadwal />
+              <Divider sx={{ marginY: 4 }} />
+            </Stack>
           </Grid>
         </Grid>
       </Container>
+      <Stack
+        sx={{ background: "rgba(0, 86, 210, 0.05)" }}
+        py={5}
+        my={5}
+        justifyContent="center"
+        alignItems="center"
+        spacing={3}
+      >
+        <MyTitle textAlign="center" color="sc_blue.main">
+          Mulai Kariermu di Sini! <WordBreak /> Daftar Kelas Google Sekarang!
+        </MyTitle>
+        <Link href={REGIST_BEASISWA_GOOGLE_URL} passHref>
+          <MyButton color="sc_yellow">
+            <Typography fontWeight={700}>Daftar Sekarang</Typography>
+          </MyButton>
+        </Link>
+      </Stack>
     </>
   );
 }
