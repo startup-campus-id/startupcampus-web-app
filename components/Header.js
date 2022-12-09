@@ -249,9 +249,9 @@ const Header = () => {
                   <Link href={"/#testimoni"} underline="none">
                     <NavItem>Testimoni</NavItem>
                   </Link>
-                  <Dropdown list={beasiswaGoogle} type="google">
+                  {/* <Dropdown list={beasiswaGoogle} type="google">
                     <NavItem isDropDown={true}>Beasiswa</NavItem>
-                  </Dropdown>
+                  </Dropdown> */}
                   {/* <Link href={"#blog"} underline="none">
                     <NavItem>Blog</NavItem>
                   </Link>
