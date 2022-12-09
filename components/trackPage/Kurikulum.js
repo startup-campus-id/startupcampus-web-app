@@ -16,20 +16,13 @@ export default function Kurikulum({
   const router = useRouter();
   const isUIUX = router.asPath.match("uiux")
 
+
   return (
     <Stack id="kurikulum" data-aos="fade-up">
       <AccentText>Kurikulum</AccentText>
-      {
-        isUIUX ?
-          <MyTitle gutterBottom>
-            4 Langkah Menjadi <HighlightText>{nickname}</HighlightText>
-          </MyTitle>
-          :
-          <MyTitle gutterBottom>
-            4 Tahap Menjadi <HighlightText>{nickname}</HighlightText>
-          </MyTitle>
-
-      }
+      <MyTitle gutterBottom>
+        4 Langkah Menjadi <HighlightText>{nickname}</HighlightText>
+      </MyTitle>
       <MyDesc>{desc}</MyDesc>
       <BasicTabs data={kurikulum} link={link} />
     </Stack>
