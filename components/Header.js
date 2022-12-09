@@ -53,6 +53,17 @@ const program = [
     link: "/track/artificial-intelligence",
   },
 ];
+
+const beasiswaGoogle = [
+  {
+    name: "Data Analitik",
+    link: "/beasiswa/google/data-analitik",
+  },
+  {
+    name: "UX Design",
+    link: "/beasiswa/google/uiux-design",
+  },
+];
 const Header = () => {
   const [expand, setExpand] = useState(false);
   const router = useRouter();
@@ -238,6 +249,9 @@ const Header = () => {
                   <Link href={"/#testimoni"} underline="none">
                     <NavItem>Testimoni</NavItem>
                   </Link>
+                  <Dropdown list={beasiswaGoogle} type="google">
+                    <NavItem isDropDown={true}>Beasiswa</NavItem>
+                  </Dropdown>
                   {/* <Link href={"#blog"} underline="none">
                     <NavItem>Blog</NavItem>
                   </Link>

@@ -11,14 +11,14 @@ export const menuBeasiswa = [
     name: "Kurikulum",
     link: "kurikulum",
   },
-  // {
-  //   name: "Kriteria Calon Peserta",
-  //   link: "kriteria",
-  // },
-  // {
-  //   name: "Alur Pendaftaran",
-  //   link: "alur-pendaftaran",
-  // },
+  {
+    name: "Kriteria Calon Peserta",
+    link: "kriteria",
+  },
+  {
+    name: "Alur Pendaftaran",
+    link: "alur-pendaftaran",
+  },
   // {
   //   name: "Sertifikat GCC",
   //   link: "sertifikat-gcc",

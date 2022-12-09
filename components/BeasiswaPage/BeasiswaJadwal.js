@@ -8,7 +8,7 @@ import BeasiswaTimeline from "./BeasiswaTimeline";
 
 export default function BeasiswaJadwal() {
   return (
-    <Grid container>
+    <Grid container id="alur-pendaftaran">
       <Grid item xs={12} md={5}>
         <MyTitle gutterBottom>
           <HighlightText>Jadwal Program</HighlightText> <WordBreak />

@@ -22,7 +22,7 @@ const NavItem = ({ children, notHover }) => (
   </Typography>
 );
 
-const Dropdown = ({ children, list }) => {
+const Dropdown = ({ children, list, type }) => {
   const [open, setOpen] = useState(false);
   const [expand, setExpand] = useState(false);
 
@@ -100,9 +100,14 @@ const Dropdown = ({ children, list }) => {
         {/* <Typography variant="body1" color="#BDBDBD" fontWeight={700}>
           Program Intensif
         </Typography> */}
+        {type == "google" && (
+          <Typography color="sc_gray.dark" fontWeight={700}>
+            Beasiswa Google
+          </Typography>
+        )}
         {list?.map((item, idx) => (
           <Stack spacing={2} key={idx} onClick={() => setExpand(!expand)}>
-            {/* <Link
+            <Link
               href={
                 item.link.match("/track/backend-engineer") ? null : item.link
               }
@@ -113,16 +118,15 @@ const Dropdown = ({ children, list }) => {
                   ? "#69686B"
                   : "unset",
               }}
-            > */}
-            <NavItem notHover={!!item.link.match("/track/backend-engineer")}>
-              {item.name}
-            </NavItem>
-            {/* </Link> */}
+            >
+              <NavItem notHover={!!item.link.match("/track/backend-engineer")}>
+                {item.name}
+              </NavItem>
+            </Link>
           </Stack>
         ))}
         {/* <NavItem notHover={true}>{"Coming soon"}</NavItem> */}
       </Stack>
-      <AlertDialog open={expand} handleClose={handleClose} comingSoon={true} />
     </Box>
   );
 };
