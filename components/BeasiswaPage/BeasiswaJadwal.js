@@ -8,8 +8,8 @@ import BeasiswaTimeline from "./BeasiswaTimeline";
 
 export default function BeasiswaJadwal() {
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={12} md={6}>
+    <Grid container>
+      <Grid item xs={12} md={5}>
         <MyTitle gutterBottom>
           <HighlightText>Jadwal Program</HighlightText> <WordBreak />
           Beasiswa Google <WordBreak />
@@ -29,7 +29,12 @@ export default function BeasiswaJadwal() {
           Berikut tahapan pendaftaran yang akan kamu lewati:
         </Typography>
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid
+        item
+        xs={12}
+        md={7}
+        sx={{ display: "flex", justifyContent: "center" }}
+      >
         <BeasiswaTimeline />
       </Grid>
     </Grid>

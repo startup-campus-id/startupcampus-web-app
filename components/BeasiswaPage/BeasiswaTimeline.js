@@ -69,13 +69,8 @@ export default function VerticalLinearStepper() {
             key={step.label}
             onClick={() => setActiveStep(index)}
             sx={{ cursor: "pointer" }}
-            optional={
-              index === 2 ? (
-                <Typography variant="caption">Last step</Typography>
-              ) : null
-            }
           >
-            <StepLabel StepIconComponent={() => circle(index)}>
+            <StepLabel StepIconComponent={() => circle(index + 1)}>
               {step.label}
             </StepLabel>
             <StepContent TransitionProps={{ unmountOnExit: false }}>

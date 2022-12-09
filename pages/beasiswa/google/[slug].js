@@ -116,15 +116,20 @@ export default function BeasiswaGoogle({ beasiswa }) {
       </Container>
       <Stack
         sx={{ background: "rgba(0, 86, 210, 0.05)" }}
-        py={5}
+        py={8}
         my={5}
         justifyContent="center"
         alignItems="center"
         spacing={3}
       >
-        <MyTitle textAlign="center" color="sc_blue.main">
-          Mulai Kariermu di Sini! <WordBreak /> Daftar Kelas Google Sekarang!
-        </MyTitle>
+        <Stack>
+          <MyTitle textAlign="center" color="sc_blue.main">
+            Mulai Kariermu di Sini!
+          </MyTitle>
+          <MyTitle textAlign="center" color="sc_blue.main">
+            Daftar Kelas Google Sekarang!
+          </MyTitle>
+        </Stack>
         <Link href={REGIST_BEASISWA_GOOGLE_URL} passHref>
           <MyButton color="sc_yellow">
             <Typography fontWeight={700}>Daftar Sekarang</Typography>
