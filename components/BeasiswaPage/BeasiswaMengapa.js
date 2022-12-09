@@ -6,6 +6,7 @@ import HighlightText from "../HighlightText";
 import MyDesc from "../MyDesc";
 import MyTitle from "../MyTitle";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { GCC_URL } from "../../sc.config";
 
 export default function BeasiswaMengapa({ name, materi }) {
   return (
@@ -18,7 +19,7 @@ export default function BeasiswaMengapa({ name, materi }) {
         <Grid item xs={12} md={6}>
           <Typography variant={"body2"}>
             Dengan dukungan{" "}
-            <Link href={"#"} passHref>
+            <Link href={GCC_URL} passHref>
               <Typography variant={"body2"} component="a" color="sc_blue.main">
                 Google Career Certificate(GCC){"  "}
               </Typography>
