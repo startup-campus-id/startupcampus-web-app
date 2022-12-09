@@ -1,6 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
+import { GCC_URL } from "../../sc.config";
 import HighlightText from "../HighlightText";
 import MyTitle from "../MyTitle";
 import WordBreak from "../WordBreak";
@@ -17,7 +18,7 @@ export default function BeasiswaJadwal() {
         </MyTitle>
         <Typography variant={"body2"}>
           Beasiswa{" "}
-          <Link href={"#"} passHref>
+          <Link href={GCC_URL} passHref>
             <Typography variant={"body2"} component="a" color="sc_blue.main">
               Google Career Certificate(GCC){"  "}
             </Typography>
