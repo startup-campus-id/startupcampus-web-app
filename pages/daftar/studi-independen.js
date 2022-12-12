@@ -64,7 +64,7 @@ const media = [
   "Influencer/Komunitas",
 ];
 
-function FormStudiIndependen({ paket, course = null }) {
+function FormStudiIndependen() {
   const router = useRouter();
   const { register, setValue, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
@@ -325,28 +325,3 @@ function FormStudiIndependen({ paket, course = null }) {
 
 export default FormStudiIndependen;
 
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
-
-  const { items: paket } = await client.getEntries({
-    content_type: "paketKelas",
-  });
-
-  const { items: tagline } = await client.getEntries({
-    content_type: "section1",
-  });
-
-  // const response = await axios.get(process.env.BE_BASE_URL + "/coursepath");
-
-  return {
-    props: {
-      paket,
-      tagline,
-      // course: await response.data,
-    },
-    revalidate: 1,
-  };
-}

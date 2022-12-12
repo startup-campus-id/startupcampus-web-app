@@ -35,7 +35,7 @@ const helper = [
   "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
 ];
 const steps = ["Pilih Program", "Identitas Diri"];
-function Daftar({ paket, course }) {
+function Daftar() {
   const router = useRouter();
   const { register, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
@@ -88,7 +88,7 @@ function Daftar({ paket, course }) {
     }
   };
   const step = [
-    <ChooseProgramForm key={0} paket={course} />,
+    <ChooseProgramForm key={0} />,
     <IndentityForm key={1} />,
     <Stack key={2} alignItems="center" spacing={4}>
       {loading ? (
@@ -218,29 +218,3 @@ function Daftar({ paket, course }) {
 
 export default Daftar;
 
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
-
-  const { items: paket } = await client.getEntries({
-    content_type: "paketKelas",
-  });
-
-  const { items: tagline } = await client.getEntries({
-    content_type: "section1",
-  });
-
-  const response = await axios.get(BASE_URL + "/coursepath");
-  // console.log(response.data);
-
-  return {
-    props: {
-      paket,
-      tagline,
-      course: response.data,
-    },
-    revalidate: 1,
-  };
-}
