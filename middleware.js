@@ -1,7 +1,7 @@
 import { NextFetchEvent, NextRequest, NextResponse } from 'next/server'
 
 export function middleware(req, ev) {
-  const currentEnv = process.env.APP_ENV;
+  const currentEnv = process.env.NEXT_PUBLIC_APP_ENV;
 
   if (currentEnv === 'production' &&
     req.headers.get("x-forwarded-proto") !== "https") {
