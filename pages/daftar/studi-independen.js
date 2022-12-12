@@ -64,7 +64,7 @@ const media = [
   "Influencer/Komunitas",
 ];
 
-function FormStudiIndependen({ paket, course = null }) {
+function FormStudiIndependen() {
   const router = useRouter();
   const { register, setValue, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
@@ -72,8 +72,8 @@ function FormStudiIndependen({ paket, course = null }) {
   const [state, setState] = useState(0);
 
   const onSubmit = (data) => {
-    setLoading(true);
     setState((prev) => prev + 1);
+    setLoading(true);
     try {
       const formData = new FormData();
       if (data.twibbon.path) {
@@ -230,14 +230,19 @@ function FormStudiIndependen({ paket, course = null }) {
       <MyCheckBox name="agree" />
     </Stack>,
     <Stack key={1} alignItems="center" spacing={4}>
-      {loading && (
+      {loading ? (
         <>
-          <Typography>Menyimpan data registrasi</Typography>
+          <Typography>Menyimpan Data</Typography>
+          <CircularProgress />
+        </>
+      ) : error ? (
+        <Typography color={"red"}>Terjadi kesalahan</Typography>
+      ) : (
+        <>
+          <Typography>Berhasil menyimpan Data</Typography>
           <CircularProgress />
         </>
       )}
-
-      {error && <Typography color={"red"}>Terjadi kesalahan</Typography>}
     </Stack>,
   ];
 
@@ -325,28 +330,3 @@ function FormStudiIndependen({ paket, course = null }) {
 
 export default FormStudiIndependen;
 
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
-
-  const { items: paket } = await client.getEntries({
-    content_type: "paketKelas",
-  });
-
-  const { items: tagline } = await client.getEntries({
-    content_type: "section1",
-  });
-
-  // const response = await axios.get(process.env.BE_BASE_URL + "/coursepath");
-
-  return {
-    props: {
-      paket,
-      tagline,
-      // course: await response.data,
-    },
-    revalidate: 1,
-  };
-}

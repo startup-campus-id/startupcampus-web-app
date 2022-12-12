@@ -28,6 +28,7 @@ import axios from "axios";
 import { BASE_URL } from "../../sc.config";
 import AccentText from "../../components/AccentText";
 import { useRouter } from "next/router";
+import { kelas } from "../../content/kelas.js";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
@@ -35,7 +36,7 @@ const helper = [
   "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
 ];
 const steps = ["Pilih Program", "Identitas Diri"];
-function Daftar({ paket, course }) {
+function Daftar() {
   const router = useRouter();
   const { register, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
@@ -64,8 +65,9 @@ function Daftar({ paket, course }) {
         })
         .then((res) => {
           setLoading(false);
-          router.push(`/success-public?token=${res.data.data.token}`);
-          // const { invoiceUrl } = data.payment;
+          const { data } = res.data;
+          const { invoiceUrl } = data.payment;
+          router.push(invoiceUrl);
           // window.location.replace(invoiceUrl);
         })
         .catch((err) => {
@@ -88,7 +90,7 @@ function Daftar({ paket, course }) {
     }
   };
   const step = [
-    <ChooseProgramForm key={0} paket={course} />,
+    <ChooseProgramForm key={0} />,
     <IndentityForm key={1} />,
     <Stack key={2} alignItems="center" spacing={4}>
       {loading ? (
@@ -182,7 +184,7 @@ function Daftar({ paket, course }) {
                     <Stack direction="row" spacing={1}>
                       <ImportContactsRoundedIcon color="sc_white" />
                       <Typography color="sc_white.main">
-                        {course.data[watch("track") - 1].name}
+                        {kelas[watch("track") - 1].title}
                       </Typography>
                     </Stack>
                     <Stack direction="row" spacing={1}>
@@ -218,29 +220,3 @@ function Daftar({ paket, course }) {
 
 export default Daftar;
 
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
-
-  const { items: paket } = await client.getEntries({
-    content_type: "paketKelas",
-  });
-
-  const { items: tagline } = await client.getEntries({
-    content_type: "section1",
-  });
-
-  const response = await axios.get(BASE_URL + "/coursepath");
-  // console.log(response.data);
-
-  return {
-    props: {
-      paket,
-      tagline,
-      course: response.data,
-    },
-    revalidate: 1,
-  };
-}

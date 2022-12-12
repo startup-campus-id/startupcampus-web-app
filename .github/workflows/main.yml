@@ -1,7 +1,7 @@
 name: Deploy this application
 on:
   push:
-    branches: [main]
+    branches: [main, staging]
 
 jobs:
   deploy_source:

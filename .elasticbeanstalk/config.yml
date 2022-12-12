@@ -2,6 +2,9 @@ branch-defaults:
   main:
     environment: web-frontend-startupcampus-env
     group_suffix: null
+  staging:
+    environment: staging-web-frontend-startupcampus
+    group_suffix: null
 global:
   application_name: web-frontend
   branch: null
