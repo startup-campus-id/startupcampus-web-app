@@ -72,8 +72,8 @@ function FormStudiIndependen() {
   const [state, setState] = useState(0);
 
   const onSubmit = (data) => {
-    setLoading(true);
     setState((prev) => prev + 1);
+    setLoading(true);
     try {
       const formData = new FormData();
       if (data.twibbon.path) {
@@ -230,14 +230,19 @@ function FormStudiIndependen() {
       <MyCheckBox name="agree" />
     </Stack>,
     <Stack key={1} alignItems="center" spacing={4}>
-      {loading && (
+      {loading ? (
         <>
-          <Typography>Menyimpan data registrasi</Typography>
+          <Typography>Menyimpan Data</Typography>
+          <CircularProgress />
+        </>
+      ) : error ? (
+        <Typography color={"red"}>Terjadi kesalahan</Typography>
+      ) : (
+        <>
+          <Typography>Berhasil menyimpan Data</Typography>
           <CircularProgress />
         </>
       )}
-
-      {error && <Typography color={"red"}>Terjadi kesalahan</Typography>}
     </Stack>,
   ];
 
