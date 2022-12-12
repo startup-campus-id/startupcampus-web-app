@@ -28,6 +28,7 @@ import axios from "axios";
 import { BASE_URL } from "../../sc.config";
 import AccentText from "../../components/AccentText";
 import { useRouter } from "next/router";
+import { kelas } from "../../content/kelas.js";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
@@ -64,8 +65,9 @@ function Daftar() {
         })
         .then((res) => {
           setLoading(false);
-          router.push(`/success-public?token=${res.data.data.token}`);
-          // const { invoiceUrl } = data.payment;
+          const { data } = res.data;
+          const { invoiceUrl } = data.payment;
+          router.push(invoiceUrl);
           // window.location.replace(invoiceUrl);
         })
         .catch((err) => {
@@ -182,7 +184,7 @@ function Daftar() {
                     <Stack direction="row" spacing={1}>
                       <ImportContactsRoundedIcon color="sc_white" />
                       <Typography color="sc_white.main">
-                        {course.data[watch("track") - 1].name}
+                        {kelas[watch("track") - 1].title}
                       </Typography>
                     </Stack>
                     <Stack direction="row" spacing={1}>
