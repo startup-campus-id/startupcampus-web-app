@@ -104,11 +104,11 @@ export default function Kelas({ course }) {
       <MyTitle gutterBottom>
         Kelas yang Dapat Kamu <HighlightText>Ikuti</HighlightText>
       </MyTitle>
-      {/* <MyDesc mb={3}>
+      {<MyDesc mb={3}>
         Dapatkan penawaran promo dari{" "}
         <span style={{ textDecoration: "line-through" }}>Rp20.000.000,-</span>{" "}
         menjadi <strong>Rp4.000.000,-</strong> untuk Bootcamp for Public.
-      </MyDesc> */}
+      </MyDesc> }
       <Grid
         item
         xs={12}
@@ -124,7 +124,7 @@ export default function Kelas({ course }) {
           <BiayaCard
             icon={<VideoLibraryIcon />}
             title={"Bootcamp for Public"}
-            price={"Rp. 20.000.000"}
+            price={"Rp. 4.000.000"}
             link={BOOTCAMP_FOR_PUBLIC}
             recommended={true}
           />

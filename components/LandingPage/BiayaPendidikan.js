@@ -47,7 +47,7 @@ export default function BiayaPendidikan() {
             <BiayaCard
               icon={<VideoLibraryIcon />}
               title={"Bootcamp for Public"}
-              price={"Rp. 20.000.000"}
+              price={"Rp. 4.000.000"}
               link={BOOTCAMP_FOR_PUBLIC}
               recommended={true}
             />
