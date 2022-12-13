@@ -22,7 +22,7 @@ const guideFileRekom = [
   "Diperbolehkan menggunakan tanda tangan digital yang disertai cap.",
   " Mahasiswa calon peserta perlu melampirkan daftar program yang akan dilamar sebagai informasi kepada perguruan tinggi.",
 ];
-const ChooseProgramForm = ({ paket }) => {
+const ChooseProgramForm = () => {
   const router = useRouter();
   const mkelas = kelas.map((items) => items.title);
   const { register, handleSubmit, watch, errors } = useMyForm();
