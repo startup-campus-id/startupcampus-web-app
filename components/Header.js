@@ -159,8 +159,7 @@ const Header = () => {
                     onClick={toggleDrawer(anchor, false)}
                   >
                     <Link
-                      href={"#"}
-                      // href={v.link}
+                      href={v.link}
                       underline={"none"}
                       style={{ color: "unset" }}
                     >
@@ -298,8 +297,16 @@ const Header = () => {
                   edge="start"
                   color="inherit"
                   aria-label="menu"
-                  sx={{ display: { xs: "block", sm: "block", md: "none" } }}
-                  onClick={toggleDrawer("left", true)}
+                  sx={
+                  { 
+                    display: { 
+                      xs: "block", sm: "block", md: "none" 
+                    },  
+                    zIndex: 300,
+                  }}
+                  onClick={
+                    toggleDrawer("left", true)
+                  }
                 >
                   <MenuIcon />
                 </IconButton>
