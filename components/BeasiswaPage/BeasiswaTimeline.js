@@ -12,7 +12,7 @@ import MyDesc from "../MyDesc";
 const steps = [
   {
     label: "Registrasi via Website",
-    description: `10 Desember 2022 s/d
+    description: `23 Desember 2022 s/d
     12 Februari 2023`,
   },
   {
