@@ -81,7 +81,7 @@ const Card = ({ img, title, desc, level, bulan, tanggal, online, link }) => {
         </Box>
 
         <Link href={link.match("backend") ? "" : link}>
-          <MyButton color={cardHover ? "sc_blue" : "sc_gray"} disabled>
+          <MyButton color={"sc_blue"} disabled={link.match("backend")? true: false}>
             Pelajari lebih lanjut
           </MyButton>
         </Link>
