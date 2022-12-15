@@ -42,10 +42,10 @@ function Section1() {
               passHref
               legacyBehavior
             >
-              <MyButton color="sc_blue">Kampus Merdeka</MyButton>
+              <MyButton variant="outlined" color="sc_blue">Kampus Merdeka</MyButton>
             </Link>
             <Link href={BOOTCAMP_FOR_PUBLIC} underline="none" passHref>
-              <MyButton variant="outlined" color="sc_blue">
+              <MyButton color="sc_blue">
                 Bootcamp for Public
               </MyButton>
             </Link>
