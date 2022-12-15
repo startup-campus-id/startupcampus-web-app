@@ -146,7 +146,8 @@ export async function getStaticPaths() {
   const querySnapshot = await getDocs(colRef);
 
   querySnapshot.forEach((doc) => {
-    paths.push({ params: { slug: doc.id } });
+    const {slug} = doc.data()
+    paths.push({ params: { slug } });
   });
 
   return {
