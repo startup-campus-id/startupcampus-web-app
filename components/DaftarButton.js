@@ -5,7 +5,7 @@ import MyButton from "./MyButton";
 
 export default function DaftarButton({
   handleClick,
-  link = "/daftar/studi-independen",
+  link = "/daftar/bootcamp-public",
 }) {
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
