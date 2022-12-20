@@ -23,12 +23,12 @@ const MySwiper = ({ className, slidesPerViewLarge = 3, slidesPerViewSmall = 2, b
           }}
           breakpoints={{
             690: {
-              slidesPerView: slidesPerViewLarge,
+              slidesPerView: slidesPerViewSmall,
               spaceBetween: 30,
             },
             // when window width is >= 640px
             1050: {
-              slidesPerView: slidesPerViewSmall,
+              slidesPerView: slidesPerViewLarge,
               spaceBetween: 30,
             },
           }}
