@@ -9,6 +9,7 @@ import { Divider, Stack } from "@mui/material";
 import AccentText from "./AccentText";
 import Link from "next/link";
 import FormDialog from "./FormDialog";
+import useDeviceDetect from "../hooks/useDeviceDetect";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -46,6 +47,7 @@ function a11yProps(index) {
 
 
 export default function BasicTabs({ data, link }) {
+  const { device } = useDeviceDetect();
   const content = data.map((e) => e.content);
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(0);
@@ -76,11 +78,11 @@ export default function BasicTabs({ data, link }) {
     },
   });
 
-  const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
+  const StyledTab = styled((props) => <Tab disableRipple wrapped {...props} />)(
     ({ theme }) => ({
       textTransform: "none",
       fontWeight: 700,
-      fontSize: theme.typography.pxToRem(14),
+      fontSize: device === "mobile" ? theme.typography.pxToRem(10) : theme.typography.pxToRem(14),
       color: "#69686B",
       borderRadius: 8,
       "&.Mui-selected": {
@@ -129,25 +131,25 @@ export default function BasicTabs({ data, link }) {
         </TabPanel>
       ))}
 
-        <Typography
-        onClick={()=> setOpen(prev=>!prev)}
-          mt={4}
-          sx={{
-            textDecoration: "underline",
-            color: "#0056D2",
-            cursor: "pointer",
-          }}
-        >
-          Unduh Kurikulum
-        </Typography>
-      <FormDialog open={open} 
-      kurLink={link}
+      <Typography
+        onClick={() => setOpen(prev => !prev)}
+        mt={4}
+        sx={{
+          textDecoration: "underline",
+          color: "#0056D2",
+          cursor: "pointer",
+        }}
+      >
+        Unduh Kurikulum
+      </Typography>
+      <FormDialog open={open}
+        kurLink={link}
         handleClickOpen={() => {
           setOpen(true)
-        }} 
+        }}
         handleClose={() => {
           setOpen(false)
-        }}/>
+        }} />
     </Box>
   );
 }

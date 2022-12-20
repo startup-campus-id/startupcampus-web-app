@@ -17,7 +17,6 @@ import useDeviceDetect from "../../hooks/useDeviceDetect";
 
 export default function Portofolio({ nickname, karya }) {
   const router = useRouter();
-  const swiper = useSwiper();
   const { device } = useDeviceDetect();
   return (
     <Stack id="portofolio-alumni" data-aos="fade-up">
@@ -33,10 +32,11 @@ export default function Portofolio({ nickname, karya }) {
       {router.asPath.match("founder") && (
         <Grid container my={3} sx={{ position: "relative" }}>
           <Swiper
-            modules={[Navigation, Scrollbar, A11y]}
+            modules={[Pagination, Navigation, Scrollbar, A11y]}
+            pagination={{ clickable: true }}
             navigation={{
-              prevEl: ".swipe-left-porto",
-              nextEl: ".swipe-right-porto",
+              prevEl: ".porto-swipe-left",
+              nextEl: ".porto-swipe-right",
             }}
             spaceBetween={100}
             slidesPerView={1}
@@ -121,11 +121,9 @@ export default function Portofolio({ nickname, karya }) {
                         <Stack direction="row">
                           <MyButton
                             padding={device == "mobile" ? "10px 10px" : "15px 19px"}
-                            color={"sc_sky"}
                             borderRadius={"5px 0 0 5px"}
                             variant="contained"
-                            className="swipe-left-porto"
-                            onClick={() => swiper?.slidePrev()}
+                            className="porto-swipe-left"
                           >
                             <ArrowBackIosRoundedIcon />
                           </MyButton>
@@ -133,8 +131,7 @@ export default function Portofolio({ nickname, karya }) {
                             padding={device == "mobile" ? "10px 10px" : "15px 19px"}
                             borderRadius={"0 5px 5px 0px"}
                             variant="contained"
-                            className="swipe-right-porto"
-                            onClick={() => swiper?.slideNext()}
+                            className="porto-swipe-right"
                           >
                             <ArrowForwardIosRoundedIcon />
                           </MyButton>

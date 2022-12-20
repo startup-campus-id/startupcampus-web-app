@@ -13,7 +13,6 @@ import Image from "next/image";
 import useDeviceDetect from "../../hooks/useDeviceDetect";
 
 export default function Testimoni({ nickname, data }) {
-  const swiper = useSwiper();
   const { device } = useDeviceDetect();
 
   return (
@@ -28,8 +27,8 @@ export default function Testimoni({ nickname, data }) {
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           pagination={{ clickable: true }}
           navigation={{
-            prevEl: ".swipe-left-testi",
-            nextEl: ".swipe-right-testi",
+            prevEl: ".testi-swipe-left",
+            nextEl: ".testi-swipe-right",
           }}
           spaceBetween={100}
           slidesPerView={1}
@@ -93,11 +92,9 @@ export default function Testimoni({ nickname, data }) {
                       <Stack direction="row">
                         <MyButton
                           padding={device == "mobile" ? "10px 10px" : "15px 19px"}
-                          color={"sc_sky"}
                           borderRadius={"5px 0 0 5px"}
                           variant="contained"
-                          className="swipe-left-testi"
-                          onClick={() => swiper?.slidePrev()}
+                          className="testi-swipe-left"
                         >
                           <ArrowBackIosRoundedIcon />
                         </MyButton>
@@ -105,8 +102,7 @@ export default function Testimoni({ nickname, data }) {
                           padding={device == "mobile" ? "10px 10px" : "15px 19px"}
                           borderRadius={"0 5px 5px 0px"}
                           variant="contained"
-                          className="swipe-right-testi"
-                          onClick={() => swiper?.slideNext()}
+                          className="testi-swipe-right"
                         >
                           <ArrowForwardIosRoundedIcon />
                         </MyButton>

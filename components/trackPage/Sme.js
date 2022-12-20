@@ -15,7 +15,6 @@ import { useRouter } from "next/router";
 
 export default function Sme({ sme, desc }) {
   const router = useRouter();
-  const swiper = useSwiper();
   return (
     <Stack id="sme-dan-mentor" pt={6} data-aos="fade-up">
       <AccentText>Subject Matter Expert dan Mentor</AccentText>
@@ -26,14 +25,15 @@ export default function Sme({ sme, desc }) {
         {router.asPath.match("founder")
           ? "Belajar langsung dari para pakar dan mentor yang terjun langsung dalam mengelola startup."
           : desc ??
-            "Belajar langsung dengan pakar dan mentor yang berpengalaman dari berbagai perusahaan terkemuka."}
+          "Belajar langsung dengan pakar dan mentor yang berpengalaman dari berbagai perusahaan terkemuka."}
       </MyDesc>
       <Grid container my={3} sx={{ position: "relative" }}>
         <Swiper
-          modules={[Navigation, Scrollbar, A11y]}
+          modules={[Pagination, Navigation, Scrollbar, A11y]}
+          pagination={{ clickable: true }}
           navigation={{
-            prevEl: ".swipe-left",
-            nextEl: ".swipe-right",
+            prevEl: ".sme-swipe-left",
+            nextEl: ".sme-swipe-right",
           }}
           spaceBetween={100}
           slidesPerView={1}
@@ -62,9 +62,8 @@ export default function Sme({ sme, desc }) {
                         "drop-shadow(0px 16px 40px rgba(112, 144, 176, 0.2))",
                       width: { xs: "100%", sm: 300 },
                       height: 300,
-                      backgroundImage: `url(${
-                        val.img ?? "/default-image.png"
-                      })`,
+                      backgroundImage: `url(${val.img ?? "/default-image.png"
+                        })`,
                       backgroundSize: "cover",
                       backgroundPosition: "center top",
                     }}
@@ -119,11 +118,9 @@ export default function Sme({ sme, desc }) {
                       <Stack direction="row">
                         <MyButton
                           padding={"15px 19px"}
-                          color={"sc_sky"}
                           borderRadius={"5px 0 0 5px"}
                           variant="contained"
-                          className="swipe-left"
-                          onClick={() => swiper?.slidePrev()}
+                          className="sme-swipe-left"
                         >
                           <ArrowBackIosRoundedIcon />
                         </MyButton>
@@ -131,8 +128,7 @@ export default function Sme({ sme, desc }) {
                           padding={"15px 19px"}
                           borderRadius={"0 5px 5px 0px"}
                           variant="contained"
-                          className="swipe-right"
-                          onClick={() => swiper?.slideNext()}
+                          className="sme-swipe-right"
                         >
                           <ArrowForwardIosRoundedIcon />
                         </MyButton>
