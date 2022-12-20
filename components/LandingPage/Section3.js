@@ -9,12 +9,15 @@ import WordBreak from "../WordBreak";
 import MyButton from "../MyButton";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
+import useDeviceDetect from "../../hooks/useDeviceDetect";
+
 function Section3({ course }) {
   const swiper = useSwiper();
   // Create reference to store the DOM element containing the animation
   const el = React.useRef(null);
   // Create reference to store the Typed instance itself
   const typed = React.useRef(null);
+  const { device } = useDeviceDetect();
   useEffect(() => {
     const options = {
       strings: [
@@ -46,6 +49,7 @@ function Section3({ course }) {
     "artificial-intelligence",
     "backend-engineer",
   ];
+
   return (
     <Grid container my={6} spacing={2}>
       <Grid item xs={12} data-aos="fade-right" id={"program"}>
@@ -55,21 +59,21 @@ function Section3({ course }) {
           <span ref={el} />
         </Typography>
       </Grid>
-      <Grid item xs={9} md={8} data-aos="fade-right">
+      <Grid item xs={12} sm={8} data-aos="fade-right">
         <Typography variant="body1" color={"sc_gray.dark"} mr={3}>
           Pilih trek sesuai minatmu sekarang juga!
         </Typography>
       </Grid>
       <Grid
         item
-        xs={3}
-        md={4}
-        display="flex"
+        xs={12}
+        sm={3}
+        display={{xs:"none", sm: "flex"}}
         justifyContent={"flex-end"}
         data-aos="fade-left"
       >
         <MyButton
-          padding={"15px 19px"}
+          padding={device === "mobile" ? "10px 10px" : "15px 19px"}
           color={"sc_sky"}
           borderRadius={"5px 0 0 5px"}
           variant="contained"
@@ -79,7 +83,7 @@ function Section3({ course }) {
           <ArrowBackIosRoundedIcon />
         </MyButton>
         <MyButton
-          padding={"15px 19px"}
+          padding={device === "mobile" ? "10px 10px" : "15px 19px"}
           borderRadius={"0 5px 5px 0px"}
           variant="contained"
           className="swipe-right"

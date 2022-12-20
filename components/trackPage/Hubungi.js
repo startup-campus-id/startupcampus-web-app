@@ -4,7 +4,7 @@ import React from "react";
 export default function Hubungi({ title, link }) {
   return (
     <Stack
-      direction={"row"}
+      direction={{ xs: 'column', md: 'row' }}
       justifyContent="center"
       spacing={1}
       p={2}

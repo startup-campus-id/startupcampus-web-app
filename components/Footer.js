@@ -66,28 +66,26 @@ const Footer = () => {
     >
       <Container
         sx={{
-          borderBottom: `1px solid ${
-            router.pathname.match("/track") ||
+          borderBottom: `1px solid ${router.pathname.match("/track") ||
             router.pathname.match("/beasiswa")
-              ? "#BDBDBD"
-              : "white"
-          }`,
-          borderTop: `1px solid ${
-            router.pathname.match("/track") ||
+            ? "#BDBDBD"
+            : "white"
+            }`,
+          borderTop: `1px solid ${router.pathname.match("/track") ||
             router.pathname.match("/beasiswa")
-              ? "#BDBDBD"
-              : "white"
-          }`,
+            ? "#BDBDBD"
+            : "white"
+            }`,
         }}
       >
-        <Grid item container xs={12} my={4} spacing={6}>
+        <Grid container xs={12} my={4} spacing={6} justifyContent="center">
           <Grid item xs={6} md={3}>
             <Stack spacing={4} my={4}>
               <Box>
                 <Image
                   src={
                     router.pathname.match("/track") ||
-                    router.pathname.match("/beasiswa")
+                      router.pathname.match("/beasiswa")
                       ? "/images/Startup Campus Gray Logo.svg"
                       : "/images/Startup Campus White Logo.png"
                   }
@@ -100,7 +98,7 @@ const Footer = () => {
                 variant="body2"
                 color={
                   router.pathname.match("/track") ||
-                  router.pathname.match("/beasiswa")
+                    router.pathname.match("/beasiswa")
                     ? "sc_gray.dark"
                     : "white"
                 }
@@ -117,7 +115,7 @@ const Footer = () => {
                 fontWeight={700}
                 color={
                   router.pathname.match("/track") ||
-                  router.pathname.match("/beasiswa")
+                    router.pathname.match("/beasiswa")
                     ? "sc_gray.dark"
                     : "white"
                 }
@@ -132,7 +130,7 @@ const Footer = () => {
                     variant="body2"
                     color={
                       router.pathname.match("/track") ||
-                      router.pathname.match("/beasiswa")
+                        router.pathname.match("/beasiswa")
                         ? "sc_gray.dark"
                         : "white"
                     }
@@ -153,7 +151,7 @@ const Footer = () => {
                 fontWeight={700}
                 color={
                   router.pathname.match("/track") ||
-                  router.pathname.match("/beasiswa")
+                    router.pathname.match("/beasiswa")
                     ? "sc_gray.dark"
                     : "white"
                 }
@@ -168,7 +166,7 @@ const Footer = () => {
                     variant="body2"
                     color={
                       router.pathname.match("/track") ||
-                      router.pathname.match("/beasiswa")
+                        router.pathname.match("/beasiswa")
                         ? "sc_gray.dark"
                         : "white"
                     }
@@ -193,7 +191,7 @@ const Footer = () => {
                 component={"h1"}
                 color={
                   router.pathname.match("/track") ||
-                  router.pathname.match("/beasiswa")
+                    router.pathname.match("/beasiswa")
                     ? "sc_gray.dark"
                     : "white"
                 }
@@ -208,7 +206,7 @@ const Footer = () => {
                     variant="body2"
                     color={
                       router.pathname.match("/track") ||
-                      router.pathname.match("/beasiswa")
+                        router.pathname.match("/beasiswa")
                         ? "sc_gray.dark"
                         : "white"
                     }
@@ -229,12 +227,12 @@ const Footer = () => {
           variant="subtitle2"
           color={
             router.pathname.match("/track") ||
-            router.pathname.match("/beasiswa")
+              router.pathname.match("/beasiswa")
               ? "sc_gray.dark"
               : "white"
           }
         >
-          ©Startup Campus. All right reserverd, 2022.
+          ©Startup Campus. All right reserved, 2022.
         </Typography>
       </Grid>
     </Grid>

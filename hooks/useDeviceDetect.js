@@ -1,10 +1,27 @@
-function useWindowSize() {
-  // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+import { useState, useEffect } from 'react'
+
+export const mobileType = {
+  mobile: "mobile",
+  tablet: "tablet",
+  desktop: "desktop"
+}
+
+const getDeviceDetect = (width) => {
+  if (width < 768) {
+    return mobileType.mobile
+  } else if (width < 1024) {
+    return mobileType.tablet
+  } else {
+    return mobileType.desktop
+  }
+}
+
+const useDeviceDetect = () => {
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
   });
+  const [device, setDevice] = useState(getDeviceDetect(window.innerWidth));
 
   useEffect(() => {
     // only execute all the code below in client side
@@ -15,6 +32,9 @@ function useWindowSize() {
         width: window.innerWidth,
         height: window.innerHeight,
       });
+
+      const d = getDeviceDetect(window.innerWidth)
+      setDevice(d)
     }
 
     // Add event listener
@@ -26,7 +46,8 @@ function useWindowSize() {
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty array ensures that effect is only run on mount
-  return windowSize;
+
+  return {device, windowSize}
 }
 
-export default useWindowSize
+export default useDeviceDetect

@@ -13,10 +13,12 @@ import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRound
 import Link from "next/link";
 import MyButton from "../MyButton";
 import Image from "next/image";
+import useDeviceDetect from "../../hooks/useDeviceDetect";
 
 export default function Portofolio({ nickname, karya }) {
   const router = useRouter();
   const swiper = useSwiper();
+  const { device } = useDeviceDetect();
   return (
     <Stack id="portofolio-alumni" data-aos="fade-up">
       <AccentText>Portofolio Alumni</AccentText>
@@ -63,9 +65,8 @@ export default function Portofolio({ nickname, karya }) {
                           "drop-shadow(0px 16px 40px rgba(112, 144, 176, 0.2))",
                         width: { xs: "100%", sm: 300 },
                         height: 300,
-                        backgroundImage: `url(${
-                          val.img ?? "/default-image.png"
-                        })`,
+                        backgroundImage: `url(${val.img ?? "/default-image.png"
+                          })`,
                         backgroundSize: "cover",
                         backgroundPosition: "center top",
                       }}
@@ -116,10 +117,10 @@ export default function Portofolio({ nickname, karya }) {
                             </Typography>
                           </Stack>
                         </Link>
-  
+
                         <Stack direction="row">
                           <MyButton
-                            padding={"15px 19px"}
+                            padding={device == "mobile" ? "10px 10px" : "15px 19px"}
                             color={"sc_sky"}
                             borderRadius={"5px 0 0 5px"}
                             variant="contained"
@@ -129,7 +130,7 @@ export default function Portofolio({ nickname, karya }) {
                             <ArrowBackIosRoundedIcon />
                           </MyButton>
                           <MyButton
-                            padding={"15px 19px"}
+                            padding={device == "mobile" ? "10px 10px" : "15px 19px"}
                             borderRadius={"0 5px 5px 0px"}
                             variant="contained"
                             className="swipe-right-porto"

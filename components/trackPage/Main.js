@@ -2,13 +2,13 @@ import { Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import useMobileDetect from "../../hooks/useMobileDetect";
+import useDeviceDetect, { mobileType } from "../../hooks/useDeviceDetect";
 import { BOOTCAMP_FOR_PUBLIC, KAMPUS_MERDEKA } from "../../utils/constant";
 import MyButton from "../MyButton";
 
 export default function Main({ name, desc }) {
   const router = useRouter();
-  const { isMobile } = useMobileDetect();
+  const { device } = useDeviceDetect();
   return (
     <Stack
       height={"100vh"}
@@ -24,7 +24,7 @@ export default function Main({ name, desc }) {
       <Typography color="white" fontWeight={700} variant="h3">
         {name}
       </Typography>
-      <Typography color="white"  width={isMobile() ? undefined : "550px"}>
+      <Typography color="white" width={device == mobileType.mobile ? undefined : "550px"}>
         {desc}
       </Typography>
       <Stack direction="row" spacing={2}>

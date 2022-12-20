@@ -36,7 +36,8 @@ function Board() {
         </Stack>
       </Stack>
 
-      <Divider orientation={"vertical"} flexItem />
+      <Divider orientation={"vertical"} sx={{ display: { xs: 'none', md: 'block' } }} flexItem />
+
 
       <Stack justifyContent={"flex-start"} spacing={1}>
         <Stack direction="row" spacing={1}>

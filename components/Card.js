@@ -11,7 +11,7 @@ const Card = ({ img, title, desc, level, bulan, tanggal, online, link }) => {
       onMouseLeave={() => setCardHover(false)}
       borderRadius={"16px"}
       overflow="hidden"
-      width="369px"
+      width={{sx:undefined, md:"369px"}}
       border={"1px solid rgba(224, 228, 230, 1)"}
       sx={{
         boxShadow: cardHover
@@ -81,7 +81,7 @@ const Card = ({ img, title, desc, level, bulan, tanggal, online, link }) => {
         </Box>
 
         <Link href={link.match("backend") ? "" : link}>
-          <MyButton color={"sc_blue"} disabled={link.match("backend")? true: false}>
+          <MyButton color={"sc_blue"} disabled={link.match("backend") ? true : false}>
             Pelajari lebih lanjut
           </MyButton>
         </Link>

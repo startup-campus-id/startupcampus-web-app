@@ -25,7 +25,7 @@ function Section7({ testimoni, title7 }) {
       <Grid
         item
         xs={12}
-        display="flex"
+        display={{ xs: "none", md: "flex" }}
         justifyContent={"flex-end"}
         data-aos="fade-left"
       >
