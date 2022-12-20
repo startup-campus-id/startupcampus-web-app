@@ -49,7 +49,7 @@ function Section7({ testimoni, title7 }) {
           <ArrowForwardIosRoundedIcon />
         </MyButton>
       </Grid>
-      <Grid item xs={12} data-aos="fade-up" p={4}>
+      <Grid item xs={12} data-aos="fade-up" p={{ xs: 2, md: 4 }}>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           pagination={{ clickable: true }}
@@ -79,8 +79,9 @@ function Section7({ testimoni, title7 }) {
               return (
                 <SwiperSlide key={id} className="testimoni-slide">
                   <Stack
-                    mx={1}
-                    my={3}
+                    mx={{ xs: undefined, md: 1 }}
+                    my={{ xs: undefined, md: 1 }}
+                    mb= {4}
                     justifyContent="space-between"
                     spacing={3}
                     p={4}

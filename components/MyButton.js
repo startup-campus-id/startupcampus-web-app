@@ -10,6 +10,7 @@ const MyButton = ({
   width,
   borderRadius,
   isDropdown,
+  textAlign,
   ...args
 }) => {
   return (
@@ -21,6 +22,7 @@ const MyButton = ({
         padding: padding ?? "13px 28px",
         borderRadius: borderRadius ?? "5px",
         textTransform: "capitalize",
+        textAlign: textAlign??"start",
         boxShadow: shadow ?? "0px 16px 40px rgba(112, 144, 176, 0.2)",
         "&:hover": {
           backgroundColor: isDropdown ? "unset" : null,

@@ -20,7 +20,7 @@ export default function Section6() {
             <Box width="100%" borderRadius={"20px"} overflow="hidden">
               <Box
                 width="100%"
-                height={209}
+                height={200}
                 borderRadius={"20px"}
                 overflow="hidden"
                 position={"relative"}
@@ -37,7 +37,7 @@ export default function Section6() {
                   },
                 }}
               ></Box>
-              <Stack py={3} spacing={1}>
+              <Stack py={3} spacing={{ xs: 0, md: 1 }}>
                 <Typography variant="h6" fontWeight={600} component="h1">
                   {item.name}
                 </Typography>

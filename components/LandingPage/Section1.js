@@ -8,6 +8,10 @@ import DaftarButton from "../DaftarButton";
 import MyButton from "../MyButton";
 
 function Section1() {
+  const textAlignSx = { xs: "center", md: "start" }
+  const textSx = {
+    textAlign: textAlignSx
+  }
   return (
     <Grid
       pt={{ xs: 6, md: 0 }}
@@ -22,9 +26,9 @@ function Section1() {
           spacing={2}
           alignItems="start"
           className="hero-text"
-          width={"80%"}
+          width={{ sx: "100%", md: "80%" }}
         >
-          <Typography variant="h4" fontWeight={800}>
+          <Typography variant="h4" fontWeight={800} sx={textSx}>
             {tagline.title}
             <br />
             <Box component="span" sx={{ color: "sc_blue.main" }}>
@@ -32,20 +36,20 @@ function Section1() {
             </Box>
             {tagline.subtitle}
           </Typography>
-          <Typography variant="body1" lineHeight={2}>
+          <Typography variant="body1" lineHeight={2} sx={textSx}>
             {tagline.desc}
           </Typography>
-          <Stack direction="row" spacing={2}>
+          <Stack direction="row" spacing={2} justifyContent="center">
             <Link
               href={KAMPUS_MERDEKA}
               underline="none"
               passHref
               legacyBehavior
             >
-              <MyButton variant="outlined" color="sc_blue">Kampus Merdeka</MyButton>
+              <MyButton variant="outlined" color="sc_blue" textAlign={textAlignSx}>Kampus Merdeka</MyButton>
             </Link>
             <Link href={BOOTCAMP_FOR_PUBLIC} underline="none" passHref>
-              <MyButton color="sc_blue">
+              <MyButton color="sc_blue" textAlign={textAlignSx}>
                 Bootcamp for Public
               </MyButton>
             </Link>

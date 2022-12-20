@@ -4,8 +4,10 @@ import React, { useEffect } from "react";
 import { benefit } from "../../content/benefit";
 import HighlightText from "../HighlightText";
 import WordBreak from "../WordBreak";
+import useDeviceDetect from "../../hooks/useDeviceDetect";
 
 function Section5() {
+  const { device } = useDeviceDetect();
   return (
     <Grid container my={6} py={6} spacing={3} alignItems="center">
       <Grid item xs={12} data-aos="fade-right">
@@ -19,9 +21,9 @@ function Section5() {
           bootcamp intensif selama satu semester.
         </Typography>
       </Grid>
-      <Grid item container md={7} spacing={10}>
+      <Grid item container md={7} spacing={device=="mobile"?4:10 }>
         {benefit.map((item, idx) => (
-          <Grid item md={6} key={item.title} data-aos="fade-up">
+          <Grid item xs={12} sm={6} key={item.title} data-aos="fade-up">
             <Stack spacing={2} justifyContent="center">
               <Box>
                 <Image src={item.img} width={50} height={50} alt={idx} />
@@ -46,7 +48,7 @@ function Section5() {
           />
         </Box>
       </Grid>
-    </Grid>
+    </Grid >
   );
 }
 

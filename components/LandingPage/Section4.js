@@ -20,7 +20,7 @@ function Section4() {
           kompetensi digital dan teknologi.
         </Typography>
       </Grid>
-      <Grid item mt={5} container xs={12} spacing={6}>
+      <Grid item mt={{xs:undefined, md:5}} container xs={12} spacing={6}>
         <Grid item xs={12} md={8} data-aos="fade-up">
           <Box overflow={"hidden"} borderRadius={"20px"}>
             <Image
