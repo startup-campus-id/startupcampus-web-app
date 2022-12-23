@@ -33,6 +33,11 @@ const sideMenu = [
     name: "Program",
   },
   {
+    name: "Blog",
+    url: "https://blog.startupcampus.id",
+    openInNewTab: true
+  },
+  {
     name: "Testimoni",
     url: "/#testimoni",
   },
@@ -172,7 +177,7 @@ const Header = () => {
               </Collapse>
             </Fragment>
           ) : (
-            <Link href={text.url} key={index} underline="none">
+            <Link href={text.url} target={text.openInNewTab?"_blank":undefined} rel={text.openInNewTab?"noopener noreferrer":undefined} key={index} underline="none">
               <Typography
                 onClick={toggleDrawer(anchor, false)}
                 sx={{
@@ -251,32 +256,32 @@ const Header = () => {
                   {/* <Dropdown list={beasiswaGoogle} type="google">
                     <NavItem isDropDown={true}>Beasiswa</NavItem>
                   </Dropdown> */}
-                  {/* <Link href={"#blog"} underline="none">
+                  <Link href={"https://blog.startupcampus.id/"} target="_blank" rel="noopener noreferrer" underline="none">
                     <NavItem>Blog</NavItem>
                   </Link>
-                  <Dropdown
-                    list={[
-                      {
-                        name: "Tentang Startup Campus",
-                        link: "/tentang",
-                      },
-                      {
-                        name: "Beasiswa",
-                        link: "/beasiswa",
-                      },
-                      { name: "Join Us", link: "/daftar/form-publik" },
-                      {
-                        name: "Community",
-                        link: "/comunity",
-                      },
-                      {
-                        name: "Partner",
-                        link: "/partner",
-                      },
-                    ]}
-                  >
-                    <NavItem isDropDown={true}>Tentang Kami</NavItem>
-                  </Dropdown> */}
+                  {/* <Dropdown */}
+                  {/*   list={[ */}
+                  {/*     { */}
+                  {/*       name: "Tentang Startup Campus", */}
+                  {/*       link: "/tentang", */}
+                  {/*     }, */}
+                  {/*     { */}
+                  {/*       name: "Beasiswa", */}
+                  {/*       link: "/beasiswa", */}
+                  {/*     }, */}
+                  {/*     { name: "Join Us", link: "/daftar/form-publik" }, */}
+                  {/*     { */}
+                  {/*       name: "Community", */}
+                  {/*       link: "/comunity", */}
+                  {/*     }, */}
+                  {/*     { */}
+                  {/*       name: "Partner", */}
+                  {/*       link: "/partner", */}
+                  {/*     }, */}
+                  {/*   ]} */}
+                  {/* > */}
+                  {/*   <NavItem isDropDown={true}>Tentang Kami</NavItem> */}
+                  {/* </Dropdown> */}
                 </Stack>
 
                 <Stack
@@ -298,12 +303,12 @@ const Header = () => {
                   color="inherit"
                   aria-label="menu"
                   sx={
-                  { 
-                    display: { 
-                      xs: "block", sm: "block", md: "none" 
-                    },  
-                    zIndex: 300,
-                  }}
+                    {
+                      display: {
+                        xs: "block", sm: "block", md: "none"
+                      },
+                      zIndex: 300,
+                    }}
                   onClick={
                     toggleDrawer("left", true)
                   }
