@@ -21,8 +21,9 @@ import MyTitle from "../../../components/MyTitle";
 import WordBreak from "../../../components/WordBreak";
 import MyButton from "../../../components/MyButton";
 import Link from "next/link";
+import { kriteria } from "../../../content/kriteria";
 
-export default function BeasiswaGoogle({ beasiswa }) {
+export default function BeasiswaGoogle({ beasiswa, kriteria }) {
   const app = useRef();
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -104,7 +105,7 @@ export default function BeasiswaGoogle({ beasiswa }) {
               <Divider sx={{ marginY: 4 }} />
             </Stack>
             <Stack width={"100%"}>
-              <BeasiswaKriteria />
+              <BeasiswaKriteria kriteria={kriteria} />
               <Divider sx={{ marginY: 4 }} />
             </Stack>
             <Stack width={"100%"}>
@@ -146,7 +147,7 @@ export async function getStaticPaths() {
   const querySnapshot = await getDocs(colRef);
 
   querySnapshot.forEach((doc) => {
-    const {slug} = doc.data()
+    const { slug } = doc.data()
     paths.push({ params: { slug } });
   });
 
@@ -169,7 +170,7 @@ export async function getStaticProps({ params }) {
     console.log(e.message);
   }
   return {
-    props: { beasiswa: data[0] ?? null },
+    props: { beasiswa: data[0] ?? null, kriteria: kriteria[params.slug] },
     revalidate: 1,
   };
 }
