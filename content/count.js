@@ -4,6 +4,6 @@ export const count = [
   { sum: "21+", desc: "partner perusahaan untuk membantumu berkembang" },
   {
     sum: "7.8 / 10",
-    desc: "peserta memiliki respon positif selama mengikuti program",
+    desc: "Net Promoter Score (NPS) lebih tinggi dari standar global",
   },
 ];
