@@ -1,72 +1,73 @@
-import React, { Fragment, useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   Collapse,
   Container,
   Divider,
   Drawer,
-  fabClasses,
   Link,
   List,
   ListItemButton,
   ListItemText,
   Slide,
   Stack,
+  fabClasses,
   useScrollTrigger,
-} from "@mui/material";
-import Image from "next/image";
-import Dropdown from "./Dropdown";
-import { useRouter } from "next/router";
-import DaftarButton from "./DaftarButton";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
-import AlertMui from "./AlertMui";
+} from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React, { Fragment, useState } from 'react';
+
+import AlertMui from './AlertMui';
+import DaftarButton from './DaftarButton';
+import Dropdown from './Dropdown';
 
 const sideMenu = [
   {
-    name: "Program",
+    name: 'Program',
   },
   {
-    name: "Blog",
-    url: "https://blog.startupcampus.id",
-    openInNewTab: true
+    name: 'Blog',
+    url: 'https://blog.startupcampus.id',
+    openInNewTab: true,
   },
   {
-    name: "Testimoni",
-    url: "/#testimoni",
+    name: 'Testimoni',
+    url: '/#testimoni',
   },
 ];
 
 const program = [
   {
-    name: "The Founder",
-    link: "/track/the-founder",
+    name: 'The Founder',
+    link: '/track/the-founder',
   },
   {
-    name: "UI/UX Design",
-    link: "/track/uiux-design",
+    name: 'UI/UX Design',
+    link: '/track/uiux-design',
   },
-  { name: "Data Science", link: "/track/data-science" },
+  { name: 'Data Science', link: '/track/data-science' },
   {
-    name: "Artificial Intelligence",
-    link: "/track/artificial-intelligence",
+    name: 'Artificial Intelligence',
+    link: '/track/artificial-intelligence',
   },
 ];
 
 const beasiswaGoogle = [
   {
-    name: "Data Analitik",
-    link: "/beasiswa/google/data-analitik",
+    name: 'Data Analitik',
+    link: '/beasiswa/google/data-analitik',
   },
   {
-    name: "UX Design",
-    link: "/beasiswa/google/uiux-design",
+    name: 'UX Design',
+    link: '/beasiswa/google/uiux-design',
   },
 ];
 const Header = () => {
@@ -84,19 +85,19 @@ const Header = () => {
         fontWeight={700}
         color="sc_black.main"
         sx={{
-          position: "relative",
-          "&::before": {
-            transition: ".3s",
+          position: 'relative',
+          '&::before': {
+            transition: '.3s',
             content: "''",
-            position: "absolute",
-            width: "0%",
-            height: "5px",
-            borderRadius: "100px",
-            bottom: "-50%",
-            backgroundColor: "sc_blue.main",
+            position: 'absolute',
+            width: '0%',
+            height: '5px',
+            borderRadius: '100px',
+            bottom: '-50%',
+            backgroundColor: 'sc_blue.main',
           },
-          "&:hover::before": {
-            width: isDropDown ? "0%" : "100%",
+          '&:hover::before': {
+            width: isDropDown ? '0%' : '100%',
           },
         }}
       >
@@ -114,8 +115,8 @@ const Header = () => {
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
     ) {
       return;
     }
@@ -126,7 +127,7 @@ const Header = () => {
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
+        width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250,
       }}
       role="presentation"
       onKeyDown={toggleDrawer(anchor, false)}
@@ -135,20 +136,20 @@ const Header = () => {
         <Typography fontWeight={700}>Menu</Typography>
         <Divider />
         {sideMenu.map((text, index) =>
-          text.name.match("Program") ? (
+          text.name.match('Program') ? (
             <Fragment key={index}>
               <Stack
                 direction="row"
-                justifyContent={"space-between"}
+                justifyContent={'space-between'}
                 onClick={() => setExpand(!expand)}
-                sx={{ cursor: "pointer" }}
+                sx={{ cursor: 'pointer' }}
               >
                 <Typography
                   sx={{
-                    "&:hover": {
-                      color: "sc_blue.main",
+                    '&:hover': {
+                      color: 'sc_blue.main',
                     },
-                    color: "sc_gray.dark",
+                    color: 'sc_gray.dark',
                   }}
                 >
                   {text.name}
@@ -165,8 +166,8 @@ const Header = () => {
                   >
                     <Link
                       href={v.link}
-                      underline={"none"}
-                      style={{ color: "unset" }}
+                      underline={'none'}
+                      style={{ color: 'unset' }}
                     >
                       <ListItemButton sx={{ pl: 4 }}>
                         <ListItemText primary={v.name} />
@@ -177,20 +178,26 @@ const Header = () => {
               </Collapse>
             </Fragment>
           ) : (
-            <Link href={text.url} target={text.openInNewTab?"_blank":undefined} rel={text.openInNewTab?"noopener noreferrer":undefined} key={index} underline="none">
+            <Link
+              href={text.url}
+              target={text.openInNewTab ? '_blank' : undefined}
+              rel={text.openInNewTab ? 'noopener noreferrer' : undefined}
+              key={index}
+              underline="none"
+            >
               <Typography
                 onClick={toggleDrawer(anchor, false)}
                 sx={{
-                  "&:hover": {
-                    color: "sc_blue.main",
+                  '&:hover': {
+                    color: 'sc_blue.main',
                   },
-                  color: "sc_gray.dark",
+                  color: 'sc_gray.dark',
                 }}
               >
                 {text.name}
               </Typography>
             </Link>
-          )
+          ),
         )}
         <Stack />
       </Stack>
@@ -206,29 +213,29 @@ const Header = () => {
         <Slide in={!trigger}>
           <AppBar
             color={
-              router.pathname == "/" ? (bgTrigger ? "" : "transparent") : ""
+              router.pathname == '/' ? (bgTrigger ? '' : 'transparent') : ''
             }
-            sx={{ transition: ".3s" }}
+            sx={{ transition: '.3s' }}
             elevation={0}
-            position={"static"}
+            position={'static'}
           >
             <AlertMui />
             <Container>
               <Toolbar
                 sx={{
-                  justifyContent: { sm: "space-between", xs: "space-between" },
-                  alignItems: "center",
+                  justifyContent: { sm: 'space-between', xs: 'space-between' },
+                  alignItems: 'center',
                   my: { xs: 0, sm: 1 },
-                  px: "0 !important",
+                  px: '0 !important',
                 }}
               >
                 <Box component="div">
                   <Link href="/" aria-label="logo-startup-campus">
                     <Image
-                      src={"/images/SC-Logo-Full.png"}
+                      src={'/images/SC-Logo-Full.png'}
                       width={101}
                       height={33}
-                      alt={"SC-Logo-Full"}
+                      alt={'SC-Logo-Full'}
                     />
                   </Link>
                 </Box>
@@ -238,25 +245,30 @@ const Header = () => {
                   spacing={4}
                   sx={{
                     flexGrow: 1,
-                    alignItems: "center",
+                    alignItems: 'center',
                     justifyContent:
-                      router.pathname != "/daftar" ? "center" : "end",
-                    display: { md: "flex", sm: "none", xs: "none" },
+                      router.pathname != '/daftar' ? 'center' : 'end',
+                    display: { md: 'flex', sm: 'none', xs: 'none' },
                   }}
-                  component={"nav"}
+                  component={'nav'}
                 >
                   {/* LIST LINKS */}
 
                   <Dropdown list={program}>
                     <NavItem isDropDown={true}>Program</NavItem>
                   </Dropdown>
-                  <Link href={"/#testimoni"} underline="none">
+                  <Link href={'/#testimoni'} underline="none">
                     <NavItem>Testimoni</NavItem>
                   </Link>
                   {/* <Dropdown list={beasiswaGoogle} type="google">
                     <NavItem isDropDown={true}>Beasiswa</NavItem>
                   </Dropdown> */}
-                  <Link href={"https://blog.startupcampus.id/"} target="_blank" rel="noopener noreferrer" underline="none">
+                  <Link
+                    href={'https://blog.startupcampus.id/'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    underline="none"
+                  >
                     <NavItem>Blog</NavItem>
                   </Link>
                   {/* <Dropdown */}
@@ -286,11 +298,11 @@ const Header = () => {
 
                 <Stack
                   direction="row"
-                  alignItems={"center"}
+                  alignItems={'center'}
                   justifyContent="center"
                   sx={{
                     flexGrow: 0,
-                    display: { md: "flex", sm: "none", xs: "none" },
+                    display: { md: 'flex', sm: 'none', xs: 'none' },
                   }}
                 >
                   <DaftarButton />
@@ -302,16 +314,15 @@ const Header = () => {
                   edge="start"
                   color="inherit"
                   aria-label="menu"
-                  sx={
-                    {
-                      display: {
-                        xs: "block", sm: "block", md: "none"
-                      },
-                      zIndex: 300,
-                    }}
-                  onClick={
-                    toggleDrawer("left", true)
-                  }
+                  sx={{
+                    display: {
+                      xs: 'block',
+                      sm: 'block',
+                      md: 'none',
+                    },
+                    zIndex: 300,
+                  }}
+                  onClick={toggleDrawer('left', true)}
                 >
                   <MenuIcon />
                 </IconButton>
@@ -323,24 +334,24 @@ const Header = () => {
       <Drawer
         sx={{
           display: {
-            xs: "block",
-            sm: "block",
-            md: "none",
+            xs: 'block',
+            sm: 'block',
+            md: 'none',
           },
         }}
         PaperProps={{
           sx: {
-            borderRadius: "16px",
-            top: "16px",
-            left: "16px",
-            height: "95%",
+            borderRadius: '16px',
+            top: '16px',
+            left: '16px',
+            height: '95%',
           },
         }}
-        anchor={"left"}
-        open={state["left"]}
-        onClose={toggleDrawer("left", false)}
+        anchor={'left'}
+        open={state['left']}
+        onClose={toggleDrawer('left', false)}
       >
-        {list("left")}
+        {list('left')}
       </Drawer>
     </>
   );

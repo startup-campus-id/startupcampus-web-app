@@ -1,26 +1,27 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Stack, Typography } from "@mui/material";
-import { kelas } from "../../content/kelas";
-import { useMyForm } from "../../context/FormContext";
-import MyCheckBox from "./MyCheckBox";
-import MyInput from "./MyInput";
-import MyKelas from "./MyKelas";
-import MySelect from "./MySelect";
-import { useRouter } from "next/router";
-import { useDropzone } from "react-dropzone";
-import { byteToMb } from "../../utils/byteToMb";
-import { SignalCellularNullSharp } from "@mui/icons-material";
-import DropZone from "./DropZone";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import { SignalCellularNullSharp } from '@mui/icons-material';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import { Stack, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useDropzone } from 'react-dropzone';
+
+import { kelas } from '../../content/kelas';
+import { useMyForm } from '../../context/FormContext';
+import { byteToMb } from '../../utils/byteToMb';
+import DropZone from './DropZone';
+import MyCheckBox from './MyCheckBox';
+import MyInput from './MyInput';
+import MyKelas from './MyKelas';
+import MySelect from './MySelect';
 
 const guideFileSPTJM = [
-  "Ditandatangani oleh Rektor/Warek/Direktur/Wakil Direktur Perguruan Tinggi.",
-  "Diperbolehkan menggunakan tangan digital yang disertai cap.",
+  'Ditandatangani oleh Rektor/Warek/Direktur/Wakil Direktur Perguruan Tinggi.',
+  'Diperbolehkan menggunakan tangan digital yang disertai cap.',
 ];
 const guideFileRekom = [
-  "Surat rekomendasi harus ditandatangani min. oleh Ketua Program Studi (diperkenankan tanpa cap).",
-  "Diperbolehkan menggunakan tanda tangan digital yang disertai cap.",
-  " Mahasiswa calon peserta perlu melampirkan daftar program yang akan dilamar sebagai informasi kepada perguruan tinggi.",
+  'Surat rekomendasi harus ditandatangani min. oleh Ketua Program Studi (diperkenankan tanpa cap).',
+  'Diperbolehkan menggunakan tanda tangan digital yang disertai cap.',
+  ' Mahasiswa calon peserta perlu melampirkan daftar program yang akan dilamar sebagai informasi kepada perguruan tinggi.',
 ];
 const ChooseProgramForm = () => {
   const router = useRouter();
@@ -32,8 +33,8 @@ const ChooseProgramForm = () => {
       <MyInput
         label="Email *"
         name="email"
-        type={"email"}
-        placeholder={"pramudya@gmail.com"}
+        type={'email'}
+        placeholder={'pramudya@gmail.com'}
         icon={<MailOutlineIcon />}
       />
       <MySelect
@@ -41,30 +42,30 @@ const ChooseProgramForm = () => {
         name="track"
         track={true}
         data={mkelas}
-        {...register("track", { required: "Pilih salah satu" })}
+        {...register('track', { required: 'Pilih salah satu' })}
       />
-      {router.pathname === "/daftar/form-studi-independen" && (
+      {router.pathname === '/daftar/form-studi-independen' && (
         <>
           <MyInput
             label="Semester Berapa *"
             name="semester"
-            type={"text"}
-            placeholder={"5"}
-            {...register("semester", { required: "isi dulu ya" })}
+            type={'text'}
+            placeholder={'5'}
+            {...register('semester', { required: 'isi dulu ya' })}
           />
           <MyInput
             label="Berasal dari universitas mana? *"
             name="universitas"
-            type={"text"}
-            placeholder={"Universitas"}
-            {...register("universitas", { required: "isi dulu ya" })}
+            type={'text'}
+            placeholder={'Universitas'}
+            {...register('universitas', { required: 'isi dulu ya' })}
           />
           <MyInput
             label="Jurusan apa? *"
             name="Jurusan"
-            type={"text"}
-            placeholder={"Jurusan Bahasa Perancis"}
-            {...register("jurusan", { required: "isi dulu ya" })}
+            type={'text'}
+            placeholder={'Jurusan Bahasa Perancis'}
+            {...register('jurusan', { required: 'isi dulu ya' })}
           />
           <Stack spacing={3}>
             <Typography gutterBottom fontWeight={700}>
@@ -73,14 +74,14 @@ const ChooseProgramForm = () => {
             <DropZone
               helper={guideFileSPTJM}
               desc={
-                "Tarik file SPTJM kamu kesini untuk mengunggah atau klik disini"
+                'Tarik file SPTJM kamu kesini untuk mengunggah atau klik disini'
               }
               name="sptjm"
             />
             <DropZone
               helper={guideFileRekom}
               desc={
-                "Tarik file Surat Rekomendasi kamu ke sini untuk mengunggah"
+                'Tarik file Surat Rekomendasi kamu ke sini untuk mengunggah'
               }
               name="surkom"
             />

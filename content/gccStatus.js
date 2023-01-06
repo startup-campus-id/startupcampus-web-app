@@ -1,1 +1,1 @@
-export const gccStatus = ["Mahasiswa", "Pekerja", "Lainnya"];
+export const gccStatus = ['Mahasiswa', 'Pekerja', 'Lainnya'];

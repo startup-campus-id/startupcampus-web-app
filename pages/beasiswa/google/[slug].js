@@ -1,51 +1,50 @@
-import { Container, Divider, Grid, Stack, Typography } from "@mui/material";
-import React, { useEffect, useRef } from "react";
-import Head from "next/head";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import gsap from "gsap/dist/gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { listMenu } from "../../../content/sideMenu";
-import { db } from "../../../firebase/clientApp";
-import BeasiswaHero from "../../../components/BeasiswaPage/BeasiswaHero";
-import SideBar from "../../../components/trackPage/SideBar";
-import { menuBeasiswa } from "../../../content/menuBeasiswa";
-import BeasiswaAbout from "../../../components/BeasiswaPage/BeasiswaAbout";
-import BeasiswaKeterampilan from "../../../components/BeasiswaPage/BeasiswaKeterampilan";
-import BeasiswaMengapa from "../../../components/BeasiswaPage/BeasiswaMengapa";
-import { whyMustGcc } from "../../../content/whymustgcc";
-import BeasiswaKurikulum from "../../../components/BeasiswaPage/BeasiswaKurikulum";
-import { REGIST_BEASISWA_GOOGLE_URL } from "../../../sc.config";
-import BeasiswaKriteria from "../../../components/BeasiswaPage/BeasiswaKriteria";
-import BeasiswaJadwal from "../../../components/BeasiswaPage/BeasiswaJadwal";
-import MyTitle from "../../../components/MyTitle";
-import WordBreak from "../../../components/WordBreak";
-import MyButton from "../../../components/MyButton";
-import Link from "next/link";
-import { kriteria } from "../../../content/kriteria";
+import { Container, Divider, Grid, Stack, Typography } from '@mui/material';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import gsap from 'gsap/dist/gsap';
+import Head from 'next/head';
+import Link from 'next/link';
+import React, { useEffect, useRef } from 'react';
+
+import BeasiswaAbout from '/components/BeasiswaPage/BeasiswaAbout';
+import BeasiswaHero from '/components/BeasiswaPage/BeasiswaHero';
+import BeasiswaJadwal from '/components/BeasiswaPage/BeasiswaJadwal';
+import BeasiswaKeterampilan from '/components/BeasiswaPage/BeasiswaKeterampilan';
+import BeasiswaKriteria from '/components/BeasiswaPage/BeasiswaKriteria';
+import BeasiswaKurikulum from '/components/BeasiswaPage/BeasiswaKurikulum';
+import BeasiswaMengapa from '/components/BeasiswaPage/BeasiswaMengapa';
+import MyButton from '/components/MyButton';
+import MyTitle from '/components/MyTitle';
+import SideBar from '/components/trackPage/SideBar';
+import { kriteria } from '/content/kriteria';
+import { menuBeasiswa } from '/content/menuBeasiswa';
+import { whyMustGcc } from '/content/whymustgcc';
+import { db } from '/firebase/clientApp';
+import { REGIST_BEASISWA_GOOGLE_URL } from '/sc.config';
 
 export default function BeasiswaGoogle({ beasiswa, kriteria }) {
   const app = useRef();
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
-      // Target the two specific elements we have asigned the animate class
+      // Target the two specific elements we have assigned the animate class
       ScrollTrigger.create({
-        trigger: ".content",
-        start: "top top",
-        end: "bottom bottom",
-        pin: ".sidebar",
+        trigger: '.content',
+        start: 'top top',
+        end: 'bottom bottom',
+        pin: '.sidebar',
       });
 
       menuBeasiswa.map((val, idx) => {
-        gsap.to("." + val.link, {
+        gsap.to('.' + val.link, {
           scrollTrigger: {
-            trigger: "#" + val.link,
-            start: "top center",
-            end: "bottom center",
-            toggleActions: "restart reset restart reset",
+            trigger: '#' + val.link,
+            start: 'top center',
+            end: 'bottom center',
+            toggleActions: 'restart reset restart reset',
           },
-          color: "blue",
-          transition: "ease",
+          color: 'blue',
+          transition: 'ease',
         });
       });
     }, app); // <- Scope!
@@ -65,7 +64,7 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
           xs={12}
           sx={{
             background:
-              "radial-gradient(50% 50% at 50% 50%, rgba(0, 86, 210, 0.6) 0%, #0056D2 100%)",
+              'radial-gradient(50% 50% at 50% 50%, rgba(0, 86, 210, 0.6) 0%, #0056D2 100%)',
           }}
         >
           <Container>
@@ -74,13 +73,24 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
         </Grid>
       </Grid>
 
-      <Container ref={app} sx={{ overflow: { xs: "visible", md: "hidden" } }}>
+      <Container
+        ref={app}
+        sx={{
+          overflow: {
+            xs: 'visible',
+            md: 'hidden',
+          },
+        }}
+      >
         <Grid container spacing={3} py={4}>
           <Grid
             item
             md={3}
             className="sidebar"
-            display={{ xs: "none", md: "block" }}
+            display={{
+              xs: 'none',
+              md: 'block',
+            }}
           >
             <SideBar
               listMenu={menuBeasiswa}
@@ -90,33 +100,57 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
           <Grid item container md={9} className="content">
             <Stack>
               <BeasiswaAbout name={beasiswa.name} materi={beasiswa.tp_materi} />
-              <Divider sx={{ marginY: 4 }} />
+              <Divider
+                sx={{
+                  marginY: 4,
+                }}
+              />
             </Stack>
             <Stack>
               <BeasiswaKeterampilan skill={beasiswa.keterampilan} />
-              <Divider sx={{ marginY: 4 }} />
+              <Divider
+                sx={{
+                  marginY: 4,
+                }}
+              />
             </Stack>
             <Stack>
               <BeasiswaMengapa materi={whyMustGcc} />
-              <Divider sx={{ marginY: 4 }} />
+              <Divider
+                sx={{
+                  marginY: 4,
+                }}
+              />
             </Stack>
             <Stack>
               <BeasiswaKurikulum kurikulum={beasiswa.kurikulum} />
-              <Divider sx={{ marginY: 4 }} />
+              <Divider
+                sx={{
+                  marginY: 4,
+                }}
+              />
             </Stack>
-            <Stack width={"100%"}>
+            <Stack width={'100%'}>
               <BeasiswaKriteria kriteria={kriteria} />
-              <Divider sx={{ marginY: 4 }} />
+              <Divider
+                sx={{
+                  marginY: 4,
+                }}
+              />
             </Stack>
-            <Stack width={"100%"}>
+            <Stack width={'100%'}>
               <BeasiswaJadwal />
-              <Divider sx={{ marginY: 4 }} />
+              <Divider
+                sx={{
+                  marginY: 4,
+                }}
+              />
             </Stack>
           </Grid>
         </Grid>
       </Container>
       <Stack
-        sx={{ background: "rgba(0, 86, 210, 0.05)" }}
+        sx={{ background: 'rgba(0, 86, 210, 0.05)' }}
         py={8}
         my={5}
         justifyContent="center"
@@ -143,11 +177,11 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
 
 export async function getStaticPaths() {
   let paths = [];
-  const colRef = collection(db, "beasiswa");
+  const colRef = collection(db, 'beasiswa');
   const querySnapshot = await getDocs(colRef);
 
   querySnapshot.forEach((doc) => {
-    const { slug } = doc.data()
+    const { slug } = doc.data();
     paths.push({ params: { slug } });
   });
 
@@ -160,8 +194,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const data = [];
   try {
-    const colRef = collection(db, "beasiswa");
-    const q = query(colRef, where("slug", "==", params.slug));
+    const colRef = collection(db, 'beasiswa');
+    const q = query(colRef, where('slug', '==', params.slug));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       data.push({ id: doc.id, ...doc.data() });
@@ -170,7 +204,10 @@ export async function getStaticProps({ params }) {
     console.log(e.message);
   }
   return {
-    props: { beasiswa: data[0] ?? null, kriteria: kriteria[params.slug] },
+    props: {
+      beasiswa: data[0] ?? null,
+      kriteria: kriteria[params.slug],
+    },
     revalidate: 1,
   };
 }

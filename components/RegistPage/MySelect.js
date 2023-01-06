@@ -1,22 +1,23 @@
-import React, { Fragment } from "react";
 import {
   FormControl,
   FormControlLabel,
   FormHelperText,
   FormLabel,
-  TextField,
   Radio,
   RadioGroup,
+  TextField,
   Typography,
-} from "@mui/material";
-import { useMyForm } from "../../context/FormContext";
+} from '@mui/material';
+import React, { Fragment } from 'react';
+
+import { useMyForm } from '../../context/FormContext';
 
 const MySelect = ({ label, name, data, track, ...args }) => {
   const { register, handleSubmit, watch, errors } = useMyForm();
   return (
     <Fragment>
       <FormControl error={errors[name] ? true : false}>
-        <Typography gutterBottom fontWeight={700} color={"sc_gray.dark"}>
+        <Typography gutterBottom fontWeight={700} color={'sc_gray.dark'}>
           {label}
         </Typography>
         <RadioGroup defaultValue={watch(name)} name={name}>
@@ -26,13 +27,13 @@ const MySelect = ({ label, name, data, track, ...args }) => {
               value={track ? i + 1 : val}
               control={<Radio />}
               label={val}
-              disabled={val == "Backend Engineer" ? true : false}
-              {...register(name, { required: "Pilih salah satu" })}
+              disabled={val == 'Backend Engineer' ? true : false}
+              {...register(name, { required: 'Pilih salah satu' })}
               {...args}
             />
           ))}
         </RadioGroup>
-        <FormHelperText>{errors[name]?.message ?? ""}</FormHelperText>
+        <FormHelperText>{errors[name]?.message ?? ''}</FormHelperText>
       </FormControl>
     </Fragment>
   );

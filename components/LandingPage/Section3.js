@@ -1,16 +1,17 @@
-import { Button, Grid, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import Typed from "typed.js";
-import HighlightText from "../HighlightText";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from "swiper/react";
-import Card from "../Card";
-import WordBreak from "../WordBreak";
-import MyButton from "../MyButton";
-import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
-import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
-import useDeviceDetect from "../../hooks/useDeviceDetect";
-import MySwiper from "../../components/MySwiper"
+import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
+import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+import { Button, Grid, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from 'swiper/react';
+import Typed from 'typed.js';
+
+import MySwiper from '../../components/MySwiper';
+import useDeviceDetect from '../../hooks/useDeviceDetect';
+import Card from '../Card';
+import HighlightText from '../HighlightText';
+import MyButton from '../MyButton';
+import WordBreak from '../WordBreak';
 
 function Section3({ course }) {
   const [controlledSwiper, setControlledSwiper] = useState(null);
@@ -22,11 +23,11 @@ function Section3({ course }) {
   useEffect(() => {
     const options = {
       strings: [
-        "Founder",
-        "UI/UX Designer",
-        "Data Scientist",
-        "AI Specialist",
-        "Backend Engineer",
+        'Founder',
+        'UI/UX Designer',
+        'Data Scientist',
+        'AI Specialist',
+        'Backend Engineer',
       ],
       typeSpeed: 50,
       backSpeed: 50,
@@ -44,24 +45,24 @@ function Section3({ course }) {
   }, []);
 
   const linkCourse = [
-    "the-founder",
-    "data-science",
-    "uiux-design",
-    "artificial-intelligence",
-    "backend-engineer",
+    'the-founder',
+    'data-science',
+    'uiux-design',
+    'artificial-intelligence',
+    'backend-engineer',
   ];
 
   return (
     <Grid container my={6} spacing={2}>
-      <Grid item xs={12} data-aos="fade-right" id={"program"}>
+      <Grid item xs={12} data-aos="fade-right" id={'program'}>
         <Typography variant="h4" fontWeight={700}>
-          <HighlightText width="-2%">Kamu Bisa</HighlightText> Menjadi{" "}
-          <Typography display={{ xs: "block", md: "none" }} />
+          <HighlightText width="-2%">Kamu Bisa</HighlightText> Menjadi{' '}
+          <Typography display={{ xs: 'block', md: 'none' }} />
           <span ref={el} />
         </Typography>
       </Grid>
       <Grid item xs={12} sm={8} data-aos="fade-right">
-        <Typography variant="body1" color={"sc_gray.dark"} mr={3}>
+        <Typography variant="body1" color={'sc_gray.dark'} mr={3}>
           Pilih trek sesuai minatmu sekarang juga!
         </Typography>
       </Grid>
@@ -79,7 +80,7 @@ function Section3({ course }) {
                 level={item.level}
                 tanggal={item.startDate}
                 online={item.isOnline}
-                link={"/track/" + linkCourse[idx]}
+                link={'/track/' + linkCourse[idx]}
               />
             </SwiperSlide>
           );

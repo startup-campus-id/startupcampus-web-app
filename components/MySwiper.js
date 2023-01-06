@@ -1,25 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { Pagination, Scrollbar, A11y } from "swiper";
-import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from "swiper/react";
-import SwiperButton from "./SwiperButton";
-import { Grid } from "@mui/material";
+import { Grid } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { A11y, Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from 'swiper/react';
 
-const MySwiper = ({ className, slidesPerViewLarge = 3, slidesPerViewSmall = 2, buttonXs = 12, children, ...args }) => {
+import SwiperButton from './SwiperButton';
+
+const MySwiper = ({
+  className,
+  slidesPerViewLarge = 3,
+  slidesPerViewSmall = 2,
+  buttonXs = 12,
+  children,
+  ...args
+}) => {
   const [controlledSwiper, setControlledSwiper] = useState(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
   return (
     <>
-      <SwiperButton controlledSwiper={controlledSwiper} isEnd={isEnd} isBeginning={isBeginning} xs={buttonXs} />
+      <SwiperButton
+        controlledSwiper={controlledSwiper}
+        isEnd={isEnd}
+        isBeginning={isBeginning}
+        xs={buttonXs}
+      />
       <Grid item xs={12} data-aos="fade-up" p={{ xs: 2, md: 4 }}>
         <Swiper
           modules={[Pagination, Scrollbar, A11y]}
           pagination={{ clickable: true }}
           onSwiper={setControlledSwiper}
           onSlideChange={() => {
-            setIsBeginning(controlledSwiper.isBeginning)
-            setIsEnd(controlledSwiper.isEnd)
+            setIsBeginning(controlledSwiper.isBeginning);
+            setIsEnd(controlledSwiper.isEnd);
           }}
           breakpoints={{
             690: {
@@ -39,6 +52,6 @@ const MySwiper = ({ className, slidesPerViewLarge = 3, slidesPerViewSmall = 2, b
       </Grid>
     </>
   );
-}
+};
 
-export default MySwiper
+export default MySwiper;

@@ -1,9 +1,10 @@
-import React from "react";
-import { Box, Grid, Stack, Typography } from "@mui/material";
-import Image from "next/image";
-import { count } from "../../content/count";
-import HighlightText from "../HighlightText";
-import WordBreak from "../WordBreak";
+import { Box, Grid, Stack, Typography } from '@mui/material';
+import Image from 'next/image';
+import React from 'react';
+
+import { count } from '../../content/count';
+import HighlightText from '../HighlightText';
+import WordBreak from '../WordBreak';
 
 function Section4() {
   return (
@@ -15,16 +16,16 @@ function Section4() {
         </Typography>
       </Grid>
       <Grid item xs={12} data-aos="fade-right">
-        <Typography variant="body2" color={"sc_gray.dark"}>
+        <Typography variant="body2" color={'sc_gray.dark'}>
           Startup Campus, <i>bootcamp</i> intensif daring untuk meningkatkan
           kompetensi digital dan teknologi.
         </Typography>
       </Grid>
-      <Grid item mt={{xs:undefined, md:5}} container xs={12} spacing={6}>
+      <Grid item mt={{ xs: undefined, md: 5 }} container xs={12} spacing={6}>
         <Grid item xs={12} md={8} data-aos="fade-up">
-          <Box overflow={"hidden"} borderRadius={"20px"}>
+          <Box overflow={'hidden'} borderRadius={'20px'}>
             <Image
-              src={"/images/meeting.png"}
+              src={'/images/meeting.png'}
               width={854}
               height={524}
               alt="meeting-online"
@@ -36,7 +37,7 @@ function Section4() {
             <Grid item xs={6} md={12} key={e.desc} data-aos="fade-left">
               <Stack spacing={1} alignItems="center">
                 <Typography
-                  textAlign={"center"}
+                  textAlign={'center'}
                   variant="h4"
                   fontWeight={700}
                   color="sc_blue.main"
@@ -44,9 +45,9 @@ function Section4() {
                   {e.sum}
                 </Typography>
                 <Typography
-                  textAlign={"center"}
+                  textAlign={'center'}
                   variant="body2"
-                  color={"sc_gray.dark"}
+                  color={'sc_gray.dark'}
                 >
                   {e.desc}
                 </Typography>

@@ -1,5 +1,8 @@
-import { Box, Container, Typography } from "@mui/material";
-import Head from "next/head";
+import { Box, Container, Typography } from '@mui/material';
+import { createClient } from 'contentful';
+import { collection, getDocs } from 'firebase/firestore';
+import Head from 'next/head';
+
 import {
   Section1,
   Section2,
@@ -11,11 +14,9 @@ import {
   Section8,
   Section9,
   Section10,
-} from "../components";
-import { createClient } from "contentful";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase/clientApp";
-import BiayaPendidikan from "../components/LandingPage/BiayaPendidikan";
+} from '../components';
+import BiayaPendidikan from '../components/LandingPage/BiayaPendidikan';
+import { db } from '../firebase/clientApp';
 
 const Home = ({ logo, testimoni, course, title7, faq }) => {
   return (
@@ -54,22 +55,22 @@ export const getStaticProps = async () => {
   });
 
   const { items: logo } = await client.getEntries({
-    content_type: "logoCompany",
+    content_type: 'logoCompany',
   });
   const { items: testimoni } = await client.getEntries({
-    content_type: "testimoni",
+    content_type: 'testimoni',
   });
 
   const { items: course } = await client.getEntries({
-    content_type: "course",
+    content_type: 'course',
   });
 
   const { items: title7 } = await client.getEntries({
-    content_type: "section7",
+    content_type: 'section7',
   });
 
   const { items: faq } = await client.getEntries({
-    content_type: "faq",
+    content_type: 'faq',
   });
 
   // const data = [];

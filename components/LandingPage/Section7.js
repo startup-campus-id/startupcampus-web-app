@@ -1,15 +1,16 @@
-import { Avatar, Box, Grid, Stack, Typography } from "@mui/material";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import React from "react";
-import Card from "../Card";
-import HighlightText from "../HighlightText";
-import WordBreak from "../WordBreak";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from "swiper/react";
-import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
-import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
-import MyButton from "../MyButton";
-import MySwiper from "../MySwiper";
+import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
+import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+import { Avatar, Box, Grid, Stack, Typography } from '@mui/material';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import React from 'react';
+import { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from 'swiper/react';
+
+import Card from '../Card';
+import HighlightText from '../HighlightText';
+import MyButton from '../MyButton';
+import MySwiper from '../MySwiper';
+import WordBreak from '../WordBreak';
 
 function Section7({ testimoni, title7 }) {
   return (
@@ -21,7 +22,7 @@ function Section7({ testimoni, title7 }) {
           Tentang Startup Campus
         </Typography>
       </Grid>
-      <MySwiper >
+      <MySwiper>
         {testimoni
           ?.slice(0)
           .reverse()
@@ -37,9 +38,9 @@ function Section7({ testimoni, title7 }) {
                   spacing={3}
                   p={4}
                   sx={{
-                    background: "#FFFFFF",
-                    boxShadow: "0px 8px 20px rgba(43, 44, 39, 0.1)",
-                    borderRadius: "20px",
+                    background: '#FFFFFF',
+                    boxShadow: '0px 8px 20px rgba(43, 44, 39, 0.1)',
+                    borderRadius: '20px',
                     // width: 575,
                     // height: 371,
                   }}

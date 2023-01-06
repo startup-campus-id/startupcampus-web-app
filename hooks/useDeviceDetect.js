@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react';
 
 export const mobileType = {
-  mobile: "mobile",
-  tablet: "tablet",
-  desktop: "desktop"
-}
+  mobile: 'mobile',
+  tablet: 'tablet',
+  desktop: 'desktop',
+};
 
 const getDeviceDetect = (width) => {
   if (width < 768) {
-    return mobileType.mobile
+    return mobileType.mobile;
   } else if (width < 1024) {
-    return mobileType.tablet
+    return mobileType.tablet;
   } else {
-    return mobileType.desktop
+    return mobileType.desktop;
   }
-}
+};
 
 const useDeviceDetect = () => {
   const [windowSize, setWindowSize] = useState({
@@ -33,21 +33,21 @@ const useDeviceDetect = () => {
         height: window.innerHeight,
       });
 
-      const d = getDeviceDetect(window.innerWidth)
-      setDevice(d)
+      const d = getDeviceDetect(window.innerWidth);
+      setDevice(d);
     }
 
     // Add event listener
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     // Call handler right away so state gets updated with initial window size
     handleResize();
 
     // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []); // Empty array ensures that effect is only run on mount
 
-  return {device, windowSize}
-}
+  return { device, windowSize };
+};
 
-export default useDeviceDetect
+export default useDeviceDetect;

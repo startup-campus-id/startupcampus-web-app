@@ -20,7 +20,7 @@ jobs:
         run: |
           echo "$LOCAL_ENV" > .env.local
         env:
-          LOCAL_ENV: "${{secrets.LOCAL_ENV}}"
+          LOCAL_ENV: '${{secrets.LOCAL_ENV}}'
       - name: Install npm dependencies and build
         run: |
           npm install 

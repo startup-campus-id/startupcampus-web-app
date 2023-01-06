@@ -1,32 +1,32 @@
-import { Box } from "@mui/material";
-import Image from "next/image";
-import React from "react";
+import { Box } from '@mui/material';
+import Image from 'next/image';
+import React from 'react';
 
-const BubbleChat = ()=>{
+const BubbleChat = () => {
   return (
     <Box
       sx={{
-        position: "fixed",
+        position: 'fixed',
         zIndex: 99,
         bottom: 0,
         right: 0,
         m: { xs: 2, md: 5 },
-        backgroundColor: "#4ECB5C",
-        borderRadius: "50%",
+        backgroundColor: '#4ECB5C',
+        borderRadius: '50%',
         p: 2,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        border: "5px solid white",
-        boxShadow: "0px 8px 20px rgba(112, 144, 176, 0.2)",
-        cursor: "pointer",
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        border: '5px solid white',
+        boxShadow: '0px 8px 20px rgba(112, 144, 176, 0.2)',
+        cursor: 'pointer',
       }}
     >
       <Box>
-        <Image src={"/images/wa_logo.png"} width={30} height={30} />
+        <Image src={'/images/wa_logo.png'} width={30} height={30} />
       </Box>
     </Box>
   );
-}
+};
 
 export default BubbleChat;

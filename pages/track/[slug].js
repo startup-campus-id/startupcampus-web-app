@@ -8,28 +8,29 @@ import {
   Link,
   Stack,
   Typography,
-} from "@mui/material";
-import { useRouter } from "next/router";
-import React, { useEffect, useRef } from "react";
-import { listMenu } from "../../content/sideMenu";
-import Main from "../../components/trackPage/Main";
-import Board from "../../components/trackPage/Board";
-import SideBar from "../../components/trackPage/SideBar";
-import TentangProgram from "../../components/trackPage/TentangProgram";
-import Head from "next/head";
-import { db } from "../../firebase/clientApp";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import Sme from "../../components/trackPage/Sme";
-import Kurikulum from "../../components/trackPage/Kurikulum";
-import Tools from "../../components/trackPage/Tools";
-import Bimbingan from "../../components/trackPage/Bimbingan";
-import Biaya from "../../components/trackPage/Biaya";
-import Kelas from "../../components/trackPage/Kelas";
-import Testimoni from "../../components/trackPage/Testimoni";
-import Portofolio from "../../components/trackPage/Portofolio";
-import Faq from "../../components/trackPage/Faq";
-import gsap from "gsap/dist/gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+} from '@mui/material';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import gsap from 'gsap/dist/gsap';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import React, { useEffect, useRef } from 'react';
+
+import Biaya from '../../components/trackPage/Biaya';
+import Bimbingan from '../../components/trackPage/Bimbingan';
+import Board from '../../components/trackPage/Board';
+import Faq from '../../components/trackPage/Faq';
+import Kelas from '../../components/trackPage/Kelas';
+import Kurikulum from '../../components/trackPage/Kurikulum';
+import Main from '../../components/trackPage/Main';
+import Portofolio from '../../components/trackPage/Portofolio';
+import SideBar from '../../components/trackPage/SideBar';
+import Sme from '../../components/trackPage/Sme';
+import TentangProgram from '../../components/trackPage/TentangProgram';
+import Testimoni from '../../components/trackPage/Testimoni';
+import Tools from '../../components/trackPage/Tools';
+import { listMenu } from '../../content/sideMenu';
+import { db } from '../../firebase/clientApp';
 
 export default function Track({ course }) {
   console.log(course);
@@ -39,22 +40,22 @@ export default function Track({ course }) {
     const ctx = gsap.context(() => {
       // Target the two specific elements we have asigned the animate class
       ScrollTrigger.create({
-        trigger: ".content",
-        start: "top top",
-        end: "bottom bottom",
-        pin: ".sidebar",
+        trigger: '.content',
+        start: 'top top',
+        end: 'bottom bottom',
+        pin: '.sidebar',
       });
 
       listMenu.map((val, idx) => {
-        gsap.to("." + val.link, {
+        gsap.to('.' + val.link, {
           scrollTrigger: {
-            trigger: "#" + val.link,
-            start: "top center",
-            end: "bottom center",
-            toggleActions: "restart reset restart reset",
+            trigger: '#' + val.link,
+            start: 'top center',
+            end: 'bottom center',
+            toggleActions: 'restart reset restart reset',
           },
-          color: "blue",
-          transition: "ease",
+          color: 'blue',
+          transition: 'ease',
         });
       });
     }, app); // <- Scope!
@@ -69,7 +70,7 @@ export default function Track({ course }) {
       </Head>
       {!course ? (
         <Backdrop
-          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
           open={true}
         >
           <CircularProgress color="inherit" />
@@ -82,18 +83,18 @@ export default function Track({ course }) {
               xs={12}
               sx={{
                 backgroundImage: `url(${course.img})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center top",
-                position: "relative",
-                "&::before": {
-                  zIndex: "0",
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center top',
+                position: 'relative',
+                '&::before': {
+                  zIndex: '0',
                   content: "''",
-                  position: "absolute",
-                  width: "100%",
-                  height: "100%",
+                  position: 'absolute',
+                  width: '100%',
+                  height: '100%',
                   background:
-                    "linear-gradient(90deg, rgba(43, 44, 39, 0.75) 0%, rgba(43, 44, 39, 0.0375) 100%), linear-gradient(111.55deg, rgba(43, 44, 39, 0.75) 0%, rgba(43, 44, 39, 0.0375) 100%), linear-gradient(68.45deg, rgba(43, 44, 39, 0.75) 0%, rgba(43, 44, 39, 0.0375) 100%)",
+                    'linear-gradient(90deg, rgba(43, 44, 39, 0.75) 0%, rgba(43, 44, 39, 0.0375) 100%), linear-gradient(111.55deg, rgba(43, 44, 39, 0.75) 0%, rgba(43, 44, 39, 0.0375) 100%), linear-gradient(68.45deg, rgba(43, 44, 39, 0.75) 0%, rgba(43, 44, 39, 0.0375) 100%)',
                 },
               }}
             >
@@ -102,22 +103,22 @@ export default function Track({ course }) {
               </Container>
             </Grid>
           </Grid>
-          <Grid container justifyContent={"center"}>
-            <Grid item xs={12} display="flex" justifyContent={"center"}>
+          <Grid container justifyContent={'center'}>
+            <Grid item xs={12} display="flex" justifyContent={'center'}>
               <Board />
             </Grid>
           </Grid>
 
           <Container
             ref={app}
-            sx={{ overflow: { xs: "visible", md: "hidden" } }}
+            sx={{ overflow: { xs: 'visible', md: 'hidden' } }}
           >
             <Grid container spacing={3}>
               <Grid
                 item
                 md={3}
                 className="sidebar"
-                display={{ xs: "none", md: "block" }}
+                display={{ xs: 'none', md: 'block' }}
               >
                 <SideBar listMenu={listMenu} />
               </Grid>
@@ -177,7 +178,7 @@ export default function Track({ course }) {
 
 export async function getStaticPaths() {
   let paths = [];
-  const colRef = collection(db, "course");
+  const colRef = collection(db, 'course');
   const querySnapshot = await getDocs(colRef);
 
   querySnapshot.forEach((doc) => {
@@ -193,8 +194,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const data = [];
   try {
-    const colRef = collection(db, "course");
-    const q = query(colRef, where("slug", "==", params.slug));
+    const colRef = collection(db, 'course');
+    const q = query(colRef, where('slug', '==', params.slug));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       data.push({ id: doc.id, ...doc.data() });

@@ -1,6 +1,7 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
-import React from "react";
-import AccentText from "../AccentText";
+import { Box, Grid, Stack, Typography } from '@mui/material';
+import React from 'react';
+
+import AccentText from '../AccentText';
 
 export default function BeasiswaKeterampilan({ skill }) {
   return (
@@ -12,8 +13,8 @@ export default function BeasiswaKeterampilan({ skill }) {
             item
             key={i}
             sx={{
-              padding: "15px 35px",
-              backgroundColor: "#E5EEFA",
+              padding: '15px 35px',
+              backgroundColor: '#E5EEFA',
               borderRadius: 10,
             }}
           >

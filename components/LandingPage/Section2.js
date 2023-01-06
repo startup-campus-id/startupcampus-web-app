@@ -1,8 +1,9 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
-import Image from "next/image";
-import React from "react";
-import WordBreak from "../WordBreak";
-import { useEffect } from "react";
+import { Box, Grid, Stack, Typography } from '@mui/material';
+import Image from 'next/image';
+import React from 'react';
+import { useEffect } from 'react';
+
+import WordBreak from '../WordBreak';
 
 function Section2({ logo }) {
   return (
@@ -31,7 +32,7 @@ function Section2({ logo }) {
               justifyContent="center"
               data-aos="fade-up"
             >
-              <Box sx={{ widht: "100px", height: "100px" }}>
+              <Box sx={{ widht: '100px', height: '100px' }}>
                 <Image
                   src={`https:${value.fields.logo.fields.file.url}`}
                   width={value.fields.logo.fields.file.details.image.width ?? 2}
@@ -46,7 +47,7 @@ function Section2({ logo }) {
             </Grid>
           ))}
         <Grid item xs={12} data-aos="fade-up">
-          <Typography variant="body2" color={"sc_gray.dark"} textAlign="center">
+          <Typography variant="body2" color={'sc_gray.dark'} textAlign="center">
             dan banyak lagi
           </Typography>
         </Grid>

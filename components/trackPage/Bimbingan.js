@@ -1,16 +1,17 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
-import React from "react";
-import AccentText from "../AccentText";
-import HighlightText from "../HighlightText";
-import MyDesc from "../MyDesc";
-import MyTitle from "../MyTitle";
-import VerifiedOutlined from "@mui/icons-material/VerifiedOutlined";
-import ChatOutlined from "@mui/icons-material/ChatOutlined";
-import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
-import { useRouter } from "next/router";
-import { bkFounder } from "../../content/bimbinganKarier";
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import ChatOutlined from '@mui/icons-material/ChatOutlined';
+import VerifiedOutlined from '@mui/icons-material/VerifiedOutlined';
+import { Box, Grid, Stack, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+import React from 'react';
 
-export default function Bimbingan({ desc = " " }) {
+import { bkFounder } from '../../content/bimbinganKarier';
+import AccentText from '../AccentText';
+import HighlightText from '../HighlightText';
+import MyDesc from '../MyDesc';
+import MyTitle from '../MyTitle';
+
+export default function Bimbingan({ desc = ' ' }) {
   const router = useRouter();
   return (
     <Stack id="bimbingan-karier" data-aos="fade-up">
@@ -20,7 +21,7 @@ export default function Bimbingan({ desc = " " }) {
       </MyTitle>
       <MyDesc>{desc}</MyDesc>
       <MyDesc mt={3}>
-      Dukungan yang kamu dapatkan selama di Startup Campus antara lain:
+        Dukungan yang kamu dapatkan selama di Startup Campus antara lain:
       </MyDesc>
       <Grid container my={3} spacing={4}>
         {bkFounder.map((v, i) => (
@@ -42,13 +43,13 @@ export default function Bimbingan({ desc = " " }) {
         <Grid item xs={12}>
           <Box
             sx={{
-              height: "450px",
-              width: "100%",
+              height: '450px',
+              width: '100%',
               backgroundImage: "url('/images/twopeopple.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
               borderRadius: 8,
-              filter: "drop-shadow(0px 16px 40px rgba(112, 144, 176, 0.2))",
+              filter: 'drop-shadow(0px 16px 40px rgba(112, 144, 176, 0.2))',
             }}
           />
         </Grid>

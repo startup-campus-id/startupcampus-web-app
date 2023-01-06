@@ -1,14 +1,15 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import Slide from "@mui/material/Slide";
-import MyButton from "./MyButton";
-import Link from "next/link";
-import { Stack } from "@mui/material";
+import { Stack } from '@mui/material';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+import Link from 'next/link';
+import * as React from 'react';
+
+import MyButton from './MyButton';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -24,10 +25,10 @@ export default function AlertDialog({ open, handleClose, comingSoon }) {
         aria-describedby="alert-dialog-slide-description"
       >
         {comingSoon ? (
-          <DialogTitle>{"Coming Soon !"}</DialogTitle>
+          <DialogTitle>{'Coming Soon !'}</DialogTitle>
         ) : (
           <>
-            <DialogTitle>{"Pilih program yang ingin diikuti"}</DialogTitle>
+            <DialogTitle>{'Pilih program yang ingin diikuti'}</DialogTitle>
             <DialogContent>
               <Stack direction="column" spacing={2}>
                 <Link href="/daftar/bootcamp-public" underline="none" passHref>

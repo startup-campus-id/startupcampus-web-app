@@ -1,10 +1,11 @@
-import { Box, Divider, Stack, Typography } from "@mui/material";
-import React, { useState } from "react";
-import AccentText from "../AccentText";
-import HighlightText from "../HighlightText";
-import MyButton from "../MyButton";
-import MyDesc from "../MyDesc";
-import MyTitle from "../MyTitle";
+import { Box, Divider, Stack, Typography } from '@mui/material';
+import React, { useState } from 'react';
+
+import AccentText from '../AccentText';
+import HighlightText from '../HighlightText';
+import MyButton from '../MyButton';
+import MyDesc from '../MyDesc';
+import MyTitle from '../MyTitle';
 
 export default function BeasiswaKurikulum({ kurikulum }) {
   const [content, setContent] = useState(5);
@@ -12,10 +13,10 @@ export default function BeasiswaKurikulum({ kurikulum }) {
     <Box id="kurikulum" pt={6}>
       <AccentText>Kurikulum</AccentText>
       <MyTitle gutterBottom>
-        Materi yang akan kamu{" "}
+        Materi yang akan kamu{' '}
         <HighlightText width="-2%">Dapatkan</HighlightText>
       </MyTitle>
-      <Typography variant={"body2"} my={4}>
+      <Typography variant={'body2'} my={4}>
         Pelajari cara menganalisis dan memproses data untuk membantu strategi
         bisnis perusahaan melalui 8 materi berikut:
       </Typography>
@@ -23,16 +24,16 @@ export default function BeasiswaKurikulum({ kurikulum }) {
         spacing={2}
         position="relative"
         sx={{
-          "&::before": {
-            display: content >= kurikulum.length ? "none" : "block",
+          '&::before': {
+            display: content >= kurikulum.length ? 'none' : 'block',
             content: "''",
-            position: "absolute",
+            position: 'absolute',
             bottom: 0,
             left: 0,
             right: 0,
-            top: "50%",
+            top: '50%',
             background:
-              "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)",
+              'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)',
           },
         }}
       >
@@ -40,22 +41,22 @@ export default function BeasiswaKurikulum({ kurikulum }) {
           <Stack spacing={4} key={i}>
             <Stack direction="row" spacing={2}>
               <Stack
-                justifyContent={"center"}
-                alignItems={"center"}
+                justifyContent={'center'}
+                alignItems={'center'}
                 sx={{
-                  backgroundColor: "sc_blue.main",
-                  borderRadius: "100%",
+                  backgroundColor: 'sc_blue.main',
+                  borderRadius: '100%',
                   width: 32,
                   height: 32,
                   flexShrink: 0,
                 }}
               >
-                <Typography color={"white"}>{i + 1}</Typography>
+                <Typography color={'white'}>{i + 1}</Typography>
               </Stack>
 
               <Stack spacing={1}>
                 <Typography
-                  variant={"h6"}
+                  variant={'h6'}
                   fontWeight={700}
                   color="sc_blue.main"
                 >

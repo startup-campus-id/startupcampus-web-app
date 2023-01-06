@@ -1,16 +1,17 @@
-import { IconButton, Stack, TextField, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { useDropzone, DropZone } from "react-dropzone";
-import { byteToMb } from "../../utils/byteToMb";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { useMyForm } from "../../context/FormContext";
+import DeleteIcon from '@mui/icons-material/Delete';
+import { IconButton, Stack, TextField, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { DropZone, useDropzone } from 'react-dropzone';
+
+import { useMyForm } from '../../context/FormContext';
+import { byteToMb } from '../../utils/byteToMb';
 
 const maxLength = 3000000;
 
 function nameLengthValidator(file) {
   if (file.size > maxLength) {
     return {
-      code: file.name + "-too-large",
+      code: file.name + '-too-large',
       message: `${file.name} is larger than ${byteToMb(maxLength)} mb`,
     };
   }
@@ -23,7 +24,7 @@ export default function MyDropZone({ helper, desc, name }) {
   const { acceptedFiles, fileRejections, getRootProps, getInputProps } =
     useDropzone({
       maxFiles: 1,
-      accept: { "image/*": [".jpg", ".jpeg", ".png"] },
+      accept: { 'image/*': ['.jpg', '.jpeg', '.png'] },
       validator: nameLengthValidator,
     });
 
@@ -33,7 +34,7 @@ export default function MyDropZone({ helper, desc, name }) {
   });
 
   const fileRejectionItems = fileRejections.map(({ file, errors }) => (
-    <li key={file.path} style={{ color: "red" }}>
+    <li key={file.path} style={{ color: 'red' }}>
       <Typography variant="body2">{file.path}</Typography>
       <ul>
         <Typography variant="body2">
@@ -57,10 +58,10 @@ export default function MyDropZone({ helper, desc, name }) {
       <Stack
         key={file.path}
         p={2}
-        border={"2px dashed blue"}
-        borderRadius={"5px"}
+        border={'2px dashed blue'}
+        borderRadius={'5px'}
         direction="row"
-        justifyContent={"space-between"}
+        justifyContent={'space-between'}
         alignItems="center"
       >
         <Typography>
@@ -86,11 +87,11 @@ export default function MyDropZone({ helper, desc, name }) {
       ) : (
         <Stack
           p={6}
-          border={"2px dashed #BDBDBD"}
-          borderRadius={"5px"}
+          border={'2px dashed #BDBDBD'}
+          borderRadius={'5px'}
           justifyContent="center"
           alignItems="center"
-          {...getRootProps({ className: "dropzone-sptjm" })}
+          {...getRootProps({ className: 'dropzone-sptjm' })}
         >
           <input
             {...getInputProps()}
@@ -111,7 +112,7 @@ export default function MyDropZone({ helper, desc, name }) {
       {fileRejections.length > 0 && <ul>{fileRejectionItems}</ul>}
       <ul>
         {helper.map((val, idx) => (
-          <li style={{ color: "#69686B" }} key={idx}>
+          <li style={{ color: '#69686B' }} key={idx}>
             <Typography variant="body2">{val}</Typography>
           </li>
         ))}

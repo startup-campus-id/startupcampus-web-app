@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Head from "next/head";
+import EventAvailableRoundedIcon from '@mui/icons-material/EventAvailableRounded';
+import ImportContactsRoundedIcon from '@mui/icons-material/ImportContactsRounded';
 import {
   Box,
   CircularProgress,
@@ -11,31 +11,32 @@ import {
   ListItemText,
   Stack,
   Typography,
-} from "@mui/material";
-import MultiStep from "../../components/MultiStep";
-import MyButton from "../../components/MyButton";
-import { createClient } from "contentful";
-import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
-import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
-import Image from "next/image";
-import MyTitle from "../../components/MyTitle";
-import MyDesc from "../../components/MyDesc";
-import ChooseProgramForm from "../../components/RegistPage/ChooseProgramForm";
-import { useMyForm } from "../../context/FormContext";
-import IndentityForm from "../../components/RegistPage/IndentityForm";
-import AfterRegister from "../../components/RegistPage/AfterRegister";
-import axios from "axios";
-import { BASE_URL } from "../../sc.config";
-import AccentText from "../../components/AccentText";
-import { useRouter } from "next/router";
-import { kelas } from "../../content/kelas.js";
+} from '@mui/material';
+import axios from 'axios';
+import { createClient } from 'contentful';
+import Head from 'next/head';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+
+import AccentText from '../../components/AccentText';
+import MultiStep from '../../components/MultiStep';
+import MyButton from '../../components/MyButton';
+import MyDesc from '../../components/MyDesc';
+import MyTitle from '../../components/MyTitle';
+import AfterRegister from '../../components/RegistPage/AfterRegister';
+import ChooseProgramForm from '../../components/RegistPage/ChooseProgramForm';
+import IndentityForm from '../../components/RegistPage/IndentityForm';
+import { kelas } from '../../content/kelas.js';
+import { useMyForm } from '../../context/FormContext';
+import { BASE_URL } from '../../sc.config';
 
 const helper = [
-  "Hanya memerlukan 5 menit untuk mengisi formulir",
-  "Akan dihubungi oleh tim",
-  "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
+  'Hanya memerlukan 5 menit untuk mengisi formulir',
+  'Akan dihubungi oleh tim',
+  'Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran',
 ];
-const steps = ["Pilih Program", "Identitas Diri"];
+const steps = ['Pilih Program', 'Identitas Diri'];
 function Daftar() {
   const router = useRouter();
   const { register, handleSubmit, watch, errors } = useMyForm();
@@ -48,19 +49,19 @@ function Daftar() {
     setLoading(true);
     try {
       const formData = new FormData();
-      formData.append("status", "public");
-      formData.append("email", data.email);
-      formData.append("fullname", data.name);
-      formData.append("phoneNumber", String(data.num_phone));
-      formData.append("coursePathId", parseInt(data.track));
-      formData.append("informationSource", data.source_info);
-      formData.append("motivation", data.motivation);
-      formData.append("linkedinUrl", data.linked_url);
-      formData.append("age", data.age);
+      formData.append('status', 'public');
+      formData.append('email', data.email);
+      formData.append('fullname', data.name);
+      formData.append('phoneNumber', String(data.num_phone));
+      formData.append('coursePathId', parseInt(data.track));
+      formData.append('informationSource', data.source_info);
+      formData.append('motivation', data.motivation);
+      formData.append('linkedinUrl', data.linked_url);
+      formData.append('age', data.age);
       axios
         .post(`${BASE_URL}/users`, formData, {
           headers: {
-            "Content-Type": "multipart/form-data",
+            'Content-Type': 'multipart/form-data',
           },
         })
         .then((res) => {
@@ -99,7 +100,7 @@ function Daftar() {
           <CircularProgress />
         </>
       ) : error ? (
-        <Typography color={"red"}>Terjadi kesalahan</Typography>
+        <Typography color={'red'}>Terjadi kesalahan</Typography>
       ) : (
         <>
           <Typography>Berhasil menyimpan Data</Typography>
@@ -116,7 +117,7 @@ function Daftar() {
       <Box
         sx={{
           background:
-            "linear-gradient(180deg, rgba(173, 232, 244, 0.1) 0%, rgba(173, 232, 244, 0) 100%)",
+            'linear-gradient(180deg, rgba(173, 232, 244, 0.1) 0%, rgba(173, 232, 244, 0) 100%)',
         }}
       >
         <Container>
@@ -129,11 +130,11 @@ function Daftar() {
               container
               xs={12}
               sx={{
-                background: "#FFFFFF",
-                border: "2px solid #BDBDBD",
-                boxShadow: "0px 16px 40px rgba(112, 144, 176, 0.2)",
-                borderRadius: "10px",
-                overflow: "hidden",
+                background: '#FFFFFF',
+                border: '2px solid #BDBDBD',
+                boxShadow: '0px 16px 40px rgba(112, 144, 176, 0.2)',
+                borderRadius: '10px',
+                overflow: 'hidden',
               }}
             >
               <Grid item md={8} py={8} px={4}>
@@ -148,15 +149,15 @@ function Daftar() {
                 </MyDesc>
 
                 <Stack
-                  component={"form"}
+                  component={'form'}
                   mt={4}
                   spacing={2}
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   {step[state]}
                   <Box
-                    display={"flex"}
-                    justifyContent={state > 0 ? "space-between" : "flex-end"}
+                    display={'flex'}
+                    justifyContent={state > 0 ? 'space-between' : 'flex-end'}
                   >
                     {state > 0 && state < 2 && (
                       <MyButton
@@ -168,14 +169,14 @@ function Daftar() {
                     )}
                     {state >= 0 && state < 2 && (
                       <MyButton type="submit">
-                        {state == 0 ? "Mulai Pendaftaran" : "Lanjut"}
+                        {state == 0 ? 'Mulai Pendaftaran' : 'Lanjut'}
                       </MyButton>
                     )}
                   </Box>
                 </Stack>
               </Grid>
 
-              <Grid item md={4} sx={{ background: "#0056D2" }} p={4}>
+              <Grid item md={4} sx={{ background: '#0056D2' }} p={4}>
                 {state > 0 && (
                   <Stack mb={6} spacing={2}>
                     <Typography color="sc_white.main" fontWeight={700}>
@@ -184,7 +185,7 @@ function Daftar() {
                     <Stack direction="row" spacing={1}>
                       <ImportContactsRoundedIcon color="sc_white" />
                       <Typography color="sc_white.main">
-                        {kelas[watch("track") - 1].title}
+                        {kelas[watch('track') - 1].title}
                       </Typography>
                     </Stack>
                     <Stack direction="row" spacing={1}>
@@ -202,10 +203,10 @@ function Daftar() {
                       disablePadding
                       alignItems="flex-start"
                     >
-                      <ListItemIcon sx={{ minWidth: "30px !important" }}>
-                        <Image src={"/check.svg"} width={20} height={20} />
+                      <ListItemIcon sx={{ minWidth: '30px !important' }}>
+                        <Image src={'/check.svg'} width={20} height={20} />
                       </ListItemIcon>
-                      <ListItemText primary={text} sx={{ color: "white" }} />
+                      <ListItemText primary={text} sx={{ color: 'white' }} />
                     </ListItem>
                   ))}
                 </List>
@@ -219,4 +220,3 @@ function Daftar() {
 }
 
 export default Daftar;
-

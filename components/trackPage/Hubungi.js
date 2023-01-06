@@ -1,5 +1,5 @@
-import { Link, Stack, Typography } from "@mui/material";
-import React from "react";
+import { Link, Stack, Typography } from '@mui/material';
+import React from 'react';
 
 export default function Hubungi({ title, link }) {
   return (
@@ -11,18 +11,18 @@ export default function Hubungi({ title, link }) {
       mt={3}
       sx={{
         background:
-          "linear-gradient(0deg, rgba(0, 86, 210, 0.1), rgba(0, 86, 210, 0.1)), #FFFFFF",
+          'linear-gradient(0deg, rgba(0, 86, 210, 0.1), rgba(0, 86, 210, 0.1)), #FFFFFF',
       }}
     >
       <Typography>
-        {title ?? "Punya pertanyaan seputar biaya pendidikan? "}
+        {title ?? 'Punya pertanyaan seputar biaya pendidikan? '}
       </Typography>
-      <Typography color={"sc_blue.main"}>
+      <Typography color={'sc_blue.main'}>
         <a
-          href={link ?? "https://wa.me/6281286345594"}
-          target={"_blank"}
+          href={link ?? 'https://wa.me/6281286345594'}
+          target={'_blank'}
           rel="noreferrer"
-          style={{ color: "blue", textDecoration: "underline" }}
+          style={{ color: 'blue', textDecoration: 'underline' }}
         >
           Hubungi sekarang!
         </a>

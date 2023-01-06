@@ -1,9 +1,10 @@
-import { Box, Grid, Link, Stack, Typography } from "@mui/material";
-import React, { useEffect } from "react";
-import DaftarButton from "../DaftarButton";
-import HighlightText from "../HighlightText";
-import MyButton from "../MyButton";
-import WordBreak from "../WordBreak";
+import { Box, Grid, Link, Stack, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
+
+import DaftarButton from '../DaftarButton';
+import HighlightText from '../HighlightText';
+import MyButton from '../MyButton';
+import WordBreak from '../WordBreak';
 
 function Section8() {
   return (
@@ -22,7 +23,7 @@ function Section8() {
             <Typography
               variant="body1"
               textAlign="center"
-              color={"sc_gray.dark"}
+              color={'sc_gray.dark'}
             >
               Awali karier menakjubkan dengan bootcamp intensif yang kami
               tawarkan.

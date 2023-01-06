@@ -1,4 +1,3 @@
-import React, { Fragment } from "react";
 import {
   Checkbox,
   FormControl,
@@ -6,41 +5,42 @@ import {
   FormGroup,
   FormHelperText,
   Typography,
-} from "@mui/material";
-import { useMyForm } from "../../context/FormContext";
-import Link from "next/link";
-import MyLink from "../MyLink";
+} from '@mui/material';
+import Link from 'next/link';
+import React, { Fragment } from 'react';
+
+import { useMyForm } from '../../context/FormContext';
+import MyLink from '../MyLink';
 
 const MyCheckBox = ({ name, text }) => {
   const { register, handleSubmit, watch, errors } = useMyForm();
   return (
     <Fragment>
       <FormControl
-        component={"fieldset"}
+        component={'fieldset'}
         required
-        {...register(name, { required: "Kamu harus setuju untuk lanjut" })}
+        {...register(name, { required: 'Kamu harus setuju untuk lanjut' })}
         error={errors[name] ? true : false}
       >
         <FormGroup>
           <FormControlLabel
-            sx={{ alignItems: "start !important" }}
+            sx={{ alignItems: 'start !important' }}
             control={
               <Checkbox name={name} checked={watch(name)} sx={{ pt: 0 }} />
             }
             label={
-              text ?
+              text ? (
+                <Typography>{text}</Typography>
+              ) : (
                 <Typography>
-                  {text}
+                  Saya menyetujui data saya di form ini digunakan untuk
+                  keperluan Startup Campus.
                 </Typography>
-                :
-                <Typography>
-                  Saya menyetujui data saya di form ini digunakan untuk keperluan
-                  Startup Campus.
-                </Typography>
+              )
             }
           />
         </FormGroup>
-        <FormHelperText>{errors[name]?.message ?? ""}</FormHelperText>
+        <FormHelperText>{errors[name]?.message ?? ''}</FormHelperText>
       </FormControl>
     </Fragment>
   );

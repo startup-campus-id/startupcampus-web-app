@@ -1,3 +1,5 @@
+import { SignalWifiStatusbarNull } from '@mui/icons-material';
+import AddIcon from '@mui/icons-material/Add';
 import {
   Accordion,
   AccordionDetails,
@@ -5,11 +7,9 @@ import {
   Divider,
   Stack,
   Typography,
-} from "@mui/material";
-import React, { useState } from "react";
-import AddIcon from "@mui/icons-material/Add";
-import Image from "next/image";
-import { SignalWifiStatusbarNull } from "@mui/icons-material";
+} from '@mui/material';
+import Image from 'next/image';
+import React, { useState } from 'react';
 
 export default function MyAccordion({ title, subtitle, content, type, idx }) {
   const [hover, setHover] = useState(false);
@@ -24,51 +24,51 @@ export default function MyAccordion({ title, subtitle, content, type, idx }) {
         disabled={!content ? true : false}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
+        expanded={expanded === 'panel1'}
+        onChange={handleChange('panel1')}
         sx={{
-          boxShadow: "0px 8px 20px rgba(43, 44, 39, 0.1)",
-          position: "relative",
-          padding: "1em",
+          boxShadow: '0px 8px 20px rgba(43, 44, 39, 0.1)',
+          position: 'relative',
+          padding: '1em',
           zIndex: 1,
-          borderRadius: "10px",
-          "&::after": {
+          borderRadius: '10px',
+          '&::after': {
             zIndex: -1,
             top: 0,
             left: 0,
             content: "''",
-            borderRadius: "10px",
-            position: "absolute",
-            width: "100%",
-            height: "100%",
+            borderRadius: '10px',
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
             border:
-              (hover || expanded === "panel1") && content
-                ? "2px solid blue"
-                : "unset",
-            transition: ".1s",
+              (hover || expanded === 'panel1') && content
+                ? '2px solid blue'
+                : 'unset',
+            transition: '.1s',
           },
         }}
       >
         <AccordionSummary
           expandIcon={<AddIcon />}
-          aria-controls={"panel1a-content-" + idx}
-          id={"panel1a-header-" + idx}
+          aria-controls={'panel1a-content-' + idx}
+          id={'panel1a-header-' + idx}
         >
           <Stack
-            direction={type == "icon" ? "row" : "column"}
+            direction={type == 'icon' ? 'row' : 'column'}
             spacing={1}
-            alignItems={type == "icon" ? "center" : "start"}
+            alignItems={type == 'icon' ? 'center' : 'start'}
           >
-            {type == "icon" && (
-              <Image src={"/images/ic_folder.svg"} width={30} height={30} />
+            {type == 'icon' && (
+              <Image src={'/images/ic_folder.svg'} width={30} height={30} />
             )}
             <Typography
               variant="body1"
               fontWeight={600}
               color={
-                (hover || expanded === "panel1") && content
-                  ? "sc_blue.main"
-                  : ""
+                (hover || expanded === 'panel1') && content
+                  ? 'sc_blue.main'
+                  : ''
               }
             >
               {title ?? null}
@@ -77,7 +77,7 @@ export default function MyAccordion({ title, subtitle, content, type, idx }) {
               variant="body2"
               fontWeight={600}
               gutterBottom
-              color={"sc_gray.dark"}
+              color={'sc_gray.dark'}
             >
               {subtitle ?? null}
             </Typography>

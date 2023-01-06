@@ -1,3 +1,4 @@
+import AddIcon from '@mui/icons-material/Add';
 import {
   Accordion,
   AccordionDetails,
@@ -7,12 +8,12 @@ import {
   Grid,
   Stack,
   Typography,
-} from "@mui/material";
-import React, { useEffect, useState } from "react";
-import HighlightText from "../HighlightText";
-import AddIcon from "@mui/icons-material/Add";
-import MyButton from "../MyButton";
-import ReactMarkdown from "react-markdown";
+} from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+
+import HighlightText from '../HighlightText';
+import MyButton from '../MyButton';
 
 function Section9({ faq }) {
   const [state, setState] = useState(5);
@@ -31,20 +32,20 @@ function Section9({ faq }) {
           item
           xs={12}
           display="flex"
-          justifyContent={"center"}
+          justifyContent={'center'}
           data-aos="fade-left"
         >
           <Stack width={980}>
             <Accordion
               sx={{
-                boxShadow: "0px 8px 20px rgba(43, 44, 39, 0.1)",
-                padding: "1em",
+                boxShadow: '0px 8px 20px rgba(43, 44, 39, 0.1)',
+                padding: '1em',
               }}
             >
               <AccordionSummary
                 expandIcon={<AddIcon />}
-                aria-controls={"panel1a-content-" + idx}
-                id={"panel1a-header-" + idx}
+                aria-controls={'panel1a-content-' + idx}
+                id={'panel1a-header-' + idx}
               >
                 <Typography variant="h6" component="h1" fontWeight={600}>
                   {item?.fields.question}
@@ -61,7 +62,7 @@ function Section9({ faq }) {
         </Grid>
       ))}
       {
-        <Grid item xs={12} display="flex" justifyContent={"center"}>
+        <Grid item xs={12} display="flex" justifyContent={'center'}>
           {state < faq.length ? (
             <MyButton onClick={() => setState((prev) => prev + 5)}>
               Lihat lebih banyak

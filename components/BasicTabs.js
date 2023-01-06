@@ -1,15 +1,16 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import { styled } from "@mui/material/styles";
-import { Divider, Stack } from "@mui/material";
-import AccentText from "./AccentText";
-import Link from "next/link";
-import FormDialog from "./FormDialog";
-import useDeviceDetect from "../hooks/useDeviceDetect";
+import { Divider, Stack } from '@mui/material';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
+import * as React from 'react';
+
+import useDeviceDetect from '../hooks/useDeviceDetect';
+import AccentText from './AccentText';
+import FormDialog from './FormDialog';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -40,11 +41,9 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
   };
 }
-
-
 
 export default function BasicTabs({ data, link }) {
   const { device } = useDeviceDetect();
@@ -64,39 +63,42 @@ export default function BasicTabs({ data, link }) {
     />
   ))({
     background:
-      "linear-gradient(0deg, rgba(0, 86, 210, 0.1), rgba(0, 86, 210, 0.1)), #FFFFFF",
+      'linear-gradient(0deg, rgba(0, 86, 210, 0.1), rgba(0, 86, 210, 0.1)), #FFFFFF',
     borderRadius: 8,
-    "& .MuiTabs-indicator": {
-      display: "flex",
-      justifyContent: "center",
-      backgroundColor: "transparent",
+    '& .MuiTabs-indicator': {
+      display: 'flex',
+      justifyContent: 'center',
+      backgroundColor: 'transparent',
     },
-    "& .MuiTabs-indicatorSpan": {
+    '& .MuiTabs-indicatorSpan': {
       maxWidth: 40,
-      width: "100%",
-      backgroundColor: "#635ee7",
+      width: '100%',
+      backgroundColor: '#635ee7',
     },
   });
 
   const StyledTab = styled((props) => <Tab disableRipple wrapped {...props} />)(
     ({ theme }) => ({
-      textTransform: "none",
+      textTransform: 'none',
       fontWeight: 700,
-      fontSize: device === "mobile" ? theme.typography.pxToRem(10) : theme.typography.pxToRem(14),
-      color: "#69686B",
+      fontSize:
+        device === 'mobile'
+          ? theme.typography.pxToRem(10)
+          : theme.typography.pxToRem(14),
+      color: '#69686B',
       borderRadius: 8,
-      "&.Mui-selected": {
-        color: "#fff",
-        backgroundColor: "#0056D2",
+      '&.Mui-selected': {
+        color: '#fff',
+        backgroundColor: '#0056D2',
       },
-      "&.Mui-focusVisible": {
-        backgroundColor: "rgba(100, 95, 228, 0.32)",
+      '&.Mui-focusVisible': {
+        backgroundColor: 'rgba(100, 95, 228, 0.32)',
       },
-    })
+    }),
   );
 
   return (
-    <Box sx={{ width: "100%" }} my={2}>
+    <Box sx={{ width: '100%' }} my={2}>
       <Box mb={2}>
         <StyledTabs
           value={value}
@@ -114,9 +116,9 @@ export default function BasicTabs({ data, link }) {
         <TabPanel value={value} key={idx} index={idx}>
           <Stack
             sx={{
-              background: "#FFFFFF",
-              boxShadow: "0px 16px 40px rgba(112, 144, 176, 0.2)",
-              borderRadius: "5px",
+              background: '#FFFFFF',
+              boxShadow: '0px 16px 40px rgba(112, 144, 176, 0.2)',
+              borderRadius: '5px',
             }}
           >
             {val.map((item, idx) => (
@@ -132,24 +134,26 @@ export default function BasicTabs({ data, link }) {
       ))}
 
       <Typography
-        onClick={() => setOpen(prev => !prev)}
+        onClick={() => setOpen((prev) => !prev)}
         mt={4}
         sx={{
-          textDecoration: "underline",
-          color: "#0056D2",
-          cursor: "pointer",
+          textDecoration: 'underline',
+          color: '#0056D2',
+          cursor: 'pointer',
         }}
       >
         Unduh Kurikulum
       </Typography>
-      <FormDialog open={open}
+      <FormDialog
+        open={open}
         kurLink={link}
         handleClickOpen={() => {
-          setOpen(true)
+          setOpen(true);
         }}
         handleClose={() => {
-          setOpen(false)
-        }} />
+          setOpen(false);
+        }}
+      />
     </Box>
   );
 }

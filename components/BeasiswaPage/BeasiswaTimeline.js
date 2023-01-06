@@ -1,30 +1,31 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import StepContent from "@mui/material/StepContent";
-import Button from "@mui/material/Button";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import MyDesc from "../MyDesc";
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+import Step from '@mui/material/Step';
+import StepContent from '@mui/material/StepContent';
+import StepLabel from '@mui/material/StepLabel';
+import Stepper from '@mui/material/Stepper';
+import Typography from '@mui/material/Typography';
+import * as React from 'react';
+
+import MyDesc from '../MyDesc';
 
 const steps = [
   {
-    label: "Registrasi via Website",
+    label: 'Registrasi via Website',
     description: `23 Desember 2022 s/d
     12 Februari 2023`,
   },
   {
-    label: "Pengumuman",
-    description: "15 Februari 2023",
+    label: 'Pengumuman',
+    description: '15 Februari 2023',
   },
   {
-    label: "Pelatihan",
+    label: 'Pelatihan',
     description: `20 Februari 2023`,
   },
   {
-    label: "Kelulusan",
+    label: 'Kelulusan',
     description: `Juni 2023`,
   },
 ];
@@ -49,12 +50,12 @@ export default function VerticalLinearStepper() {
       sx={{
         width: 32,
         height: 32,
-        backgroundColor: "sc_blue.main",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "white",
-        borderRadius: "100%",
+        backgroundColor: 'sc_blue.main',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: 'white',
+        borderRadius: '100%',
       }}
     >
       {index}
@@ -68,7 +69,7 @@ export default function VerticalLinearStepper() {
           <Step
             key={step.label}
             onClick={() => setActiveStep(index)}
-            sx={{ cursor: "pointer" }}
+            sx={{ cursor: 'pointer' }}
           >
             <StepLabel StepIconComponent={() => circle(index + 1)}>
               {step.label}

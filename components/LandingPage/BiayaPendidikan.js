@@ -1,10 +1,11 @@
-import { Container, Grid, Stack, Typography } from "@mui/material";
-import React from "react";
-import HighlightText from "../HighlightText";
-import WordBreak from "../WordBreak";
-import BiayaCard from "./BiayaCard";
-import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
-import { BOOTCAMP_FOR_PUBLIC, KAMPUS_MERDEKA } from "../../utils/constant";
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
+import { Container, Grid, Stack, Typography } from '@mui/material';
+import React from 'react';
+
+import { BOOTCAMP_FOR_PUBLIC, KAMPUS_MERDEKA } from '../../utils/constant';
+import HighlightText from '../HighlightText';
+import WordBreak from '../WordBreak';
+import BiayaCard from './BiayaCard';
 
 export default function BiayaPendidikan() {
   return (
@@ -24,9 +25,9 @@ export default function BiayaPendidikan() {
               variant="body1"
               gutterBottom
               textAlign="center"
-              color={"sc_gray.dark"}
+              color={'sc_gray.dark'}
             >
-              Ambil langkah pertama dalam perjalananmu dengan mengikuti bootcamp{" "}
+              Ambil langkah pertama dalam perjalananmu dengan mengikuti bootcamp{' '}
               <WordBreak />
               intensif yang kami tawarkan!
             </Typography>
@@ -46,8 +47,8 @@ export default function BiayaPendidikan() {
           <Grid item xs={12} md={4}>
             <BiayaCard
               icon={<VideoLibraryIcon />}
-              title={"Bootcamp for Public"}
-              price={"Rp. 4.000.000"}
+              title={'Bootcamp for Public'}
+              price={'Rp. 4.000.000'}
               link={BOOTCAMP_FOR_PUBLIC}
               recommended={true}
             />

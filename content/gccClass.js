@@ -1,1 +1,1 @@
-export const gccClass = ["UX Desain", "Data Analitik"];
+export const gccClass = ['UX Desain', 'Data Analitik'];
