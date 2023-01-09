@@ -61,10 +61,14 @@ function PopupStudiIndependen({ children, ...other }) {
     <Dialog
       onClose={handleClose}
       open={siPopup}
-      // open={true}
       fullWidth={true}
       maxWidth={'sm'}
       TransitionComponent={Transition}
+      PaperProps={{
+        sx: {
+          marginBottom: {xs: 10, md: undefined},
+        },
+      }}
     >
       <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
         <Typography variant={"h5"} fontWeight={800} textAlign="center" sx={{ color: "sc_blue.main" }}>Pilih Trek yang Kamu Inginkan!</Typography>
