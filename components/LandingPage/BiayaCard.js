@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 import { benefitKampusMerdeka } from '../../content/biaya';
+import useStudiIndepenPopup from '../../hooks/useStudiIndependenPopup';
 import { KAMPUS_MERDEKA } from '../../utils/constant';
 import MyButton from '../MyButton';
 import MyDesc from '../MyDesc';
@@ -25,6 +26,25 @@ export default function BiayaCard({
   recommended = false,
 }) {
   const router = useRouter();
+  const { openSiPopup } = useStudiIndepenPopup()
+
+  const daftarButton = () => {
+    const buttonComponent = (
+      <MyButton variant={recommended ? 'contained' : 'outlined'} onClick={link === KAMPUS_MERDEKA ? openSiPopup : undefined}>
+        <Typography fontWeight={700} color="inherit" variant="h6">
+          {'Daftar Sekarang'}
+        </Typography>
+      </MyButton>
+    )
+    if (link === KAMPUS_MERDEKA) {
+      return buttonComponent
+    } else {
+      return (<Link href={link ?? KAMPUS_MERDEKA} passHref>
+        {buttonComponent}
+      </Link>)
+    }
+  }
+
   return (
     <Stack
       sx={{
@@ -88,13 +108,7 @@ export default function BiayaCard({
           ))}
         </Stack>
         <Stack sx={{ marginTop: '80px !important' }}>
-          <Link href={link ?? KAMPUS_MERDEKA} passHref>
-            <MyButton variant={recommended ? 'contained' : 'outlined'}>
-              <Typography fontWeight={700} color="inherit" variant="h6">
-                {'Daftar Sekarang'}
-              </Typography>
-            </MyButton>
-          </Link>
+          {daftarButton()}
         </Stack>
       </Stack>
     </Stack>

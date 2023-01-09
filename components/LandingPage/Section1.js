@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useContext, useEffect, useState } from 'react';
 
 import { tagline } from '../../content/tagline';
+import useStudiIndepenPopup from '../../hooks/useStudiIndependenPopup';
 import { BOOTCAMP_FOR_PUBLIC, KAMPUS_MERDEKA } from '../../utils/constant';
 import DaftarButton from '../DaftarButton';
 import MyButton from '../MyButton';
@@ -13,6 +14,7 @@ function Section1() {
   const textSx = {
     textAlign: textAlignSx,
   };
+  const { openSiPopup } = useStudiIndepenPopup()
   return (
     <Grid
       pt={{ xs: 6, md: 0 }}
@@ -41,20 +43,14 @@ function Section1() {
             {tagline.desc}
           </Typography>
           <Stack direction="row" spacing={2} justifyContent="center">
-            <Link
-              href={KAMPUS_MERDEKA}
-              underline="none"
-              passHref
-              legacyBehavior
-            >
               <MyButton
                 variant="outlined"
                 color="sc_blue"
+                onClick={openSiPopup}
                 textAlign={textAlignSx}
               >
                 Kampus Merdeka
               </MyButton>
-            </Link>
             <Link href={BOOTCAMP_FOR_PUBLIC} underline="none" passHref>
               <MyButton color="sc_blue" textAlign={textAlignSx}>
                 Bootcamp for Public

@@ -24,7 +24,7 @@ const syarat = [
     <Typography color={'sc_blue.main'} component="span">
       <a
         href={
-          'https://docs.google.com/document/d/10uJgWEnxLP4CuTnmaN_7tey0MwUt9b_M/edit?usp=sharing&ouid=111031848163940591123&rtpof=true&sd=true'
+          'https://docs.google.com/document/d/1UOGg8tR3oiIfmo8KilQoSVaHMZ03czqV/edit'
         }
         target={'_blank'}
         rel="noreferrer"
@@ -39,7 +39,7 @@ const syarat = [
     <Typography color={'sc_blue.main'} component="span">
       <a
         href={
-          'https://docs.google.com/document/d/1CpAZxZYiPYW4tyikYIJa-fzKSK8dajs3/edit?usp=share_link&ouid=111031848163940591123&rtpof=true&sd=true'
+          'https://docs.google.com/document/d/1XrA2IkKRrT6wxBsT53bCJngsGiaf1nGW/edit?rtpof=true'
         }
         target={'_blank'}
         rel="noreferrer"

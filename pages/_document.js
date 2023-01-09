@@ -1,5 +1,6 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 import Script from 'next/script';
+import PopupStudiIndependen from '../components/PopupStudiIndependen';
 
 export default function Document() {
   return (

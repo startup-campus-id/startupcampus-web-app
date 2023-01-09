@@ -4,12 +4,15 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 import useDeviceDetect, { mobileType } from '../../hooks/useDeviceDetect';
+import useStudiIndepenPopup from '../../hooks/useStudiIndependenPopup';
 import { BOOTCAMP_FOR_PUBLIC, KAMPUS_MERDEKA } from '../../utils/constant';
 import MyButton from '../MyButton';
 
 export default function Main({ name, desc }) {
   const router = useRouter();
   const { device } = useDeviceDetect();
+  const {openSiPopup} = useStudiIndepenPopup()
+
   return (
     <Stack
       height={'100vh'}
@@ -32,11 +35,9 @@ export default function Main({ name, desc }) {
         {desc}
       </Typography>
       <Stack direction="row" spacing={2}>
-        <Link href={KAMPUS_MERDEKA} underline="none" passHref legacyBehavior>
-          <MyButton variant="outlined" color="sc_white">
-            Kampus Merdeka
-          </MyButton>
-        </Link>
+        <MyButton variant="outlined" color="sc_white" onClick={openSiPopup}>
+          Kampus Merdeka
+        </MyButton>
         <Link href={BOOTCAMP_FOR_PUBLIC} underline="none" passHref>
           <MyButton color="sc_blue">Bootcamp for Public</MyButton>
         </Link>
