@@ -15,10 +15,17 @@ export default function BeasiswaKriteria({ kriteria }) {
 
   return (
     <Box id="kriteria" pt={6}>
-      <AccentText>Kriteria Calon Peserta</AccentText>
-      <MyTitle gutterBottom>
+      <AccentText variant="black">Kriteria Calon Peserta</AccentText>
+      <MyTitle gutterBottom mt={1.5}>
         Siapa Saja yang Bisa{' '}
-        <HighlightText margin-left="8px">Bergabung ?</HighlightText>
+        <HighlightText
+          variant="yellow"
+          height="-10%"
+          width="-5%"
+          marginLeft={1.25}
+        >
+          Bergabung ?
+        </HighlightText>
       </MyTitle>
       <Grid container my={4} spacing={3}>
         <Grid item xs={12} md={isUX ? 12 : 5} mb={isUX ? 4 : undefined}>
@@ -26,15 +33,15 @@ export default function BeasiswaKriteria({ kriteria }) {
             <Grid container xs={12} spacing={3}>
               {kriteria?.map((v, i) => (
                 <Grid item xs={6} md={3} key={i}>
-                  <Stack spacing={1}>
+                  <Stack spacing={2}>
                     <Avatar
                       src={v.icon}
-                      sx={{ height: '50px', width: '50px' }}
+                      sx={{ height: '64px', width: '64px' }}
                     />
                     <MyDesc
-                      variant="body1"
-                      color="sc_black"
-                      sx={{ fontWeight: 500 }}
+                      variant="body2"
+                      color="sc_black.dark"
+                      sx={{ fontSize: 16, fontWeight: 500, lineHeight: 1.8 }}
                     >
                       <HTMLParser>{v.content}</HTMLParser>
                       <MyDesc sx={{ fontWeight: 400 }}>{v.description}</MyDesc>

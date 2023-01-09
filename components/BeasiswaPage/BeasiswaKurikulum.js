@@ -9,14 +9,23 @@ import MyTitle from '../MyTitle';
 
 export default function BeasiswaKurikulum({ kurikulum }) {
   const [content, setContent] = useState(5);
+  // TODO mengganti Typography sesuai dengan path yang akan diambil
   return (
     <Box id="kurikulum" pt={6}>
-      <AccentText>Kurikulum</AccentText>
-      <MyTitle gutterBottom>
+      <AccentText variant="black">Kurikulum</AccentText>
+      <MyTitle gutterBottom mt={1.5}>
         Materi yang akan kamu{' '}
-        <HighlightText width="-2%">Dapatkan</HighlightText>
+        <HighlightText variant="yellow" width="-7.5%">
+          Dapatkan
+        </HighlightText>
       </MyTitle>
-      <Typography variant={'body2'} my={4}>
+      <Typography
+        variant={'body2'}
+        my={4}
+        color="sc_gray.light"
+        fontSize={16}
+        lineHeight={1.8}
+      >
         Pelajari cara menganalisis dan memproses data untuk membantu strategi
         bisnis perusahaan melalui 8 materi berikut:
       </Typography>
@@ -44,25 +53,25 @@ export default function BeasiswaKurikulum({ kurikulum }) {
                 justifyContent={'center'}
                 alignItems={'center'}
                 sx={{
-                  backgroundColor: 'sc_blue.main',
+                  backgroundColor: 'sc_yellow.main',
                   borderRadius: '100%',
                   width: 32,
                   height: 32,
                   flexShrink: 0,
                 }}
               >
-                <Typography color={'white'}>{i + 1}</Typography>
+                <Typography color={'sc_black.dark'}>{i + 1}</Typography>
               </Stack>
 
               <Stack spacing={1}>
                 <Typography
                   variant={'h6'}
                   fontWeight={700}
-                  color="sc_blue.main"
+                  color="sc_black.dark"
                 >
                   {v.title}
                 </Typography>
-                <MyDesc>{v.desc}</MyDesc>
+                <MyDesc type="gray_light">{v.desc}</MyDesc>
               </Stack>
             </Stack>
             <Divider />
@@ -71,12 +80,32 @@ export default function BeasiswaKurikulum({ kurikulum }) {
 
         <Stack alignItems="center">
           {content < kurikulum.length ? (
-            <MyButton onClick={() => setContent((prev) => prev + 2)}>
-              Lihat lebih banyak
+            <MyButton
+              color="sc_yellow"
+              textColor={'sc_black.dark'}
+              hover={{
+                backgroundColor: '#B67A02',
+                color: '#FFFFFF',
+              }}
+              onClick={() => setContent((prev) => prev + 2)}
+            >
+              <Typography fontWeight={500} fontSize={14} fontStyle={'normal'}>
+                Lihat lebih banyak
+              </Typography>
             </MyButton>
           ) : (
-            <MyButton onClick={() => setContent(5)}>
-              Lihat lebih sedikit
+            <MyButton
+              color="sc_yellow"
+              textColor={'sc_black.dark'}
+              hover={{
+                backgroundColor: '#B67A02',
+                color: '#FFFFFF',
+              }}
+              onClick={() => setContent(5)}
+            >
+              <Typography fontWeight={500} fontSize={14} fontStyle={'normal'}>
+                Lihat lebih sedikit
+              </Typography>
             </MyButton>
           )}
         </Stack>

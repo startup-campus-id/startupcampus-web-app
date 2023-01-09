@@ -6,7 +6,9 @@ import AccentText from '../AccentText';
 export default function BeasiswaKeterampilan({ skill }) {
   return (
     <Stack id="keterampilan" pt={6}>
-      <AccentText>Keterampilan yang akan kamu dapatkan</AccentText>
+      <AccentText variant={'black'}>
+        Keterampilan yang akan kamu dapatkan
+      </AccentText>
       <Grid container gap={2} my={3}>
         {skill?.map((v, i) => (
           <Grid
@@ -14,7 +16,7 @@ export default function BeasiswaKeterampilan({ skill }) {
             key={i}
             sx={{
               padding: '15px 35px',
-              backgroundColor: '#E5EEFA',
+              backgroundColor: '#fff8eb',
               borderRadius: 10,
             }}
           >

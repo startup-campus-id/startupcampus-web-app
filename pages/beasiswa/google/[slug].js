@@ -1,26 +1,25 @@
 import { Container, Divider, Grid, Stack, Typography } from '@mui/material';
+import BeasiswaAbout from 'components/BeasiswaPage/BeasiswaAbout';
+import BeasiswaHero from 'components/BeasiswaPage/BeasiswaHero';
+import BeasiswaJadwal from 'components/BeasiswaPage/BeasiswaJadwal';
+import BeasiswaKeterampilan from 'components/BeasiswaPage/BeasiswaKeterampilan';
+import BeasiswaKriteria from 'components/BeasiswaPage/BeasiswaKriteria';
+import BeasiswaKurikulum from 'components/BeasiswaPage/BeasiswaKurikulum';
+import BeasiswaMengapa from 'components/BeasiswaPage/BeasiswaMengapa';
+import MyButton from 'components/MyButton';
+import MyTitle from 'components/MyTitle';
+import SideBar from 'components/trackPage/SideBar';
+import { kriteria } from 'content/kriteria';
+import { menuBeasiswa } from 'content/menuBeasiswa';
+import { whyMustGcc } from 'content/whymustgcc';
+import { db } from 'firebase/clientApp';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import gsap from 'gsap/dist/gsap';
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
-
-import BeasiswaAbout from '/components/BeasiswaPage/BeasiswaAbout';
-import BeasiswaHero from '/components/BeasiswaPage/BeasiswaHero';
-import BeasiswaJadwal from '/components/BeasiswaPage/BeasiswaJadwal';
-import BeasiswaKeterampilan from '/components/BeasiswaPage/BeasiswaKeterampilan';
-import BeasiswaKriteria from '/components/BeasiswaPage/BeasiswaKriteria';
-import BeasiswaKurikulum from '/components/BeasiswaPage/BeasiswaKurikulum';
-import BeasiswaMengapa from '/components/BeasiswaPage/BeasiswaMengapa';
-import MyButton from '/components/MyButton';
-import MyTitle from '/components/MyTitle';
-import SideBar from '/components/trackPage/SideBar';
-import { kriteria } from '/content/kriteria';
-import { menuBeasiswa } from '/content/menuBeasiswa';
-import { whyMustGcc } from '/content/whymustgcc';
-import { db } from '/firebase/clientApp';
-import { REGIST_BEASISWA_GOOGLE_URL } from '/sc.config';
+import { REGIST_BEASISWA_GOOGLE_URL } from 'sc.config';
 
 export default function BeasiswaGoogle({ beasiswa, kriteria }) {
   const app = useRef();
@@ -63,8 +62,7 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
           item
           xs={12}
           sx={{
-            background:
-              'radial-gradient(50% 50% at 50% 50%, rgba(0, 86, 210, 0.6) 0%, #0056D2 100%)',
+            background: '#FFF8EB',
           }}
         >
           <Container>
@@ -102,7 +100,7 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
               <BeasiswaAbout name={beasiswa.name} materi={beasiswa.tp_materi} />
               <Divider
                 sx={{
-                  marginY: 4,
+                  marginY: 0,
                 }}
               />
             </Stack>
@@ -185,11 +183,14 @@ export async function getStaticPaths() {
     paths.push({ params: { slug } });
   });
 
+
+
   return {
     paths,
     fallback: false, // can also be true or 'blocking'
   };
 }
+
 
 export async function getStaticProps({ params }) {
   const data = [];
