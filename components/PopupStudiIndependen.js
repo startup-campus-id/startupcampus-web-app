@@ -67,7 +67,7 @@ function PopupStudiIndependen({ children, ...other }) {
       TransitionComponent={Transition}
     >
       <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-        <Typography variant={"h5"} fontWeight={800} textAlign="center" sx={{ color: "sc_blue.main" }}>Pilih trek yang kamu nginkan!</Typography>
+        <Typography variant={"h5"} fontWeight={800} textAlign="center" sx={{ color: "sc_blue.main" }}>Pilih trek yang kamu inginkan!</Typography>
       </DialogTitle>
       <DialogContent >
         <List>
