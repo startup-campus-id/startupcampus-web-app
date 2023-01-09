@@ -2,6 +2,8 @@ import { Box, Container, Typography } from '@mui/material';
 import { createClient } from 'contentful';
 import { collection, getDocs } from 'firebase/firestore';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react'
 
 import {
   Section1,
@@ -17,8 +19,19 @@ import {
 } from '../components';
 import BiayaPendidikan from '../components/LandingPage/BiayaPendidikan';
 import { db } from '../firebase/clientApp';
+import useStudiIndepenPopup from '../hooks/useStudiIndependenPopup';
 
 const Home = ({ logo, testimoni, course, title7, faq }) => {
+  const router = useRouter()
+  const { siPopup, setSiPopup } = useStudiIndepenPopup()
+
+  useEffect(() => {
+    const daftarSIPopup = window?.location.search.includes("daftar-si")
+    if (daftarSIPopup) {
+      setSiPopup(true)
+    }
+  }, [])
+
   return (
     <>
       <Head>

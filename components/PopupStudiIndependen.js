@@ -6,7 +6,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
-import { List, ListItem, ListItemButton, ListItemText, ListItemIcon, Box } from '@mui/material'
+import { List, ListItem, Link, ListItemButton, ListItemText, ListItemIcon, ListItemSecondaryAction, Box } from '@mui/material'
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
@@ -34,25 +34,25 @@ function PopupStudiIndependen({ children, ...other }) {
     {
       "label": "The Founder",
       "link": "https://kampusmerdeka.kemdikbud.go.id/program/studi-independen/browse/31a0f4e0-c962-4148-aec1-2fe942dea789/a2445b79-54e3-11ed-9629-c6d15e70b51f",
-      "description": "Ciptakan startup-mu, pelajari cara membangun startup dari awal hingga menjadi produk yang siap diluncurkan ke pasar!",
+      "description": "Pelajari cara membangun startup-mu dari awal hingga menjadi produk yang siap diluncurkan.",
       "icon": <BusinessIcon sx={{ color: "sc_blue.main" }} />,
     },
     {
       "label": "UI/UX Design",
       "link": "https://kampusmerdeka.kemdikbud.go.id/program/studi-independen/browse/31a0f4e0-c962-4148-aec1-2fe942dea789/b908fca1-54ea-11ed-9629-c6d15e70b51f",
-      "description": "Pelajari cara membuat aplikasi yang interaktif dan ramah pengguna mulai dari dasar hingga intermediate.",
+      "description": "Pelajari cara membuat aplikasi yang interaktif dan ramah pengguna mulai dari dasar.",
       "icon": <DevicesIcon sx={{ color: "sc_blue.main" }} />,
     },
     {
       "label": "Data Science",
       "link": "https://kampusmerdeka.kemdikbud.go.id/program/studi-independen/browse/31a0f4e0-c962-4148-aec1-2fe942dea789/67c155d5-54ea-11ed-9629-c6d15e70b51f",
-      "description": "Persiapkan dirimu menjadi talenta siap kerja di bidang Data Science dari dasar hingga siap memecahkan tantangan bisnis.",
+      "description": "Menjadi talenta siap kerja di bidang DS mulai dari dasar hingga siap memecahkan tantangan bisnis.",
       "icon": <BarChartIcon sx={{ color: "sc_blue.main" }} />,
     },
     {
       "label": "Artificial Intelligence",
       "link": "https://kampusmerdeka.kemdikbud.go.id/program/studi-independen/browse/31a0f4e0-c962-4148-aec1-2fe942dea789/311b6585-54eb-11ed-9629-c6d15e70b51f",
-      "description": "Menjadi mahir di bidang Artificial Intelligence (AI) melalui berbagai pendekatan dan model Artificial Intelligence dengan spesifikasi Computer Vision.",
+      "description": "Mahir di bidang AI melalui berbagai pendekatan dan model AI dengan spesifikasi Computer Vision.",
       "icon": <PsychologyIcon sx={{ color: "sc_blue.main" }} />,
     },
   ]
@@ -67,20 +67,43 @@ function PopupStudiIndependen({ children, ...other }) {
       TransitionComponent={Transition}
     >
       <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-        <Typography variant={"h5"} fontWeight={800} textAlign="center" sx={{ color: "sc_blue.main" }}>Pilih trek yang kamu inginkan!</Typography>
+        <Typography variant={"h5"} fontWeight={800} textAlign="center" sx={{ color: "sc_blue.main" }}>Pilih Trek yang Kamu Inginkan!</Typography>
+        <IconButton
+          aria-label="close"
+          onClick={handleClose}
+          sx={{
+            display: { xs: "none", md: "block" },
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
       </DialogTitle>
-      <DialogContent sx={{ padding: { xs: 0, md: undefined } }}>
+      <DialogContent dividers sx={{ padding: { xs: 0, md: undefined } }}>
         <List>
           {tracks.map((v, i) => (
             <ListItem alignContent="center" key={i}>
-              <ListItemButton divider component="a" href={v.link}>
+              <ListItemButton divider={i !== tracks.length - 1} component="a" href={v.link}>
                 <ListItemIcon>
                   <Box component="div" sx={{ backgroundColor: "#B4CEFB", padding: 1.25, borderRadius: "50%" }}>
                     {v.icon}
                   </Box>
                 </ListItemIcon>
-                <ListItemText secondary={v.description} sx={{ marginLeft: 2 }}>
+                <ListItemText sx={{ marginLeft: 2 }}>
                   <Typography fontWeight={500}>{v.label}</Typography>
+                  <Typography sx={{
+                    fontWeight: 400,
+                    fontSize: "0.875rem",
+                    color: "rgba(0, 0, 0, 0.6)",
+                  }}>{v.description}</Typography>
+                  <Link href={v.link} sx={{
+                    margin: 0,
+                    fontWeight: 400,
+                    fontSize: "0.875rem",
+                  }}>Daftar sekarang!</Link>
                 </ListItemText >
               </ListItemButton>
             </ListItem>
@@ -94,7 +117,7 @@ function PopupStudiIndependen({ children, ...other }) {
           </Typography>
         </MyButton>
       </DialogActions>
-    </Dialog>
+    </Dialog >
   );
 }
 
