@@ -53,7 +53,7 @@ function PopupStudiIndependen({ children, ...other }) {
       "label": "Artificial Intelligence",
       "link": "https://kampusmerdeka.kemdikbud.go.id/program/studi-independen/browse/31a0f4e0-c962-4148-aec1-2fe942dea789/311b6585-54eb-11ed-9629-c6d15e70b51f",
       "description": "Menjadi mahir di bidang Artificial Intelligence (AI) melalui berbagai pendekatan dan model Artificial Intelligence dengan spesifikasi Computer Vision.",
-      "icon": <PsychologyIcon sx={{ color: "sc_blue.main"}} />,
+      "icon": <PsychologyIcon sx={{ color: "sc_blue.main" }} />,
     },
   ]
 
@@ -69,17 +69,17 @@ function PopupStudiIndependen({ children, ...other }) {
       <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
         <Typography variant={"h5"} fontWeight={800} textAlign="center" sx={{ color: "sc_blue.main" }}>Pilih trek yang kamu inginkan!</Typography>
       </DialogTitle>
-      <DialogContent >
+      <DialogContent sx={{ padding: { xs: 0, md: undefined } }}>
         <List>
           {tracks.map((v, i) => (
             <ListItem alignContent="center" key={i}>
               <ListItemButton divider component="a" href={v.link}>
                 <ListItemIcon>
-                  <Box component="div" sx={{backgroundColor: "#B4CEFB", padding:1.25, borderRadius:"50%"}}>
+                  <Box component="div" sx={{ backgroundColor: "#B4CEFB", padding: 1.25, borderRadius: "50%" }}>
                     {v.icon}
                   </Box>
                 </ListItemIcon>
-                <ListItemText  secondary={v.description} sx={{marginLeft: 2}}>
+                <ListItemText secondary={v.description} sx={{ marginLeft: 2 }}>
                   <Typography fontWeight={500}>{v.label}</Typography>
                 </ListItemText >
               </ListItemButton>
@@ -87,7 +87,7 @@ function PopupStudiIndependen({ children, ...other }) {
           ))}
         </List>
       </DialogContent>
-      <DialogActions sx={{ display: { md: "none" } }}>
+      <DialogActions sx={{ display: { md: "none" }, padding: { xs: 0, md: undefined } }}>
         <MyButton width="100%" onClick={handleClose}>
           <Typography fontWeight={600}>
             Tutup
