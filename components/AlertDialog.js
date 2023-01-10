@@ -10,6 +10,7 @@ import Link from 'next/link';
 import * as React from 'react';
 
 import MyButton from './MyButton';
+import { KAMPUS_MERDEKA } from '../utils/constant'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -36,7 +37,7 @@ export default function AlertDialog({ open, handleClose, comingSoon }) {
                     Daftar Bootcamp for Public
                   </MyButton>
                 </Link>
-                <Link href="/daftar/studi-independen" underline="none" passHref>
+                <Link href={KAMPUS_MERDEKA} underline="none" passHref>
                   <MyButton
                     onClick={handleClose}
                     variant="outlined"

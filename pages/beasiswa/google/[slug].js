@@ -209,6 +209,6 @@ export async function getStaticProps({ params }) {
       beasiswa: data[0] ?? null,
       kriteria: kriteria[params.slug],
     },
-    revalidate: 1,
+    revalidate: 60,
   };
 }

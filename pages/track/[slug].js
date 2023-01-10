@@ -205,6 +205,6 @@ export async function getStaticProps({ params }) {
   }
   return {
     props: { course: data[0] ?? null },
-    revalidate: 1,
+    revalidate: 60,
   };
 }

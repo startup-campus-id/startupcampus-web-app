@@ -16,6 +16,7 @@ import 'swiper/css/scrollbar';
 
 import Layout from '../components/Layout';
 import FormProvider from '../context/FormContext';
+import StudiIndependenPopupProvider from '../context/StudiIndependenPopupContext';
 import '../styles/globals.css';
 
 let theme = createTheme({
@@ -70,22 +71,24 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <FormProvider>
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=UA-247990536-1"
-      />
-      <Script
-        async
-        data-watzapkey="b4Ua946"
-        src="https://cdn.watzap.id/widget-api.js"
-      />
-      <ThemeProvider theme={theme}>
-        {pageLoaded ? (
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        ) : null}
-      </ThemeProvider>
+      <StudiIndependenPopupProvider>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-247990536-1"
+        />
+        <Script
+          async
+          data-watzapkey="b4Ua946"
+          src="https://cdn.watzap.id/widget-api.js"
+        />
+        <ThemeProvider theme={theme}>
+          {pageLoaded ? (
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          ) : null}
+        </ThemeProvider>
+      </StudiIndependenPopupProvider>
     </FormProvider>
   );
 }
