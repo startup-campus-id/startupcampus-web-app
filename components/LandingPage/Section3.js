@@ -53,7 +53,7 @@ function Section3({ course }) {
   ];
 
   return (
-    <Grid container my={6} spacing={2}>
+    <Grid container my={6} spacing={2} id="startup-campus-track">
       <Grid item xs={12} data-aos="fade-right" id={'program'}>
         <Typography variant="h4" fontWeight={700}>
           <HighlightText width="-2%">Kamu Bisa</HighlightText> Menjadi{' '}

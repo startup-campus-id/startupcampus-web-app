@@ -39,6 +39,7 @@ let theme = createTheme({
     },
     sc_black: {
       main: '#2B2C27',
+      dark: '#121212',
     },
     sc_gray: {
       main: '#BDBDBD',
