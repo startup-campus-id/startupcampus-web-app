@@ -61,28 +61,34 @@ const Footer = () => {
       container
       sx={{
         padding: 0,
-        backgroundColor:
-          router.pathname.match('/track')
-            ? 'white'
-            : router.pathname.includes("/beasiswa/google")
-              ? "sc_black.dark"
-              : 'sc_blue.main',
+        backgroundColor: router.pathname.match('/track')
+          ? 'white'
+          : router.pathname.includes('/beasiswa/google')
+          ? 'sc_black.dark'
+          : 'sc_blue.main',
       }}
     >
       <Container
         sx={{
           padding: 0,
-          borderBottom: `1px solid ${router.pathname.match('/track')
-            ? '#BDBDBD'
-            : 'white'
-            }`,
-          borderTop: `1px solid ${router.pathname.match('/track')
-            ? '#BDBDBD'
-            : 'white'
-            }`,
+          borderBottom: `1px solid ${
+            router.pathname.match('/track') ? '#BDBDBD' : 'white'
+          }`,
+          borderTop: `1px solid ${
+            router.pathname.match('/track') ? '#BDBDBD' : 'white'
+          }`,
         }}
       >
-        <Grid container xs={12} my={4} spacing={6} margin={0} display="flex" justifyContent="flex-start" alignItems="top">
+        <Grid
+          container
+          xs={12}
+          my={4}
+          spacing={6}
+          margin={0}
+          display="flex"
+          justifyContent="flex-start"
+          alignItems="top"
+        >
           <Grid item xs={6} md={3}>
             <Stack spacing={4} my={4}>
               <Box>
@@ -100,9 +106,7 @@ const Footer = () => {
               <Typography
                 variant="body2"
                 color={
-                  router.pathname.match('/track')
-                    ? 'sc_gray.dark'
-                    : 'white'
+                  router.pathname.match('/track') ? 'sc_gray.dark' : 'white'
                 }
               >
                 {tagline.footer}
@@ -116,9 +120,7 @@ const Footer = () => {
                 component={'h1'}
                 fontWeight={700}
                 color={
-                  router.pathname.match('/track')
-                    ? 'sc_gray.dark'
-                    : 'white'
+                  router.pathname.match('/track') ? 'sc_gray.dark' : 'white'
                 }
                 sx={{ opacity: inGCCPage ? 1 : 0.5 }}
               >
@@ -130,9 +132,7 @@ const Footer = () => {
                     key={i}
                     variant="body2"
                     color={
-                      router.pathname.match('/track')
-                        ? 'sc_gray.dark'
-                        : 'white'
+                      router.pathname.match('/track') ? 'sc_gray.dark' : 'white'
                     }
                   >
                     <Link href={v.link} underline="none">
@@ -150,9 +150,7 @@ const Footer = () => {
                 component={'h1'}
                 fontWeight={700}
                 color={
-                  router.pathname.match('/track')
-                    ? 'sc_gray.dark'
-                    : 'white'
+                  router.pathname.match('/track') ? 'sc_gray.dark' : 'white'
                 }
                 sx={{ opacity: inGCCPage ? 1 : 0.5 }}
               >
@@ -164,9 +162,7 @@ const Footer = () => {
                     key={i}
                     variant="body2"
                     color={
-                      router.pathname.match('/track')
-                        ? 'sc_gray.dark'
-                        : 'white'
+                      router.pathname.match('/track') ? 'sc_gray.dark' : 'white'
                     }
                   >
                     {v.link ? (
@@ -188,9 +184,7 @@ const Footer = () => {
                 fontWeight={700}
                 component={'h1'}
                 color={
-                  router.pathname.match('/track')
-                    ? 'sc_gray.dark'
-                    : 'white'
+                  router.pathname.match('/track') ? 'sc_gray.dark' : 'white'
                 }
                 sx={{ opacity: inGCCPage ? 1 : 0.5 }}
               >
@@ -202,9 +196,7 @@ const Footer = () => {
                     key={i}
                     variant="body2"
                     color={
-                      router.pathname.match('/track')
-                        ? 'sc_gray.dark'
-                        : 'white'
+                      router.pathname.match('/track') ? 'sc_gray.dark' : 'white'
                     }
                   >
                     <Link href={v.link} underline="none">
@@ -221,11 +213,7 @@ const Footer = () => {
         <Typography
           textAlign={'center'}
           variant="subtitle2"
-          color={
-            router.pathname.match('/track')
-              ? 'sc_gray.dark'
-              : 'white'
-          }
+          color={router.pathname.match('/track') ? 'sc_gray.dark' : 'white'}
         >
           ©Startup Campus. All right reserved, 2022.
         </Typography>

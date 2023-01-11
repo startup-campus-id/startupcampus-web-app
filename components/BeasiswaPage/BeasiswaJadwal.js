@@ -35,8 +35,8 @@ export default function BeasiswaJadwal() {
           , adalah program beasiswa pelatihan daring selama 3 bulan yang telah
           disertifikasi Google.
         </Typography>
-        <Typography 
-          variant={'body2'} 
+        <Typography
+          variant={'body2'}
           my={4}
           fontSize={16}
           lineHeight={1.8}

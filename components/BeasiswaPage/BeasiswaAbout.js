@@ -2,6 +2,7 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import MyLink from 'components/MyLink';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import { GCC_URL } from '../../sc.config';
@@ -9,10 +10,10 @@ import AccentText from '../AccentText';
 import HighlightText from '../HighlightText';
 import MyDesc from '../MyDesc';
 import MyTitle from '../MyTitle';
-import { useRouter } from 'next/router'
+
 export default function BeasiswaAbout({ name, materi }) {
-  const router = useRouter()
-  const isUX = router.asPath.includes('ux-design')
+  const router = useRouter();
+  const isUX = router.asPath.includes('ux-design');
 
   return (
     <Box id="tentang-program" pt={6}>
@@ -34,7 +35,8 @@ export default function BeasiswaAbout({ name, materi }) {
               Google Career Certificate (GCC)
             </MyLink>
             {'  '}
-            akan memberikan beasiswa pelatihan daring di bidang {isUX?"UX design": "data analitik"} secara{' '}
+            akan memberikan beasiswa pelatihan daring di bidang{' '}
+            {isUX ? 'UX design' : 'data analitik'} secara{' '}
             <Typography
               component={'strong'}
               fontWeight={700}
@@ -45,7 +47,12 @@ export default function BeasiswaAbout({ name, materi }) {
             untuk 200 orang di seluruh Indonesia.
           </Typography>
 
-          <Typography variant={'body2'} fontSize={16} my={4} color={'sc_gray.light'}>
+          <Typography
+            variant={'body2'}
+            fontSize={16}
+            my={4}
+            color={'sc_gray.light'}
+          >
             Materi yang akan dipelajari mencakup:
           </Typography>
           <Stack spacing={3}>

@@ -20,7 +20,7 @@ export const menuBeasiswa = [
     link: 'alur-pendaftaran',
   },
   {
-    name: "Sertifikat Berlisensi Google",
-    link: "sertifikat-gcc",
+    name: 'Sertifikat Berlisensi Google',
+    link: 'sertifikat-gcc',
   },
 ];

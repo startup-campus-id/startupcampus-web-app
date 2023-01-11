@@ -13,7 +13,9 @@ const NavItem = ({ children, notHover, inGCCPage = false }) => (
     variant="body2"
     fontWeight={500}
     onMouseEnter={(e) =>
-      notHover ? null : (e.currentTarget.style.color = inGCCPage? "#DFA00E" : '#0056D2')
+      notHover
+        ? null
+        : (e.currentTarget.style.color = inGCCPage ? '#DFA00E' : '#0056D2')
     }
     onMouseLeave={(e) =>
       notHover ? null : (e.currentTarget.style.color = 'unset')
@@ -57,7 +59,7 @@ const Dropdown = ({ children, list, type, inGCCPage = false }) => {
             height: '5px',
             borderRadius: '100px',
             bottom: '-20%',
-            backgroundColor: inGCCPage ? "sc_yellow.main" : 'sc_blue.main',
+            backgroundColor: inGCCPage ? 'sc_yellow.main' : 'sc_blue.main',
           },
 
           '&:hover': {
@@ -121,7 +123,10 @@ const Dropdown = ({ children, list, type, inGCCPage = false }) => {
                   : 'unset',
               }}
             >
-              <NavItem notHover={!!item.link.match('/track/backend-engineer')} inGCCPage={inGCCPage}>
+              <NavItem
+                notHover={!!item.link.match('/track/backend-engineer')}
+                inGCCPage={inGCCPage}
+              >
                 {item.name}
               </NavItem>
             </Link>

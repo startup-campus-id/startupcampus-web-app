@@ -1,11 +1,13 @@
 import { Container, Divider, Grid, Stack, Typography } from '@mui/material';
 import BeasiswaAbout from 'components/BeasiswaPage/BeasiswaAbout';
+import BeasiswaFooter from 'components/BeasiswaPage/BeasiswaFooter';
 import BeasiswaHero from 'components/BeasiswaPage/BeasiswaHero';
 import BeasiswaJadwal from 'components/BeasiswaPage/BeasiswaJadwal';
 import BeasiswaKeterampilan from 'components/BeasiswaPage/BeasiswaKeterampilan';
 import BeasiswaKriteria from 'components/BeasiswaPage/BeasiswaKriteria';
 import BeasiswaKurikulum from 'components/BeasiswaPage/BeasiswaKurikulum';
 import BeasiswaMengapa from 'components/BeasiswaPage/BeasiswaMengapa';
+import BeasiswaSertifikat from 'components/BeasiswaPage/BeasiswaSertifikat';
 import MyButton from 'components/MyButton';
 import MyTitle from 'components/MyTitle';
 import SideBar from 'components/trackPage/SideBar';
@@ -20,8 +22,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
 import { REGIST_BEASISWA_GOOGLE_URL } from 'sc.config';
-import BeasiswaSertifikat from 'components/BeasiswaPage/BeasiswaSertifikat';
-import BeasiswaFooter from 'components/BeasiswaPage/BeasiswaFooter';
 
 export default function BeasiswaGoogle({ beasiswa, kriteria }) {
   const app = useRef();
@@ -44,17 +44,17 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
             end: 'bottom center',
             toggleActions: 'restart reset restart reset',
           },
-          color: "#121212",
-          flexGrow: "0",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          gap: "8px",
-          padding: "10px 0 10px 12px",
-          marginLeft: "-12px",
-          borderLeft: "solid 1.5px #fdb72b",
-          backgroundColor: "#fff8eb"
+          color: '#121212',
+          flexGrow: '0',
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          gap: '8px',
+          padding: '10px 0 10px 12px',
+          marginLeft: '-12px',
+          borderLeft: 'solid 1.5px #fdb72b',
+          backgroundColor: '#fff8eb',
         });
       });
     }, app); // <- Scope!
@@ -145,7 +145,7 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
               <Divider
                 sx={{
                   marginY: 4,
-                  marginBottom: 10
+                  marginBottom: 10,
                 }}
               />
             </Stack>
@@ -165,10 +165,7 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
       </Container>
 
       <Grid container>
-        <Grid
-          item
-          xs={12}
-        >
+        <Grid item xs={12}>
           <Container>
             <BeasiswaFooter />
           </Container>

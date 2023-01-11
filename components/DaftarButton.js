@@ -19,8 +19,10 @@ export default function DaftarButton({
   };
   return (
     <Link href={link} passHref>
-      <MyButton onClick={handleClickOpen} {...args}>Daftar sekarang</MyButton>
-      {/* <AlertDialog open={open} handleClose={handleClose} /> */ }
-    </Link >
+      <MyButton onClick={handleClickOpen} {...args}>
+        Daftar sekarang
+      </MyButton>
+      {/* <AlertDialog open={open} handleClose={handleClose} /> */}
+    </Link>
   );
 }

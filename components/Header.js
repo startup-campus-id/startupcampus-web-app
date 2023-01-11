@@ -95,7 +95,7 @@ const Header = () => {
             height: '5px',
             borderRadius: '100px',
             bottom: '-50%',
-            backgroundColor: inGCCPage ? "sc_yellow.main" : 'sc_blue.main',
+            backgroundColor: inGCCPage ? 'sc_yellow.main' : 'sc_blue.main',
           },
           '&:hover::before': {
             width: isDropDown ? '0%' : '100%',
@@ -148,7 +148,7 @@ const Header = () => {
                 <Typography
                   sx={{
                     '&:hover': {
-                      color: inGCCPage ? "sc_yellow.main" : 'sc_blue.main',
+                      color: inGCCPage ? 'sc_yellow.main' : 'sc_blue.main',
                     },
                     color: 'sc_gray.dark',
                   }}
@@ -190,7 +190,7 @@ const Header = () => {
                 onClick={toggleDrawer(anchor, false)}
                 sx={{
                   '&:hover': {
-                    color: inGCCPage ? "sc_yellow.main" : 'sc_blue.main',
+                    color: inGCCPage ? 'sc_yellow.main' : 'sc_blue.main',
                   },
                   color: 'sc_gray.dark',
                 }}
@@ -214,13 +214,17 @@ const Header = () => {
         <Slide in={!trigger}>
           <AppBar
             color={
-              inGCCPage ? "inherit" :
-                router.pathname == '/' ?
-                  (bgTrigger ? '' : 'transparent') : ''
+              inGCCPage
+                ? 'inherit'
+                : router.pathname == '/'
+                ? bgTrigger
+                  ? ''
+                  : 'transparent'
+                : ''
             }
             sx={{
               transition: '.3s',
-              backgroundColor: inGCCPage ? "sc_yellow.light" : undefined
+              backgroundColor: inGCCPage ? 'sc_yellow.light' : undefined,
             }}
             elevation={0}
             position={'static'}
@@ -254,7 +258,10 @@ const Header = () => {
                     zIndex: 10,
                     alignItems: 'center',
                     justifyContent:
-                      router.pathname.includes("daftar") || router.pathname.includes("beasiswa/google") ? 'end' : 'center',
+                      router.pathname.includes('daftar') ||
+                      router.pathname.includes('beasiswa/google')
+                        ? 'end'
+                        : 'center',
                     display: { md: 'flex', sm: 'none', xs: 'none' },
                   }}
                   component={'nav'}
@@ -303,9 +310,7 @@ const Header = () => {
                   {/* </Dropdown> */}
                 </Stack>
 
-
-                {inGCCPage?
-                  null :
+                {inGCCPage ? null : (
                   <Stack
                     direction="row"
                     alignItems={'center'}
@@ -317,7 +322,7 @@ const Header = () => {
                   >
                     <DaftarButton />
                   </Stack>
-                }
+                )}
 
                 {/* Only Mobile  */}
                 <IconButton

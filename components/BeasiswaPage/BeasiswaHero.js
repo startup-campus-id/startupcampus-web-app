@@ -4,17 +4,17 @@ import { Avatar, Box, Stack, Typography } from '@mui/material';
 import BoxHighlight from 'components/BoxHighlight';
 import MyButton from 'components/MyButton';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import { REGIST_BEASISWA_GOOGLE_URL } from '../../sc.config';
 import WordBreak from '../WordBreak';
-import { useRouter } from 'next/router'
 
 export default function BeasiswaHero({ name }) {
   // TODO : add kuota in API dan tambah counting animation
-  const router = useRouter()
-  const isUX = router.asPath.includes('ux-design')
-  const [kuota, setKuota] = React.useState(isUX?95: 98);
+  const router = useRouter();
+  const isUX = router.asPath.includes('ux-design');
+  const [kuota, setKuota] = React.useState(isUX ? 95 : 98);
   const checkList = [
     'Tidak perlu pengalaman',
     'Jalur menuju karier impian',
@@ -88,8 +88,8 @@ export default function BeasiswaHero({ name }) {
           fontWeight={500}
           fontStyle="normal"
         >
-          Raih karier impianmu di bidang {isUX?"UX designer": "data analitik"} hanya dalam waktu 3
-          bulan!
+          Raih karier impianmu di bidang{' '}
+          {isUX ? 'UX designer' : 'data analitik'} hanya dalam waktu 3 bulan!
         </Typography>
 
         <Stack
@@ -117,7 +117,7 @@ export default function BeasiswaHero({ name }) {
           backgroundColor: 'white',
           borderRadius: 35,
           position: 'relative',
-          display:{xs: "block", md:"none"},
+          display: { xs: 'block', md: 'none' },
           '&::before': {
             zIndex: 0,
             top: 0,
@@ -132,15 +132,23 @@ export default function BeasiswaHero({ name }) {
           },
         }}
       >
-        <Typography fontWeight={500} zIndex={2} fontSize={"0.8rem"} textAlign="center">
-          {kuota}% Kuota Pendaftaran Sudah Terisi 
+        <Typography
+          fontWeight={500}
+          zIndex={2}
+          fontSize={'0.8rem'}
+          textAlign="center"
+        >
+          {kuota}% Kuota Pendaftaran Sudah Terisi
         </Typography>
       </Stack>
 
-      <Box component="div" sx={{
-        position: "relative",
-        width: "100%",
-      }}>
+      <Box
+        component="div"
+        sx={{
+          position: 'relative',
+          width: '100%',
+        }}
+      >
         <Stack spacing={2} width="100%" alignItems="center">
           <Typography
             fontWeight={500}
@@ -173,27 +181,33 @@ export default function BeasiswaHero({ name }) {
             </MyButton>
           </Link>
         </Stack>
-        <Stack spacing={0} sx={{
-          elevation: 3,
-          boxShadow: "0 24px 34px 0 rgba(18, 18, 18, 0.08);",
-          backgroundColor: "#ffffff",
-          width: 136,
-          borderRadius: 5,
-          display: {xs: "none", md: "block"},
-          position: "absolute",
-          right: 0,
-          top: -25,
-          height: 142,
-        }} width="100%" alignItems="center" pt={4}>
+        <Stack
+          spacing={0}
+          sx={{
+            elevation: 3,
+            boxShadow: '0 24px 34px 0 rgba(18, 18, 18, 0.08);',
+            backgroundColor: '#ffffff',
+            width: 136,
+            borderRadius: 5,
+            display: { xs: 'none', md: 'block' },
+            position: 'absolute',
+            right: 0,
+            top: -25,
+            height: 142,
+          }}
+          width="100%"
+          alignItems="center"
+          pt={4}
+        >
           <Typography
             sx={{
               fontSize: 32,
-              fontWeight: "bold",
-              fontStyle: "normal",
+              fontWeight: 'bold',
+              fontStyle: 'normal',
               letterSpacing: -0.38,
-              textAlign: "center",
-              textAlign: "center",
-              color: "sc_black.dark"
+              textAlign: 'center',
+              textAlign: 'center',
+              color: 'sc_black.dark',
             }}
           >
             {kuota}%
@@ -201,19 +215,17 @@ export default function BeasiswaHero({ name }) {
           <Typography
             sx={{
               fontSize: 12,
-              fontWeight: "normal",
-              fontStyle: "normal",
-              textAlign: "center",
-              color: "#3d3d3d"
+              fontWeight: 'normal',
+              fontStyle: 'normal',
+              textAlign: 'center',
+              color: '#3d3d3d',
             }}
             marginBottom={1}
           >
             Kuota terisi
           </Typography>
         </Stack>
-
       </Box>
-
     </Stack>
   );
 }

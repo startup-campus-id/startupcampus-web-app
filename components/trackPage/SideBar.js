@@ -1,32 +1,30 @@
+import EastIcon from '@mui/icons-material/East';
 import { Divider, Link, Stack, Typography } from '@mui/material';
 import React from 'react';
 
-import EastIcon from '@mui/icons-material/East';
 import DaftarButton from '../DaftarButton';
 import MyButton from '../MyButton';
 
-export default function SideBar({ variant = "blue", listMenu, link }) {
-  let styling = {}
-  let button
+export default function SideBar({ variant = 'blue', listMenu, link }) {
+  let styling = {};
+  let button;
   switch (variant) {
-    case "blue":
-      button = <DaftarButton link={link} />
-      break
-    case "yellow":
+    case 'blue':
+      button = <DaftarButton link={link} />;
+      break;
+    case 'yellow':
       styling = {
-        "title": {
+        title: {
           fontWeight: 500,
           letterSpacing: 0,
-          color: "sc_black.dark"
+          color: 'sc_black.dark',
         },
-        "text": {
+        text: {
           fontSize: 14,
-          color: "sc_gray.light"
+          color: 'sc_gray.light',
         },
-        "button": {
-
-        },
-      }
+        button: {},
+      };
       button = (
         <Link href={link} passHref>
           <MyButton
@@ -48,10 +46,10 @@ export default function SideBar({ variant = "blue", listMenu, link }) {
             <EastIcon />
           </MyButton>
         </Link>
-      )
-      break
+      );
+      break;
     default:
-      throw new Error("There is no variant " + variant)
+      throw new Error('There is no variant ' + variant);
   }
 
   return (
@@ -68,7 +66,9 @@ export default function SideBar({ variant = "blue", listMenu, link }) {
         alignSelf: 'flex-start',
       }}
     >
-      <Typography fontWeight={700} sx={styling.title}>Detail Program</Typography>
+      <Typography fontWeight={700} sx={styling.title}>
+        Detail Program
+      </Typography>
       <Divider />
       {listMenu?.map((item, idx) => (
         <Link href={'#' + item.link} underline="none" key={idx}>

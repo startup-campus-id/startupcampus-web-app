@@ -1,4 +1,12 @@
-import { Link,Box, Grid, Stack, Typography, Card, CardActionArea } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardActionArea,
+  Grid,
+  Link,
+  Stack,
+  Typography,
+} from '@mui/material';
 import Image from 'next/image';
 import React, { useEffect } from 'react';
 
@@ -17,12 +25,17 @@ export default function Section6() {
       <Grid item container xs={12} spacing={3}>
         {testimoni.map((item) => (
           <Grid item md={4} key={item.name} data-aos="fade-up">
-            <Card width="100%" borderRadius={'20px'} overflow="hidden" sx={{
-              border: 'none',
-              boxShadow: 'none'
-            }}>
-              <Link 
-                href={item.url} 
+            <Card
+              width="100%"
+              borderRadius={'20px'}
+              overflow="hidden"
+              sx={{
+                border: 'none',
+                boxShadow: 'none',
+              }}
+            >
+              <Link
+                href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 underline="none"

@@ -1,4 +1,5 @@
 import { Box, Divider, Stack, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
 import AccentText from '../AccentText';
@@ -6,12 +7,11 @@ import HighlightText from '../HighlightText';
 import MyButton from '../MyButton';
 import MyDesc from '../MyDesc';
 import MyTitle from '../MyTitle';
-import { useRouter } from 'next/router'
 
 export default function BeasiswaKurikulum({ kurikulum }) {
   const [content, setContent] = useState(5);
-  const router = useRouter()
-  const isUX = router.asPath.includes('ux-design')
+  const router = useRouter();
+  const isUX = router.asPath.includes('ux-design');
 
   // TODO mengganti Typography sesuai dengan path yang akan diambil
   return (
@@ -30,9 +30,9 @@ export default function BeasiswaKurikulum({ kurikulum }) {
         fontSize={16}
         lineHeight={1.8}
       >
-        {isUX ?
-          "Pelajari dasar-dasar UX design dengan memahami kebutuhan pengguna, membangun wireframe dan prototipe, hingga melakukan riset desain secara lengkap" :
-          "Pelajari cara menganalisis dan memproses data untuk membantu strategi bisnis perusahaan melalui 8 materi berikut:"}
+        {isUX
+          ? 'Pelajari dasar-dasar UX design dengan memahami kebutuhan pengguna, membangun wireframe dan prototipe, hingga melakukan riset desain secara lengkap'
+          : 'Pelajari cara menganalisis dan memproses data untuk membantu strategi bisnis perusahaan melalui 8 materi berikut:'}
       </Typography>
       <Stack
         spacing={2}
@@ -73,10 +73,10 @@ export default function BeasiswaKurikulum({ kurikulum }) {
                   variant={'h6'}
                   sx={{
                     fontSize: 24,
-                    fontWeight: "500",
-                    fontStyle: "normal",
+                    fontWeight: '500',
+                    fontStyle: 'normal',
                     letterSpacing: -0.29,
-                    color: "#121212"
+                    color: '#121212',
                   }}
                 >
                   {v.title}
