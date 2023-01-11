@@ -30,7 +30,7 @@ export default function BeasiswaSertifikat({ name, materi }) {
           }}>
             Daftar Kelas Beasiswa
             Google secara <CircleHighlight width={{ xs: 100, md: 135 }} top={{ xs: "-15%", md: undefined }}>GRATIS</CircleHighlight> dan
-            Mulai Kariermu Disini!
+            Mulai Kariermu Di sini!
           </MyTitle>
           <Link href={REGIST_BEASISWA_GOOGLE_URL} passHref>
             <MyButton
