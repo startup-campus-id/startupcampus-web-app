@@ -11,7 +11,7 @@ import WordBreak from '../WordBreak';
 import { useRouter } from 'next/router'
 
 export default function BeasiswaHero({ name }) {
-  // TODO : add kuota in API
+  // TODO : add kuota in API dan tambah counting animation
   const router = useRouter()
   const isUX = router.asPath.includes('ux-design')
   const [kuota, setKuota] = React.useState(0);
@@ -100,8 +100,8 @@ export default function BeasiswaHero({ name }) {
           alignItems="center"
           pt={4}
         >
-          {checkList.map((v, _) => (
-            <Stack direction="row" spacing={1}>
+          {checkList.map((v, i) => (
+            <Stack direction="row" spacing={1} key={i}>
               <DoneAllIcon sx={{ color: 'sc_blue.main' }} />
               <Typography color="sc_blue.main">{v}</Typography>
             </Stack>
