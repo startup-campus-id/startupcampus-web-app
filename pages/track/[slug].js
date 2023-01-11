@@ -31,8 +31,6 @@ import Testimoni from '../../components/trackPage/Testimoni';
 import Tools from '../../components/trackPage/Tools';
 import { listMenu } from '../../content/sideMenu';
 import { db } from '../../firebase/clientApp';
-import { CMS_BASE_URL } from '../../sc.config';
-import axios from 'axios'
 
 export default function Track({ course }) {
   console.log(course);
@@ -84,7 +82,7 @@ export default function Track({ course }) {
               item
               xs={12}
               sx={{
-                backgroundImage: `url(${course.image.data.attributes.url})`,
+                backgroundImage: `url(${course.img})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center top',
@@ -126,19 +124,19 @@ export default function Track({ course }) {
               </Grid>
               <Grid item container md={9} className="content">
                 <Grid item xs={12}>
-                  <TentangProgram nick={course.nickname} desc={course.tentang_program_description} />
+                  <TentangProgram nick={course.nickname} desc={course.TPdesc} />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
                 <Grid item xs={12}>
-                  <Sme sme={course.experts} desc={course.expert_description} />
+                  <Sme sme={course.SME} desc={course.sme_desc} />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
                 <Grid item xs={12}>
                   <Kurikulum
-                    kurikulum={course.kurikulum_tabs}
+                    kurikulum={course.kurikulum}
                     nickname={course.nickname}
-                    desc={course.kurikulum.description}
-                    link={course.kurikulum.link}
+                    desc={course.kur_desc}
+                    link={course.kur_link}
                   />
                   <Divider sx={{ marginY: 6 }} />
                 </Grid>
@@ -180,25 +178,12 @@ export default function Track({ course }) {
 
 export async function getStaticPaths() {
   let paths = [];
-  // const colRef = collection(db, 'course');
-  // const querySnapshot = await getDocs(colRef);
+  const colRef = collection(db, 'course_backup');
+  const querySnapshot = await getDocs(colRef);
 
-  // querySnapshot.forEach((doc) => {
-  //   paths.push({ params: { slug: doc.id } });
-  // });
-
-  console.log("fetching data")
-  console.log(CMS_BASE_URL + "/api/tracks")
-
-  const response = await axios.get(CMS_BASE_URL + "/api/tracks", {
-    headers: { Authorization: "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczMzcwMDcyLCJleHAiOjE2NzU5NjIwNzJ9.b8uVYUHLvWXAFIpaWBJSAQZnk9e9a21dOcLFpgoUd3M" }
+  querySnapshot.forEach((doc) => {
+    paths.push({ params: { slug: doc.id } });
   });
-
-  console.log("data fetched")
-  const trackData = response.data.data
-  trackData.forEach((track) => {
-    paths.push({ params: { slug: track.attributes.slug } });
-  })
 
   return {
     paths,
@@ -207,27 +192,19 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  // const data = [];
+  const data = [];
   try {
-    const response = await axios.get(CMS_BASE_URL + "/api/tracks", {
-      params: {
-        populate: "*",
-        "filters[slug][$eq]": params.slug
-      },
-      headers: { Authorization: "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczMzcwMDcyLCJleHAiOjE2NzU5NjIwNzJ9.b8uVYUHLvWXAFIpaWBJSAQZnk9e9a21dOcLFpgoUd3M" }
+    const colRef = collection(db, 'course_backup');
+    const q = query(colRef, where('slug', '==', params.slug));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      data.push({ id: doc.id, ...doc.data() });
     });
-    const trackData = response.data.data[0].attributes
-    // const colRef = collection(db, 'course');
-    // const q = query(colRef, where('slug', '==', params.slug));
-    // const querySnapshot = await getDocs(q);
-    // querySnapshot.forEach((doc) => {
-    //   data.push({ id: doc.id, ...doc.data() });
-    // });
-    return {
-      props: { course: trackData },
-      revalidate: 60,
-    };
   } catch (e) {
     console.log(e.message);
   }
+  return {
+    props: { course: data[0] ?? null },
+    revalidate: 60,
+  };
 }
