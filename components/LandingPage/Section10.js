@@ -45,7 +45,6 @@ function Section10() {
   } = useForm();
 
   const handleSubscribe = async (data) => {
-    console.log(data);
     try {
       await axios.post(
         `${BASE_URL}/newsletter`,

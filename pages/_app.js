@@ -36,6 +36,7 @@ let theme = createTheme({
     sc_yellow: {
       main: '#FDB72B',
       dark: '#DFA00E',
+      light: '#FFF8EB',
     },
     sc_black: {
       main: '#2B2C27',
@@ -44,6 +45,7 @@ let theme = createTheme({
     sc_gray: {
       main: '#BDBDBD',
       dark: '#69686B',
+      light: '#666666',
     },
     sc_white: {
       main: '#FFFFFF',

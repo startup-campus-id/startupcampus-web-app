@@ -6,6 +6,7 @@ import StepContent from '@mui/material/StepContent';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
+import HTMLParser from 'components/HTMLParser';
 import * as React from 'react';
 
 import MyDesc from '../MyDesc';
@@ -13,8 +14,7 @@ import MyDesc from '../MyDesc';
 const steps = [
   {
     label: 'Registrasi via Website',
-    description: `23 Desember 2022 s/d
-    12 Februari 2023`,
+    description: `  18 Januari 2023 s/d </br> 12 Februari 2023`,
   },
   {
     label: 'Pengumuman',
@@ -50,11 +50,11 @@ export default function VerticalLinearStepper() {
       sx={{
         width: 32,
         height: 32,
-        backgroundColor: 'sc_blue.main',
+        backgroundColor: 'sc_yellow.main',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        color: 'white',
+        color: 'sc_black.dark',
         borderRadius: '100%',
       }}
     >
@@ -64,18 +64,29 @@ export default function VerticalLinearStepper() {
 
   return (
     <Box sx={{ maxWidth: 400 }}>
-      <Stepper nonLinear activeStep={activeStep} orientation="vertical">
+      <Stepper orientation="vertical" sx={{ '&hover': { cursor: 'none' } }}>
         {steps.map((step, index) => (
           <Step
+            active={true}
             key={step.label}
             onClick={() => setActiveStep(index)}
             sx={{ cursor: 'pointer' }}
           >
             <StepLabel StepIconComponent={() => circle(index + 1)}>
-              {step.label}
+              <Typography variant="body1" fontSize={16} fontWeight={500}>
+                {step.label}
+              </Typography>
             </StepLabel>
             <StepContent TransitionProps={{ unmountOnExit: false }}>
-              <MyDesc>{step.description}</MyDesc>
+              <MyDesc
+                ml={1}
+                mt={-1}
+                fontSize={14}
+                type="gray_light"
+                lineHeight={1.8}
+              >
+                <HTMLParser>{step.description}</HTMLParser>
+              </MyDesc>
             </StepContent>
           </Step>
         ))}

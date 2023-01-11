@@ -10,7 +10,8 @@ export default function StudiIndependenPopupProvider({ children }) {
   return (
     <SIPopupContext.Provider
       value={{
-        siPopup, setSiPopup
+        siPopup,
+        setSiPopup,
       }}
     >
       {children}

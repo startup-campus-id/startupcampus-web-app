@@ -1,4 +1,5 @@
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Avatar, Box, Grid, Stack } from '@mui/material';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -15,26 +16,33 @@ export default function BeasiswaKriteria({ kriteria }) {
 
   return (
     <Box id="kriteria" pt={6}>
-      <AccentText>Kriteria Calon Peserta</AccentText>
-      <MyTitle gutterBottom>
+      <AccentText variant="black">Kriteria Calon Peserta</AccentText>
+      <MyTitle gutterBottom mt={1.5}>
         Siapa Saja yang Bisa{' '}
-        <HighlightText margin-left="8px">Bergabung ?</HighlightText>
+        <HighlightText
+          variant="yellow"
+          height="-10%"
+          width="-5%"
+          marginLeft={1.25}
+        >
+          Bergabung ?
+        </HighlightText>
       </MyTitle>
       <Grid container my={4} spacing={3}>
-        <Grid item xs={12} md={isUX ? 12 : 5} mb={isUX ? 4 : undefined}>
+        <Grid item xs={12} md={isUX ? 12 : 6} mb={isUX ? 4 : undefined}>
           {isUX ? (
             <Grid container xs={12} spacing={3}>
               {kriteria?.map((v, i) => (
                 <Grid item xs={6} md={3} key={i}>
-                  <Stack spacing={1}>
+                  <Stack spacing={2} display="flex" alignItems={{ xs: "center", md: "flex-start" }} textAlign={{ xs: "center", md: "left" }}>
                     <Avatar
                       src={v.icon}
-                      sx={{ height: '50px', width: '50px' }}
+                      sx={{ height: '64px', width: '64px' }}
                     />
                     <MyDesc
-                      variant="body1"
-                      color="sc_black"
-                      sx={{ fontWeight: 500 }}
+                      variant="body2"
+                      color="sc_black.dark"
+                      sx={{ fontSize: 16, fontWeight: 500, lineHeight: 1.8 }}
                     >
                       <HTMLParser>{v.content}</HTMLParser>
                       <MyDesc sx={{ fontWeight: 400 }}>{v.description}</MyDesc>
@@ -47,8 +55,8 @@ export default function BeasiswaKriteria({ kriteria }) {
             <Stack spacing={2}>
               {kriteria?.map((v, i) => (
                 <Stack direction="row" spacing={1} key={i}>
-                  <CheckCircleIcon sx={{ color: 'sc_blue.main' }} />
-                  <MyDesc>
+                  <DoneAllIcon sx={{ color: 'sc_yellow.main' }} />
+                  <MyDesc type="gray_light">
                     <HTMLParser>{v.content}</HTMLParser>
                   </MyDesc>
                 </Stack>
@@ -56,7 +64,7 @@ export default function BeasiswaKriteria({ kriteria }) {
             </Stack>
           )}
         </Grid>
-        <Grid item xs={12} md={isUX ? 12 : 7}>
+        <Grid item xs={12} md={isUX ? 12 : 6}>
           <Box
             sx={{
               width: '100%',

@@ -1,5 +1,7 @@
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Box, Grid, Stack, Typography } from '@mui/material';
+import MyLink from 'components/MyLink';
 import Link from 'next/link';
 import React from 'react';
 
@@ -12,33 +14,45 @@ import MyTitle from '../MyTitle';
 export default function BeasiswaMengapa({ name, materi }) {
   return (
     <Box id="beasiswa-gcc" pt={6}>
-      <AccentText>Beasiswa Google Career Certificate</AccentText>
-      <MyTitle gutterBottom>
-        Mengapa <HighlightText>Harus</HighlightText> Google Career Certificate?
+      <AccentText variant="black">
+        Beasiswa Google Career Certificate
+      </AccentText>
+      <MyTitle gutterBottom mt={1.5}>
+        Mengapa <HighlightText variant="yellow">Harus</HighlightText> Google
+        Career Certificate?
       </MyTitle>
       <Grid container my={4} spacing={3} direction="row-reverse">
         <Grid item xs={12} md={6}>
-          <Typography variant={'body2'}>
+          <Typography
+            variant={'body2'}
+            color="sc_gray.light"
+            fontSize={16}
+            lineHeight={1.8}
+          >
             Dengan dukungan{' '}
-            <Link href={GCC_URL} passHref>
-              <Typography variant={'body2'} component="a" color="sc_blue.main">
-                Google Career Certificate(GCC){'  '}
-              </Typography>
-            </Link>
+            <MyLink link={GCC_URL} variant="black">
+              Google Career Certificate (GCC)
+            </MyLink>
             , Startup Campus meluncurkan program beasiswa untuk menunjang para
             pencari kerja dan pemuda di seluruh Indonesia khususnya bagian timur
             yang kurang terakomodasi.
           </Typography>
 
-          <Typography variant={'body2'} my={4}>
+          <Typography
+            variant={'body2'}
+            my={4}
+            color="sc_gray.light"
+            fontSize={16}
+            lineHeight={1.8}
+          >
             Beasiswa tersebut mencakup dukungan berupa:
           </Typography>
 
           <Stack spacing={4}>
             {materi?.map((v, i) => (
-              <Stack direction="row" spacing={1} key={i} alignItems="center">
-                <CheckCircleIcon sx={{ color: 'sc_blue.main' }} />
-                <MyDesc>{v}</MyDesc>
+              <Stack direction="row" spacing={1} key={i}>
+                <DoneAllIcon sx={{ color: 'sc_yellow.main' }} />
+                <MyDesc type="gray_light">{v}</MyDesc>
               </Stack>
             ))}
           </Stack>
