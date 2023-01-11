@@ -4,7 +4,7 @@ export const menuBeasiswa = [
     link: 'tentang-program',
   },
   {
-    name: 'Beasiswa GCC',
+    name: 'Beasiswa Google',
     link: 'beasiswa-gcc',
   },
   {
@@ -19,8 +19,8 @@ export const menuBeasiswa = [
     name: 'Alur Pendaftaran',
     link: 'alur-pendaftaran',
   },
-  // {
-  //   name: "Sertifikat GCC",
-  //   link: "sertifikat-gcc",
-  // },
+  {
+    name: "Sertifikat Berlisensi Google",
+    link: "sertifikat-gcc",
+  },
 ];

@@ -1,27 +1,28 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
-import { Box } from '@mui/material'
-import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { Box } from '@mui/material';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import MyButton from '../components/MyButton'
-import Link from 'next/link'
+import { styled } from '@mui/material/styles';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
+import * as React from 'react';
+
+import MyButton from '../components/MyButton';
 
 function PopupBanner({ children, open, handleClose, ...other }) {
   return (
     <Dialog
-      sx={{ overflow: "visible" }}
+      sx={{ overflow: 'visible' }}
       onClose={handleClose}
       PaperProps={{
         sx: {
-          backgroundColor: "transparent",
-        }
+          backgroundColor: 'transparent',
+        },
       }}
       open={open}
     >
@@ -32,11 +33,11 @@ function PopupBanner({ children, open, handleClose, ...other }) {
           position: 'absolute',
           right: 8,
           top: 8,
-          backgroundColor: "rgba(18,18,18,.20)",
-          borderRadius: 0
+          backgroundColor: 'rgba(18,18,18,.20)',
+          borderRadius: 0,
         }}
       >
-        <CloseIcon color={"black"} fontWeight={900} />
+        <CloseIcon color={'black'} fontWeight={900} />
       </IconButton>
       <Box
         component="img"
@@ -47,12 +48,13 @@ function PopupBanner({ children, open, handleClose, ...other }) {
           marginBottom: 2,
           padding: 0,
           borderRadius: 5,
-          boxShadow: "0 19px 38px rgba(0,0,0,0.15), 0 15px 12px rgba(0,0,0,0.22)",
+          boxShadow:
+            '0 19px 38px rgba(0,0,0,0.15), 0 15px 12px rgba(0,0,0,0.22)',
         }}
         alt="Promo startup campus"
         src="/images/promo.jpg"
       />
-      <Link href={"#startup-campus-track"} passHref sx={{ margin: 0 }}>
+      <Link href={'#startup-campus-track'} passHref sx={{ margin: 0 }}>
         <MyButton
           color="sc_yellow"
           textColor={'sc_black.dark'}
@@ -78,4 +80,4 @@ function PopupBanner({ children, open, handleClose, ...other }) {
   );
 }
 
-export default PopupBanner
+export default PopupBanner;

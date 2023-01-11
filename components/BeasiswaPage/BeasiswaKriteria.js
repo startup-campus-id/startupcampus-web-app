@@ -33,7 +33,7 @@ export default function BeasiswaKriteria({ kriteria }) {
             <Grid container xs={12} spacing={3}>
               {kriteria?.map((v, i) => (
                 <Grid item xs={6} md={3} key={i}>
-                  <Stack spacing={2}>
+                  <Stack spacing={2} display="flex" alignItems={{xs: "center", md:"flex-start"}} textAlign={{xs: "center", md:"left"}}>
                     <Avatar
                       src={v.icon}
                       sx={{ height: '64px', width: '64px' }}

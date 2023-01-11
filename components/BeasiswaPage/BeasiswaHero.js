@@ -34,13 +34,13 @@ export default function BeasiswaHero({ name }) {
     >
       <Box
         sx={rightUpperEllipsis}
-        height={{ xs: 250, sm: 300, md: 400, lg: 550, xl: 600 }}
+        height={{ xs: 200, sm: 300, md: 400, lg: 550, xl: 600 }}
         component="img"
         src="/images/gcc_hero_right.png"
       />
       <Box
         sx={leftUpperEllipsis}
-        height={{ xs: 225, sm: 300, md: 330, lg: 450, xl: 500 }}
+        height={{ xs: 175, sm: 300, md: 330, lg: 450, xl: 500 }}
         component="img"
         src="/images/gcc_hero_left.png"
       />

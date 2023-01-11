@@ -32,6 +32,7 @@ const BoxHighlight = ({ children }) => {
   };
 
   const mainRectangle = {
+    margin: 1,
     position: 'relative',
     padding: '0px 5px',
     borderStyle: 'solid',

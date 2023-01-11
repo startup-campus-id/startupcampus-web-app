@@ -14,7 +14,7 @@ function Section1() {
   const textSx = {
     textAlign: textAlignSx,
   };
-  const { openSiPopup } = useStudiIndepenPopup()
+  const { openSiPopup } = useStudiIndepenPopup();
   return (
     <Grid
       pt={{ xs: 6, md: 0 }}
@@ -43,14 +43,14 @@ function Section1() {
             {tagline.desc}
           </Typography>
           <Stack direction="row" spacing={2} justifyContent="center">
-              <MyButton
-                variant="outlined"
-                color="sc_blue"
-                onClick={openSiPopup}
-                textAlign={textAlignSx}
-              >
-                Kampus Merdeka
-              </MyButton>
+            <MyButton
+              variant="outlined"
+              color="sc_blue"
+              onClick={openSiPopup}
+              textAlign={textAlignSx}
+            >
+              Kampus Merdeka
+            </MyButton>
             <Link href={BOOTCAMP_FOR_PUBLIC} underline="none" passHref>
               <MyButton color="sc_blue" textAlign={textAlignSx}>
                 Bootcamp for Public

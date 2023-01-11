@@ -11,7 +11,7 @@ import MyButton from '../MyButton';
 export default function Main({ name, desc }) {
   const router = useRouter();
   const { device } = useDeviceDetect();
-  const {openSiPopup} = useStudiIndepenPopup()
+  const { openSiPopup } = useStudiIndepenPopup();
 
   return (
     <Stack

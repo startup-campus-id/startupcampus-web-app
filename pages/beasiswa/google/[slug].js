@@ -20,6 +20,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
 import { REGIST_BEASISWA_GOOGLE_URL } from 'sc.config';
+import BeasiswaSertifikat from 'components/BeasiswaPage/BeasiswaSertifikat';
+import BeasiswaFooter from 'components/BeasiswaPage/BeasiswaFooter';
 
 export default function BeasiswaGoogle({ beasiswa, kriteria }) {
   const app = useRef();
@@ -42,8 +44,17 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
             end: 'bottom center',
             toggleActions: 'restart reset restart reset',
           },
-          color: 'blue',
-          transition: 'ease',
+          color: "#121212",
+          flexGrow: "0", 
+          display: "flex", 
+          flexDirection: "row", 
+          justifyContent: "flex-start", 
+          alignItems: "center", 
+          gap: "8px", 
+          padding: "10px 0 10px 12px", 
+          marginLeft: "-12px",
+          borderLeft: "solid 1.5px #fdb72b", 
+          backgroundColor: "#fff8eb"
         });
       });
     }, app); // <- Scope!
@@ -91,6 +102,7 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
             }}
           >
             <SideBar
+              variant="yellow"
               listMenu={menuBeasiswa}
               link={REGIST_BEASISWA_GOOGLE_URL}
             />
@@ -144,31 +156,28 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
                 }}
               />
             </Stack>
+            <Stack width={'100%'}>
+              <BeasiswaSertifikat />
+              <Divider
+                sx={{
+                  marginY: 4,
+                }}
+              />
+            </Stack>
           </Grid>
         </Grid>
       </Container>
-      <Stack
-        sx={{ background: 'rgba(0, 86, 210, 0.05)' }}
-        py={8}
-        my={5}
-        justifyContent="center"
-        alignItems="center"
-        spacing={3}
-      >
-        <Stack>
-          <MyTitle textAlign="center" color="sc_blue.main">
-            Mulai Kariermu di Sini!
-          </MyTitle>
-          <MyTitle textAlign="center" color="sc_blue.main">
-            Daftar Kelas Google Sekarang!
-          </MyTitle>
-        </Stack>
-        <Link href={REGIST_BEASISWA_GOOGLE_URL} passHref>
-          <MyButton color="sc_yellow">
-            <Typography fontWeight={700}>Daftar Sekarang</Typography>
-          </MyButton>
-        </Link>
-      </Stack>
+
+      <Grid container>
+        <Grid
+          item
+          xs={12}
+        >
+          <Container>
+            <BeasiswaFooter />
+          </Container>
+        </Grid>
+      </Grid>
     </>
   );
 }
@@ -183,14 +192,11 @@ export async function getStaticPaths() {
     paths.push({ params: { slug } });
   });
 
-
-
   return {
     paths,
     fallback: false, // can also be true or 'blocking'
   };
 }
-
 
 export async function getStaticProps({ params }) {
   const data = [];
