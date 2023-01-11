@@ -14,7 +14,7 @@ export default function BeasiswaHero({ name }) {
   // TODO : add kuota in API dan tambah counting animation
   const router = useRouter()
   const isUX = router.asPath.includes('ux-design')
-  const [kuota, setKuota] = React.useState(0);
+  const [kuota, setKuota] = React.useState(isUX?95: 98);
   const checkList = [
     'Tidak perlu pengalaman',
     'Jalur menuju karier impian',
