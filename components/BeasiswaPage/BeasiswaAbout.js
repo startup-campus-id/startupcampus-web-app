@@ -1,5 +1,6 @@
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Box, Grid, Stack, Typography } from '@mui/material';
+import MyLink from 'components/MyLink';
 import Link from 'next/link';
 import React from 'react';
 
@@ -8,36 +9,50 @@ import AccentText from '../AccentText';
 import HighlightText from '../HighlightText';
 import MyDesc from '../MyDesc';
 import MyTitle from '../MyTitle';
-
+import { useRouter } from 'next/router'
 export default function BeasiswaAbout({ name, materi }) {
+  const router = useRouter()
+  const isUX = router.asPath.includes('ux-design')
+
   return (
     <Box id="tentang-program" pt={6}>
-      <AccentText>Tentang Program</AccentText>
-      <MyTitle gutterBottom>
-        Mengapa <HighlightText>Harus</HighlightText> Belajar {name} ?
+      <AccentText variant={'black'}>Tentang Program</AccentText>
+      <MyTitle gutterBottom mt={1.5} fontWeight={'bold'}>
+        Kenapa <HighlightText variant={'yellow'}>Harus</HighlightText> Belajar{' '}
+        {name}?
       </MyTitle>
       <Grid container my={4} spacing={3}>
         <Grid item xs={12} md={6}>
-          <Typography variant={'body2'}>
+          <Typography
+            variant={'body2'}
+            color={'sc_gray.light'}
+            fontSize={16}
+            lineHeight={1.8}
+          >
             Kabar baik! Startup Campus bersama{' '}
-            <Link href={GCC_URL} passHref>
-              <Typography variant={'body2'} component="a" color="sc_blue.main">
-                Google Career Certificate(GCC){'  '}
-              </Typography>
-            </Link>
-            akan memberikan beasiswa pelatihan daring di bidang Data Analitik
+            <MyLink link={GCC_URL} variant="black">
+              Google Career Certificate (GCC)
+            </MyLink>
+            {'  '}
+            akan memberikan beasiswa pelatihan daring di bidang {isUX?"UX design": "data analitik"} secara{' '}
+            <Typography
+              component={'strong'}
+              fontWeight={700}
+              color="sc_black.dark"
+            >
+              GRATIS
+            </Typography>{' '}
             untuk 200 orang di seluruh Indonesia.
           </Typography>
 
-          <Typography variant={'body2'} my={4}>
+          <Typography variant={'body2'} fontSize={16} my={4} color={'sc_gray.light'}>
             Materi yang akan dipelajari mencakup:
           </Typography>
-
-          <Stack spacing={4}>
+          <Stack spacing={3}>
             {materi?.map((v, i) => (
               <Stack direction="row" spacing={1} key={i}>
-                <CheckCircleIcon sx={{ color: 'sc_blue.main' }} />
-                <MyDesc>{v}</MyDesc>
+                <DoneAllIcon sx={{ color: 'sc_yellow.main' }} />
+                <MyDesc type="gray_light">{v}</MyDesc>
               </Stack>
             ))}
           </Stack>
@@ -46,8 +61,10 @@ export default function BeasiswaAbout({ name, materi }) {
           <Box
             sx={{
               width: '100%',
-              minHeight: 570,
-              backgroundImage: 'url(/images/writingperson.png)',
+              minHeight: 520,
+              backgroundImage: name.toLowerCase().includes('ux')
+                ? 'url(/images/writingperson-2.png)'
+                : 'url(/images/writingperson.png)',
               backgroundSize: 'cover',
               overflow: 'hidden',
               borderRadius: 8,

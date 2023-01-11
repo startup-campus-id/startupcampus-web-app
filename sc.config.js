@@ -1,5 +1,3 @@
-console.log(process.env.NEXT_PUBLIC_APP_ENV);
-
 export const BASE_URL =
   process.env.NEXT_PUBLIC_APP_ENV === 'production'
     ? 'https://api.startupcampus.id'

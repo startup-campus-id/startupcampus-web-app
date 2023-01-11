@@ -26,24 +26,29 @@ export default function BiayaCard({
   recommended = false,
 }) {
   const router = useRouter();
-  const { openSiPopup } = useStudiIndepenPopup()
+  const { openSiPopup } = useStudiIndepenPopup();
 
   const daftarButton = () => {
     const buttonComponent = (
-      <MyButton variant={recommended ? 'contained' : 'outlined'} onClick={link === KAMPUS_MERDEKA ? openSiPopup : undefined}>
+      <MyButton
+        variant={recommended ? 'contained' : 'outlined'}
+        onClick={link === KAMPUS_MERDEKA ? openSiPopup : undefined}
+      >
         <Typography fontWeight={700} color="inherit" variant="h6">
           {'Daftar Sekarang'}
         </Typography>
       </MyButton>
-    )
+    );
     if (link === KAMPUS_MERDEKA) {
-      return buttonComponent
+      return buttonComponent;
     } else {
-      return (<Link href={link ?? KAMPUS_MERDEKA} passHref>
-        {buttonComponent}
-      </Link>)
+      return (
+        <Link href={link ?? KAMPUS_MERDEKA} passHref>
+          {buttonComponent}
+        </Link>
+      );
     }
-  }
+  };
 
   return (
     <Stack
@@ -107,9 +112,7 @@ export default function BiayaCard({
             <CheckWithLabel key={i} label={v} />
           ))}
         </Stack>
-        <Stack sx={{ marginTop: '80px !important' }}>
-          {daftarButton()}
-        </Stack>
+        <Stack sx={{ marginTop: '80px !important' }}>{daftarButton()}</Stack>
       </Stack>
     </Stack>
   );

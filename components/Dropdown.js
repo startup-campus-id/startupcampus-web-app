@@ -8,12 +8,12 @@ import AlertDialog from './AlertDialog';
 // import Link from "next/link";
 // import Founder from './'
 
-const NavItem = ({ children, notHover }) => (
+const NavItem = ({ children, notHover, inGCCPage = false }) => (
   <Typography
     variant="body2"
     fontWeight={500}
     onMouseEnter={(e) =>
-      notHover ? null : (e.currentTarget.style.color = '#0056D2')
+      notHover ? null : (e.currentTarget.style.color = inGCCPage? "#DFA00E" : '#0056D2')
     }
     onMouseLeave={(e) =>
       notHover ? null : (e.currentTarget.style.color = 'unset')
@@ -24,7 +24,7 @@ const NavItem = ({ children, notHover }) => (
   </Typography>
 );
 
-const Dropdown = ({ children, list, type }) => {
+const Dropdown = ({ children, list, type, inGCCPage = false }) => {
   const [open, setOpen] = useState(false);
   const [expand, setExpand] = useState(false);
 
@@ -57,7 +57,7 @@ const Dropdown = ({ children, list, type }) => {
             height: '5px',
             borderRadius: '100px',
             bottom: '-20%',
-            backgroundColor: 'sc_blue.main',
+            backgroundColor: inGCCPage ? "sc_yellow.main" : 'sc_blue.main',
           },
 
           '&:hover': {
@@ -121,7 +121,7 @@ const Dropdown = ({ children, list, type }) => {
                   : 'unset',
               }}
             >
-              <NavItem notHover={!!item.link.match('/track/backend-engineer')}>
+              <NavItem notHover={!!item.link.match('/track/backend-engineer')} inGCCPage={inGCCPage}>
                 {item.name}
               </NavItem>
             </Link>

@@ -54,41 +54,41 @@ const kontak = [
 
 const Footer = () => {
   const router = useRouter();
+  const inGCCPage = router.pathname.includes('beasiswa/google');
   return (
     <Grid
       component={'footer'}
       container
       sx={{
+        padding: 0,
         backgroundColor:
-          router.pathname.match('/track') || router.pathname.match('/beasiswa')
+          router.pathname.match('/track')
             ? 'white'
-            : 'sc_blue.main',
+            : router.pathname.includes("/beasiswa/google")
+              ? "sc_black.dark"
+              : 'sc_blue.main',
       }}
     >
       <Container
         sx={{
-          borderBottom: `1px solid ${
-            router.pathname.match('/track') ||
-            router.pathname.match('/beasiswa')
-              ? '#BDBDBD'
-              : 'white'
-          }`,
-          borderTop: `1px solid ${
-            router.pathname.match('/track') ||
-            router.pathname.match('/beasiswa')
-              ? '#BDBDBD'
-              : 'white'
-          }`,
+          padding: 0,
+          borderBottom: `1px solid ${router.pathname.match('/track')
+            ? '#BDBDBD'
+            : 'white'
+            }`,
+          borderTop: `1px solid ${router.pathname.match('/track')
+            ? '#BDBDBD'
+            : 'white'
+            }`,
         }}
       >
-        <Grid container xs={12} my={4} spacing={6} justifyContent="center">
+        <Grid container xs={12} my={4} spacing={6} margin={0} display="flex" justifyContent="flex-start" alignItems="top">
           <Grid item xs={6} md={3}>
             <Stack spacing={4} my={4}>
               <Box>
                 <Image
                   src={
-                    router.pathname.match('/track') ||
-                    router.pathname.match('/beasiswa')
+                    router.pathname.match('/track')
                       ? '/images/Startup Campus Gray Logo.svg'
                       : '/images/Startup Campus White Logo.png'
                   }
@@ -100,8 +100,7 @@ const Footer = () => {
               <Typography
                 variant="body2"
                 color={
-                  router.pathname.match('/track') ||
-                  router.pathname.match('/beasiswa')
+                  router.pathname.match('/track')
                     ? 'sc_gray.dark'
                     : 'white'
                 }
@@ -117,12 +116,11 @@ const Footer = () => {
                 component={'h1'}
                 fontWeight={700}
                 color={
-                  router.pathname.match('/track') ||
-                  router.pathname.match('/beasiswa')
+                  router.pathname.match('/track')
                     ? 'sc_gray.dark'
                     : 'white'
                 }
-                sx={{ opacity: 0.5 }}
+                sx={{ opacity: inGCCPage ? 1 : 0.5 }}
               >
                 Site Map
               </Typography>
@@ -132,8 +130,7 @@ const Footer = () => {
                     key={i}
                     variant="body2"
                     color={
-                      router.pathname.match('/track') ||
-                      router.pathname.match('/beasiswa')
+                      router.pathname.match('/track')
                         ? 'sc_gray.dark'
                         : 'white'
                     }
@@ -153,12 +150,11 @@ const Footer = () => {
                 component={'h1'}
                 fontWeight={700}
                 color={
-                  router.pathname.match('/track') ||
-                  router.pathname.match('/beasiswa')
+                  router.pathname.match('/track')
                     ? 'sc_gray.dark'
                     : 'white'
                 }
-                sx={{ opacity: 0.5 }}
+                sx={{ opacity: inGCCPage ? 1 : 0.5 }}
               >
                 Kontak
               </Typography>
@@ -168,8 +164,7 @@ const Footer = () => {
                     key={i}
                     variant="body2"
                     color={
-                      router.pathname.match('/track') ||
-                      router.pathname.match('/beasiswa')
+                      router.pathname.match('/track')
                         ? 'sc_gray.dark'
                         : 'white'
                     }
@@ -193,12 +188,11 @@ const Footer = () => {
                 fontWeight={700}
                 component={'h1'}
                 color={
-                  router.pathname.match('/track') ||
-                  router.pathname.match('/beasiswa')
+                  router.pathname.match('/track')
                     ? 'sc_gray.dark'
                     : 'white'
                 }
-                sx={{ opacity: 0.5 }}
+                sx={{ opacity: inGCCPage ? 1 : 0.5 }}
               >
                 Ikuti Kami
               </Typography>
@@ -208,8 +202,7 @@ const Footer = () => {
                     key={i}
                     variant="body2"
                     color={
-                      router.pathname.match('/track') ||
-                      router.pathname.match('/beasiswa')
+                      router.pathname.match('/track')
                         ? 'sc_gray.dark'
                         : 'white'
                     }
@@ -229,8 +222,7 @@ const Footer = () => {
           textAlign={'center'}
           variant="subtitle2"
           color={
-            router.pathname.match('/track') ||
-            router.pathname.match('/beasiswa')
+            router.pathname.match('/track')
               ? 'sc_gray.dark'
               : 'white'
           }

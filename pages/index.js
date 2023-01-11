@@ -3,7 +3,7 @@ import { createClient } from 'contentful';
 import { collection, getDocs } from 'firebase/firestore';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react';
 
 import {
   Section1,
@@ -18,69 +18,69 @@ import {
   Section10,
 } from '../components';
 import BiayaPendidikan from '../components/LandingPage/BiayaPendidikan';
-import PopupBanner from '../components/PopupBanner'
+import PopupBanner from '../components/PopupBanner';
 import { db } from '../firebase/clientApp';
 import useStudiIndepenPopup from '../hooks/useStudiIndependenPopup';
 
 const Home = ({ logo, testimoni, course, title7, faq }) => {
-  const [openBanner, setOpenBanner] = useState(false)
+  const [openBanner, setOpenBanner] = useState(false);
 
-  const { setSiPopup } = useStudiIndepenPopup()
+  const { setSiPopup } = useStudiIndepenPopup();
 
   function addMinutes(date, minutes) {
     return new Date(date.getTime() + minutes * 60000);
   }
 
   function setWithExpiry(key, value, minute) {
-    const now = new Date()
-    const expire = addMinutes(now, minute)
+    const now = new Date();
+    const expire = addMinutes(now, minute);
 
     const item = {
       value: value,
       expiry: expire,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
+    };
+    localStorage.setItem(key, JSON.stringify(item));
   }
 
   function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
+    const itemStr = localStorage.getItem(key);
 
     // if the item doesn't exist, return null
     if (!itemStr) {
-      return null
+      return null;
     }
 
-    const item = JSON.parse(itemStr)
-    const now = new Date()
-    const expire = new Date(item.expiry)
+    const item = JSON.parse(itemStr);
+    const now = new Date();
+    const expire = new Date(item.expiry);
 
     // compare the expiry time of the item with the current time
     if (now.getTime() > expire) {
       // If the item is expired, delete the item from storage
       // and return null
-      localStorage.removeItem(key)
-      return null
+      localStorage.removeItem(key);
+      return null;
     }
-    return item.value
+    return item.value;
   }
 
   useEffect(() => {
-    const daftarSIPopup = window?.location.search.includes("daftar-si")
+    const daftarSIPopup = window?.location.search.includes('daftar-si');
     if (daftarSIPopup) {
-      setSiPopup(true)
+      setSiPopup(true);
     }
 
     // Memberi jeda 5 menit setelah popup banner ditampilkan (agar tidak spam)
-    const popupBannerShown = getWithExpiry("popupBannerShown")
+    const popupBannerShown = getWithExpiry('popupBannerShown');
 
     setTimeout(() => {
       if (!daftarSIPopup && !popupBannerShown) {
-        setOpenBanner(true)
+        setOpenBanner(true);
 
-        setWithExpiry("popupBannerShown", true, 5)
+        setWithExpiry('popupBannerShown', true, 5);
       }
-    }, 3000)
-  }, [])
+    }, 3000);
+  }, []);
 
   return (
     <>
@@ -96,7 +96,10 @@ const Home = ({ logo, testimoni, course, title7, faq }) => {
         />
       </Head>
       <Container>
-        <PopupBanner open={openBanner} handleClose={() => setOpenBanner(false)} />
+        <PopupBanner
+          open={openBanner}
+          handleClose={() => setOpenBanner(false)}
+        />
         <Section1 />
         <Section2 logo={logo} />
         <Section3 course={course} />

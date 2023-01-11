@@ -78,14 +78,15 @@ const Header = () => {
     disableHysteresis: true,
   });
   const trigger = useScrollTrigger();
+  const inGCCPage = router.pathname.includes('beasiswa/google');
   function NavItem({ children, isDropDown = false }) {
     return (
       <Typography
         fontSize={14}
         fontWeight={700}
-        color="sc_black.main"
         sx={{
           position: 'relative',
+          color: inGCCPage ? 'sc_gray.light' : 'sc_black.main',
           '&::before': {
             transition: '.3s',
             content: "''",
@@ -94,7 +95,7 @@ const Header = () => {
             height: '5px',
             borderRadius: '100px',
             bottom: '-50%',
-            backgroundColor: 'sc_blue.main',
+            backgroundColor: inGCCPage ? "sc_yellow.main" : 'sc_blue.main',
           },
           '&:hover::before': {
             width: isDropDown ? '0%' : '100%',
@@ -147,7 +148,7 @@ const Header = () => {
                 <Typography
                   sx={{
                     '&:hover': {
-                      color: 'sc_blue.main',
+                      color: inGCCPage ? "sc_yellow.main" : 'sc_blue.main',
                     },
                     color: 'sc_gray.dark',
                   }}
@@ -189,7 +190,7 @@ const Header = () => {
                 onClick={toggleDrawer(anchor, false)}
                 sx={{
                   '&:hover': {
-                    color: 'sc_blue.main',
+                    color: inGCCPage ? "sc_yellow.main" : 'sc_blue.main',
                   },
                   color: 'sc_gray.dark',
                 }}
@@ -213,9 +214,14 @@ const Header = () => {
         <Slide in={!trigger}>
           <AppBar
             color={
-              router.pathname == '/' ? (bgTrigger ? '' : 'transparent') : ''
+              inGCCPage ? "inherit" :
+                router.pathname == '/' ?
+                  (bgTrigger ? '' : 'transparent') : ''
             }
-            sx={{ transition: '.3s' }}
+            sx={{
+              transition: '.3s',
+              backgroundColor: inGCCPage ? "sc_yellow.light" : undefined
+            }}
             elevation={0}
             position={'static'}
           >
@@ -245,16 +251,17 @@ const Header = () => {
                   spacing={4}
                   sx={{
                     flexGrow: 1,
+                    zIndex: 10,
                     alignItems: 'center',
                     justifyContent:
-                      router.pathname != '/daftar' ? 'center' : 'end',
+                      router.pathname.includes("daftar") || router.pathname.includes("beasiswa/google") ? 'end' : 'center',
                     display: { md: 'flex', sm: 'none', xs: 'none' },
                   }}
                   component={'nav'}
                 >
                   {/* LIST LINKS */}
 
-                  <Dropdown list={program}>
+                  <Dropdown list={program} inGCCPage={inGCCPage}>
                     <NavItem isDropDown={true}>Program</NavItem>
                   </Dropdown>
                   <Link href={'/#testimoni'} underline="none">
@@ -296,17 +303,21 @@ const Header = () => {
                   {/* </Dropdown> */}
                 </Stack>
 
-                <Stack
-                  direction="row"
-                  alignItems={'center'}
-                  justifyContent="center"
-                  sx={{
-                    flexGrow: 0,
-                    display: { md: 'flex', sm: 'none', xs: 'none' },
-                  }}
-                >
-                  <DaftarButton />
-                </Stack>
+
+                {inGCCPage?
+                  null :
+                  <Stack
+                    direction="row"
+                    alignItems={'center'}
+                    justifyContent="center"
+                    sx={{
+                      flexGrow: 0,
+                      display: { md: 'flex', sm: 'none', xs: 'none' },
+                    }}
+                  >
+                    <DaftarButton />
+                  </Stack>
+                }
 
                 {/* Only Mobile  */}
                 <IconButton

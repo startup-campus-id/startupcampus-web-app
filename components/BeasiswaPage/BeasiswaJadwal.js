@@ -1,4 +1,6 @@
 import { Grid, Typography } from '@mui/material';
+import AccentText from 'components/AccentText';
+import MyLink from 'components/MyLink';
 import Link from 'next/link';
 import React from 'react';
 
@@ -11,30 +13,42 @@ import BeasiswaTimeline from './BeasiswaTimeline';
 export default function BeasiswaJadwal() {
   return (
     <Grid container id="alur-pendaftaran">
-      <Grid item xs={12} md={5}>
-        <MyTitle gutterBottom>
-          <HighlightText>Jadwal Program</HighlightText> <WordBreak />
-          Beasiswa Google <WordBreak />
-          Career Certificates
+      <Grid item xs={12} md={7}>
+        <AccentText variant="black">Alur Pendaftaran</AccentText>
+        <MyTitle gutterBottom mt={1.5} lineHeight={1.5}>
+          <HighlightText variant="yellow" width="-10%">
+            Jadwal
+          </HighlightText>{' '}
+          Program Beasiswa Google Career Certificates
         </MyTitle>
-        <Typography variant={'body2'}>
+        <Typography
+          variant={'body2'}
+          mt={5}
+          color="sc_gray.light"
+          fontSize={16}
+          lineHeight={1.8}
+        >
           Beasiswa{' '}
-          <Link href={GCC_URL} passHref>
-            <Typography variant={'body2'} component="a" color="sc_blue.main">
-              Google Career Certificate(GCC){'  '}
-            </Typography>
-          </Link>
+          <MyLink link={GCC_URL} variant="black">
+            Google Career Certificate
+          </MyLink>
           , adalah program beasiswa pelatihan daring selama 3 bulan yang telah
           disertifikasi Google.
         </Typography>
-        <Typography variant={'body2'} my={4}>
+        <Typography 
+          variant={'body2'} 
+          my={4}
+          fontSize={16}
+          lineHeight={1.8}
+          color="sc_gray.light"
+        >
           Berikut tahapan pendaftaran yang akan kamu lewati:
         </Typography>
       </Grid>
       <Grid
         item
         xs={12}
-        md={7}
+        md={5}
         sx={{ display: 'flex', justifyContent: 'center' }}
       >
         <BeasiswaTimeline />
