@@ -178,7 +178,7 @@ export default function Track({ course }) {
 
 export async function getStaticPaths() {
   let paths = [];
-  const colRef = collection(db, 'course');
+  const colRef = collection(db, 'course_backup');
   const querySnapshot = await getDocs(colRef);
 
   querySnapshot.forEach((doc) => {
@@ -194,7 +194,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const data = [];
   try {
-    const colRef = collection(db, 'course');
+    const colRef = collection(db, 'course_backup');
     const q = query(colRef, where('slug', '==', params.slug));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
