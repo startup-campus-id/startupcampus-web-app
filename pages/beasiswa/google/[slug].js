@@ -45,15 +45,15 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
             toggleActions: 'restart reset restart reset',
           },
           color: "#121212",
-          flexGrow: "0", 
-          display: "flex", 
-          flexDirection: "row", 
-          justifyContent: "flex-start", 
-          alignItems: "center", 
-          gap: "8px", 
-          padding: "10px 0 10px 12px", 
+          flexGrow: "0",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          gap: "8px",
+          padding: "10px 0 10px 12px",
           marginLeft: "-12px",
-          borderLeft: "solid 1.5px #fdb72b", 
+          borderLeft: "solid 1.5px #fdb72b",
           backgroundColor: "#fff8eb"
         });
       });
@@ -145,6 +145,7 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
               <Divider
                 sx={{
                   marginY: 4,
+                  marginBottom: 10
                 }}
               />
             </Stack>
@@ -152,17 +153,12 @@ export default function BeasiswaGoogle({ beasiswa, kriteria }) {
               <BeasiswaJadwal />
               <Divider
                 sx={{
-                  marginY: 4,
+                  marginY: 6,
                 }}
               />
             </Stack>
-            <Stack width={'100%'}>
+            <Stack width={'100%'} marginBottom={10}>
               <BeasiswaSertifikat />
-              <Divider
-                sx={{
-                  marginY: 4,
-                }}
-              />
             </Stack>
           </Grid>
         </Grid>
