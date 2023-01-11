@@ -1,4 +1,5 @@
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Avatar, Box, Grid, Stack } from '@mui/material';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -28,12 +29,12 @@ export default function BeasiswaKriteria({ kriteria }) {
         </HighlightText>
       </MyTitle>
       <Grid container my={4} spacing={3}>
-        <Grid item xs={12} md={isUX ? 12 : 5} mb={isUX ? 4 : undefined}>
+        <Grid item xs={12} md={isUX ? 12 : 6} mb={isUX ? 4 : undefined}>
           {isUX ? (
             <Grid container xs={12} spacing={3}>
               {kriteria?.map((v, i) => (
                 <Grid item xs={6} md={3} key={i}>
-                  <Stack spacing={2} display="flex" alignItems={{xs: "center", md:"flex-start"}} textAlign={{xs: "center", md:"left"}}>
+                  <Stack spacing={2} display="flex" alignItems={{ xs: "center", md: "flex-start" }} textAlign={{ xs: "center", md: "left" }}>
                     <Avatar
                       src={v.icon}
                       sx={{ height: '64px', width: '64px' }}
@@ -54,8 +55,8 @@ export default function BeasiswaKriteria({ kriteria }) {
             <Stack spacing={2}>
               {kriteria?.map((v, i) => (
                 <Stack direction="row" spacing={1} key={i}>
-                  <CheckCircleIcon sx={{ color: 'sc_blue.main' }} />
-                  <MyDesc>
+                  <DoneAllIcon sx={{ color: 'sc_yellow.main' }} />
+                  <MyDesc type="gray_light">
                     <HTMLParser>{v.content}</HTMLParser>
                   </MyDesc>
                 </Stack>
@@ -63,7 +64,7 @@ export default function BeasiswaKriteria({ kriteria }) {
             </Stack>
           )}
         </Grid>
-        <Grid item xs={12} md={isUX ? 12 : 7}>
+        <Grid item xs={12} md={isUX ? 12 : 6}>
           <Box
             sx={{
               width: '100%',

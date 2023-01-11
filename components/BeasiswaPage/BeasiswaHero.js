@@ -8,8 +8,13 @@ import React from 'react';
 
 import { REGIST_BEASISWA_GOOGLE_URL } from '../../sc.config';
 import WordBreak from '../WordBreak';
+import { useRouter } from 'next/router'
 
 export default function BeasiswaHero({ name }) {
+  // TODO : add kuota in API
+  const router = useRouter()
+  const isUX = router.asPath.includes('ux-design')
+  const [kuota, setKuota] = React.useState(0);
   const checkList = [
     'Tidak perlu pengalaman',
     'Jalur menuju karier impian',
@@ -28,8 +33,8 @@ export default function BeasiswaHero({ name }) {
   return (
     <Stack
       spacing={5}
-      height={'100vh'}
       alignItems="center"
+      py={{ xs: 10, md: 20 }}
       justifyContent="center"
     >
       <Box
@@ -83,7 +88,7 @@ export default function BeasiswaHero({ name }) {
           fontWeight={500}
           fontStyle="normal"
         >
-          Raih karier impianmu di bidang Data Analitik hanya dalam waktu 3
+          Raih karier impianmu di bidang {isUX?"UX designer": "data analitik"} hanya dalam waktu 3
           bulan!
         </Typography>
 
@@ -103,39 +108,112 @@ export default function BeasiswaHero({ name }) {
           ))}
         </Stack>
       </Stack>
-
-      <Stack spacing={2} width="100%" alignItems="center" pt={4}>
-        <Typography
-          fontWeight={500}
-          fontSize={14}
-          color={'sc_gray.light'}
-          textAlign="center"
-          marginBottom={1}
-        >
-          Batch Selanjutnya: 20 Februari 2023
+      <Stack
+        sx={{
+          zIndex: 1,
+          width: { xs: '90%', sm: '60%' },
+          px: 2,
+          py: 1,
+          backgroundColor: 'white',
+          borderRadius: 35,
+          position: 'relative',
+          display:{xs: "block", md:"none"},
+          '&::before': {
+            zIndex: 0,
+            top: 0,
+            left: 0,
+            content: "''",
+            position: 'absolute',
+            width: `${kuota}%`,
+            height: '100%',
+            overflow: 'hidden',
+            backgroundColor: 'sc_yellow.main',
+            borderRadius: 35,
+          },
+        }}
+      >
+        <Typography fontWeight={500} zIndex={2} fontSize={"0.8rem"} textAlign="center">
+          {kuota}% Kuota Pendaftaran Sudah Terisi 
         </Typography>
+      </Stack>
 
-        <Link href={REGIST_BEASISWA_GOOGLE_URL} passHref>
-          <MyButton
-            color="sc_yellow"
-            textColor={'sc_black.dark'}
-            hover={{
-              backgroundColor: '#B67A02',
-              color: '#FFFFFF',
+      <Box component="div" sx={{
+        position: "relative",
+        width: "100%",
+      }}>
+        <Stack spacing={2} width="100%" alignItems="center">
+          <Typography
+            fontWeight={500}
+            fontSize={14}
+            color={'sc_gray.light'}
+            textAlign="center"
+            marginBottom={1}
+          >
+            Batch Selanjutnya: 20 Februari 2023
+          </Typography>
+
+          <Link href={REGIST_BEASISWA_GOOGLE_URL} passHref>
+            <MyButton
+              color="sc_yellow"
+              textColor={'sc_black.dark'}
+              hover={{
+                backgroundColor: '#B67A02',
+                color: '#FFFFFF',
+              }}
+            >
+              <Typography
+                fontWeight={500}
+                fontSize={17}
+                fontStyle={'normal'}
+                marginRight={1}
+              >
+                Daftar Beasiswa{' '}
+              </Typography>{' '}
+              <EastIcon />
+            </MyButton>
+          </Link>
+        </Stack>
+        <Stack spacing={0} sx={{
+          elevation: 3,
+          boxShadow: "0 24px 34px 0 rgba(18, 18, 18, 0.08);",
+          backgroundColor: "#ffffff",
+          width: 136,
+          borderRadius: 5,
+          display: {xs: "none", md: "block"},
+          position: "absolute",
+          right: 0,
+          top: -25,
+          height: 142,
+        }} width="100%" alignItems="center" pt={4}>
+          <Typography
+            sx={{
+              fontSize: 32,
+              fontWeight: "bold",
+              fontStyle: "normal",
+              letterSpacing: -0.38,
+              textAlign: "center",
+              textAlign: "center",
+              color: "sc_black.dark"
             }}
           >
-            <Typography
-              fontWeight={500}
-              fontSize={17}
-              fontStyle={'normal'}
-              marginRight={1}
-            >
-              Daftar Beasiswa{' '}
-            </Typography>{' '}
-            <EastIcon />
-          </MyButton>
-        </Link>
-      </Stack>
+            {kuota}%
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: 12,
+              fontWeight: "normal",
+              fontStyle: "normal",
+              textAlign: "center",
+              color: "#3d3d3d"
+            }}
+            marginBottom={1}
+          >
+            Kuota terisi
+          </Typography>
+        </Stack>
+
+      </Box>
+
     </Stack>
   );
 }

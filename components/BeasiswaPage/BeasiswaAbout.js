@@ -9,8 +9,11 @@ import AccentText from '../AccentText';
 import HighlightText from '../HighlightText';
 import MyDesc from '../MyDesc';
 import MyTitle from '../MyTitle';
-
+import { useRouter } from 'next/router'
 export default function BeasiswaAbout({ name, materi }) {
+  const router = useRouter()
+  const isUX = router.asPath.includes('ux-design')
+
   return (
     <Box id="tentang-program" pt={6}>
       <AccentText variant={'black'}>Tentang Program</AccentText>
@@ -31,9 +34,7 @@ export default function BeasiswaAbout({ name, materi }) {
               Google Career Certificate (GCC)
             </MyLink>
             {'  '}
-            akan memberikan beasiswa pelatihan daring di bidang {
-              name
-            } secara{' '}
+            akan memberikan beasiswa pelatihan daring di bidang {isUX?"UX design": "data analitik"} secara{' '}
             <Typography
               component={'strong'}
               fontWeight={700}
@@ -44,7 +45,7 @@ export default function BeasiswaAbout({ name, materi }) {
             untuk 200 orang di seluruh Indonesia.
           </Typography>
 
-          <Typography variant={'body2'} my={4} color={'sc_gray.light'}>
+          <Typography variant={'body2'} fontSize={16} my={4} color={'sc_gray.light'}>
             Materi yang akan dipelajari mencakup:
           </Typography>
           <Stack spacing={3}>
